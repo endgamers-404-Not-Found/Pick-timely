@@ -1,9 +1,10 @@
 import React from 'react'
-import FreeTail from './FreeTail'
 import Banner from './Banner/Banner'
 import AppointmentScheduling from './AppointmentScheduling/AppointmentScheduling'
 import Packages from './Packages/Packages'
 import MobileApps from './MobileApps/MobileApps'
+import Services from './Services/Services'
+import FreeTail from './FreeTail'
 
 
 function Home() {
@@ -11,10 +12,11 @@ function Home() {
         <div>
             <Banner />
             <AppointmentScheduling></AppointmentScheduling>
-            <FreeTail></FreeTail>
-            <Packages></Packages>
-            <MobileApps></MobileApps>
-            
+            <Services></Services>
+      <Packages></Packages>
+      <MobileApps></MobileApps>
+      <FreeTail></FreeTail>
+
         </div>
     )
 }
