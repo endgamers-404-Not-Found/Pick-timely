@@ -5,7 +5,7 @@ import SharedButton from '../../../SharedComponents/SharedButton';
 const Banner = () => {
     return (
         <div className="flex flex-col md:flex-row items-center h-screen bg-[#F1ECFF] ">
-            <div className="md:w-[600px] lg:w-[700px] order-2 md:order-1 mb-10">
+            <div className="md:w-[600px] lg:w-[700px] order-2 md:order-1 mb-10 md:mx-10">
 
                 <h1 className="font-bold text-4xl md:text-6xl text-center md:text-left mx-5">Online scheduler for offering the best consultations</h1>
 
