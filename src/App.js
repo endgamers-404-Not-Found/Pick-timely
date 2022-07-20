@@ -3,6 +3,9 @@ import { Routes } from 'react-router-dom';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import './App.css'; 
+import FreeTail from './Pages/Home/FreeTail';
+
+import Footer from './SharedComponents/Footer';
 import Navbar from '../src/SharedComponents/Navbar'
 import Painless from './Pages/Home/AppointmentScheduling/Painless';
 import Productive from './Pages/Home/AppointmentScheduling/Productive';
@@ -12,10 +15,8 @@ import Home from './Pages/Home/Home';
 function App() {
   return (
     <div>
-
       <Navbar />     
-
-      
+ 
       <Routes>
       <Route path='/'  element={<Home></Home>}>
           <Route  index element={<Productive></Productive>}></Route>
@@ -24,6 +25,8 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
       </Routes>  
+      
+      <Footer></Footer>
     </div>
   );
 }
