@@ -1,6 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css'; 
 import Navbar from '../src/SharedComponents/Navbar'
+import Home from './Pages/Home/Home';
 
 function App() {
   return (
@@ -9,7 +10,7 @@ function App() {
 
       <Navbar />     
       <Routes>
-        {/* <Route path='' element={}></Route> */}
+        <Route path='' element={<Home />}></Route>
         {/* <Route path='' element={}></Route> */}
         {/* <Route path='' element={}></Route> */}
       </Routes>  
