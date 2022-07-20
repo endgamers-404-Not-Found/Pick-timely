@@ -28,7 +28,7 @@ function Packages() {
                                  </p> )}</p>
                                 <p className='text-xl font-semibold'>Price: $ {data.price} {data.price!=='free'? <span className='text-sm'>/month</span> : ''}</p>
                                 <div>
-                                    <button className={`btn border-2 border-primary ${data.button==='Free'? 'btn-primary text-white' : 'bg-white'}  text-primary font-bold  hover:btn-primary w-72 rounded-sm`}>{data.button}</button>
+                                    <button className={`btn border-2 border-primary ${data.button==='Free'? 'btn-primary text-white' : 'bg-white text-primary'}   font-bold  hover:btn-primary w-72 rounded-sm`}>{data.button}</button>
                                 </div>
                             </div>
                         </div>
