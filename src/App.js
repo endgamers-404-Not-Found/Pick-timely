@@ -1,5 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css'; 
+import FreeTail from './Pages/Home/FreeTail';
+
+import Footer from './SharedComponents/Footer';
 
 function App() {
   return (
@@ -7,10 +10,14 @@ function App() {
       <h1 className='text-3xl text-center font-bold'>push code on your branch, don't merge the git without team meeting</h1>
       
       <Routes>
+       
         {/* <Route path='' element={}></Route> */}
         {/* <Route path='' element={}></Route> */}
         {/* <Route path='' element={}></Route> */}
+       
       </Routes>  
+      
+      <Footer></Footer>
     </div>
   );
 }
