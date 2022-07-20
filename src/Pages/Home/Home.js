@@ -1,16 +1,21 @@
 import React from 'react'
-import FreeTail from './FreeTail'
-import Banner from './Banner/Banner'
 import AppointmentScheduling from './AppointmentScheduling/AppointmentScheduling'
+import Banner from './Banner/Banner'
+import FreeTail from './FreeTail'
+import MobileApps from './MobileApps/MobileApps'
+import Packages from './Packages/Packages'
+import Services from './Services/Services'
 
 
 function Home() {
     return (
         <div>
-            <h1>this is home page</h1>
-            <FreeTail></FreeTail>
             <Banner />
+            <Packages></Packages>
+            <MobileApps></MobileApps>
+            <FreeTail></FreeTail>
             <AppointmentScheduling></AppointmentScheduling>
+            <Services></Services>
         </div>
     )
 }
