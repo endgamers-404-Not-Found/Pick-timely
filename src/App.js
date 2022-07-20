@@ -10,7 +10,7 @@ function App() {
         {/* <Route path='' element={}></Route> */}
         {/* <Route path='' element={}></Route> */}
         {/* <Route path='' element={}></Route> */}
-      </Routes>
+      </Routes>  
     </div>
   );
 }
