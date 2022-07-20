@@ -1,5 +1,5 @@
 import { Route, Routes } from 'react-router-dom';
-import './App.css'; 
+import './App.css';
 import MobileApps from './Pages/Home/MobileApps/MobileApps';
 import Packages from './Pages/Home/Packages/Packages';
 import Navbar from '../src/SharedComponents/Navbar'
@@ -13,16 +13,16 @@ function App() {
     <div>
 
 
-      <Navbar />     
+      <Navbar />
       <Routes>
-      <Route path='/'  element={<Home></Home>}>
-          <Route  index element={<Productive></Productive>}></Route>
-          <Route  path='productive' element={<Productive></Productive>}></Route>
+        <Route path='/' element={<Home></Home>}>
+          <Route index element={<Productive></Productive>}></Route>
+          <Route path='productive' element={<Productive></Productive>}></Route>
           <Route path='professional' element={<Professional></Professional>}></Route>
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
-      </Routes>  
+      </Routes>
     </div>
   );
 }
