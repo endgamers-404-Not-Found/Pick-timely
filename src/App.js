@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css'; 
-import FreeTail from './Pages/Home/FreeTail';
+
 
 import Footer from './SharedComponents/Footer';
 
