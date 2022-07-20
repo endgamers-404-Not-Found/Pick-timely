@@ -21,8 +21,8 @@ module.exports = {
          
         },
       },
-      "dark",
-      "cupcake",
+      // "dark",
+      // "cupcake",
     ],
   },
 }
