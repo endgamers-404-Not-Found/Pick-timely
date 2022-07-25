@@ -9,7 +9,7 @@ import TeamSchedule from './SingleServices/TeamSchedule';
 const Services = () => {
     return (
         <div>
-            <div class="w-full">
+            <div className="w-full">
                 <CalendarServices></CalendarServices>
                 <TeamSchedule></TeamSchedule>
                 <CrmUpdate></CrmUpdate>
