@@ -1,17 +1,22 @@
 
+import { signOut } from 'firebase/auth';
 import React, { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { Link } from "react-router-dom";
+import auth from "../firebase.init";
 
 
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
+    const [user, loading] = useAuthState(auth)
+
 
 
     return (
         <>
 
-            <nav className="flex sticky top-0 z-40 flex-wrap items-center justify-between px-2 py-3 bg-[#F1ECFF]">
+            <nav className=" sticky top-0 z-10 flex flex-wrap items-center justify-between px-2 py-3 bg-[#F1ECFF]">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
@@ -52,7 +57,7 @@ function Header() {
                                     <span className="ml-2">Features</span>
                                 </Link>
                             </li>
-                           
+
 
                             <li className="nav-item">
                                 <Link
@@ -81,12 +86,16 @@ function Header() {
                                 </Link>
                             </li>
                             <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    to="/resources"
-                                >
-                                    <span className="ml-2">Resources</span>
-                                </Link>
+                                {user ?
+                                    <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
+                                    :
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                        to="/signIn"
+                                    >
+                                        <span className="ml-2">Sign In</span>
+                                    </Link>
+                                }
                             </li>
                         </ul>
                     </div>
