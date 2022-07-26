@@ -13,7 +13,7 @@ function Packages() {
         <div className='my-12'>
             <h1 className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
             <p  className='text-center text-xl font-semibold'>Choose the best package for you</p>
-            <div className='grid grid-cols-3 my-6 mx-32 justify-items-center '>
+            <div className='grid lg:grid-cols-3 my-6 lg:mx-32 justify-items-center '>
                 {
                     fakeData.map(data => 
                         <div class="card w-96 rounded shadow-2xl shadow-gray-500 lg:w-10/12">
