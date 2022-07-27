@@ -1,4 +1,4 @@
-import userEvent from '@testing-library/user-event';
+
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import profile from '../../assets/profile.png'
@@ -7,10 +7,15 @@ import { HiOfficeBuilding } from 'react-icons/hi';
 import { AiFillPhone } from 'react-icons/ai';
 import { MdEmail } from 'react-icons/md';
 import { ImLocation2 } from 'react-icons/im';
+import Spinner from '../../SharedComponents/Spinner';
 
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
-    console.log(user);
+    // console.log(user);
+
+    if(loading){
+        return <Spinner></Spinner>
+    }
 
     return (
         <div class="hero min-h-screen bg-base-200">
@@ -28,8 +33,8 @@ const Profile = () => {
                             <input type="text" placeholder="Address" class="input input-bordered" />
                         </div>
                         <label class="label mb-[-10px]">
-                                <span class="label-text">Upload Profile</span>
-                            </label>
+                            <span class="label-text">Upload Profile</span>
+                        </label>
                         <form class="flex items-center space-x-6">
                             <label class="block">
                                 <input type="file" class="block w-full text-sm text-slate-500
@@ -57,7 +62,7 @@ const Profile = () => {
                             <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>Company Name: Abc Ltd.</span>
                             <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>Phone Number: +88016664664</span>
                             <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>Address: Ctg, Bangladesh</span>
-                            
+
                         </div>
                     </div>
                 </div>

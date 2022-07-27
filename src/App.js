@@ -15,6 +15,8 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import ArrangeNewMeeting from './Pages/Dashboard/ArrangeNewMeeting';
 import Profile from './Pages/Dashboard/Profile';
 import AllUser from './Pages/Dashboard/AllUser';
+import Packages from './Pages/Home/Packages/Packages';
+import Payment from './Pages/Payment/Payment';
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
       <Routes>
         <Route path='/signIn' element={<Login></Login>}></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
+        <Route path='/pricing' element={<Packages></Packages>}></Route>
+        <Route path='/payment/:id' element={<Payment></Payment>}></Route>
 
 
         {/* nested route for Appointment schedule */}
