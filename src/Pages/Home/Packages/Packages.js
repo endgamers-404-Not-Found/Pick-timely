@@ -1,12 +1,20 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
+import Spinner from '../../../SharedComponents/Spinner';
 
 function Packages() {
 
-    const fakeData = [
-        { img: 'https://i.ibb.co/6FjwdWc/group-diverse-business-people-meeting-45852716.jpg', name: 'More then five', point: ['More then five members can join', '4k/8k video quality', 'Best sound quality', 'Present by screen share'], button:'Buy Package', price:130 },
-        { img: 'https://i.ibb.co/wSWvFWF/image.png', name: 'Less then five', point: ['Less then five members can join', 'HD video quality', 'Best sound quality', 'Present by screen share'], button:'Buy Package', price:50 },
-        { img: 'https://i.ibb.co/DQntmBj/one-to-business-meeting-cartoon-vector-illustration-two-businessmen-sitting-opposite-each-other-form.jpg', name: 'One by one', point: ['One by one meeting', 'HD video quality', 'Best sound quality', 'Present by screen share'], button:'Free', price:'free' }
-    ];
+    const [packages, setPackages] = useState([]);
+    useEffect(()=>{
+        fetch('http://localhost:5000/packages')
+        .then(res=>res.json())
+        .then(data=>setPackages(data))
+    },[])
+   
+    if(packages===null){
+        return <Spinner></Spinner>
+    }
+    // console.log(packages)
 
 
     return (
@@ -15,7 +23,7 @@ function Packages() {
             <p  className='text-center text-xl font-semibold'>Choose the best package for you</p>
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
-                    fakeData.map(data => 
+                    packages.map(data => 
                         <div className="card w-8/12 rounded shadow-2xl shadow-gray-500 lg:w-10/12">
                             <figure className="px-4 pt-6">
                                 <img src={data.img} alt="" className="rounded-xl" />
@@ -27,9 +35,9 @@ function Packages() {
                                  <p className='text-left mb-2'>{p}</p>
                                  </p> )}</p>
                                 <p className='text-xl font-semibold'>Price: $ {data.price} {data.price!=='free'? <span className='text-sm'>/month</span> : ''}</p>
-                                <div>
+                                <Link to={data.button==='Free' ? '/dashboard':`/payment/${data._id}`}>
                                     <button className={`btn border-2 border-primary ${data.button==='Free'? 'btn-primary text-white' : 'bg-white text-primary'}   font-bold  hover:btn-primary w-72 rounded-sm`}>{data.button}</button>
-                                </div>
+                                </Link>
                             </div>
                         </div>
                     )

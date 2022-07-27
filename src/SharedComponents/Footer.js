@@ -39,7 +39,6 @@ const Footer = () => {
             </footer>
             <footer className="footer p-10 border-t text-white">
                 <div className="items-center grid-flow-col">
-                    
                     <p>Copyright © {currentYear} - All right reserved by PickTimely  Pvt.Ltm.</p>
                 </div>
                 <div className="grid-flow-col gap-4 md:place-self-center md:justify-self-end">

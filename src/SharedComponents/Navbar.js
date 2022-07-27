@@ -3,6 +3,7 @@ import { signOut } from 'firebase/auth';
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
+import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 
@@ -25,6 +26,9 @@ function Header() {
                         >
                             Pick-Timely
                         </Link>
+                        <label for="my-drawer-2" tabindex="0" className="btn btn-ghost lg:hidden">
+                            <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard> 
+                        </label>
                         <button
                             className="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-red-200 block lg:hidden outline-none focus:outline-none"
                             type="button"
@@ -32,6 +36,7 @@ function Header() {
                         >
                             <AiOutlineMenu color="red" />
                         </button>
+                        
                     </div>
                     <div
                         className={
@@ -57,6 +62,17 @@ function Header() {
                                     <span className="ml-2">Features</span>
                                 </Link>
                             </li>
+                            {
+                                user &&
+                                <li className="nav-item">
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                        to="/dashboard"
+                                    >
+                                        <span className="ml-2">Dashboard</span>
+                                    </Link>
+                                </li>
+                            }
 
 
                             <li className="nav-item">

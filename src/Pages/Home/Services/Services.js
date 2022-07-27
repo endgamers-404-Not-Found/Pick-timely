@@ -20,7 +20,7 @@ const Services = () => {
                 <Remiders></Remiders>
                 <BookingPage></BookingPage>
                 <PaymentSystem></PaymentSystem>
-                
+
             </div>
         </div>
     );
