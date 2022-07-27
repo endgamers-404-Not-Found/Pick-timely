@@ -1,10 +1,8 @@
-
-
 // import { Routes } from 'react-router-dom';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
-import Footer from './SharedComponents/Footer';
-import Navbar from '../src/SharedComponents/Navbar'
+import Navbar from '../src/SharedComponents/Navbar';
+import './App.css';
 import Painless from './Pages/Home/AppointmentScheduling/Painless';
 import Productive from './Pages/Home/AppointmentScheduling/Productive';
 import Professional from './Pages/Home/AppointmentScheduling/Professional';
@@ -17,6 +15,8 @@ import Profile from './Pages/Dashboard/Profile';
 import AllUser from './Pages/Dashboard/AllUser';
 import Packages from './Pages/Home/Packages/Packages';
 import Payment from './Pages/Payment/Payment';
+import Solutions from './Pages/Solutions/Solutions';
+import Footer from './SharedComponents/Footer';
 
 function App() {
   return (
@@ -27,6 +27,7 @@ function App() {
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
         <Route path='/pricing' element={<Packages></Packages>}></Route>
         <Route path='/payment/:id' element={<Payment></Payment>}></Route>
+        <Route path='/solutions' element={<Solutions></Solutions>}></Route>
 
 
         {/* nested route for Appointment schedule */}
