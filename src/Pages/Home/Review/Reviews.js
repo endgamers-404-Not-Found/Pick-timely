@@ -40,7 +40,7 @@ const Reviews = () => {
         <div>
             <div className='my-28'>
             
-
+            <h1 className='text-center text-3xl text-primary'>Review Our Happy Clients</h1>
 
             <div className='text-center mt-5 justify-center items-center'>
                 <Swiper className='text-center'

@@ -20,11 +20,9 @@ function Home() {
             <Reviews></Reviews>
             <FreeTrail></FreeTrail>
 
-            <FreeTrail></FreeTrail>
+         
         </div>
     )
 }
 
 export default Home
-
-
