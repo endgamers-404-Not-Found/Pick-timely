@@ -47,16 +47,16 @@ const Accounts = () => {
             </div>
             <div className='flex flex-wrap justify-center gap-10'>
                 {
-                    accounts.map(account => <div style={myStyle} class="card bg-base-100 shadow-xl">
-                    <div class="card-body">
-                        <img src={account.img} className='w-96 mx-auto rounded-md' alt="" />
+                    accounts.map(account => <div style={myStyle} class="w-[100%] lg:w-[50%] bg-base-100 shadow-xl">
+                    
+                        <img src={account.img} className='rounded-md' alt="" />
                         <h2 class="text-center text-3xl font-bold">{account.title}</h2>
                         <p>{account.description}</p>
                         <div class="card-actions justify-center">
                             <button class="btn btn-primary">see details</button>
                         
                         </div>
-                    </div>
+                    
                 </div>)
                 }
                 
