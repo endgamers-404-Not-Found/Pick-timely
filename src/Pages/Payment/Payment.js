@@ -1,7 +1,7 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+/* import { useParams } from 'react-router-dom';
 import { useQuery } from '@tanstack/react-query'
-import Spinner from '../../SharedComponents/Spinner';
+import Spinner from '../../SharedComponents/Spinner'; */
 
 function Payment() {
     // const { id } = useParams()

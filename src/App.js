@@ -1,8 +1,13 @@
 // import { Routes } from 'react-router-dom';
 import './App.css';
+
 import { Route, Routes } from 'react-router-dom';
-import Navbar from '../src/SharedComponents/Navbar';
+
+import Footer from './SharedComponents/Footer';
+import Navbar from '../src/SharedComponents/Navbar'
+
 import './App.css';
+
 import Painless from './Pages/Home/AppointmentScheduling/Painless';
 import Productive from './Pages/Home/AppointmentScheduling/Productive';
 import Professional from './Pages/Home/AppointmentScheduling/Professional';
@@ -17,21 +22,24 @@ import NotFound from './SharedComponents/NotFound';
 import Packages from './Pages/Home/Packages/Packages';
 import Payment from './Pages/Payment/Payment';
 import Solutions from './Pages/Solutions/Solutions';
-import Footer from './SharedComponents/Footer';
+import Pricing from './Pages/Pricing/Pricing';
+import Feature from './Pages/Features/Feature';
+import Customers from './Pages/Customers/Customers';
+
 
 function App() {
   return (
     <div>
       <Navbar />
       <Routes>
-        <Route path='/signIn' element={<Login></Login>}></Route>
+
+      <Route path='/signIn' element={<Login></Login>}></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
         <Route path='/pricing' element={<Packages></Packages>}></Route>
         <Route path='/payment/:id' element={<Payment></Payment>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
 
 
-        {/* nested route for Appointment schedule */}
         <Route path='/' element={<Home></Home>}>
           <Route index element={<Productive></Productive>}></Route>
           <Route path='productive' element={<Productive></Productive>}></Route>
@@ -45,6 +53,9 @@ function App() {
               <Route path='users' element={<AllUser></AllUser>}></Route>
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
+        <Route path='/pricing' element={<Pricing></Pricing>}></Route>
+        <Route path='/features' element={<Feature></Feature>}></Route>
+        <Route path='/customers' element={<Customers></Customers>}></Route>
 
       </Routes>
       <Footer></Footer>
