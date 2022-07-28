@@ -35,10 +35,6 @@ const Accounts = () => {
         setAccounts(accountsData)
     }, []);
 
-    const myStyle ={
-        width:800,
-    }
-
     return (
        
         <div class="w-full p-20">
@@ -47,7 +43,7 @@ const Accounts = () => {
             </div>
             <div className='flex flex-wrap justify-center gap-10'>
                 {
-                    accounts.map(account => <div style={myStyle} class="w-[100%] lg:w-[50%] bg-base-100 shadow-xl">
+                    accounts.map(account => <div class="w-[100%] lg:w-[50%] bg-base-100 shadow-xl">
                     
                         <img src={account.img} className='rounded-md' alt="" />
                         <h2 class="text-center text-3xl font-bold">{account.title}</h2>
