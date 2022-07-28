@@ -58,6 +58,7 @@ function App() {
               <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
               <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
               <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
+                <Route index element={<Upcoming></Upcoming>}></Route>
                 <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
                 <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
                 <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
