@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
 function Login() {
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
-
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
 
     const [
         signInWithEmailAndPassword,
@@ -23,7 +24,9 @@ function Login() {
         const email = event.target.email.value;
         const password = event.target.password.value;
         signInWithEmailAndPassword(email, password)
-        user && navigate('/')
+        if(user){
+            navigate(from, { replace: true });
+        }
         event.target.reset()
     }
 
@@ -45,11 +48,18 @@ function Login() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    data.acknowledged && navigate('/')
+                    // console.log(data);
+                    data.acknowledged && navigate(from, { replace: true });
                 })
         }
     }
+    
+
+    if (user||gUser) {
+        navigate(from, { replace: true });
+    }
+
+
 
     return (
         <div>

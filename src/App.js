@@ -17,6 +17,7 @@ import Packages from './Pages/Home/Packages/Packages';
 import Payment from './Pages/Payment/Payment';
 import Solutions from './Pages/Solutions/Solutions';
 import Footer from './SharedComponents/Footer';
+import RequireAuth from './SharedComponents/RequireAuth';
 
 function App() {
   return (
@@ -38,7 +39,7 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
               <Route index element={<Profile></Profile>}></Route>
               <Route path='arrangemeeting' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
               <Route path='users' element={<AllUser></AllUser>}></Route>
