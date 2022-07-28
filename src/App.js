@@ -30,6 +30,7 @@ import Payment from './Pages/Payment/Payment';
 import Pricing from './Pages/Pricing/Pricing';
 import Solutions from './Pages/Solutions/Solutions';
 
+import RequireAuth from './SharedComponents/RequireAuth';
 
 function App() {
   return (
@@ -51,7 +52,7 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
               <Route index element={<Profile></Profile>}></Route>
               <Route path='arrangemeeting' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
               <Route path='users' element={<AllUser></AllUser>}></Route>
