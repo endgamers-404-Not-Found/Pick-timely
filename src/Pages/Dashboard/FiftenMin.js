@@ -1,11 +1,13 @@
 import React from 'react';
 import { FaClock } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import Calender from './Calender';
 import ConfirmSchedule from './ConfirmSchedule';
 
 
-const FiftenMin = ({hostId}) => {
+const FiftenMin = () => {
+    const {hostId} = useParams()
+    
 
     return (
 

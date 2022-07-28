@@ -18,7 +18,7 @@ const EventSchedule = () => {
     }, []);
 
     const handleHost = (id) =>{
-        navigate(`eventschedule/${id}`)
+        navigate(`${id}`)
         console.log(id);
 
     }
