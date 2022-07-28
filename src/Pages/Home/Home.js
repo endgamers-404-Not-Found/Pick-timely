@@ -1,10 +1,10 @@
 import React from 'react'
-import Banner from './Banner/Banner'
 import AppointmentScheduling from './AppointmentScheduling/AppointmentScheduling'
-import Services from './Services/Services'
-import Packages from './Packages/Packages'
-import MobileApps from './MobileApps/MobileApps'
+import Banner from './Banner/Banner'
 import FreeTrail from './FreeTail'
+import MobileApps from './MobileApps/MobileApps'
+import Packages from './Packages/Packages'
+import Services from './Services/Services'
 
 
 function Home() {
