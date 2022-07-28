@@ -1,5 +1,6 @@
 // import { Routes } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 
 import Footer from './SharedComponents/Footer';
 import Navbar from '../src/SharedComponents/Navbar'
