@@ -1,8 +1,8 @@
 // import { Routes } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
+import Navbar from '../src/SharedComponents/Navbar';
 import Footer from './SharedComponents/Footer';
-import Navbar from '../src/SharedComponents/Navbar'
 
 import './App.css';
 import AllUser from './Pages/Dashboard/AllUser';
@@ -24,11 +24,11 @@ import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import NotFound from './SharedComponents/NotFound';
 
-import Payment from './Pages/Payment/Payment';
-import Solutions from './Pages/Solutions/Solutions';
-import Pricing from './Pages/Pricing/Pricing';
-import Feature from './Pages/Features/Feature';
 import Customers from './Pages/Customers/Customers';
+import Feature from './Pages/Features/Feature';
+import Payment from './Pages/Payment/Payment';
+import Pricing from './Pages/Pricing/Pricing';
+import Solutions from './Pages/Solutions/Solutions';
 
 
 function App() {
@@ -58,6 +58,7 @@ function App() {
               <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
               <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
               <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
+                <Route index element={<Upcoming></Upcoming>}></Route>
                 <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
                 <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
                 <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
