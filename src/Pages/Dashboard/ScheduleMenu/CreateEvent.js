@@ -2,6 +2,8 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const CreateEvent = () => {
+
+
     return (
         <div className='flex gap-10'>
             <div className='border w-96 p-10 mt-10'>

@@ -3,16 +3,16 @@ import { FaClock } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Calender from './Calender';
 import ConfirmSchedule from './ConfirmSchedule';
-const FiftenMin = () => {
-   
-   
+
+
+const FiftenMin = ({hostId}) => {
 
     return (
 
         <div className='my-10'>
        
             <div className='bg-yellow-50'>
-                <h2 className='text-4xl text-center p-4 bg-blue-600 text-white font-bold'>15 mins meeting</h2>
+                <h2 className='text-4xl text-center p-4 bg-blue-600 text-white font-bold'>{hostId} </h2>
                 <div className='card card-compact h-95 shadow-xl grid lg:grid-cols-3 sm:grid-cols-1 p-2'>
                     <div className='w-[18rem] mx-auto border p-2'>
                         <img className='mask mask-circle w-20 mt-10' src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="" />

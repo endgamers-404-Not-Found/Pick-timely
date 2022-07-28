@@ -53,9 +53,10 @@ function App() {
 
         <Route path='/dashboard' element={<Dashboard></Dashboard>}>
               <Route index element={<Profile></Profile>}></Route>
-              <Route path='arrangemeeting' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
               <Route path='users' element={<AllUser></AllUser>}></Route>
               <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
+              <Route path='eventschedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+              
               <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
               <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
                 <Route index element={<Upcoming></Upcoming>}></Route>
