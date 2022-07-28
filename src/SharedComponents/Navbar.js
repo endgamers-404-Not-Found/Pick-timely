@@ -1,7 +1,7 @@
 
+import { signOut } from 'firebase/auth';
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { signOut } from 'firebase/auth';
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from "react-router-dom";
