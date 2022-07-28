@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
@@ -45,6 +45,7 @@ function Login() {
             })
                 .then(res => res.json())
                 .then(data => {
+                    console.log(data);
                     data.acknowledged && navigate('/')
                 })
         }
