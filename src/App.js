@@ -15,6 +15,7 @@ import Dashboard from './Pages/Dashboard/Dashboard';
 import ArrangeNewMeeting from './Pages/Dashboard/ArrangeNewMeeting';
 import Profile from './Pages/Dashboard/Profile';
 import AllUser from './Pages/Dashboard/AllUser';
+import NotFound from './SharedComponents/NotFound';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
               <Route path='arrangemeeting' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
               <Route path='users' element={<AllUser></AllUser>}></Route>
         </Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
 
       </Routes>
       <Footer></Footer>
