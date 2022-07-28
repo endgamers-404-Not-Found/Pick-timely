@@ -1,5 +1,5 @@
 import React from 'react';
-import { format, isToday } from 'date-fns';
+import { format } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 const Calender = () => {
@@ -25,9 +25,7 @@ const Calender = () => {
                     footer={footer}
                   
                 />
-                <div className='ml-60 -mt-12'>
-                <button class="btn btn-outline btn-primary text-center">Next</button>
-                </div>
+               
                 
             </div>
         </div>
