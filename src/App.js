@@ -1,7 +1,7 @@
 // import { Routes } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
-import {  ToastContainer } from 'react-toastify';
+import { ToastContainer } from 'react-toastify';
 import 'react-day-picker/dist/style.css';
 import Navbar from '../src/SharedComponents/Navbar';
 import Footer from './SharedComponents/Footer';
@@ -36,13 +36,13 @@ function App() {
   return (
     <div>
       <Navbar />
-     
+
       <Routes>
 
-      <Route path='/signIn' element={<Login></Login>}></Route>
+        <Route path='/signIn' element={<Login></Login>}></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
         <Route path='/pricing' element={<Packages></Packages>}></Route>
-        <Route path='/payment/:id' element={<Payment></Payment>}></Route>
+        <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
 
 
@@ -53,22 +53,25 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
-             
-              <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
-              <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
-                <Route index element={<Upcoming></Upcoming>}></Route>
-                <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
-                <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
-                <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
-              </Route>
 
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+
+
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<Profile></Profile>}></Route>
           <Route path='updateProfile' element={<UpdateProfile />}></Route>
           <Route path='arrangemeeting' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
           <Route path='users' element={<AllUser></AllUser>}></Route>
+          <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
+          <Route path='eventschedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+          <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
+          <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
+            <Route index element={<Upcoming></Upcoming>}></Route>
+            <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
+            <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
+            <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
+          </Route>
         </Route>
-        
+
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/features' element={<Features></Features>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
