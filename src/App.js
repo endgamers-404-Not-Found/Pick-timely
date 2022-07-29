@@ -31,6 +31,7 @@ import RequireAuth from './SharedComponents/RequireAuth';
 import Features from './Pages/Pricing/Features/Features';
 import Pricing from './Pages/Pricing/Pricing';
 import UpdateProfile from './Pages/Dashboard/UpdateProfile';
+import AddReview from './Pages/Home/Review/AddReview';
 
 function App() {
   return (
@@ -75,6 +76,7 @@ function App() {
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/features' element={<Features></Features>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
+        <Route path='/addreview' element={<AddReview></AddReview>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
