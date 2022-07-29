@@ -4,21 +4,12 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
-import { Link } from "react-router-dom";
+import { Link, Navigate, useNavigate } from "react-router-dom";
 
 const UpdateProfile = () => {
 
     const [user, loading] = useAuthState(auth);
-    // const [profile, setProfile] = useState([]);
-    // const email = user.email;
-
-
-
-    // useEffect(() => {
-    //     fetch(`http://localhost:5000/profile/${email}`)
-    //         .then(res => res.json())
-    //         .then(data => setProfile(data))
-    // }, [])
+    const navigate = useNavigate();
 
     if (loading) {
         return <Spinner></Spinner>
@@ -50,6 +41,9 @@ const UpdateProfile = () => {
                 console.log(data)
                 if (data.success) {
                     toast("Your profile is added")
+                    if(data.result.acknowledged){
+                        navigate("/dashboard")
+                    }
                 }
                 else {
                     toast.error("It seems their something wrong");
@@ -77,17 +71,17 @@ const UpdateProfile = () => {
 
 
 
-                    {/* <form class="flex items-center space-x-6">
-                            <label class="block">
-                                <input type="file" class="block w-full text-sm text-slate-500
+                    <form class="flex items-center space-x-6">
+                        <label class="block">
+                            <input type="file" class="block w-full text-sm text-slate-500
       file:mr-4 file:py-2 file:px-4
       file:rounded-full file:border-0
       file:text-sm file:font-semibold
       file:bg-violet-50 file:text-violet-700
       hover:file:bg-violet-100
     "/>
-                            </label>
-                        </form> */}
+                        </label>
+                    </form>
 
 
                     <div class="form-control">
@@ -105,15 +99,7 @@ const UpdateProfile = () => {
                 </form>
             </div>
             <ToastContainer
-                position="bottom-right"
-                autoClose={5000}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
+                position="top-center"
             />
         </div>
     );

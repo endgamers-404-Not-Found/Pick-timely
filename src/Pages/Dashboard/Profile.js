@@ -16,6 +16,7 @@ import { Link } from "react-router-dom";
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
     const [profile, setProfile] = useState([]);
+    console.log(profile);
     
 
     useEffect(() => {
@@ -39,9 +40,9 @@ const Profile = () => {
                 <div class="text-center lg:text-left mx-16 sm:order-1 ">
                     <div class="card w-96 bg-base-100 ">
                         <figure class="px-28 py-5 bg-sky-700">
-                            <img src={profile} alt="profile" class="rounded-full" />
+                            <img  src={profile[0]?.photo} alt="profile" class="mask mask-circle" />
                         </figure>
-                        <p className='text-center text-xl font-bold mb-[-16px]'>User Name</p>
+                        <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
                         <div class="card-body pl-20">
                             <span className=''><MdEmail className='inline-block mr-1'></MdEmail> Email: {user?.email}</span>
                             <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile[0]?.company}</span>
