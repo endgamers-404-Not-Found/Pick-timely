@@ -1,20 +1,17 @@
 [
   {
-    "id": 1,
     "eventTime": "15 mins meeting",
-    "eventType": "one-to-one",
+    "eventType": "One-To-One Meeting",
     "img": "https://i.ibb.co/Cn5N30Q/people1.png"
   },
   {
-    "id": 2,
     "eventTime": "30 mins meeting",
-    "eventType": "Corporate",
+    "eventType": "Corporate Meeting",
     "img": "https://i.ibb.co/D8DsCBT/people2.png"
   },
   {
-    "id": 3,
     "eventTime": "60 mins meeting",
-    "eventType": "Group",
+    "eventType": "Group Meeting",
     "img": "https://i.ibb.co/87c6GC2/people3.png"
   }
 ]

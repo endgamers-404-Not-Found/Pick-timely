@@ -1,54 +1,92 @@
 import React from 'react';
-import { FaClock } from "react-icons/fa";
 
-const ConfirmSchedule = () => {
+
+
+const ConfirmSchedule = ({dateFormat, hostId}) => {
+    const handleMeeting = (event) =>{
+        event.preventDefault();
+        const timeSlot = event.target.timeSlot.value;
+        const name = event.target.name.value;
+        const email = event.target.email.value;
+        const description = event.target.description.value;
+        
+
+        const meetingInfo = {
+            timeSlot,
+            name,
+            email,
+            description,
+            dateFormat,
+        }
+
+        console.log(meetingInfo);
+
+        fetch('http://localhost:5000/schedule', {
+            method: 'POST',
+            headers:{
+                'content-type' : 'application/json'
+            },
+            body: JSON.stringify(meetingInfo),
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log('data inserted successfully', data);
+        })
+      
+    }
+
     return (
-        <div className='w-[100%] mx-auto border bg-slate-400 p-20 content-center'>
-            <div className='grid lg:grid-cols-2 sm:grid-cols-1 p-5 gap-5'>
-                <div className='w-[100%] mx-auto border p-2 h-[18rem]'>
-                    <img className='mask mask-circle w-20 mt-10' src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="" />
-                    <p className='font-bold text-2xl'>ADMIN</p>
-                    <p className='font-bold text-2xl'>15 mins meeting</p>
-                    <div className='flex d-block items-center mr-2'>
-                        <p><FaClock ></FaClock></p>
-                        <p>15mins</p>
+
+        <div className='w-[100%] mx-auto border p-3'>
+    
+            <h1 className='text-xl font-bold mt-5'>Please enter interviewer details</h1>
+            <h1>Date: {dateFormat}</h1>
+            
+            <div>
+                <form onSubmit={handleMeeting}>
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Pick time</span>
+                        </label>
+                        <select name='timeSlot' class="select select-bordered">
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                          
+                        </select>
+             
                     </div>
-                </div>
-                <div className='w-[100%] mx-auto border p-3'>
-                    <div>
-                        <h1 className='text-xl font-bold'>Interview time</h1>
-                        <p>03.15PM - 03.30PM</p>
-                        <p>Friday, 29th July, 2022</p>
+        
+      
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">name</span>
+                        </label>
+                        <input type="text" name='name' placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                     </div>
-                    <div>
-                        <h1 className='text-xl font-bold mt-5'>Please enter interviewer details</h1>
-                        <form>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text">name</span>
-                                </label>
-                                <input type="text" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                            </div>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text">Email</span>
-                                </label>
-                                <input type="email" placeholder="Type here" class="input input-bordered w-full max-w-xs" />
-                            </div>
-                            <div class="form-control w-full max-w-xs">
-                                <label class="label">
-                                    <span class="label-text">Description</span>
-                                </label>
-                                <textarea class="textarea textarea-bordered h-24" placeholder="Bio"></textarea>
-                            </div>
-                            <div className='mt-5'>
-                                <button className='btn btn-success'>Confirm Schedule</button>
-                            </div>
-                        </form>
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Email</span>
+                        </label>
+                        <input type="email" name='email' placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                     </div>
-                </div>
+                    <div class="form-control w-full max-w-xs">
+                        <label class="label">
+                            <span class="label-text">Description</span>
+                        </label>
+                        <textarea name='description' class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                    </div>
+                    <div className='mt-5'>
+                        <button type='submit' className='btn btn-dark'>Confirm Schedule</button>
+                    </div>
+                </form>
             </div>
         </div>
+       
     );
 };
 

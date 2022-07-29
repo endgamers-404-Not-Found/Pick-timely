@@ -1,6 +1,7 @@
 // import { Routes } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 
+import 'react-day-picker/dist/style.css';
 import Navbar from '../src/SharedComponents/Navbar';
 import Footer from './SharedComponents/Footer';
 

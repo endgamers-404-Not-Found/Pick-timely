@@ -47,10 +47,11 @@ const EventSchedule = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
                     hosts?.map(host => <div host={host} key={host._id} class="card bg-base-100 shadow-xl">
-                    <img className='w-12 mx-auto rounded-full' src={host.img} alt='' />
-                    <h1 className='text-2xl font-bold text-center'>Host: {user?.displayName}</h1>
+                    <img className='w-40 mx-auto rounded-full' src={host.img} alt='' />
+                    <h1 className='text-xl font-bold text-center'>Host</h1>
+                    <h1 className='text-2xl font-bold text-center'>{user?.displayName}</h1>
                     <div class="card-body">
-                        <h2 class="card-title">{host.eventTime}</h2>
+                        <h2 class="card-title">{host.duration}</h2>
                         <p>{host.eventType}</p>
                         <div class="card-actions justify-center">
                         <button onClick={()=>handleHost(host._id)} class="btn btn-primary">view page</button>
