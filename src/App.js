@@ -3,8 +3,8 @@ import { Route, Routes } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
 import {  ToastContainer } from 'react-toastify';
 
+import Navbar from '../src/SharedComponents/Navbar';
 import Footer from './SharedComponents/Footer';
-import Navbar from '../src/SharedComponents/Navbar'
 
 import './App.css';
 import AllUser from './Pages/Dashboard/AllUser';
@@ -26,12 +26,19 @@ import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import NotFound from './SharedComponents/NotFound';
 
+import Customers from './Pages/Customers/Customers';
+import Feature from './Pages/Features/Feature';
 import Payment from './Pages/Payment/Payment';
+
 import Solutions from './Pages/Solutions/Solutions';
 import RequireAuth from './SharedComponents/RequireAuth';
 import Customers from './Pages/Customers/Customers';
 import Features from './Pages/Pricing/Features/Features';
 import Pricing from './Pages/Pricing/Pricing';
+
+import Pricing from './Pages/Pricing/Pricing';
+import Solutions from './Pages/Solutions/Solutions';
+
 
 function App() {
   return (
@@ -66,11 +73,11 @@ function App() {
                 <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
               </Route>
         </Route>
-        <Route path='*' element={<NotFound></NotFound>}></Route>
+        
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/features' element={<Features></Features>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
-
+<Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
 

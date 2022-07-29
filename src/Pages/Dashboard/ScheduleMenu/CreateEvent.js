@@ -57,9 +57,10 @@ const CreateEvent = () => {
             </div>
             <div className='border p-10 w-96 mt-10'>
                 <ul class="menu menu-vertical lg:menu-horizontal bg-base-100 rounded-box">
-                    <li><Link to='/'>Item 1</Link></li>
-                    <li><Link to='/'>Item 2</Link></li>
-                    <li><Link to='/'>Item 3</Link></li>
+                    <li><Link to='/'>15 Mins</Link></li>
+                    <li><Link to='/'>30 Mins</Link></li>
+                    <li><Link to='/'>60 Mins</Link></li>
+                    <li><Link to='/'>90 Mins</Link></li>
                 </ul>
             </div>
         </div>
