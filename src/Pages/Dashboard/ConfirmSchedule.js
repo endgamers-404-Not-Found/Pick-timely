@@ -80,8 +80,12 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
                         </label>
                         <textarea name='description' class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                     </div>
+                    <div className='flex gap-2 mt-2'>
+                        <button className='btn btn-sm btn-dark'>Google meet link</button>
+                        <button className='btn btn-sm btn-dark'>Zoom link</button>
+                    </div>
                     <div className='mt-5'>
-                        <button type='submit' className='btn btn-dark'>Confirm Schedule</button>
+                        <button type='submit' className='btn btn-dark w-full'>Confirm Schedule</button>
                     </div>
                 </form>
             </div>

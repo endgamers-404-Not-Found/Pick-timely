@@ -107,7 +107,7 @@ const CreateEvent = () => {
                         </label> 
                         <input type='text' name='image' class="input input-bordered" placeholder="add image link" />
                     </div>
-
+                    
                     <div className='mt-5'>
                         <button className='btn btn-sm'>continue</button>
                     </div>
