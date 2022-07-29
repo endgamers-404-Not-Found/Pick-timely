@@ -22,8 +22,8 @@ const Upcoming = () => {
                             <button class="btn">Host</button>
                             <select class="select select-bordered">
                             <option disabled selected>All</option>
-                            <option>T-shirts</option>
-                            <option>Mugs</option>
+                            <option>Hamid</option>
+                            <option>Meherab</option>
                             </select>
                             
                         </div>
@@ -33,8 +33,8 @@ const Upcoming = () => {
                             <button class="btn">Status Active</button>
                             <select class="select select-bordered">
                             <option disabled selected>All</option>
-                            <option>T-shirts</option>
-                            <option>Mugs</option>
+                            <option>Hamid</option>
+                            <option>Meherab</option>
                             </select>
                             
                         </div>
@@ -44,8 +44,8 @@ const Upcoming = () => {
                             <button class="btn">Event Type</button>
                             <select class="select select-bordered">
                             <option disabled selected>All</option>
-                            <option>T-shirts</option>
-                            <option>Mugs</option>
+                            <option>Hamid</option>
+                            <option>Meherab</option>
                             </select>
                             
                         </div>
