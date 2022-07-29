@@ -1,0 +1,17 @@
+[
+  {
+    "eventTime": "15 mins meeting",
+    "eventType": "One-To-One Meeting",
+    "img": "https://i.ibb.co/Cn5N30Q/people1.png"
+  },
+  {
+    "eventTime": "30 mins meeting",
+    "eventType": "Corporate Meeting",
+    "img": "https://i.ibb.co/D8DsCBT/people2.png"
+  },
+  {
+    "eventTime": "60 mins meeting",
+    "eventType": "Group Meeting",
+    "img": "https://i.ibb.co/87c6GC2/people3.png"
+  }
+]
