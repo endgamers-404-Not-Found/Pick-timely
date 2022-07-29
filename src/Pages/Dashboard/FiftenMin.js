@@ -19,7 +19,7 @@ const FiftenMin = () => {
 
     useEffect(()=>{
         const getMeeting = async () =>{
-            const res = await fetch(`http://localhost:5000/hoster/${hostId}`);
+            const res = await fetch(`https://pick-timely.herokuapp.com/hoster/${hostId}`);
             const data = await res.json();
             setMeeting(data);
             

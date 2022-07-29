@@ -28,7 +28,7 @@ const UpdateProfile = () => {
         }
         console.log(profileInfo);
 
-        fetch(`http://localhost:5000/update/${user.email}`, {
+        fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
             method: 'PUT',
             headers: {
                 "content-type": "application/json"

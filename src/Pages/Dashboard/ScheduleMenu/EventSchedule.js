@@ -10,7 +10,7 @@ const EventSchedule = () => {
 
     useEffect(()=>{
         const meetingData = async () =>{
-            const res = await fetch('http://localhost:5000/hoster');
+            const res = await fetch('https://pick-timely.herokuapp.com/hoster');
             const data = await res.json();
             setHosts(data);
         }
