@@ -72,14 +72,14 @@ const Upcoming = () => {
                             <td>{schedule.dateFormat}</td>
                             <td>{schedule.timeSlot}</td>
                             <td>{schedule.name}</td>
-                            <td><label for="my-modal-3" class="btn modal-button">see details</label> </td>
+                            <td><label for="my-meeting" class="btn modal-button">see details</label> </td>
                         </tr>)
                     }
                     
                 
                     </tbody>
                 </table>
-                <ModalDetails></ModalDetails>
+                <ModalDetails schedules={schedules}></ModalDetails>
             </div>
         </div>
     );
