@@ -5,11 +5,6 @@ import { useParams } from 'react-router-dom';
 import Spinner from '../../SharedComponents/Spinner';
 import CheckoutForm from './CheckoutForm';
 
-/* import { useParams } from 'react-router-dom';
-import { useQuery } from '@tanstack/react-query'
-import Spinner from '../../SharedComponents/Spinner'; */
-
-
 function Payment() {
     const { id } = useParams()
     const [bundle, setBundle] = useState('');

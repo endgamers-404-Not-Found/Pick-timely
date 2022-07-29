@@ -1,10 +1,10 @@
 // import { Routes } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-
+import 'react-toastify/dist/ReactToastify.css';
+import {  ToastContainer } from 'react-toastify';
 import 'react-day-picker/dist/style.css';
 import Navbar from '../src/SharedComponents/Navbar';
 import Footer from './SharedComponents/Footer';
-
 import './App.css';
 import AllUser from './Pages/Dashboard/AllUser';
 import ArrangeNewMeeting from './Pages/Dashboard/ArrangeNewMeeting';
@@ -24,14 +24,12 @@ import Packages from './Pages/Home/Packages/Packages';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import NotFound from './SharedComponents/NotFound';
-
 import Customers from './Pages/Customers/Customers';
-import Feature from './Pages/Features/Feature';
 import Payment from './Pages/Payment/Payment';
-import Pricing from './Pages/Pricing/Pricing';
 import Solutions from './Pages/Solutions/Solutions';
 import RequireAuth from './SharedComponents/RequireAuth';
-
+import Features from './Pages/Pricing/Features/Features';
+import Pricing from './Pages/Pricing/Pricing';
 
 function App() {
   return (
@@ -67,13 +65,15 @@ function App() {
                 <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
               </Route>
         </Route>
-        <Route path='*' element={<NotFound></NotFound>}></Route>
+        
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-        <Route path='/features' element={<Feature></Feature>}></Route>
+        <Route path='/features' element={<Features></Features>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
-
+<Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
+
+      <ToastContainer />
     </div>
   );
 }
