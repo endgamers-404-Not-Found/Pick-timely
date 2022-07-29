@@ -156,13 +156,12 @@ function Login() {
 
                 </div>
             </div>
-            <ToastContainer />
+            
         </div>
     )
 }
 
 export default Login;
-
 
 
 

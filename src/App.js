@@ -1,6 +1,7 @@
 // import { Routes } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import 'react-toastify/dist/ReactToastify.css';
+import {  ToastContainer } from 'react-toastify';
 
 import Footer from './SharedComponents/Footer';
 import Navbar from '../src/SharedComponents/Navbar'
@@ -27,10 +28,10 @@ import NotFound from './SharedComponents/NotFound';
 
 import Payment from './Pages/Payment/Payment';
 import Solutions from './Pages/Solutions/Solutions';
-import Pricing from './Pages/Pricing/Pricing';
-import Feature from './Pages/Features/Feature';
+import RequireAuth from './SharedComponents/RequireAuth';
 import Customers from './Pages/Customers/Customers';
-
+import Features from './Pages/Pricing/Features/Features';
+import Pricing from './Pages/Pricing/Pricing';
 
 function App() {
   return (
@@ -52,7 +53,7 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
-        <Route path='/dashboard' element={<Dashboard></Dashboard>}>
+        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
               <Route index element={<Profile></Profile>}></Route>
               <Route path='arrangemeeting' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
               <Route path='users' element={<AllUser></AllUser>}></Route>
@@ -67,11 +68,13 @@ function App() {
         </Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-        <Route path='/features' element={<Feature></Feature>}></Route>
+        <Route path='/features' element={<Features></Features>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
 
       </Routes>
       <Footer></Footer>
+
+      <ToastContainer />
     </div>
   );
 }
