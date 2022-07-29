@@ -1,8 +1,4 @@
 import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-
-import { Navigation, Pagination, Scrollbar, A11y, EffectCards, Autoplay } from 'swiper';
 import Review from './Review';
 
 const Reviews = () => {
@@ -38,7 +34,7 @@ const Reviews = () => {
 
     return (
         <div>
-            <div className='my-28'>
+            {/* <div className='my-28'>
             
             <h1 className='text-center text-3xl text-primary'>Review Our Happy Clients</h1>
 
@@ -76,7 +72,7 @@ const Reviews = () => {
                 </Swiper>
             </div>
 
-        </div>
+        </div> */}
         </div>
     );
 };

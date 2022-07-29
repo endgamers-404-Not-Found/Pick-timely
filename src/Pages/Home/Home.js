@@ -18,7 +18,7 @@ function Home() {
             <Services></Services>
             <Packages></Packages>
             <MobileApps></MobileApps>
-            <Reviews></Reviews>
+            {/* <Reviews></Reviews> */}
             <FreeTrail></FreeTrail>
 
          
