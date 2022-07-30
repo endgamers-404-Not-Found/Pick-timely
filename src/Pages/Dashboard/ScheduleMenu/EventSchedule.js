@@ -1,7 +1,28 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Link, useNavigate } from 'react-router-dom';
+import auth from '../../../firebase.init';
 
 const EventSchedule = () => {
+    const [user] = useAuthState(auth)
+    const [hosts, setHosts] = useState([]);
+    const navigate = useNavigate();
+
+    useEffect(()=>{
+        const meetingData = async () =>{
+            const res = await fetch('http://localhost:5000/hoster');
+            const data = await res.json();
+            setHosts(data);
+        }
+        meetingData();
+    }, []);
+
+    const handleHost = (id) =>{
+        navigate(`${id}`)
+        console.log(id);
+
+    }
+
     return (
         <div className='p-10 border'>
             <div className='flex justify-start gap-10 mt-5'>
@@ -16,58 +37,29 @@ const EventSchedule = () => {
                         <button class="btn">Host Filter</button>
                         <select class="select select-bordered">
                         <option disabled selected>All</option>
-                        <option>T-shirts</option>
-                        <option>Mugs</option>
+                        <option>Sujon</option>
+                        <option>Hamid</option>
                         </select>
                     </div>
                 </div>
             </div>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
-                <div class="card bg-base-100 shadow-xl">
-                    <img className='w-12 mx-auto rounded-full' src="https://placeimg.com/192/192/people" alt='' />
-                    <h1 className='text-2xl font-bold text-center'>Host: Sujon</h1>
+                {
+                    hosts?.map(host => <div host={host} key={host._id} class="card bg-base-100 shadow-xl">
+                    <img className='w-40 mx-auto rounded-full' src={host.img} alt='' />
+                    <h1 className='text-xl font-bold text-center'>Host</h1>
+                    <h1 className='text-2xl font-bold text-center'>{user?.displayName}</h1>
                     <div class="card-body">
-                        <h2 class="card-title">Group Meeting</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
+                        <h2 class="card-title">{host.duration}</h2>
+                        <p>{host.eventType}</p>
                         <div class="card-actions justify-center">
-                        <button class="btn btn-primary">view page</button>
+                        <button onClick={()=>handleHost(host._id)} class="btn btn-primary">view page</button>
                         </div>
                     </div>
-                </div>
-                <div class="card bg-base-100 shadow-xl">
-                <img className='w-12 mx-auto rounded-full' src="https://placeimg.com/192/192/people" alt='' />
-                    <h1 className='text-2xl font-bold text-center'>Host: Sujon</h1>
-                    <div class="card-body">
-                        <h2 class="card-title">15 Mins Meeting</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-center">
-                        <button class="btn btn-primary">view page</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card bg-base-100 shadow-xl">
-                <img className='w-12 mx-auto rounded-full' src="https://placeimg.com/192/192/people" alt='' />
-                    <h1 className='text-2xl font-bold text-center'>Host: Sujon</h1>
-                    <div class="card-body">
-                        <h2 class="card-title">30 Mins Meeting</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-center">
-                        <button class="btn btn-primary">view page</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="card bg-base-100 shadow-xl">
-                <img className='w-12 mx-auto rounded-full' src="https://placeimg.com/192/192/people" alt='' />
-                    <h1 className='text-2xl font-bold text-center'>Host: Sujon</h1>
-                    <div class="card-body">
-                        <h2 class="card-title">60 Mins Meeting</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions justify-center">
-                        <button class="btn btn-primary">view page</button>
-                        </div>
-                    </div>
-                </div>
+                </div>)
+                }
+                
             </div>
         </div>
     );
