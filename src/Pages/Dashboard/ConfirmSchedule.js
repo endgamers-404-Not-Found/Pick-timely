@@ -50,12 +50,12 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
                         </label>
                         <select name='timeSlot' class="select select-bordered">
                             <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                            <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
+                            <option value='03.15PM-03.30PM'>03.30PM-03.45PM</option>
+                            <option value='03.15PM-03.30PM'>03.45PM-04.00PM</option>
+                            <option value='03.15PM-03.30PM'>04.00PM-04.15PM</option>
+                            <option value='03.15PM-03.30PM'>04.15PM-04.30PM</option>
+                            <option value='03.15PM-03.30PM'>04.30PM-04.45PM</option>
+                            <option value='03.15PM-03.30PM'>04.45PM-05.00PM</option>
                           
                         </select>
              

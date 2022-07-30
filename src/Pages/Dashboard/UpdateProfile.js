@@ -20,7 +20,6 @@ const UpdateProfile = () => {
         e.preventDefault();
 
         const profileInfo = {
-            email: user.email,
             name: user.displayName,
             photo: e.target.url.value,
             company: e.target.company.value,
@@ -71,25 +70,11 @@ const UpdateProfile = () => {
 
 
 
-                    <form class="flex items-center space-x-6">
-                        <label class="block">
-                            <input type="file" class="block w-full text-sm text-slate-500
-      file:mr-4 file:py-2 file:px-4
-      file:rounded-full file:border-0
-      file:text-sm file:font-semibold
-      file:bg-violet-50 file:text-violet-700
-      hover:file:bg-violet-100
-    "/>
-                        </label>
-                    </form>
-
 
                     <div class="form-control">
                         <input type="text" placeholder="Profile Url" name="url" class="input input-bordered" />
                     </div>
-                    <label class="label mb-[-10px]">
-                        <span class="label-text">Upload profile</span>
-                    </label>
+                    
                     <div class="form-control mt-6">
                         <input class="btn btn-primary" type="submit" value="submit" />
                     </div>
