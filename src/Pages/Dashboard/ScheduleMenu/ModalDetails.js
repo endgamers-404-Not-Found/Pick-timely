@@ -1,7 +1,11 @@
 import React from 'react';
 
-const ModalDetails = ({schedules}) => {
-    const {name, email, timeSlot, description, dateFormat} = schedules;
+const ModalDetails = ({meeting, setMeeting}) => {
+    const {name, email, timeSlot, description, dateFormat} = meeting;
+
+    const handleCloseModal = () =>{
+        setMeeting(null)
+    }
 
     return (
         <div>
@@ -18,9 +22,8 @@ const ModalDetails = ({schedules}) => {
                 <p class="py-4 font-bold">Event Time: 15mins meeting</p>
                 <p class="py-4 font-bold">Description: {description}</p>
                 <div className='flex gap-5'>
-                    <button className='btn btn-success'>Reschedule</button>
-                    <button className='btn btn-warning'>Canceling</button>
-                <button className='btn btn-info' to='/'>Schedule invite Again</button>
+                    <button onClick={handleCloseModal} className='btn btn-success'>cancel</button>
+                    
                 </div>
             </div>
             </div>

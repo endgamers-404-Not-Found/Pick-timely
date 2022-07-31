@@ -36,9 +36,9 @@ const EventSchedule = () => {
                     <div class="input-group">
                         <button class="btn">Host Filter</button>
                         <select class="select select-bordered">
-                        <option disabled selected>All</option>
-                        <option>Sujon</option>
-                        <option>Hamid</option>
+                            <option value='All'>All</option>
+                            <option value='Hamid'>Hamid</option>
+                            <option value='Meherab'>Meherab</option>
                         </select>
                     </div>
                 </div>

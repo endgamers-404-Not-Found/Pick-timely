@@ -22,6 +22,7 @@ import Productive from './Pages/Home/AppointmentScheduling/Productive';
 import Professional from './Pages/Home/AppointmentScheduling/Professional';
 import Home from './Pages/Home/Home';
 import Packages from './Pages/Home/Packages/Packages';
+import AddReview from './Pages/Home/Review/AddReview';
 import Login from './Pages/Login/Login';
 import SignUp from './Pages/Login/SignUp';
 import Payment from './Pages/Payment/Payment';
@@ -76,6 +77,7 @@ function App() {
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/features' element={<Features></Features>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
+        <Route path='/addreview' element={<AddReview></AddReview>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>

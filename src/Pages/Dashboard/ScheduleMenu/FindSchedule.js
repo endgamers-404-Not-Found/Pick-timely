@@ -1,38 +1,42 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ModalDetails from './ModalDetails';
 
 const FindSchedule = () => {
+
+    const [schedules, setSchedules] = useState([]);
+    const [meeting, setMeeting] = useState(null);
+
+    useEffect(()=>{
+        const meetingData = async() =>{
+            const res = await fetch('http://localhost:5000/schedule');
+            const data = await res.json();
+            setSchedules(data);
+        }
+        meetingData();
+    }, []);
+
     return (
         <div className='mt-5'>
-            <div className='flex gap-5 mt-5 mb-2'>
+            <div className='flex justify-between gap-5 mt-5 mb-2 w-[60%] lg:w-[80%]'>
                     <div class="form-control">
                         <div class="input-group">
                             <button class="btn">Host</button>
                             <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
+                                <option value='All'>All</option>
+                                <option value='Hamid'>Hamid</option>
+                                <option value='Meherab'>Meherab</option>
                             </select>
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Status Active</button>
-                            <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
-                            </select>
-                            
-                        </div>
-                    </div>
+                   
                     <div class="form-control">
                         <div class="input-group">
                             <button class="btn">Event Type</button>
                             <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
+                                <option value='All'>All</option>
+                                <option value='Hamid'>Hamid</option>
+                                <option value='Meherab'>Meherab</option>
                             </select>
                             
                         </div>
@@ -45,8 +49,8 @@ const FindSchedule = () => {
                         </div>
                     </div>
                 </div>
-            <div class="overflow-x-auto">
-                <table class="table w-[60%] lg:w-[80%] border">
+                <div class="overflow-x-auto">
+            <table class="table w-[60%] lg:w-[80%] border">
                     
                     <thead>
                     <tr>
@@ -59,31 +63,28 @@ const FindSchedule = () => {
                     </thead>
                     <tbody>
                     
-                    <tr>
-                        <th>1</th>
-                        <td>28, July 2022</td>
-                        <td>12.30 PM</td>
-                        <td>Md Hamid Azad</td>
-                        <td><button className='btn btn-sm'>see details</button></td>
-                    </tr>
+
+                    {
+                        schedules?.map((schedule, index)=> <tr key={schedule._id}>
+                            <th>{index + 1}</th>
+                            <td>{schedule.dateFormat}</td>
+                            <td>{schedule.timeSlot}</td>
+                            <td>{schedule.name}</td>
+                            <td>
+                                <label 
+                                for="my-meeting" 
+                                class="btn btn-sm"
+                                onClick={()=>setMeeting(schedule)}
+                                >see details</label> 
+                               
+                                </td>
+                        </tr>)
+                    }
                     
-                    <tr>
-                        <th>2</th>
-                        <td>28, July 2022</td>
-                        <td>12.30 PM</td>
-                        <td>Md Meherab</td>
-                        <td><button className='btn btn-sm'>see details</button></td>
-                    </tr>
-                    
-                    <tr>
-                        <th>3</th>
-                        <td>28, July 2022</td>
-                        <td>12.30 PM</td>
-                        <td>Sujon Chambugong</td>
-                        <td><button className='btn btn-sm'>see details</button></td>
-                    </tr>
+                
                     </tbody>
                 </table>
+            {meeting && <ModalDetails meeting={meeting}></ModalDetails>}
             </div>
         </div>
     );
