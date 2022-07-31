@@ -6,11 +6,13 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
+import useAdmin from '../Hooks/useAdmin';
 
 
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
-    const [user, loading] = useAuthState(auth)
+    const [user, loading] = useAuthState(auth);
+    const [admin]=useAdmin(user);
 
 
 
@@ -84,14 +86,17 @@ function Header() {
                                 </Link>
                             </li>
 
+                         {
+                            admin &&
                             <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    to="/customers"
-                                >
-                                    <span className="ml-2">Customers</span>
-                                </Link>
-                            </li>
+                            <Link
+                                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                to="/customers"
+                            >
+                                <span className="ml-2">Customers</span>
+                            </Link>
+                        </li>
+                         }
 
                             <li className="nav-item">
                                 <Link
