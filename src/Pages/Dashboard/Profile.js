@@ -35,10 +35,10 @@ const Profile = () => {
 
 
    return(
-        <div class="hero min-h-screen bg-base-200">
-           <div>
-                <div class="text-center lg:text-left mx-16 sm:order-1 ">
-                    <div class="card w-96 bg-base-100 ">
+        <div class="lg:hero min-h-screen bg-base-200  ">
+           <div className="">
+                <div class="text-center lg:text-left mx-16 sm:order-1">
+                    <div class="card bg-base-100 w-[300px] lg:w-96 flex">
                         <figure class="px-28 py-5 bg-sky-700">
                             <img  src={profile[0]?.photo} alt="profile" class="mask mask-circle" />
                         </figure>
