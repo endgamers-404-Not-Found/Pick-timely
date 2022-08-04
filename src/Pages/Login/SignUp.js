@@ -1,13 +1,17 @@
-import React, { useState } from 'react'
-import { Link, Navigate, useNavigate } from 'react-router-dom';
+import React, { useEffect, useState } from 'react'
+import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import Spinner from '../../SharedComponents/Spinner';
+import { toast, ToastContainer } from 'react-toastify';
+import { ImCross } from 'react-icons/im';
 
 
 function SignUp() {
     const [show, setShow] = useState(false);
     const navigate = useNavigate()
+    const location = useLocation();
+    const from = location?.state?.from?.pathname || '/';
     const [
         createUserWithEmailAndPassword,
         user,
@@ -16,13 +20,72 @@ function SignUp() {
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
 
+
+    const [userData, setUserData] = useState({
+        email: "",
+        password: "",
+        confirmPassword: ""
+    })
+    const [errors, setErrors] = useState({
+        emailError: "",
+        passwordError: ""
+    })
+
+    const handleEmailField = e => {
+        const emailInput = e.target.value;
+        const emailRegx = /\S+@\S+\.\S+/;
+        if (emailRegx.test(emailInput)) {
+            setUserData({ ...userData, email: emailInput });
+            setErrors({ ...errors, emailError: "" })
+        }
+        else {
+            setErrors({ ...errors, emailError: "Invalid Email!" })
+            setUserData({ ...userData, email: "" })
+        }
+    }
+    const handlePasswordField = e => {
+        const passwordInput = e.target.value;
+        if (passwordInput.length >= 6) {
+            setUserData({ ...userData, password: passwordInput });
+            setErrors({ ...errors, passwordError: "" })
+        }
+        else {
+            setErrors({ ...errors, passwordError: "Password must be at least 6 characters!" });
+            setUserData({ ...userData, password: "" })
+        }
+    }
+    const handleConfirmPasswordField = e => {
+        const confirmPasswordField = e.target.value;
+        if (confirmPasswordField === userData.password) {
+            setUserData({ ...userData, confirmPassword: confirmPasswordField });
+            setErrors({ ...errors, passwordError: "" })
+        }
+        else {
+            setErrors({ ...errors, passwordError: "Password doesn't matched!" })
+            setUserData({ ...userData, confirmPassword: "" })
+        }
+    }
+
+
+    useEffect(()=>{
+        if (error || gError) {
+            toast.error(error.message || gError.message, {
+                position: 'top-center'
+            })
+        }
+    },[error,gError])
+   
+        if (loading ||gLoading) {
+            return <Spinner></Spinner>
+        };
+
     const formSubmit = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
-        const email = event.target.email.value;
-        const password = event.target.password.value;
-        await createUserWithEmailAndPassword(email, password)
-        fetch('http://localhost:5000/addUser', {
+        const email = userData.email;
+        const password = userData.password;
+        await createUserWithEmailAndPassword(email,password);
+        fetch('https://pick-timely.herokuapp.com/addUser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -35,17 +98,12 @@ function SignUp() {
             })
         event.target.reset();
     }
-
-    if (loading || gLoading) {
-        return <Spinner></Spinner>
-    }
-
     const googleSignIn = async () => {
         await signInWithGoogle()
         if(gUser){
             const name = gUser.user.displayName;
             const email = gUser.user.email;
-            fetch('http://localhost:5000/addUser', {
+            fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -54,7 +112,8 @@ function SignUp() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    data.acknowledged && navigate('/')
+                    console.log(data);
+                    data.acknowledged && navigate(from, { replace: true });
                 })
         }
     }
@@ -78,8 +137,9 @@ function SignUp() {
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input required name='email' type="text" placeholder="email" className="input input-bordered" />
+                                    <input onChange={handleEmailField} required name='email' type="text" placeholder="email" className="input input-bordered" />
                                 </div>
+                                {errors?.emailError && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross> {errors.emailError}</span>}
                                 <div className="form-control">
                                     <label className="label flex">
                                         <p className="label-text">Password <img onClick={() => setShow(!show)} className='w-5 inline'
@@ -89,9 +149,17 @@ function SignUp() {
                                                 ` https://i.ibb.co/NYycQ4D/image.png`}
                                             alt="" /> </p>
                                     </label>
-                                    <input required name='password' type={show ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
-                                    <p className="text-sm text-red-600">{error && error.message}</p>
-                                    <p className="text-sm text-red-600">{gError && gError.message}</p>
+                                    <input onChange={handlePasswordField} required name='password' type={show ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
+                                    {errors?.passwordError && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross>{errors.passwordError}</span>}
+                                    <label className="label flex">
+                                        <p className="label-text">Confirm Password <img onClick={() => setShow(!show)} className='w-5 inline'
+                                            src={show ?
+                                                ` https://i.ibb.co/pZckkpZ/image.png`
+                                                :
+                                                ` https://i.ibb.co/NYycQ4D/image.png`}
+                                            alt="" /> </p>
+                                    </label>
+                                    <input onChange={handleConfirmPasswordField} required name='password' type={show ? 'text' : 'password'} placeholder="Confirm password" className="input input-bordered" />
                                     <label className="label">
                                         <p className="text-sm ">Already have an account? <Link className='font-semibold' to='/signIn'>sign in now</Link></p>
                                     </label>
@@ -101,7 +169,7 @@ function SignUp() {
                                 </div>
                                 <div className="divider">or</div>
                                 <div className="form-control ">
-                                    <button className="btn btn-primary" onClick={() => googleSignIn()}>Sign up with Google</button>
+                                    <button className="btn btn-primary" onClick={googleSignIn}>Sign up with Google</button>
                                 </div>
                             </div>
                         </form>
@@ -114,8 +182,14 @@ function SignUp() {
 
                 </div>
             </div>
+            <ToastContainer></ToastContainer>
         </div>
     )
 }
 
 export default SignUp;
+
+
+
+
+

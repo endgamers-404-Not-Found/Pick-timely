@@ -1,9 +1,14 @@
 import React from 'react';
 
+import FiftenMin from './FiftenMin';
+
 const ArrangeNewMeeting = () => {
+    
+
     return (
         <div>
-            <h1>This is arranging meeting section</h1>
+         
+            <FiftenMin></FiftenMin>
         </div>
     );
 };
