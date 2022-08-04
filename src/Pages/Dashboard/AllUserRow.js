@@ -23,7 +23,7 @@ const AllUserRow = ({ user, index }) => {
                 ?
                 <p className='font-bold'>Already Admin</p>
                 :
-                <button onClick={handleMakeAdmin} class="btn btn-sm">Make Admin</button>
+                <button onClick={handleMakeAdmin} className="btn btn-sm">Make Admin</button>
             }
             </td>
         </tr>

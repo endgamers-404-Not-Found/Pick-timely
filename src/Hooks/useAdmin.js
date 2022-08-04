@@ -1,9 +1,9 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState } from "react";
 
 const useAdmin = user => {
     const [admin, setAdmin] = useState(false);
     useEffect( () =>{
-        const email = user?.email;
+        const email = user?.user?.email;
         if(email){
             fetch(`http://localhost:5000/admin/${email}`, {
                 method:'GET'

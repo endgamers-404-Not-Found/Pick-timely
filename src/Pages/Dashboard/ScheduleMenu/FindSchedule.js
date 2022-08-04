@@ -4,6 +4,7 @@ import ModalDetails from './ModalDetails';
 const FindSchedule = () => {
 
     const [schedules, setSchedules] = useState([]);
+    const [searchText, setSearchText] = useState([]);
     const [meeting, setMeeting] = useState(null);
 
     useEffect(()=>{
@@ -11,17 +12,26 @@ const FindSchedule = () => {
             const res = await fetch('http://localhost:5000/schedule');
             const data = await res.json();
             setSchedules(data);
+            setSearchText(data);
         }
         meetingData();
     }, []);
 
+    const searchHandle = (event) =>{
+        const searchData = event.target.value;
+        const filtered = schedules.filter(schedule => schedule.name.toLowerCase().includes(searchData));
+        setSearchText(filtered);
+
+    }
+
     return (
         <div className='mt-5'>
+            <h1>Schedule List Total: {searchText?.length}</h1>
             <div className='flex justify-between gap-5 mt-5 mb-2 w-[60%] lg:w-[80%]'>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Host</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Host</button>
+                            <select className="select select-bordered">
                                 <option value='All'>All</option>
                                 <option value='Hamid'>Hamid</option>
                                 <option value='Meherab'>Meherab</option>
@@ -30,10 +40,10 @@ const FindSchedule = () => {
                         </div>
                     </div>
                    
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Event Type</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Event Type</button>
+                            <select className="select select-bordered">
                                 <option value='All'>All</option>
                                 <option value='Hamid'>Hamid</option>
                                 <option value='Meherab'>Meherab</option>
@@ -41,49 +51,50 @@ const FindSchedule = () => {
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <input type="text" placeholder='search' className='border' />
-                            <button class="btn">search</button>
+                    <div className="form-control">
+                        <div className="input-group">
+                            <input type="text" name='search' onChange={searchHandle} placeholder='search' className='border' />
+                            <button className="btn">search</button>
                             
                         </div>
                     </div>
                 </div>
-                <div class="overflow-x-auto">
-            <table class="table w-[60%] lg:w-[80%] border">
-                    
-                    <thead>
-                    <tr>
-                        <th></th>
-                        <th>Date</th>
-                        <th>Time</th>
-                        <th>Name</th>
-                        <th>Action</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    
+                <div className="overflow-x-auto">
+                    <table className="table w-[60%] lg:w-[80%] border">
+                            
+                        <thead>
+                            <tr>
+                                <th></th>
+                                
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        <tbody>
+                        
 
-                    {
-                        schedules?.map((schedule, index)=> <tr key={schedule._id}>
-                            <th>{index + 1}</th>
-                            <td>{schedule.dateFormat}</td>
-                            <td>{schedule.timeSlot}</td>
-                            <td>{schedule.name}</td>
-                            <td>
-                                <label 
-                                for="my-meeting" 
-                                class="btn btn-sm"
-                                onClick={()=>setMeeting(schedule)}
-                                >see details</label> 
-                               
-                                </td>
-                        </tr>)
-                    }
+                        {
+                            searchText?.map((schedule, index)=> <tr key={schedule._id}>
+                                <th>{index + 1}</th>
+                                <td>{schedule.dateFormat}</td>
+                                <td>{schedule.timeSlot}</td>
+                                <td>{schedule.name}</td>
+                                <td>
+                                    <label 
+                                    htmlFor="my-meeting" 
+                                    className="btn btn-sm"
+                                    onClick={()=>setMeeting(schedule)}
+                                    >see details</label> 
+                                
+                                    </td>
+                            </tr>)
+                        }
+                        
                     
-                
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
             {meeting && <ModalDetails meeting={meeting}></ModalDetails>}
             </div>
         </div>

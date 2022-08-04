@@ -4,10 +4,10 @@ const PastSchedule = () => {
     return (
         <div className='mt-5'>
             <div className='flex gap-5 mt-5 mb-2'>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Host</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Host</button>
+                            <select className="select select-bordered">
                             <option disabled selected>All</option>
                             <option>Hamid</option>
                             <option>Meherab</option>
@@ -15,10 +15,10 @@ const PastSchedule = () => {
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Status Active</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Status Active</button>
+                            <select className="select select-bordered">
                             <option disabled selected>All</option>
                             <option>Hamid</option>
                             <option>Meherab</option>
@@ -26,10 +26,10 @@ const PastSchedule = () => {
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Event Type</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Event Type</button>
+                            <select className="select select-bordered">
                             <option disabled selected>All</option>
                             <option>Hamid</option>
                             <option>Meherab</option>
@@ -38,8 +38,8 @@ const PastSchedule = () => {
                         </div>
                     </div>
                 </div>
-            <div class="overflow-x-auto">
-                <table class="table w-[60%] lg:w-[80%] border">
+            <div className="overflow-x-auto">
+                <table className="table w-[60%] lg:w-[80%] border">
                     
                     <thead>
                     <tr>

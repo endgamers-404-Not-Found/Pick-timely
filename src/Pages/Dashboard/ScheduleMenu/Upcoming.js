@@ -6,12 +6,11 @@ import ModalDetails from './ModalDetails';
 import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
-
+    
     // const [schedules, setSchedules] = useState([]);
-    const [meeting, setMeeting] = useState(null);
+    const [meeting, setMeeting] = useState({});
     const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('http://localhost:5000/schedule').then(res => res.json()));
-    console.log(schedules)
-
+    
     if(isLoading){
         return <Spinner></Spinner>
     }
@@ -48,10 +47,10 @@ const Upcoming = () => {
     return (
         <div className='mt-5'>
             <div className='flex gap-5 mt-5 mb-2 justify-between w-[60%] lg:w-[80%]'>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Host</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Host</button>
+                            <select className="select select-bordered">
                                 <option value='All'>All</option>
                                 <option value='Hamid'>Hamid</option>
                                 <option value='Meherab'>Meherab</option>
@@ -59,10 +58,10 @@ const Upcoming = () => {
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Event Type</button>
-                            <select class="select select-bordered">
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Event Type</button>
+                            <select className="select select-bordered">
                                 <option value='All'>All</option>
                                 <option value='Hamid'>Hamid</option>
                                 <option value='Meherab'>Meherab</option>
@@ -71,14 +70,15 @@ const Upcoming = () => {
                         </div>
                     </div>
                 </div>
-            <div class="overflow-x-auto">
-            <table class="table w-[60%] lg:w-[80%] border">
+            <div className="overflow-x-auto">
+            <table className="table w-[60%] lg:w-[80%] border">
                     
                     <thead>
                     <tr>
                         <th></th>
                         <th>Date/Time</th>
                         
+                        <th>email</th>
                         <th>Name</th>
                         <th>Action</th>
                     </tr>
@@ -92,15 +92,16 @@ const Upcoming = () => {
                             <td>{schedule.dateFormat} <br /> {schedule.timeSlot}</td>
                           
                             <td>{schedule.name}</td>
+                            <td>{schedule.email}</td>
                             <td>
                                 <label 
-                                for="my-meeting" 
-                                class="btn btn-sm btn-success"
+                                htmlFor="my-meeting" 
+                                className="btn btn-sm btn-success"
                                 onClick={()=>setMeeting(schedule)}
                                 >see details</label> 
                                 <label 
-                                for="meeting-reschedule" 
-                                class="btn btn-sm btn-info mx-3"
+                                htmlFor="meeting-reschedule" 
+                                className="btn btn-sm btn-info mx-3"
                                 onClick={()=>setMeeting(schedule)}
                                 >reschedule</label> 
                                 <button onClick={()=>handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
@@ -112,7 +113,7 @@ const Upcoming = () => {
                     </tbody>
                 </table>
             {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
-            {meeting && <ScheduleEditModal setMeeting={setMeeting} meeting={meeting}></ScheduleEditModal>}
+            {meeting && <ScheduleEditModal setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
             </div>
         </div>
     );

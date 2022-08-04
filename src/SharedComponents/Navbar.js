@@ -11,7 +11,7 @@ import useAdmin from '../Hooks/useAdmin';
 
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
-    const [user, loading] = useAuthState(auth);
+    const [user] = useAuthState(auth);
     const [admin]=useAdmin(user);
 
 
@@ -28,7 +28,7 @@ function Header() {
                         >
                             Pick-Timely
                         </Link>
-                        <label for="my-drawer-2" tabindex="0" className="btn btn-ghost lg:hidden">
+                        <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
                             <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard> 
                         </label>
                         <button
@@ -83,6 +83,14 @@ function Header() {
                                     to="/solutions"
                                 >
                                     <span className="ml-2">Solutions</span>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/ourTeam"
+                                >
+                                    <span className="ml-2">Our Team</span>
                                 </Link>
                             </li>
 

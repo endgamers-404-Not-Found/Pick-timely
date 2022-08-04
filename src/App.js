@@ -14,6 +14,7 @@ import ScheduleList from './Pages/Dashboard/ScheduleList';
 import CreateEvent from './Pages/Dashboard/ScheduleMenu/CreateEvent';
 import EventSchedule from './Pages/Dashboard/ScheduleMenu/EventSchedule';
 import FindSchedule from './Pages/Dashboard/ScheduleMenu/FindSchedule';
+import HostList from './Pages/Dashboard/ScheduleMenu/HostList';
 import PastSchedule from './Pages/Dashboard/ScheduleMenu/PastSchedule';
 import Upcoming from './Pages/Dashboard/ScheduleMenu/Upcoming';
 import UpdateProfile from './Pages/Dashboard/UpdateProfile';
@@ -29,6 +30,7 @@ import Payment from './Pages/Payment/Payment';
 import Features from './Pages/Pricing/Features/Features';
 import Pricing from './Pages/Pricing/Pricing';
 import Solutions from './Pages/Solutions/Solutions';
+import OurTeam from './redux-compo/OurTeam';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
@@ -45,6 +47,7 @@ function App() {
         <Route path='/pricing' element={<Packages></Packages>}></Route>
         <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
+        <Route path='/ourTeam' element={<OurTeam></OurTeam>}></Route>
 
 
         <Route path='/' element={<Home></Home>}>
@@ -61,6 +64,7 @@ function App() {
           <Route index element={<Profile></Profile>}></Route>
           <Route path='updateProfile' element={<UpdateProfile />}></Route>
           <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
+          <Route path='hostList' element={<HostList></HostList>}></Route>
           <Route path='arrangemeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
           <Route path='users' element={<AllUser></AllUser>}></Route>
           <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
