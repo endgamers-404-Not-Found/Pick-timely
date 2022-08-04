@@ -5,6 +5,7 @@ import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 import { toast, ToastContainer } from 'react-toastify';
 import { ImCross } from 'react-icons/im';
+import useToken from '../../Hooks/UseToken';
 
 function Login() {
     const [show, setShow] = useState(false);
@@ -31,11 +32,15 @@ function Login() {
         passwordError: ""
     })
 
-    useEffect(()=>{
-        if(user || gUser){
-            navigate('/')
+    const [token]=useToken(   user || gUser)
+    console.log(token)
+
+    useEffect(() => {
+        if (token) {
+            navigate(from);
         }
-     },[user,gUser,navigate]);
+    }, [token,from,navigate])
+
 
     const handleEmailField = e => {
         const emailInput = e.target.value;
@@ -92,7 +97,8 @@ function Login() {
             fetch('http://localhost:5000/addUser', {
                 method: "POST",
                 headers: {
-                    "content-type": "application/json"
+                    "content-type": "application/json",
+                    'authorization': `Bearer ${localStorage.getItem('accessToken')}`
                 },
                 body: JSON.stringify({ name, email })
             })
