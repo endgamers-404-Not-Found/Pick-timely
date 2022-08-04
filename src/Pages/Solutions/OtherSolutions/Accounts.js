@@ -39,7 +39,7 @@ const Accounts = () => {
        
         <div class="w-full p-20">
             <div className='w-[100%] lg:w-[50%] mx-auto'>
-                <h1 class="lg:text-5xl text-2xl font-bold text-center p-10">Appointment scheduler for accounting professionals</h1>
+                <h1 class="lg:text-5xl text-2xl font-bold text-center py-10">Appointment scheduler for accounting professionals</h1>
             </div>
             <div className='flex flex-wrap justify-center gap-10'>
                 {

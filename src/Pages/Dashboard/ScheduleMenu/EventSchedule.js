@@ -25,7 +25,7 @@ const EventSchedule = () => {
 
     return (
         <div className='p-10 border'>
-            <div className='flex justify-start gap-10 mt-5'>
+            <div className='flex justify-start gap-10 mt-5 flex-col lg:flex-row'>
                 <h1 className='text-3xl font-bold'>PickTimely</h1>
                 <Link to='/dashboard/createEvent' className='btn btn-success'>+ Create Event Type</Link>
             </div>

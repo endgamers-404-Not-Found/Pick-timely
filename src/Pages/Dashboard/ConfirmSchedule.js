@@ -37,7 +37,7 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
 
     return (
 
-        <div className='w-[100%] mx-auto border p-3'>
+        <div className='mx-auto border p-3'>
     
             <h1 className='text-xl font-bold mt-5'>Please enter interviewer details</h1>
             <h1>Date: {dateFormat}</h1>
@@ -56,7 +56,6 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
                             <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
                             <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
                             <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
-                          
                         </select>
              
                     </div>
@@ -68,22 +67,26 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
                         </label>
                         <input type="text" name='name' placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                     </div>
+
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
                             <span class="label-text">Email</span>
                         </label>
                         <input type="email" name='email' placeholder="Type here" class="input input-bordered w-full max-w-xs" />
                     </div>
+
                     <div class="form-control w-full max-w-xs">
                         <label class="label">
                             <span class="label-text">Description</span>
                         </label>
                         <textarea name='description' class="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                     </div>
+
                     <div className='flex gap-2 mt-2'>
                         <button className='btn btn-sm btn-dark'>Google meet link</button>
                         <button className='btn btn-sm btn-dark'>Zoom link</button>
                     </div>
+
                     <div className='mt-5'>
                         <button type='submit' className='btn btn-dark w-full'>Confirm Schedule</button>
                     </div>

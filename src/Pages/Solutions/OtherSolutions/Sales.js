@@ -31,13 +31,13 @@ const Sales = () => {
 
     return (
         <div>
-            <div class="hero bg-blue-900 p-20">
-                <div class="hero-content text-center">
+            <div class="hero bg-blue-900 p-20 ">
+                <div class="hero-content text-center ">
                     <div class="w-full">
-                        <h1 class="lg:text-5xl text-3xl font-bold w-full mx-auto mb-10 text-white">In sales and in scheduling, you've got to be well-connected.</h1>
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5'>
+                        <h1 class="lg:text-5xl text-3xl font-bold mb-10 text-white">In sales and in scheduling, you've got to be well-connected.</h1>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5 mx-20'>
                             {
-                                sales.map(sale => <div class="card w-96 bg-base-100 shadow-xl">
+                                sales.map(sale => <div class="card w-80 bg-base-100 shadow-xl">
                                 <div class="card-body">
                                     <img src={sale.img} className='w-40 mx-auto' alt="" />
                                     <h2 class="text-center text-3xl font-bold">{sale.title}</h2>
@@ -49,7 +49,6 @@ const Sales = () => {
                                 </div>
                             </div>)
                             }
-                            
                         </div>
                     </div>
                 </div>
