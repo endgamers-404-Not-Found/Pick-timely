@@ -31,6 +31,8 @@ import RequireAuth from './SharedComponents/RequireAuth';
 import Features from './Pages/Pricing/Features/Features';
 import Pricing from './Pages/Pricing/Pricing';
 import UpdateProfile from './Pages/Dashboard/UpdateProfile';
+import Feature from './Pages/Features/Feature';
+import AppointmentScheduling from './Pages/Home/AppointmentScheduling/AppointmentScheduling';
 
 function App() {
   return (
@@ -47,6 +49,13 @@ function App() {
 
 
         <Route path='/' element={<Home></Home>}>
+          <Route index element={<Productive></Productive>}></Route>
+          <Route path='productive' element={<Productive></Productive>}></Route>
+          <Route path='professional' element={<Professional></Professional>}></Route>
+          <Route path='painless' element={<Painless></Painless>}></Route>
+        </Route>
+
+        <Route path='/features' element={<AppointmentScheduling></AppointmentScheduling>}>
           <Route index element={<Productive></Productive>}></Route>
           <Route path='productive' element={<Productive></Productive>}></Route>
           <Route path='professional' element={<Professional></Professional>}></Route>
@@ -73,7 +82,7 @@ function App() {
         </Route>
 
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-        <Route path='/features' element={<Features></Features>}></Route>
+        
         <Route path='/customers' element={<Customers></Customers>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
