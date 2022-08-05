@@ -1,8 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import auth from '../../../firebase.init';
-import SharedButton from '../../../SharedComponents/SharedButton';
 import Swal from 'sweetalert2';
+import auth from '../../../firebase.init';
 
 const AddReview = () => {
     const [user] = useAuthState(auth)
@@ -38,11 +37,11 @@ const AddReview = () => {
 
             <div className='flex justify-center'>
                 <div className="mt-8  stack">
-                    <div class="card shadow bg-[#F1ECFF] text-primary-content">
-                        <div class="card-body">
+                    <div className="card shadow bg-[#F1ECFF] text-primary-content">
+                        <div className="card-body">
                             <form onSubmit={handleFeedback}>
-                                <textarea name='feedback' class="text-gray-700 textarea textarea-primary w-96" placeholder="Please add your feedback here"></textarea><br />
-                                <input name='rating' type="text" placeholder="Rate us (out of 5)" class="input text-gray-700 input-bordered input-sm w-96" /><br /><br />
+                                <textarea name='feedback' className="text-gray-700 textarea textarea-primary w-96" placeholder="Please add your feedback here"></textarea><br />
+                                <input name='rating' type="text" placeholder="Rate us (out of 5)" className="input text-gray-700 input-bordered input-sm w-96" /><br /><br />
                                 <input className='w-full btn-sm btn btn-primary btn-outline' type="submit" value="Add Feedback" />
                             </form>
                         </div>

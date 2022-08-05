@@ -1,12 +1,12 @@
 import React from 'react';
-import Rating from 'react-rating';
 import { AiFillStar } from 'react-icons/ai';
+import Rating from 'react-rating';
 
 const Review = ({review}) => {
     
     return (
-        <div class="card card-side bg-neutral text-neutral-content shadow-xl">
-            <div class="card-body text-center">
+        <div className="card card-side bg-neutral text-neutral-content shadow-xl">
+            <div className="card-body text-center">
                 <p className=''>{review?.feedback}</p>
                 <Rating
                         initialRating={review.rating}

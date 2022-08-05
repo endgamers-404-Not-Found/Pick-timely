@@ -37,19 +37,19 @@ const Accounts = () => {
 
     return (
        
-        <div class="w-full p-20">
+        <div className="w-full p-20">
             <div className='w-[100%] lg:w-[50%] mx-auto'>
-                <h1 class="lg:text-5xl text-2xl font-bold text-center p-10">Appointment scheduler for accounting professionals</h1>
+                <h1 className="lg:text-5xl text-2xl font-bold text-center p-10">Appointment scheduler for accounting professionals</h1>
             </div>
             <div className='flex flex-wrap justify-center gap-10'>
                 {
-                    accounts.map(account => <div class="w-[100%] lg:w-[50%] bg-base-100 shadow-xl">
+                    accounts.map(account => <div className="w-[100%] lg:w-[50%] bg-base-100 shadow-xl">
                     
                         <img src={account.img} className='rounded-md' alt="" />
-                        <h2 class="text-center text-3xl font-bold">{account.title}</h2>
+                        <h2 className="text-center text-3xl font-bold">{account.title}</h2>
                         <p>{account.description}</p>
-                        <div class="card-actions justify-center">
-                            <button class="btn btn-primary">see details</button>
+                        <div className="card-actions justify-center">
+                            <button className="btn btn-primary">see details</button>
                         
                         </div>
                     
