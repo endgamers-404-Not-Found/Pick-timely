@@ -10,12 +10,12 @@ const EventSchedule = () => {
 
     useEffect(()=>{
         const meetingData = async () =>{
-            const res = await fetch('https://pick-timely.herokuapp.com/hoster');
+            const res = await fetch(`http://localhost:5000/hoster?user=${user?.email}`);
             const data = await res.json();
             setHosts(data);
         }
         meetingData();
-    }, []);
+    }, [user]);
 
     const handleHost = (id) =>{
         navigate(`${id}`)
@@ -29,16 +29,16 @@ const EventSchedule = () => {
                 <h1 className='text-3xl font-bold'>PickTimely</h1>
                 <Link to='/dashboard/createEvent' className='btn btn-success'>+ Create Event Type</Link>
             </div>
-                <div class="divider"></div> 
+                <div className="divider"></div> 
 
             <div className='mt-10 mb-5'>
-                <div class="form-control">
-                    <div class="input-group">
-                        <button class="btn">Host Filter</button>
-                        <select class="select select-bordered">
-                        <option disabled selected>All</option>
-                        <option>Sujon</option>
-                        <option>Hamid</option>
+                <div className="form-control">
+                    <div className="input-group">
+                        <button className="btn">Host Filter</button>
+                        <select className="select select-bordered">
+                            <option value='All'>All</option>
+                            <option value='Hamid'>Hamid</option>
+                            <option value='Meherab'>Meherab</option>
                         </select>
                     </div>
                 </div>
@@ -46,15 +46,15 @@ const EventSchedule = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
-                    hosts?.map(host => <div host={host} key={host._id} class="card bg-base-100 shadow-xl">
+                    hosts?.map(host => <div host={host} key={host._id} className="card bg-base-100 shadow-xl">
                     <img className='w-40 mx-auto rounded-full' src={host.img} alt='' />
                     <h1 className='text-xl font-bold text-center'>Host</h1>
                     <h1 className='text-2xl font-bold text-center'>{user?.displayName}</h1>
-                    <div class="card-body">
-                        <h2 class="card-title">{host.duration}</h2>
+                    <div className="card-body">
+                        <h2 className="card-title">{host.duration}</h2>
                         <p>{host.eventType}</p>
-                        <div class="card-actions justify-center">
-                        <button onClick={()=>handleHost(host._id)} class="btn btn-primary">view page</button>
+                        <div className="card-actions justify-center">
+                        <button onClick={()=>handleHost(host._id)} className="btn btn-primary">view page</button>
                         </div>
                     </div>
                 </div>)

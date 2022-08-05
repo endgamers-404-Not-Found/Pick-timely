@@ -1,5 +1,5 @@
+import { format } from 'date-fns';
 import React from 'react';
-import { format, isToday } from 'date-fns';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 const Calender = () => {
@@ -11,8 +11,8 @@ const Calender = () => {
     }
     
     return (
-        <div class="hero h-100vh bg-base-200">
-        <div class="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero h-100vh bg-base-200">
+        <div className="hero-content flex-col lg:flex-row-reverse">
           
             <div>
                 <DayPicker
@@ -26,7 +26,7 @@ const Calender = () => {
                   
                 />
                 <div className='ml-60 -mt-12'>
-                <button class="btn btn-outline btn-primary text-center">Next</button>
+                <button className="btn btn-outline btn-primary text-center">Next</button>
                 </div>
                 
             </div>
