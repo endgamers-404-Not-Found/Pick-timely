@@ -7,23 +7,12 @@ import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
     
-    // const [schedules, setSchedules] = useState([]);
     const [meeting, setMeeting] = useState({});
     const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('http://localhost:5000/schedule').then(res => res.json()));
     
     if(isLoading){
         return <Spinner></Spinner>
     }
-
-    // useEffect(()=>{
-    //     const meetingData = async() =>{
-    //         const res = await fetch('http://localhost:5000/schedule');
-    //         const data = await res.json();
-    //         setSchedules(data);
-    //     }
-    //     meetingData();
-    // }, []);
-     
 
     const handleDeleteSchedule = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');

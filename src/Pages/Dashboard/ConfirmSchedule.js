@@ -40,7 +40,7 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
         .then(res => res.json())
         .then(data => {
             console.log('data inserted successfully', data);
-            navigate('/eventschedule');
+            navigate('/dashboard/eventschedule');
             toast('Schedule make for interview');
         
         })
