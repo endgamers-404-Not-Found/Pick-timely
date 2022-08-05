@@ -5,7 +5,7 @@ const useAdmin = user => {
     useEffect( () =>{
         const email = user?.user?.email;
         if(email){
-            fetch(`http://localhost:5000/admin/${email}`, {
+            fetch(`https://pick-timely.herokuapp.com/admin/${email}`, {
                 method:'GET'
             })
             .then(res=>res.json())

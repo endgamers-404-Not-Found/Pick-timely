@@ -7,7 +7,7 @@ const Customers = () => {
     console.log(customers);
 
     useEffect(() => {
-        const url = `http://localhost:5000/customers`;
+        const url = `https://pick-timely.herokuapp.com/customers`;
         fetch(url)
             .then(res => res.json())
             .then(result => setCustomer(result))
@@ -58,7 +58,7 @@ const Customers = () => {
                             <div>
                                 <span class="text-blue-500 font-bold hover:underline">{index + 1}</span>
                             </div>
-                            <div class="text-gray-500">{customer.address}</div>
+                           ;5U <div class="text-gray-500">{customer.address}</div>
                             <div>
                                 <span
                                     class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">{customer.role}</span>

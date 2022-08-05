@@ -9,7 +9,7 @@ const Upcoming = () => {
     
     // const [schedules, setSchedules] = useState([]);
     const [meeting, setMeeting] = useState({});
-    const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('http://localhost:5000/schedule').then(res => res.json()));
+    const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('https://pick-timely.herokuapp.com/schedule').then(res => res.json()));
     
     if(isLoading){
         return <Spinner></Spinner>
@@ -17,7 +17,7 @@ const Upcoming = () => {
 
     // useEffect(()=>{
     //     const meetingData = async() =>{
-    //         const res = await fetch('http://localhost:5000/schedule');
+    //         const res = await fetch('https://pick-timely.herokuapp.com/schedule');
     //         const data = await res.json();
     //         setSchedules(data);
     //     }
@@ -28,7 +28,7 @@ const Upcoming = () => {
     const handleDeleteSchedule = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
         if(confirmDelete){
-          fetch(`http://localhost:5000/schedule/${id}`, {
+          fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
           method: "DELETE",
           headers:{
             'content-type' : 'application/json',
