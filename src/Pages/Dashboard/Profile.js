@@ -17,7 +17,7 @@ const Profile = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/profile/${user?.email}`)
+        fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data)
@@ -29,7 +29,6 @@ const Profile = () => {
         return <Spinner></Spinner>
     }
   
-    console.log(profile);
 
    return(
         <div className="hero min-h-screen bg-base-200">
@@ -47,7 +46,6 @@ const Profile = () => {
                             <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
 
                             <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
-
                         </div>
                     </div>
                 </div>

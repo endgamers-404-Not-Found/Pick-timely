@@ -29,6 +29,7 @@ import SignUp from './Pages/Login/SignUp';
 import Payment from './Pages/Payment/Payment';
 import Features from './Pages/Pricing/Features/Features';
 import Pricing from './Pages/Pricing/Pricing';
+import AppointmentScheduling from './Pages/Home/AppointmentScheduling/AppointmentScheduling';
 import Solutions from './Pages/Solutions/Solutions';
 import OurTeam from './redux-compo/OurTeam';
 import Footer from './SharedComponents/Footer';
@@ -57,6 +58,13 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
+        <Route path='/features' element={<AppointmentScheduling></AppointmentScheduling>}>
+          <Route index element={<Productive></Productive>}></Route>
+          <Route path='productive' element={<Productive></Productive>}></Route>
+          <Route path='professional' element={<Professional></Professional>}></Route>
+          <Route path='painless' element={<Painless></Painless>}></Route>
+        </Route>
+
 
 
 
@@ -79,7 +87,7 @@ function App() {
         </Route>
 
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-        <Route path='/features' element={<Features></Features>}></Route>
+        
         <Route path='/customers' element={<Customers></Customers>}></Route>
         <Route path='/addreview' element={<AddReview></AddReview>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>

@@ -4,7 +4,7 @@ import AllUserRow from './AllUserRow';
 const AllUser = () => {
     const [users,setUsers]=useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allUser`)
+        fetch(`https://pick-timely.herokuapp.com/allUser`)
             .then(res => res.json())
             .then(data => {
                 setUsers(data)

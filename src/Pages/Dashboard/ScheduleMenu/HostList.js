@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Spinner from '../../../SharedComponents/Spinner';
 
 const HostList = () => {
     const [hosts, setHosts] = useState([]);
@@ -10,7 +11,7 @@ const HostList = () => {
 
     useEffect(()=>{
         const meetingData = async () =>{
-            const res = await fetch(`http://localhost:5000/hoster/${user?.email}`);
+            const res = await fetch(`https://pick-timely.herokuapp.com/hoster`);
             const data = await res.json();
             setHosts(data);
         }
@@ -18,11 +19,15 @@ const HostList = () => {
     }, [user]);
 
    const handleHost =() =>{
-        navigate('/')
+        // navigate('/')
     }
 
     const handleDelete = () => {
         console.log('delete')
+    }
+ 
+    if(!hosts){
+        return <Spinner></Spinner>
     }
 
     return (
@@ -42,7 +47,7 @@ const HostList = () => {
                     </thead>
                     <tbody>
                     {
-                        hosts.map((host, index) =>  <tr key={host._id} index={index} host={host}>
+                        hosts?.map((host, index) =>  <tr key={host._id} index={index} host={host}>
                             <th>{index + 1}</th>
                             <td>{host.hoster}</td>
                             <td>{host.email}</td>

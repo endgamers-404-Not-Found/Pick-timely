@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import auth from "../firebase.init";
 import useAdmin from '../Hooks/useAdmin';
 
@@ -14,6 +14,7 @@ function Header() {
     const [user] = useAuthState(auth);
     const [admin]=useAdmin(user);
 
+    const { pathname } = useLocation();
 
 
     return (
@@ -30,7 +31,9 @@ function Header() {
                         </Link>
                         <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
                             <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard> 
-                        </label>
+                        </label> 
+
+
                         <button
                             className="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-red-200 block lg:hidden outline-none focus:outline-none"
                             type="button"
@@ -52,6 +55,7 @@ function Header() {
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                                     to="/"
+                                    onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
                                     <span className="ml-2">Home</span>
                                 </Link>
@@ -60,6 +64,7 @@ function Header() {
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                                     to="/features"
+                                    onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
                                     <span className="ml-2">Features</span>
                                 </Link>
@@ -70,6 +75,7 @@ function Header() {
                                     <Link
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                                         to="/dashboard"
+                                        onClick={() => setNavbarOpen(!navbarOpen)}
                                     >
                                         <span className="ml-2">Dashboard</span>
                                     </Link>
@@ -81,6 +87,7 @@ function Header() {
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                                     to="/solutions"
+                                    onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
                                     <span className="ml-2">Solutions</span>
                                 </Link>
@@ -110,6 +117,7 @@ function Header() {
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                                     to="/pricing"
+                                    onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
                                     <span className="ml-2">Pricing</span>
                                 </Link>
@@ -121,6 +129,7 @@ function Header() {
                                     <Link
                                         className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
                                         to="/signIn"
+                                        onClick={() => setNavbarOpen(!navbarOpen)}
                                     >
                                         <span className="ml-2">Sign In</span>
                                     </Link>
