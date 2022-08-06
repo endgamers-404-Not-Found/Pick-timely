@@ -12,6 +12,15 @@ const AllUserRow = ({ user, index }) => {
                 console.log('Make admin ', data);
             })
     }
+    const removeAdmin = ()=>{
+        fetch(`http://localhost:5000/admin/${email}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log( data);
+            })
+    }
     return (
         <tr>
             <th>{index + 1}</th>
@@ -21,9 +30,9 @@ const AllUserRow = ({ user, index }) => {
             {
                 role === 'admin'
                 ?
-                <p className='font-bold'>Already Admin</p>
+                <button onClick={removeAdmin} className="btn btn-sm ">Remove Admin</button>
                 :
-                <button onClick={handleMakeAdmin} className="btn btn-sm">Make Admin</button>
+                <button onClick={handleMakeAdmin} className="btn btn-sm btn-primary">Make Admin</button>
             }
             </td>
         </tr>

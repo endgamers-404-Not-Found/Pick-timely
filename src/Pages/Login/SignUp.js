@@ -85,12 +85,12 @@ function SignUp() {
         const email = userData.email;
         const password = userData.password;
         await createUserWithEmailAndPassword(email,password);
-        fetch('https://pick-timely.herokuapp.com/addUser', {
+        fetch('http://localhost:5000/addUser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify({ name, email })
+            body: JSON.stringify({ name, email,status:"free" })
         })
             .then(res => res.json())
             .then(data => {
@@ -100,22 +100,22 @@ function SignUp() {
     }
     const googleSignIn = async () => {
         await signInWithGoogle()
-        if(gUser){
-            const name = gUser.user.displayName;
-            const email = gUser.user.email;
-            fetch('https://pick-timely.herokuapp.com/addUser', {
+        
+            const name = gUser?.user.displayName;
+            const email = gUser?.user.email;
+            fetch('http://localhost:5000/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
                 },
-                body: JSON.stringify({ name, email })
+                body: JSON.stringify({ name, email,status:"free" })
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
                     data.acknowledged && navigate(from, { replace: true });
                 })
-        }
+        
     }
 
     return (

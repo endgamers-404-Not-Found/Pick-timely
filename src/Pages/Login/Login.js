@@ -86,10 +86,11 @@ function Login() {
     
     const googleSignIn = async () => {
         await signInWithGoogle()
-        if(gUser){
-            const name = gUser.user.displayName;
-            const email = gUser.user.email;
-            fetch('https://pick-timely.herokuapp.com/addUser', {
+        
+            const name = gUser?.user.displayName;
+            const email = gUser?.user.email;
+            console.log(name,email)
+            await fetch('http://localhost:5000/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -101,7 +102,7 @@ function Login() {
                     console.log(data);
                     data.acknowledged && navigate(from, { replace: true });
                 })
-        }
+        
     }
     
     
