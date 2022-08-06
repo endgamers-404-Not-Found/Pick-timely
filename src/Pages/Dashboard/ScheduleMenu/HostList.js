@@ -19,7 +19,7 @@ const HostList = () => {
     const handleDeleteHoster = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
         if(confirmDelete){
-          fetch(`http://localhost:5000/schedule/${id}`, {
+          fetch(`http://localhost:5000/hoster/${id}`, {
           method: "DELETE",
           headers:{
             'content-type' : 'application/json',
@@ -28,7 +28,7 @@ const HostList = () => {
           .then((res) => res.json())
           .then((result) => {
             if (result.deletedCount) {
-              toast(`Schedule is deleted`);
+              toast(`Hoster is deleted`);
               refetch();
             }
           });
@@ -56,16 +56,16 @@ const HostList = () => {
                             <td>{user?.email}</td>
                             <td>
                             <label 
-                                htmlFor="my-meeting" 
+                                htmlFor="my-hosting" 
                                 className="btn btn-sm btn-success"
                                 onClick={()=>setHosting(host)}
                                 >see details</label> 
                                 <label 
-                                htmlFor="meeting-reschedule" 
+                                htmlFor="meeting-host" 
                                 className="btn btn-sm btn-info mx-3"
                                 onClick={()=>setHosting(host)}
                                 >Edit</label> 
-                                <button onClick={handleDeleteHoster} className='btn btn-xs'>Delete</button>
+                                <button onClick={()=>handleDeleteHoster(host._id)} className='btn btn-sm'>Delete</button>
                             </td>
                         </tr> )
                     }
