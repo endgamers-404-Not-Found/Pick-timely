@@ -14,10 +14,23 @@ const UpdateProfile = () => {
     if (loading) {
         return <Spinner></Spinner>
     }
-
+   const imageStorageKey='6638c031935084021c384c8456c8880c'
 
     const handleProfileSubmit = (e) => {
         e.preventDefault();
+        const image = e.target.url.value;
+        console.log(image);
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res=>res.json())
+        .then(result =>{
+            console.log(result)
+        })
 
         const profileInfo = {
             name: user.displayName,
@@ -26,28 +39,28 @@ const UpdateProfile = () => {
             address: e.target.address.value,
             phone: e.target.phone.value
         }
-        console.log(profileInfo);
+        // console.log(profileInfo);
 
-        fetch(`http://localhost:5000/update/${user.email}`, {
-            method: 'PUT',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(profileInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.success) {
-                    toast("Your profile is added")
-                    if(data.result.acknowledged){
-                        navigate("/dashboard")
-                    }
-                }
-                else {
-                    toast.error("It seems their something wrong");
-                }
-            })
+        // fetch(`http://localhost:5000/update/${user.email}`, {
+        //     method: 'PUT',
+        //     headers: {
+        //         "content-type": "application/json"
+        //     },
+        //     body: JSON.stringify(profileInfo)
+        // })
+        //     .then(res => res.json())
+        //     .then(data => {
+        //         console.log(data)
+        //         if (data.success) {
+        //             toast("Your profile is added")
+        //             if(data.result.acknowledged){
+        //                 navigate("/dashboard")
+        //             }
+        //         }
+        //         else {
+        //             toast.error("It seems their something wrong");
+        //         }
+        //     })
     }
 
     return (
@@ -64,16 +77,14 @@ const UpdateProfile = () => {
                     <div class="form-control">
                         <input type="text" name="address" placeholder="Address" class="input input-bordered" />
                     </div>
-                    <label class="label mb-[-10px]">
-                        <span class="label-text">Profile URl</span>
-                    </label>
+                    <input name='url' type="file" />
 
 
 
 
-                    <div class="form-control">
+                    {/* <div class="form-control">
                         <input type="text" placeholder="Profile Url" name="url" class="input input-bordered" />
-                    </div>
+                    </div> */}
                     
                     <div class="form-control mt-6">
                         <input class="btn btn-primary" type="submit" value="submit" />
