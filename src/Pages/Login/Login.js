@@ -94,7 +94,7 @@ function Login() {
         if(gUser){
             const name = gUser.user.displayName;
             const email = gUser.user.email;
-            fetch('http://localhost:5000/addUser', {
+            fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json",

@@ -1,5 +1,5 @@
-import React from 'react';
 import { format } from 'date-fns';
+import React from 'react';
 import { DayPicker } from 'react-day-picker';
 import 'react-day-picker/dist/style.css';
 const Calender = () => {
@@ -7,12 +7,12 @@ const Calender = () => {
 
     let footer = <p>Please pick a day.</p>;
     if (selected) {
-        footer = <p>You picked {format(selected, 'PP')}.</p>;
+        footer = <p>You picked {format(selected,"pp")}.</p>;
     }
     
     return (
-        <div class="hero h-100vh bg-base-200">
-        <div class="hero-content flex-col lg:flex-row-reverse">
+        <div className="hero h-100vh bg-base-200">
+        <div className="hero-content flex-col lg:flex-row-reverse">
           
             <div>
                 <DayPicker
@@ -25,7 +25,9 @@ const Calender = () => {
                     footer={footer}
                   
                 />
-               
+                <div className='ml-60 -mt-12'>
+                <button className="btn btn-outline btn-primary text-center">Next</button>
+                </div>
                 
             </div>
         </div>

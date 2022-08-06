@@ -10,7 +10,7 @@ function Payment() {
     const [bundle, setBundle] = useState('');
 
     useEffect(() => {
-        fetch(`http://localhost:5000/package/${id}`)
+        fetch(`https://pick-timely.herokuapp.com/package/${id}`)
             .then(res => res.json())
             .then(data => setBundle(data))
     }, [id])
@@ -39,9 +39,9 @@ function Payment() {
             </div>
             {/* payment here */}
             <div>
-                <div class="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96 bg-base-100 shadow-xl">
 
-                    <div class="card-body">
+                    <div className="card-body">
                         <Elements stripe={stripePromise}>
                             <CheckoutForm bundle={bundle} />
                         </Elements>

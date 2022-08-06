@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import profile from '../../assets/profile.png'
-import auth from '../../firebase.init';
-import { HiOfficeBuilding } from 'react-icons/hi';
 import { AiFillPhone } from 'react-icons/ai';
-import { MdEmail } from 'react-icons/md';
+import { HiOfficeBuilding } from 'react-icons/hi';
 import { ImLocation2 } from 'react-icons/im';
-import Spinner from '../../SharedComponents/Spinner';
-import 'react-toastify/dist/ReactToastify.css';
+import { MdEmail } from 'react-icons/md';
 import { Link } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import auth from '../../firebase.init';
+import Spinner from '../../SharedComponents/Spinner';
 
 
 const Profile = () => {
@@ -18,7 +17,7 @@ const Profile = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/profile/${user?.email}`)
+        fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data)
@@ -30,25 +29,23 @@ const Profile = () => {
         return <Spinner></Spinner>
     }
   
-    console.log(profile);
 
    return(
-        <div class="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen bg-base-200">
            <div>
-                <div class="text-center lg:text-left mx-16 sm:order-1 ">
-                    <div class="card w-96 bg-base-100 ">
-                        <figure class="px-28 py-5 bg-sky-700">
-                            <img  src={profile?.photo} alt="profile" class="mask mask-circle" />
+                <div className="text-center lg:text-left mx-16 sm:order-1 ">
+                    <div className="card w-96 bg-base-100 ">
+                        <figure className="px-28 py-5 bg-sky-700">
+                            <img  src={profile?.photo} alt="profile" className="mask mask-circle" />
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
-                        <div class="card-body pl-20">
+                        <div className="card-body pl-20">
                             <span className=''><MdEmail className='inline-block mr-1'></MdEmail> Email: {user?.email}</span>
                             <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
                             <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
                             <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
 
                             <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
-
                         </div>
                     </div>
                 </div>

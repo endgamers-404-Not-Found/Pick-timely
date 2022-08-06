@@ -4,7 +4,7 @@ import AllUserRow from './AllUserRow';
 const AllUser = () => {
     const [users,setUsers]=useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/allUser`)
+        fetch(`https://pick-timely.herokuapp.com/allUser`)
             .then(res => res.json())
             .then(data => {
                 setUsers(data)
@@ -12,8 +12,8 @@ const AllUser = () => {
     }, [users])
     return (
         <div className='mt-5'>
-            <div class="overflow-x-auto">
-                <table class="table table-zebra w-full">
+            <div className="overflow-x-auto">
+                <table className="table table-zebra w-full">
                     <thead>
                         <tr>
                             <th>ID</th>

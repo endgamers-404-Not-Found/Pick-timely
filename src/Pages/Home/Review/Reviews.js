@@ -1,12 +1,12 @@
+import axios from 'axios';
+import Carousel from "nuka-carousel";
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Review from './Review';
-import Carousel from "nuka-carousel";
-import axios from 'axios';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
-    const url = `http://localhost:5000/review`;
+    const url = `https://pick-timely.herokuapp.com/review`;
     useEffect(() => {
         const allReview = async () => {
             const { data } = await axios.get(url, {
@@ -19,24 +19,24 @@ const Reviews = () => {
     return (
         <div className='my-12'>
             <h1 className='text-center text-5xl font-bold mb-3'>What Our Client Says</h1>
-            <div class="avatar-group -space-x-6 flex justify-center">
-                <div class="avatar">
-                    <div class="w-12">
+            <div className="avatar-group -space-x-6 flex justify-center">
+                <div className="avatar">
+                    <div className="w-12">
                         <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                 </div>
-                <div class="avatar">
-                    <div class="w-12">
+                <div className="avatar">
+                    <div className="w-12">
                         <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                 </div>
-                <div class="avatar">
-                    <div class="w-12">
+                <div className="avatar">
+                    <div className="w-12">
                         <img alt='' src="https://placeimg.com/192/192/people" />
                     </div>
                 </div>
-                <div class="avatar placeholder">
-                    <div class="w-12 bg-neutral-focus text-neutral-content">
+                <div className="avatar placeholder">
+                    <div className="w-12 bg-neutral-focus text-neutral-content">
                         <span>+99</span>
                     </div>
                 </div>

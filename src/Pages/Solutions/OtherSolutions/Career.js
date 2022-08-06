@@ -32,21 +32,21 @@ const Career = () => {
  
     return (
         <div className='flex justify-center items-center p-20'>
-            <div class="w-full">
+            <div className="w-full">
                 <div className='w-[100%] lg:w-[50%] mx-auto'>
-                    <h1 class="lg:text-5xl font-bold mt-10 text-center text-2xl">A great scheduler should fulfill your customers' expectations</h1>
+                    <h1 className="lg:text-5xl font-bold mt-10 text-center text-2xl">A great scheduler should fulfill your customers' expectations</h1>
                     <p className='text-center'>Just like a great consultation session.</p>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 justify-center gap-10 mt-20'>
                     {
                         accounts.map(account => (
-                        <div class="card bg-base-100 shadow-xl">
-                            <div class="card-body">
+                        <div className="card bg-base-100 shadow-xl">
+                            <div className="card-body">
                                 <img src={account.img} className='w-96 mx-auto rounded-md' alt="" />
-                                <h2 class="text-center text-3xl font-bold">{account.title}</h2>
+                                <h2 className="text-center text-3xl font-bold">{account.title}</h2>
                                 <p>{account.description}</p>
-                                <div class="card-actions justify-center">
-                                    <button class="btn btn-primary">see details</button>
+                                <div className="card-actions justify-center">
+                                    <button className="btn btn-primary">see details</button>
                                 
                                 </div>
                             </div>
