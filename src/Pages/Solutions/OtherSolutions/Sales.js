@@ -37,7 +37,7 @@ const Sales = () => {
                         <h1 className="lg:text-5xl text-3xl font-bold w-full mx-auto mb-10 text-white">In sales and in scheduling, you've got to be well-connected.</h1>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 place-items-center gap-5'>
                             {
-                                sales.map(sale => <div className="card w-96 bg-base-100 shadow-xl">
+                                sales.map(sale => <div className="card w-94  bg-base-100 shadow-xl">
                                 <div className="card-body">
                                     <img src={sale.img} className='w-40 mx-auto' alt="" />
                                     <h2 className="text-center text-3xl font-bold">{sale.title}</h2>

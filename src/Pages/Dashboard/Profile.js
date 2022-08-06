@@ -33,8 +33,8 @@ const Profile = () => {
     return (
         <div className="hero min-h-screen bg-base-200">
             <div>
-                <div className="text-center lg:text-left mx-16 sm:order-1 ">
-                    <div className="card w-96 bg-base-100 ">
+                <div className="text-center lg:text-left  sm:order-1 ">
+                    <div className="card w-94 bg-base-100 ">
                         <figure className="px-28 py-5 bg-sky-700">
                             <img src={profile?.photo} alt="profile" className="mask mask-circle" />
                         </figure>

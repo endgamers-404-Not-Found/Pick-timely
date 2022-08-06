@@ -55,7 +55,7 @@ const Recruitment = () => {
                         <h1 className="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
                             {
-                                recruitments.map(recruitment => <div className="card w-96 bg-base-100 shadow-xl">
+                                recruitments.map(recruitment => <div className="card w-94 bg-base-100 shadow-xl">
                                 <div className="card-body">
                                     <img src={recruitment.img} className='w-24 mx-auto' alt="" />
                                     <h2 className="text-center text-3xl font-bold">{recruitment.title}</h2>
