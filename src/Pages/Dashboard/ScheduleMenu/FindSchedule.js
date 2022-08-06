@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import Spinner from '../../../SharedComponents/Spinner';
 import ModalDetails from './ModalDetails';
 
 const FindSchedule = () => {
@@ -21,7 +22,10 @@ const FindSchedule = () => {
         const searchData = event.target.value;
         const filtered = schedules.filter(schedule => schedule.name.toLowerCase().includes(searchData));
         setSearchText(filtered);
+    }
 
+    if(!searchText){
+        return <Spinner />
     }
 
     return (
