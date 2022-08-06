@@ -6,11 +6,13 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Link, useLocation } from "react-router-dom";
 import auth from "../firebase.init";
+import useAdmin from '../Hooks/useAdmin';
 
 
 function Header() {
     const [navbarOpen, setNavbarOpen] = useState(false);
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
+    const [admin]=useAdmin(user);
 
     const { pathname } = useLocation();
 
@@ -18,7 +20,7 @@ function Header() {
     return (
         <>
 
-            <nav className=" sticky top-0 z-10 flex flex-wrap items-center justify-between px-2 py-3 bg-[#F1ECFF]">
+            <nav className=" sticky top-0 z-10 flex flex-wrap items-center justify-between py-3 bg-[#F1ECFF]">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
@@ -27,10 +29,10 @@ function Header() {
                         >
                             Pick-Timely
                         </Link>
-
-                        {pathname === '/dashboard' || '/dashboard/users' || '/dashboard/scheduleList' || '/dashboard/eventschedule' ? <label for="my-drawer-2" tabindex="0" className="btn btn-ghost lg:hidden">
+                        
+                        <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
                             <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard> 
-                        </label> : ""}
+                        </label> 
 
 
                         <button
@@ -91,16 +93,26 @@ function Header() {
                                     <span className="ml-2">Solutions</span>
                                 </Link>
                             </li>
-
                             <li className="nav-item">
                                 <Link
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    to="/customers"
-                                    onClick={() => setNavbarOpen(!navbarOpen)}
+                                    to="/ourTeam"
                                 >
-                                    <span className="ml-2">Customers</span>
+                                    <span className="ml-2">Our Team</span>
                                 </Link>
                             </li>
+
+                         {
+                            admin &&
+                            <li className="nav-item">
+                            <Link
+                                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                to="/customers"
+                            >
+                                <span className="ml-2">Customers</span>
+                            </Link>
+                        </li>
+                         }
 
                             <li className="nav-item">
                                 <Link

@@ -1,23 +1,19 @@
 import React from 'react';
+import { AiFillStar } from 'react-icons/ai';
+import Rating from 'react-rating';
 
-const Review = ({ review }) => {
-    console.log(review.rate)
-    const { name, text, image, rate } = review
+const Review = ({review}) => {
+    
     return (
-        <div>
-            <div class="card w-full bg-amber-200 shadow-xl">
-
-                <div className="flex justify-evenly">
-                   <img className='mask  mask-circle' src={image} alt="" />
-                    <h2 class="card-title">Name:{name}</h2>
-                </div>
-
-                <div class="card-body items-center text-center">
-                    <p>{text}</p>
-                   <p>
-                    Rating:{rate}
-                   </p>
-                </div>
+        <div className="card card-side bg-neutral text-neutral-content shadow-xl">
+            <div className="card-body text-center">
+                <p className=''>{review?.feedback}</p>
+                <Rating
+                        initialRating={review.rating}
+                        emptySymbol={<AiFillStar style={{ color: 'gray', fontSize: '27px' }} />}
+                        fullSymbol={<AiFillStar style={{ color: 'goldenrod', fontSize: '27px' }} />}
+                        readonly
+                    ></Rating>
             </div>
         </div>
     );

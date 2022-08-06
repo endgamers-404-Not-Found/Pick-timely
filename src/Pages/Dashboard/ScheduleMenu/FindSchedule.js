@@ -1,87 +1,101 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import ModalDetails from './ModalDetails';
 
 const FindSchedule = () => {
+
+    const [schedules, setSchedules] = useState([]);
+    const [searchText, setSearchText] = useState([]);
+    const [meeting, setMeeting] = useState(null);
+
+    useEffect(()=>{
+        const meetingData = async() =>{
+            const res = await fetch('https://pick-timely.herokuapp.com/schedule');
+            const data = await res.json();
+            setSchedules(data);
+            setSearchText(data);
+        }
+        meetingData();
+    }, []);
+
+    const searchHandle = (event) =>{
+        const searchData = event.target.value;
+        const filtered = schedules.filter(schedule => schedule.name.toLowerCase().includes(searchData));
+        setSearchText(filtered);
+
+    }
+
     return (
         <div className='mt-5'>
-            <div className='flex gap-5 mt-5 mb-2 flex-col lg:flex-row'>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Host</button>
-                            <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
+            <h1>Schedule List Total: {searchText?.length}</h1>
+            <div className='flex justify-between gap-5 mt-5 mb-2 w-[60%] lg:w-[80%]'>
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Host</button>
+                            <select className="select select-bordered">
+                                <option value='All'>All</option>
+                                <option value='Hamid'>Hamid</option>
+                                <option value='Meherab'>Meherab</option>
                             </select>
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Status Active</button>
-                            <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
+                   
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Event Type</button>
+                            <select className="select select-bordered">
+                                <option value='All'>All</option>
+                                <option value='Hamid'>Hamid</option>
+                                <option value='Meherab'>Meherab</option>
                             </select>
                             
                         </div>
                     </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <button class="btn">Event Type</button>
-                            <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
-                            </select>
-                            
-                        </div>
-                    </div>
-                    <div class="form-control">
-                        <div class="input-group">
-                            <input type="text" placeholder='search' className='border' />
-                            <button class="btn">search</button>
+                    <div className="form-control">
+                        <div className="input-group">
+                            <input type="text" name='search' onChange={searchHandle} placeholder='search' className='border' />
+                            <button className="btn">search</button>
                             
                         </div>
                     </div>
                 </div>
-            <div class="overflow-x-auto">
-                <table class="w-full">
+                <div className="overflow-x-auto">
+                    <table className="table w-[60%] lg:w-[80%] border">
+                            
+                        <thead>
+                            <tr>
+                                <th></th>
+                                
+                                <th>Date</th>
+                                <th>Time</th>
+                                <th>Name</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                        <tbody>
+                        
+
+                        {
+                            searchText?.map((schedule, index)=> <tr key={schedule._id}>
+                                <th>{index + 1}</th>
+                                <td>{schedule.dateFormat}</td>
+                                <td>{schedule.timeSlot}</td>
+                                <td>{schedule.name}</td>
+                                <td>
+                                    <label 
+                                    htmlFor="my-meeting" 
+                                    className="btn btn-sm"
+                                    onClick={()=>setMeeting(schedule)}
+                                    >see details</label> 
+                                
+                                    </td>
+                            </tr>)
+                        }
+                        
                     
-                    <thead>
-                    <th className="w-20 p-3 text-sm font-semibold tracking-wide"></th>
-                        <th className="w-30 p-3 text-sm font-semibold tracking-wide">Date</th>
-                        <th className="w-30 p-3 text-sm font-semibold tracking-wide">Time</th>
-                        <th className="w-30 p-3 text-sm font-semibold tracking-wide">Name</th>
-                        <th className="w-24 p-3 text-sm font-semibold tracking-wide">Action</th>
-                    </thead>
-                    <tbody>
-                    
-                    <tr>
-                        <th className="p-3 text-sm text-gray-700">1</th>
-                        <td className="p-3 text-sm text-gray-700">28, July 2022</td>
-                        <td className="p-3 text-sm text-gray-700">12.30 PM</td>
-                        <td className="p-3 text-sm text-gray-700">Hasan Ali</td>
-                        <td className="p-3 text-sm text-gray-700"><button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">Details</button></td>
-                    </tr>
-                    
-                    <tr>
-                        <th className="p-3 text-sm text-gray-700">2</th>
-                        <td className="p-3 text-sm text-gray-700">28, July 2022</td>
-                        <td className="p-3 text-sm text-gray-700">12.30 PM</td>
-                        <td className="p-3 text-sm text-gray-700">Hasan Ali</td>
-                        <td className="p-3 text-sm text-gray-700"><button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">Details</button></td>
-                    </tr>
-                    
-                    <tr>
-                        <th className="p-3 text-sm text-gray-700">3</th>
-                        <td className="p-3 text-sm text-gray-700">28, July 2022</td>
-                        <td className="p-3 text-sm text-gray-700">12.30 PM</td>
-                        <td className="p-3 text-sm text-gray-700">Hasan Ali</td>
-                        <td className="p-3 text-sm text-gray-700"><button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">Details</button></td>
-                    </tr>
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+            {meeting && <ModalDetails meeting={meeting}></ModalDetails>}
             </div>
         </div>
     );

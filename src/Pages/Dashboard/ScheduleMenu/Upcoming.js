@@ -1,81 +1,119 @@
-import React, { useEffect, useState } from 'react';
+import { useQuery } from '@tanstack/react-query';
+import React, { useState } from 'react';
+import { toast } from 'react-toastify';
+import Spinner from '../../../SharedComponents/Spinner';
 import ModalDetails from './ModalDetails';
+import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
+    
+    // const [schedules, setSchedules] = useState([]);
+    const [meeting, setMeeting] = useState({});
+    const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('https://pick-timely.herokuapp.com/schedule').then(res => res.json()));
+    
+    if(isLoading){
+        return <Spinner></Spinner>
+    }
 
-    const [schedules, setSchedules] = useState([]);
+    // useEffect(()=>{
+    //     const meetingData = async() =>{
+    //         const res = await fetch('https://pick-timely.herokuapp.com/schedule');
+    //         const data = await res.json();
+    //         setSchedules(data);
+    //     }
+    //     meetingData();
+    // }, []);
+     
 
-    useEffect(() => {
-        const scheduleData = async () => {
-            const res = await fetch('https://pick-timely.herokuapp.com/schedule');
-            const data = await res.json();
-            setSchedules(data);
+    const handleDeleteSchedule = (id) =>{
+        const confirmDelete = window.confirm('Are you want to delete this doctor?');
+        if(confirmDelete){
+          fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
+          method: "DELETE",
+          headers:{
+            'content-type' : 'application/json',
+          }
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.deletedCount) {
+              toast(`Schedule is deleted`);
+              refetch();
+            }
+          });
         }
-        scheduleData();
-    }, [])
+      };
 
     return (
         <div className='mt-5'>
-            <div className='flex gap-5 mt-5 mb-2 flex-col lg:flex-row'>
-                <div class="form-control">
-                    <div class="input-group">
-                        <button class="btn">Host</button>
-                        <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
-                        </select>
-
+            <div className='flex gap-5 mt-5 mb-2 justify-between w-[60%] lg:w-[80%]'>
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Host</button>
+                            <select className="select select-bordered">
+                                <option value='All'>All</option>
+                                <option value='Hamid'>Hamid</option>
+                                <option value='Meherab'>Meherab</option>
+                            </select>
+                            
+                        </div>
+                    </div>
+                    <div className="form-control">
+                        <div className="input-group">
+                            <button className="btn">Event Type</button>
+                            <select className="select select-bordered">
+                                <option value='All'>All</option>
+                                <option value='Hamid'>Hamid</option>
+                                <option value='Meherab'>Meherab</option>
+                            </select>
+                            
+                        </div>
                     </div>
                 </div>
-                <div class="form-control">
-                    <div class="input-group">
-                        <button class="btn">Status Active</button>
-                        <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
-                        </select>
-
-                    </div>
-                </div>
-                <div class="form-control">
-                    <div class="input-group">
-                        <button class="btn">Event Type</button>
-                        <select class="select select-bordered">
-                            <option disabled selected>All</option>
-                            <option>Hamid</option>
-                            <option>Meherab</option>
-                        </select>
-
-                    </div>
-                </div>
-            </div>
-            <div class="">
-                <table class="w-full">
-
-                    <thead className='border-b-2 border-gray-200 rounded-lg'>
-                        <tr>
-                            <th className="w-20"></th>
-                            <th className='w-24 p-3 text-sm font-semibold tracking-wide'>Date</th>
-                            <th className='w-30 p-3 text-sm font-semibold tracking-wide'>Time</th>
-                            <th className='p-3 text-sm font-semibold tracking-wide'>Name</th>
-                            <th className='w-24 p-3 text-sm font-semibold tracking-wide'>Action</th>
-                        </tr>
+            <div className="overflow-x-auto">
+            <table className="table w-[60%] lg:w-[80%] border">
+                    
+                    <thead>
+                    <tr>
+                        <th></th>
+                        <th>Date/Time</th>
+                        
+                        <th>email</th>
+                        <th>Name</th>
+                        <th>Action</th>
+                    </tr>
                     </thead>
-                    <tbody className="divide-y divide-gray-500 ">
-                        {
-                            schedules?.map((schedule, index) => <tr key={schedule._id} className="bg-slate-50">
-                                <th className="p-3 text-sm text-gray-700 ">{index + 1}</th>
-                                <td className="p-3 text-sm text-gray-700">{schedule.dateFormat}</td>
-                                <td className="p-3 text-sm text-gray-700">{schedule.timeSlot}</td>
-                                <td className="p-3 text-sm text-gray-700">{schedule.name}</td>
-                                <td className="p-3 text-sm text-gray-700"><label for="my-modal-3" className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">details</label> </td>
-                            </tr>)
-                        }
+                    <tbody>
+                    
+
+                    {
+                        schedules?.map((schedule, index)=> <tr key={schedule._id}>
+                            <th>{index + 1}</th>
+                            <td>{schedule.dateFormat} <br /> {schedule.timeSlot}</td>
+                          
+                            <td>{schedule.name}</td>
+                            <td>{schedule.email}</td>
+                            <td>
+                                <label 
+                                htmlFor="my-meeting" 
+                                className="btn btn-sm btn-success"
+                                onClick={()=>setMeeting(schedule)}
+                                >see details</label> 
+                                <label 
+                                htmlFor="meeting-reschedule" 
+                                className="btn btn-sm btn-info mx-3"
+                                onClick={()=>setMeeting(schedule)}
+                                >reschedule</label> 
+                                <button onClick={()=>handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
+                                </td>
+                        </tr>)
+                    }
+                    
+                
                     </tbody>
                 </table>
-                <ModalDetails></ModalDetails>
+            {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
+            {meeting && <ScheduleEditModal setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
             </div>
         </div>
     );
