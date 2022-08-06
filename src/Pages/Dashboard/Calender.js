@@ -7,7 +7,7 @@ const Calender = () => {
 
     let footer = <p>Please pick a day.</p>;
     if (selected) {
-        footer = <p>You picked {format(selected, 'PP')}.</p>;
+        footer = <p>You picked {format(selected,"pp")}.</p>;
     }
     
     return (

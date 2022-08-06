@@ -7,6 +7,7 @@ import { useParams } from 'react-router-dom';
 
 import auth from '../../firebase.init';
 import ConfirmSchedule from './ConfirmSchedule';
+import Upcoming from './ScheduleMenu/Upcoming';
 
 const FiftenMin = () => {
     const [user] = useAuthState(auth);
@@ -61,6 +62,7 @@ const FiftenMin = () => {
                     </div>
                     <div>
                         <ConfirmSchedule hostId={hostId} dateFormat={dateFormat}></ConfirmSchedule>
+                       
                     </div>
                 </div>
             </div>

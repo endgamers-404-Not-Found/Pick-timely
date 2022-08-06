@@ -49,19 +49,18 @@ const Recruitment = () => {
 
     return (
         <div>
-            <div className="hero bg-slate-300 p-20">
-                <div className="hero-content text-center">
-                    <div className="w-full">
-                        <h1 className="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
+             <div class="hero-content text-center">
+                    <div class="w-full">
+                        <h1 class="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
                             {
-                                recruitments.map(recruitment => <div className="card w-96 bg-base-100 shadow-xl">
-                                <div className="card-body">
-                                    <img src={recruitment.img} className='w-24 mx-auto' alt="" />
-                                    <h2 className="text-center text-3xl font-bold">{recruitment.title}</h2>
-                                    <p>{recruitment.description}</p>
-                                    <div className="card-actions justify-center">
-                                        <button className="btn btn-primary">see details</button>
+                             recruitments.map(sales => <div class="card w-80 h-[400px] bg-base-100 shadow-xl relative">
+                                <div class="card-body">
+                                    <img src={sales.img} className='w-24 mx-auto' alt="" />
+                                    <h2 class="text-center text-3xl font-bold">{sales.title}</h2>
+                                    <p>{sales.description}</p>
+                                    <div class="card-actions justify-center">
+                                        <button class="w-full btn btn-primary border-2 px-32 absolute bottom-0">see details</button>
                                     
                                     </div>
                                 </div>
@@ -71,7 +70,6 @@ const Recruitment = () => {
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     );
 };

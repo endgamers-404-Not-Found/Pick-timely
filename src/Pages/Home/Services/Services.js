@@ -8,8 +8,8 @@ import TeamSchedule from './SingleServices/TeamSchedule';
 
 const Services = () => {
     return (
-        <div className='mt-10'>
-            <div className='w-96 mx-auto'>
+        <div className=''>
+            <div className='w-full mx-auto'>
                 <h1 className='text-5xl text-center font-bold'>Easy scheduling</h1>
                 <p className='text-xl text-center mt-2'>for growth-oriented teams</p>
             </div>
