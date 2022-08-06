@@ -20,7 +20,7 @@ function Header() {
     return (
         <>
 
-            <nav className=" sticky top-0 z-10 flex flex-wrap items-center justify-between px-2 py-3 bg-[#F1ECFF]">
+            <nav className=" sticky top-0 z-10 flex flex-wrap items-center justify-between  py-3 bg-[#F1ECFF]">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link

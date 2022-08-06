@@ -49,11 +49,11 @@ const Recruitment = () => {
 
     return (
         <div>
-            <div className="hero bg-slate-300 p-20">
-                <div className="hero-content text-center">
+            <div className=" bg-slate-300 ">
+                <div className=" text-center">
                     <div className="w-full">
                         <h1 className="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
+                        <div className='grid lg:grid-cols-3 sm:grid-cols-1 gap-12'>
                             {
                                 recruitments.map(recruitment => <div className="card w-96 bg-base-100 shadow-xl">
                                 <div className="card-body">

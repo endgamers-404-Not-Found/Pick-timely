@@ -12,15 +12,15 @@ import Services from './Services/Services'
 
 function Home() {
     return (
-        <div>
+        <div className=''>
             <Banner />
             <AppointmentScheduling></AppointmentScheduling>
-            <Services></Services>
-            <Packages></Packages>
+           <Services></Services>
+             <Packages></Packages>
             <MobileApps></MobileApps>
             <FreeTrail></FreeTrail>
-            <Reviews></Reviews>
-
+            <Reviews></Reviews> 
+ 
          
         </div>
     )
