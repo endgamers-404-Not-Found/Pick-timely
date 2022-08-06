@@ -85,7 +85,7 @@ function SignUp() {
         const email = userData.email;
         const password = userData.password;
         await createUserWithEmailAndPassword(email,password);
-        fetch('http://localhost:5000/addUser', {
+        fetch('https://pick-timely.herokuapp.com/addUser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -94,6 +94,7 @@ function SignUp() {
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 data.acknowledged && navigate('/')
             })
         event.target.reset();
@@ -103,7 +104,7 @@ function SignUp() {
         
             const name = gUser?.user.displayName;
             const email = gUser?.user.email;
-            fetch('http://localhost:5000/addUser', {
+            fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

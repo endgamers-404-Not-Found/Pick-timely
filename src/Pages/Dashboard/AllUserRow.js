@@ -13,7 +13,7 @@ const AllUserRow = ({ user, index }) => {
             })
     }
     const removeAdmin = ()=>{
-        fetch(`http://localhost:5000/admin/${email}`, {
+        fetch(`https://pick-timely.herokuapp.com/admin/${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())

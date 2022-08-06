@@ -8,7 +8,7 @@ import SharedButton from '../../../SharedComponents/SharedButton';
 const Banner = () => {
 
     const [user] = useAuthState(auth);
-    console.log(user)
+    // console.log(user)
 
     return (
         <div className="flex flex-col md:flex-row items-center lg:h-[700px] bg-[#F1ECFF] ">
