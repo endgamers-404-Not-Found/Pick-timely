@@ -49,7 +49,6 @@ const Sales = () => {
                                 </div>
                             </div>)
                             }
-                            
                         </div>
                     </div>
                 </div>

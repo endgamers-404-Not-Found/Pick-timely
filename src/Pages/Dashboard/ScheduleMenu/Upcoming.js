@@ -8,7 +8,7 @@ import ScheduleEditModal from './ScheduleEditModal';
 const Upcoming = () => {
     
     const [meeting, setMeeting] = useState({});
-    const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('http://localhost:5000/schedule').then(res => res.json()));
+    const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('https://pick-timely.herokuapp.com/schedule').then(res => res.json()));
     
     if(isLoading){
         return <Spinner></Spinner>
@@ -17,7 +17,7 @@ const Upcoming = () => {
     const handleDeleteSchedule = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
         if(confirmDelete){
-          fetch(`http://localhost:5000/schedule/${id}`, {
+          fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
           method: "DELETE",
           headers:{
             'content-type' : 'application/json',

@@ -15,7 +15,7 @@ function CheckoutForm({ bundle:data }) {
     const { price } = data;
     useEffect(() => {
         if (price) {
-            fetch('http://localhost:5000/createPaymentIntent', {
+            fetch('https://pick-timely.herokuapp.com/createPaymentIntent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,7 +77,7 @@ function CheckoutForm({ bundle:data }) {
             setTrnxId(paymentIntent?.id)
             // console.log(paymentIntent.id, _id)
 
-            fetch(`http://localhost:5000/payment/${user.email}`, {
+            fetch(`https://pick-timely.herokuapp.com/payment/${user.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': "application/json"

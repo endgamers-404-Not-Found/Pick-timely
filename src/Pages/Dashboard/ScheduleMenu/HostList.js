@@ -4,8 +4,10 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
+
 import HosterDetails from './HosterDetails';
 import HosterEdit from './HosterEdit';
+
 
 const HostList = () => {
     const [hosting, setHosting] = useState({});
@@ -15,6 +17,7 @@ const HostList = () => {
     if(isLoading){
         return <Spinner></Spinner>
     }
+
 
     const handleDeleteHoster = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
@@ -35,10 +38,13 @@ const HostList = () => {
         }
       };
 
+
+
+
     return (
         <div>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className="table w-full">
                     
                     <thead>
                     <tr>
@@ -50,7 +56,7 @@ const HostList = () => {
                     </thead>
                     <tbody>
                     {
-                        hosts.map((host, index) =>  <tr key={host._id} index={index} host={host}>
+                        hosts?.map((host, index) =>  <tr key={host._id} index={index} host={host}>
                             <th>{index + 1}</th>
                             <td>{host.hoster}</td>
                             <td>{user?.email}</td>
