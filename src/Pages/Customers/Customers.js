@@ -16,8 +16,8 @@ const Customers = () => {
     return (
 
 
-        <div class="p-5 h-screen bg-gray-50 overflow-x-scroll ">
-            <h1 class="text-xl mb-2">Your orders</h1>
+        <div class="p-5 h-screen bg-gray-50 overflow-x-scroll">
+            <h1 class="text-xl mb-2 text-center font-serif">Our all customers Information</h1>
 
             <div class="overflow-auto rounded-lg shadow hidden md:block">
                 <table class="w-full">
