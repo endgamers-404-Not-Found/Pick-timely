@@ -34,10 +34,11 @@ const Upcoming = ({dateFormat}) => {
         meetingData();
     }, []);
 
-  
+  const newDate=new Date()
+
     
     const dateWise = schedules.filter((schedule) => {
-        return schedule.dateFormat === "Aug 6, 2022"
+        return schedule.dateFormat === "Aug 7, 2022"   
     });
     console.log(dateWise)
 
