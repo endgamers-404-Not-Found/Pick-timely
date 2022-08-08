@@ -4,7 +4,7 @@ const AllUserRow = ({ user, index }) => {
     const {name,email, role } = user;
     
     const handleMakeAdmin = e =>{
-        fetch(`http://localhost:5000/allUser/admin/${email}`, {
+        fetch(`https://pick-timely.herokuapp.com/allUser/admin/${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -23,7 +23,7 @@ const AllUserRow = ({ user, index }) => {
                 ?
                 <p className='font-bold'>Already Admin</p>
                 :
-                <button onClick={handleMakeAdmin} class="btn btn-sm">Make Admin</button>
+                <button onClick={handleMakeAdmin} className="btn btn-sm">Make Admin</button>
             }
             </td>
         </tr>
