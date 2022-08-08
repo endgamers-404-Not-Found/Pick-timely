@@ -70,7 +70,7 @@ const CreateEvent = () => {
                                 <option value='One-to-one'>One-to-one</option>
                                 <option value='Group Meeting'>Group Meeting</option>
                                 <option value='Corporate Meeting'>Corporate Meeting</option>
-                                <option value='Virsual Meeting'>Virsual Meeting</option>
+                                {/* <option value='Virsual Meeting'>Virsual Meeting</option> */}
                             </select>
                     </div>
 
