@@ -25,9 +25,9 @@ const Dashboard = () => {
                     admin &&
                     <li><NavLink className='font-medium' to='/dashboard/users'>All User</NavLink></li>
                    }
-                    {/* <li><NavLink className='font-medium' to='/dashboard/arrangemeeting'>Arrange New Meeting</NavLink></li> */}
+                  
                     <li><NavLink className='font-medium' to='/dashboard/scheduleList'>Schedule List</NavLink></li>
-                    <li><NavLink className='font-medium' to='/dashboard/eventschedule'>Interview Hosts</NavLink></li>
+                    <li><NavLink className='font-medium' to='/dashboard/eventschedule'>Event Schedule</NavLink></li>
                     <li><NavLink className='font-medium' to='/dashboard/hostList'>Hosts List</NavLink></li>
                  
                    

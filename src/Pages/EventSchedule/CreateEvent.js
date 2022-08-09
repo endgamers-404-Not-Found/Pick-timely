@@ -1,11 +1,14 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { FaChevronCircleDown } from "react-icons/fa";
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import auth from '../../../firebase.init';
+import auth from '../../firebase.init';
 
 const CreateEvent = () => {
     const [user] = useAuthState(auth);
+    const {emailId} = useNavigate(user);
+    console.log(emailId);
    
 
     const handleHostCreate = (event) =>{
@@ -48,6 +51,7 @@ const CreateEvent = () => {
             </div>
             
             <div className='border p-10 w-96 mt-10'>
+                <h1>{emailId}</h1>
                 <form onSubmit={handleHostCreate}>
                     <div className="form-control w-full max-w-xs">
                         <label className="label">

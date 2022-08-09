@@ -8,7 +8,8 @@ import ScheduleEditModal from './ScheduleEditModal';
 const Upcoming = () => {
     
     const [meeting, setMeeting] = useState({});
-    const { data:schedules, isLoading, refetch} = useQuery(['schedule'], ()=> fetch('https://pick-timely.herokuapp.com/schedule').then(res => res.json()));
+    const { data:schedules, isLoading, refetch} = useQuery(['schedules'], ()=> fetch('http://localhost:5000/schedule').then(res => res.json()));
+    console.log(schedules);
     
     if(isLoading){
         return <Spinner></Spinner>
@@ -76,7 +77,7 @@ const Upcoming = () => {
                     
 
                     {
-                        schedules?.map((schedule, index)=> <tr key={schedule._id}>
+                    schedules && schedules ? schedules?.map((schedule, index)=> <tr key={schedule._id}>
                             <th>{index + 1}</th>
                             <td>{schedule.dateFormat} <br /> {schedule.timeSlot}</td>
                           
@@ -96,7 +97,10 @@ const Upcoming = () => {
                                 <button onClick={()=>handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
                                 </td>
                         </tr>)
+                        :
+                        'No data available'
                     }
+                   
                     
                 
                     </tbody>

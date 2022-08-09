@@ -1,24 +1,29 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { Link, useNavigate } from 'react-router-dom';
-import auth from '../../../firebase.init';
+import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 
 const EventSchedule = () => {
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
     const [hosts, setHosts] = useState([]);
     const navigate = useNavigate();
+    console.log(user);
 
     useEffect(()=>{
         const meetingData = async () =>{
-            const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
+            const res = await fetch(`http://localhost:5000/hoster?user=${user?.email}`);
             const data = await res.json();
             setHosts(data);
         }
         meetingData();
     }, [user]);
 
+    const handleCreateEvent = (id) => {
+        navigate(`/createEvent/${id}`);
+    }
+
     const handleHost = (id) =>{
-        navigate(`${id}`)
+        navigate(`/arrangeMeeting/${id}`)
         console.log(id);
 
     }
@@ -27,7 +32,7 @@ const EventSchedule = () => {
         <div className='p-10 border'>
             <div className='flex justify-start gap-10 mt-5 flex-col lg:flex-row'>
                 <h1 className='text-3xl font-bold'>PickTimely</h1>
-                <Link to='/dashboard/createEvent' className='btn btn-success'>+ Create Event Type</Link>
+                <button onClick={()=>handleCreateEvent(user?.uid)} className='btn btn-success'>+ Create Event Type</button>
             </div>
                 <div className="divider"></div> 
 

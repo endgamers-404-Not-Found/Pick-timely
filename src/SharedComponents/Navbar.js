@@ -29,9 +29,9 @@ function Header() {
                         >
                             Pick-Timely
                         </Link>
-                        <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
+                        { pathname === 'dashboard' && <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
                             <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard> 
-                        </label> 
+                        </label> }
 
 
                         <button
@@ -69,6 +69,15 @@ function Header() {
                                     <span className="ml-2">Features</span>
                                 </Link>
                             </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/eventschedule"
+                                    onClick={() => setNavbarOpen(!navbarOpen)}
+                                >
+                                    <span className="ml-2">Event Schedule</span>
+                                </Link>
+                            </li>
                             {
                                 user &&
                                 <li className="nav-item">
@@ -98,6 +107,14 @@ function Header() {
                                     to="/ourTeam"
                                 >
                                     <span className="ml-2">Our Team</span>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/contact"
+                                >
+                                    <span className="ml-2">Contact</span>
                                 </Link>
                             </li>
 
@@ -135,6 +152,7 @@ function Header() {
                                     </Link>
                                 }
                             </li>
+                            
                         </ul>
                     </div>
                 </div>
