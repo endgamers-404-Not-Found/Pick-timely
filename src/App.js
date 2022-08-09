@@ -35,6 +35,7 @@ import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
 import Graph from './Pages/Dashboard/Graph';
+import Feature from './Pages/Features/Feature';
 
 function App() {
   return (
@@ -59,7 +60,7 @@ function App() {
         </Route>
 
         {/* nested route for feature route */}
-        <Route path='/features' element={<AppointmentScheduling></AppointmentScheduling>}>
+        <Route path='/features' element={<Feature></Feature>}>
           <Route index element={<Productive></Productive>}></Route>
           <Route path='productive' element={<Productive></Productive>}></Route>
           <Route path='professional' element={<Professional></Professional>}></Route>

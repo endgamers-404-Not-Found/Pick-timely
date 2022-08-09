@@ -1,21 +1,21 @@
 [
     {
         "_id":  "1",
-        "title": "Productive email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Multiple time slot",
+        "img": "https://i.ibb.co/vmknc4y/image.png",
+        "description": "User can select a time according to his available time"
     },
     {
         "_id":  "2",
-        "title": "Productive email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Multiple meeting type",
+        "img": "https://i.ibb.co/JqKz4F8/image.png",
+        "description": "Choose Meeting type like one by one or group meeting"
     },
     {
         "_id":  "3",
-        "title": "Productive email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Multiple packages",
+        "img": "https://i.ibb.co/RYkMBP8/image.png",
+        "description": "Both paid and free packages are available here."
     },
     {
         "_id":  "4",
@@ -37,21 +37,21 @@
     },
     {
         "_id":  "7",
-        "title": "Professional email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Hosting and Inviting",
+        "img": "https://i.ibb.co/vmjVG05/image.png",
+        "description": "User can host meeting according to his package."
     },
     {
         "_id":  "8",
-        "title": "Professional email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Invite for meeting",
+        "img": "https://i.ibb.co/wMw43ZB/envelope-invitation-letter-vector-illustration-flat-style-86118337.jpg",
+        "description": "Host can invite other for the meeting "
     },
     {
         "_id":  "9",
-        "title": "Professional email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Email Invitation",
+        "img": "https://i.ibb.co/7GnpF3v/image.png",
+        "description": "After inviting someone an invitation email will send to his inbox"
     },
     {
         "_id":  "10",
@@ -73,21 +73,21 @@
     },
     {
         "_id":  "13",
-        "title": "Painless email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Customizable profile",
+        "img": "https://i.ibb.co/Lnj4Ff9/download.png",
+        "description": "User can change his profile information."
     },
     {
         "_id":  "14",
-        "title": "Painless email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Reschedule and cancelation",
+        "img": "https://i.ibb.co/5nvN0G0/reschedule-delay-postponement-words-clock-late-apponitment-cance-word-d-letters-face-to-illustrate-a.jpg",
+        "description": "Host can reschedule and can cancel the meeting."
     },
     {
         "_id":  "15",
-        "title": "Painless email back-end-forth",
-        "img": "https://i.ibb.co/XS6kYFj/bookings-slide-1-3.png",
-        "description": "Customer can check your availability online and book with you"
+        "title": "Meeting platform",
+        "img": "https://i.ibb.co/jRFyS6W/606b61e6856cd700198a33a0.webp",
+        "description": "Host can arrange his meeting in google meet or in zoom meeting"
     },
     {
         "_id":  "16",
