@@ -15,7 +15,7 @@ function Header() {
     const [admin] = useAdmin(user);
 
     const { pathname } = useLocation();
-  //add darkmode
+  
    
 
     return (
@@ -145,7 +145,7 @@ function Header() {
 
 
                                 <input 
-                                onClick={()=>themeChange('dark,light,blue')}
+                                onClick={(dark)=>themeChange()}
                                 type="checkbox" data-toggle-theme="dark,light" />
 
 
