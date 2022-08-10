@@ -19,8 +19,8 @@ const Contact = () => {
 
     return (
         <div class="hero min-h-screen bg-neutral">
-            <div class="flex justify-between container">
-                <div class="text-center lg:text-left w-[50%] text-white">
+            <div class="grid grid-cols-1 lg:grid-cols-2 justify-between container p-10 gap-5">
+                <div class="text-center lg:text-left w-[100%] text-white">
                     <h1 class="text-5xl font-bold mb-5">Contact With Us</h1>
                     
                     <p class="py-2 flex justify-start gap-3 items-center"><FaPhoneAlt className='text-secondary' /> +08812213231211</p>
@@ -34,7 +34,7 @@ const Contact = () => {
                     
                     </div>
                 </div>
-                <div class="w-[50%]">
+                <div class="w-[100%]">
                 
                     <form ref={form} onSubmit={sendEmail}>
                         <div class="flex justify-between gap-2">
