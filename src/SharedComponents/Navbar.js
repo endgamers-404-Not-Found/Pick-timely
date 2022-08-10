@@ -15,7 +15,7 @@ function Header() {
     const [admin] = useAdmin(user);
 
     const { pathname } = useLocation();
-  
+  //add darkmode
    
 
     return (
