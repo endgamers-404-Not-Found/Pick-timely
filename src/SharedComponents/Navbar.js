@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 import useAdmin from '../Hooks/useAdmin';
 
@@ -14,7 +14,6 @@ function Header() {
     const [user] = useAuthState(auth);
     const [admin]=useAdmin(user);
 
-    const { pathname } = useLocation();
 
 
     return (
@@ -69,18 +68,7 @@ function Header() {
                                     <span className="ml-2">Features</span>
                                 </Link>
                             </li>
-                            {
-                                user &&
-                                <li className="nav-item">
-                                    <Link
-                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                        to="/dashboard"
-                                        onClick={() => setNavbarOpen(!navbarOpen)}
-                                    >
-                                        <span className="ml-2">Dashboard</span>
-                                    </Link>
-                                </li>
-                            }
+                            
 
 
                             <li className="nav-item">
@@ -122,6 +110,18 @@ function Header() {
                                     <span className="ml-2">Pricing</span>
                                 </Link>
                             </li>
+                            {
+                                user &&
+                                <li className="nav-item">
+                                    <Link
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                        to="/dashboard"
+                                        onClick={() => setNavbarOpen(!navbarOpen)}
+                                    >
+                                        <span className="ml-2">Dashboard</span>
+                                    </Link>
+                                </li>
+                            }
                             <li className="nav-item">
                                 {user ?
                                     <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>

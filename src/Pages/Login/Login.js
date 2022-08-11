@@ -31,11 +31,11 @@ function Login() {
         passwordError: ""
     })
 
-    useEffect(()=>{
-        if(user || gUser){
+    useEffect(() => {
+        if (user || gUser) {
             navigate('/')
         }
-     },[user,gUser,navigate]);
+    }, [user, gUser, navigate]);
 
     const handleEmailField = e => {
         const emailInput = e.target.value;
@@ -60,36 +60,38 @@ function Login() {
             setUserData({ ...userData, password: "" })
         }
     }
-    const login = async(event) => {
+    const login = async (event) => {
         event.preventDefault();
         const email = userData.email;
         const password = userData.password;
         signInWithEmailAndPassword(email, password)
-        if(user){
+        if (user) {
             navigate(from, { replace: true });
         }
         event.target.reset()
     }
-   
 
-    useEffect(()=>{
+
+    useEffect(() => {
         if (error || gError) {
             toast.error(error.message || gError.message, {
                 position: 'top-center'
             })
         }
-    },[error,gError])
-   
-        if (loading ||gLoading) {
-            return <Spinner></Spinner>
-        };
-    
+    }, [error, gError])
+
+    if (loading || gLoading) {
+        return <Spinner></Spinner>
+    };
+
     const googleSignIn = async () => {
         await signInWithGoogle()
-        if(gUser){
-            const name = gUser.user.displayName;
-            const email = gUser.user.email;
-            fetch('https://pick-timely.herokuapp.com/addUser', {
+
+        if (gUser) {
+            const name = gUser?.user.displayName;
+            const email = gUser?.user.email;
+            console.log(name, email)
+            await fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -102,9 +104,10 @@ function Login() {
                     data.acknowledged && navigate(from, { replace: true });
                 })
         }
+
     }
-    
-    
+
+
     return (
         <div>
             <div className="hero min-h-screen lg:px-32 bg-base-100">
@@ -134,7 +137,7 @@ function Login() {
                                     </label>
                                     <input onChange={handlePasswordField} name='password' required type={show ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
                                     {errors?.passwordError && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross>{errors.passwordError}</span>}
-                                   
+
                                     <label className="label">
                                         <p className="text-sm ">First time in Pick-Timely? <Link className='font-semibold' to='/signUp'>sign up now</Link></p>
                                     </label>
@@ -156,7 +159,7 @@ function Login() {
 
                 </div>
             </div>
-            
+
         </div>
     )
 }

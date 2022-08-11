@@ -13,30 +13,30 @@ import Spinner from '../../SharedComponents/Spinner';
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
     const [profile, setProfile] = useState([]);
-    
-    
+
+
 
     useEffect(() => {
         fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data)
-                console.log(data)
+                // console.log(data)
             })
     }, [user])
 
-     if (loading) {
+    if (loading) {
         return <Spinner></Spinner>
     }
-  
 
-   return(
+
+    return (
         <div className="hero min-h-screen bg-base-200">
-           <div>
-                <div className="text-center lg:text-left mx-16 sm:order-1 ">
-                    <div className="card w-96 bg-base-100 ">
+            <div>
+                <div className="text-center lg:text-left  sm:order-1 ">
+                    <div className="card w-94 bg-base-100 ">
                         <figure className="px-28 py-5 bg-sky-700">
-                            <img  src={profile?.photo} alt="profile" className="mask mask-circle" />
+                            <img src={profile?.photo} alt="profile" className="mask mask-circle" />
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
                         <div className="card-body pl-20">
@@ -44,7 +44,14 @@ const Profile = () => {
                             <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
                             <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
                             <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
+                            <span className='text-lg'>Package :  {profile.status ? profile.status : "free"}</span>
+                            {
+                                profile?.status !== "free" ?
+                                    <span className=''>Transaction Id:  {profile?.transactionId}</span>
 
+                                    :
+                                    ''
+                            }
                             <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
                         </div>
                     </div>
@@ -52,7 +59,7 @@ const Profile = () => {
 
             </div>
             <div className="z-10" >
-                
+
             </div>
         </div>
     );

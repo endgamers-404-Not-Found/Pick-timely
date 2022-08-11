@@ -18,7 +18,7 @@ const TeamMembers = () => {
             {isLoading && <h1>Loading ....</h1>}
             {error && <h1>{error.message}</h1>}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center'>
-                {teams && teams.map(team => <div key={team.id} team={team} class="card w-96 bg-base-100 shadow-xl">
+                {teams && teams.map(team => <div key={team.id} team={team} class="card w-94 bg-base-100 shadow-xl">
                     <figure>
                         <img className='mt-5' src={team.img} alt={team.alt} />
                     </figure>

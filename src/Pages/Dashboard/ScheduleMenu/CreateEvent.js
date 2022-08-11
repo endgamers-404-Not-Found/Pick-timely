@@ -40,7 +40,7 @@ const CreateEvent = () => {
     }
 
     return (
-        <div className='grid gap-10 bg-slate-400 grid-cols-1 lg:grid-cols-2 justify-items-center p-20'>
+        <div className='grid  bg-slate-400 grid-cols-1 lg:grid-cols-2 justify-items-center p-20'>
             <div className='border w-96 p-10 mt-10'>
                 <h1 className='text-2xl font-bold flex justify-start items-center gap-3 py-10'><FaChevronCircleDown /> One-to-One Meeting</h1>
                 <h1 className='text-2xl font-bold flex justify-start items-center gap-3 py-10'><FaChevronCircleDown /> Group Meeting</h1>
@@ -70,7 +70,7 @@ const CreateEvent = () => {
                                 <option value='One-to-one'>One-to-one</option>
                                 <option value='Group Meeting'>Group Meeting</option>
                                 <option value='Corporate Meeting'>Corporate Meeting</option>
-                                <option value='Virsual Meeting'>Virsual Meeting</option>
+                                {/* <option value='Virsual Meeting'>Virsual Meeting</option> */}
                             </select>
                     </div>
 

@@ -8,7 +8,7 @@ const Painless = () => {
         <div className='flex justify-center'>
             <div className='grid md:grid-cols-3 sm:grid-cols-1'>
                 {
-                    data.slice(12,18).map((item,index) => 
+                    data.slice(12,15).map((item,index) => 
                     <SchedulingItem 
                     key={index}
                     item={item}

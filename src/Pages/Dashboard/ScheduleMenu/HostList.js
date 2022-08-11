@@ -32,6 +32,7 @@ const HostList = () => {
 
     return (
         <div>
+            <h1 className='text-2xl text-center font-semibold my-6'>All Hosts and meetings in Pick Timely</h1>
             <div class="overflow-x-auto">
                 <table class="table w-full">
                     

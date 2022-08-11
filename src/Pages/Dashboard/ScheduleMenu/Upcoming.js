@@ -45,10 +45,10 @@ const Upcoming = () => {
       };
 
     return (
-        <div className='mt-5'>
-            <div className='flex gap-5 mt-5 mb-2 justify-between w-[60%] lg:w-[80%]'>
+        <div className='mt-5 w-full'>
+            <div className='block lg:flex gap-5 mt-5 mb-2 justify-between w-[60%] lg:w-[80%]'>
                     <div className="form-control">
-                        <div className="input-group">
+                        <div className="input-group ">
                             <button className="btn">Host</button>
                             <select className="select select-bordered">
                                 <option value='All'>All</option>
