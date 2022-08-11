@@ -2,19 +2,19 @@
     {
         "_id":  "1",
         "title": "Multiple time slot",
-        "img": "https://i.ibb.co/vmknc4y/image.png",
+        "img": "https://i.ibb.co/qrSmhVF/image-removebg-preview-2.png",
         "description": "User can select a time according to his available time"
     },
     {
         "_id":  "2",
         "title": "Multiple meeting type",
-        "img": "https://i.ibb.co/JqKz4F8/image.png",
+        "img": "https://i.ibb.co/WB1jmSj/image-removebg-preview-3.png",
         "description": "Choose Meeting type like one by one or group meeting"
     },
     {
         "_id":  "3",
         "title": "Multiple packages",
-        "img": "https://i.ibb.co/RYkMBP8/image.png",
+        "img": "https://i.ibb.co/tzZ96Yb/image-removebg-preview-1.png",
         "description": "Both paid and free packages are available here."
     },
     {
@@ -38,19 +38,19 @@
     {
         "_id":  "7",
         "title": "Hosting and Inviting",
-        "img": "https://i.ibb.co/vmjVG05/image.png",
+        "img": "https://i.ibb.co/cD5cKjc/image-removebg-preview-4.png",
         "description": "User can host meeting according to his package."
     },
     {
         "_id":  "8",
         "title": "Invite for meeting",
-        "img": "https://i.ibb.co/wMw43ZB/envelope-invitation-letter-vector-illustration-flat-style-86118337.jpg",
+        "img": "https://i.ibb.co/m8Gb7vj/envelope-invitation-letter-vector-illustration-flat-style-86118337-removebg-preview.png",
         "description": "Host can invite other for the meeting "
     },
     {
         "_id":  "9",
         "title": "Email Invitation",
-        "img": "https://i.ibb.co/7GnpF3v/image.png",
+        "img": "https://i.ibb.co/D9NbvCR/image-removebg-preview.png",
         "description": "After inviting someone an invitation email will send to his inbox"
     },
     {
@@ -74,7 +74,7 @@
     {
         "_id":  "13",
         "title": "Customizable profile",
-        "img": "https://i.ibb.co/Lnj4Ff9/download.png",
+        "img": "https://i.ibb.co/hBygVFh/download-removebg-preview.png",
         "description": "User can change his profile information."
     },
     {

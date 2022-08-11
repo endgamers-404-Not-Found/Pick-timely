@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../../firebase.init';
+import Spinner from '../../../SharedComponents/Spinner';
 
 const EventSchedule = () => {
-    const [user] = useAuthState(auth)
+    const [user,loading] = useAuthState(auth)
     const [hosts, setHosts] = useState([]);
     const navigate = useNavigate();
 
     useEffect(()=>{
         const meetingData = async () =>{
-            const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
+            const res = await fetch(`https://pick-timely.herokuapp.com/hoster/${user?.email}`);
             const data = await res.json();
+            console.log(data)
             setHosts(data);
         }
         meetingData();
@@ -19,8 +21,11 @@ const EventSchedule = () => {
 
     const handleHost = (id) =>{
         navigate(`${id}`)
-        console.log(id);
+        // console.log(id);
 
+    }
+    if(loading|| !hosts){
+        return <Spinner></Spinner>
     }
 
     return (

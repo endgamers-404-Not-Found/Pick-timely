@@ -26,9 +26,12 @@ const Dashboard = () => {
                     <li><NavLink className='font-medium' to='/dashboard/users'>All User</NavLink></li>
                    }
                     <li><NavLink className='font-medium' to='/dashboard/createEvent'>Host a meeting</NavLink></li>
+                    <li><NavLink className='font-medium' to='/dashboard/eventschedule'>My Hosts</NavLink></li>
                     <li><NavLink className='font-medium' to='/dashboard/scheduleList'>Schedule List</NavLink></li>
-                    <li><NavLink className='font-medium' to='/dashboard/eventschedule'>Interview Hosts</NavLink></li>
+                    {
+                    admin &&
                     <li><NavLink className='font-medium' to='/dashboard/hostList'>Hosts List</NavLink></li>
+                   }
                     {
                     admin &&
                     <li><NavLink className='font-medium' to='/dashboard/graph'>Graph view</NavLink></li>

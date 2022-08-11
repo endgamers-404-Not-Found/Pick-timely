@@ -44,9 +44,9 @@ const Profile = () => {
                             <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
                             <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
                             <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
-                            <span className='text-lg'>Package :  {profile.status ? profile.status :"free"}</span>
+                            <span className='text-lg'>Package :  {profile.status ? profile.status : "free"}</span>
                             {
-                                profile?.status ?
+                                profile?.status !== "free" ?
                                     <span className=''>Transaction Id:  {profile?.transactionId}</span>
 
                                     :
