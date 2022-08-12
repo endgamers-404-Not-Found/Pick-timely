@@ -1,4 +1,6 @@
 import React from 'react'
+import MessengerCustomerChat from 'react-messenger-customer-chat';
+
 
 
 import AppointmentScheduling from './AppointmentScheduling/AppointmentScheduling'
@@ -12,7 +14,7 @@ import Services from './Services/Services'
 
 function Home() {
     return (
-        <div>
+        <div className=''>
             <Banner />
             <AppointmentScheduling></AppointmentScheduling>
             <Services></Services>
@@ -20,8 +22,13 @@ function Home() {
             <MobileApps></MobileApps>
             <FreeTrail></FreeTrail>
             <Reviews></Reviews>
+            <MessengerCustomerChat
+                pageId="101404709353609"
+                appId="589832299541074"
+            />,
 
-         
+
+
         </div>
     )
 }

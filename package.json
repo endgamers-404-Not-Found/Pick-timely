@@ -3,7 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+   
     "@emailjs/browser": "^3.6.2",
+  
+    "@cometchat-pro/chat": "^3.0.10",
+    "@material-tailwind/react": "^1.2.3",
+ 
     "@stripe/react-stripe-js": "^1.9.0",
     "@stripe/stripe-js": "^1.33.0",
     "@tanstack/react-query": "^4.0.10",
@@ -19,12 +24,14 @@
     "firebase": "^9.9.0",
     "nuka-carousel": "^5.2.0",
     "react": "^18.2.0",
+    "react-chat-widget": "^3.1.4",
     "react-day-picker": "^8.0.7",
     "react-dom": "^18.2.0",
     "react-dropdown-timepicker": "^1.0.4",
     "react-firebase-hooks": "^5.0.3",
     "react-hook-form": "^7.34.0",
     "react-icons": "^4.4.0",
+    "react-messenger-customer-chat": "^0.8.0",
     "react-query": "^4.0.0",
     "react-rating": "^2.0.5",
     "react-redux": "^8.0.2",

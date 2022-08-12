@@ -34,9 +34,17 @@ import OurTeam from './redux-compo/OurTeam';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
+
 import Graph from './Pages/Dashboard/Graph';
 import Feature from './Pages/Features/Feature';
 import Contact from './Pages/Contact/Contact';
+
+import Blog from './Pages/Blog/Blog';
+import PostBlog from './Pages/Blog/PostBlog';
+import About from './Pages/About/About';
+import Info from './Pages/About/Info';
+import FAQ from './Pages/About/FAQ';
+import Awards from './Pages/About/Awards';
 
 function App() {
   return (
@@ -51,6 +59,8 @@ function App() {
         <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
         <Route path='/ourTeam' element={<OurTeam></OurTeam>}></Route>
+        <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/postBlog' element={<PostBlog></PostBlog>}></Route>
 
         {/* nested route for appointment schedule */}
         <Route path='/' element={<Home></Home>}>
@@ -67,6 +77,15 @@ function App() {
           <Route path='professional' element={<Professional></Professional>}></Route>
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
+
+        <Route path='/about' element={<About></About>}>
+          <Route index element={<Info></Info>}></Route>
+          <Route path='about' element={<Info></Info>}></Route>
+          <Route path='faq' element={<FAQ></FAQ>}></Route>
+          <Route path='awards' element={<Awards></Awards>}></Route>
+        </Route>
+
+        
 
 
 
