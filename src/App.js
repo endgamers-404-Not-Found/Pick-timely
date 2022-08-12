@@ -31,7 +31,7 @@ import Solutions from './Pages/Solutions/Solutions';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
-
+import { createContext, useState } from 'react';
 import Graph from './Pages/Dashboard/Graph';
 import Contact from './Pages/Contact/Contact';
 
@@ -40,11 +40,24 @@ import PostBlog from './Pages/Blog/PostBlog';
 import About from './Pages/About/About';
 import AboutPickTimely from './Pages/About/AboutPickTimely';
 import OurTeam from './Pages/About/redux-compo/OurTeam';
+export const ThemeContext = createContext(null);
+
+
+
 
 function App() {
+
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    console.log('dark is working')
+  };
   return (
-    <div>
-      <Navbar />
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <div id={theme}>
+      <Navbar toggleTheme={toggleTheme} theme={theme} />
+   
 
       <Routes>
 
@@ -128,6 +141,7 @@ function App() {
 
       <ToastContainer />
     </div>
+    </ThemeContext.Provider>
   );
 }
 

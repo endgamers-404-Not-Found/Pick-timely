@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
@@ -11,10 +12,38 @@ import HosterEdit from './HosterEdit';
 
 const HostList = () => {
     const [hosting, setHosting] = useState({});
-    const [user] = useAuthState(auth);
-    const { data:hosts, isLoading, refetch} = useQuery(['hosts'], ()=> fetch('https://pick-timely.herokuapp.com/hoster').then(res => res.json()));
+    const [hosts, setHosts] = useState([]);
+
+    const navigate = useNavigate();
+    const [user,loading] = useAuthState(auth);
+
+  
     
-    if(isLoading){
+    
+
+    useEffect(() => {
+        const meetingData = async () => {
+            const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
+            const data = await res.json();
+            setHosts(data);
+        }
+        meetingData();
+    }, [user]);
+
+    if(loading){
+        return <Spinner/>
+    }
+
+    console.log(user)
+    const handleHost = () => {
+        // navigate('/')
+    }
+
+    const handleDelete = () => {
+        console.log('delete')
+    }
+
+    if (!hosts) {
         return <Spinner></Spinner>
     }
 
@@ -32,7 +61,6 @@ const HostList = () => {
           .then((result) => {
             if (result.deletedCount) {
               toast(`Hoster is deleted`);
-              refetch();
             }
           });
         }
@@ -83,7 +111,7 @@ const HostList = () => {
                     </tbody>
                 </table>
                 {hosting && <HosterDetails setHosting={setHosting} hosting={hosting}></HosterDetails>}
-            {hosting && <HosterEdit setHosting={setHosting} hosting={hosting} refetch={refetch}></HosterEdit>}
+            {hosting && <HosterEdit setHosting={setHosting} hosting={hosting} ></HosterEdit>}
             </div>
         </div>
     );
