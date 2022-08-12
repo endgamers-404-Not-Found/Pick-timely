@@ -111,7 +111,7 @@ import Spinner from '../../SharedComponents/Spinner';
                             </div>
 
 
-                            <Link to="/profile" className="btn btn-primary">Go back</Link>
+                            <Link to="/dashboard" className="btn btn-primary">Go back</Link>
                         </form>
                     </div>
                     <ToastContainer

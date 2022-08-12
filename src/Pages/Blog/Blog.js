@@ -4,6 +4,7 @@ import { MdMarkEmailRead } from 'react-icons/md';
 import { BsTwitter } from 'react-icons/bs';
 import './Blog.css';
 import { Link } from 'react-router-dom';
+import Spinner from '../../SharedComponents/Spinner';
 
 const Blogs = () => {
 
@@ -11,11 +12,15 @@ const Blogs = () => {
     console.log(blogs);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blog`)
+        fetch(`https://pick-timely.herokuapp.com/blog`)
             .then(res => res.json())
             .then(data => setBlogs(data))
 
     }, [])
+
+    if (!blogs) {
+        return <Spinner />
+    }
 
 
 
@@ -52,13 +57,18 @@ const Blogs = () => {
 
             <div className="flex justify-center ">
                 <div className="text-left md:w-[600px] m-5 md:order-2 order-1">
-                    <h1 className="text-3xl text-gray-500 mt-[200px]">{blogs[0]?.title}</h1>
-                    <p className="text-lg font-serif my-5">
-                       {blogs[0]?.blog}
-                    </p>
-                    <div className="font-bold text-blue-500 text-right font-serif py-5">
-                        <Link to='/postBlog'>Post a blog</Link>
-                    </div>
+                    {
+                        blogs?.map(blog => <div>
+                            <h1 className="text-3xl text-gray-500 mt-[100px]">{blog?.title}</h1>
+                            <p className="text-lg font-serif my-5">
+                                {blog?.blog}
+                            </p>
+                        </div>
+
+
+                        )
+                    }
+
 
                 </div>
 

@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const PostBlog = () => {
+    const navigate = useNavigate()
 
     const handleBlog = e => {
         e.preventDefault();
@@ -9,7 +11,7 @@ const PostBlog = () => {
             title: e.target.title.value,
             blog: e.target.blog.value
         }
-        fetch('http://localhost:5000/blog', {
+        fetch('https://pick-timely.herokuapp.com/blog', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -21,6 +23,7 @@ const PostBlog = () => {
                 console.log(data)
                 if (data.success) {
                    toast("Succesfully added your blog");
+                   navigate('/blog')
                 }
                 else {
                     toast("Some unknown error occured");

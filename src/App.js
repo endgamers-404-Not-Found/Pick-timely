@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../src/SharedComponents/Navbar';
 import './App.css';
-import Customers from './Pages/Customers/Customers';
 import AllUser from './Pages/Dashboard/AllUser';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import Profile from './Pages/Dashboard/Profile';
@@ -18,7 +17,6 @@ import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 import ArrangeNewMeeting from './Pages/EventSchedule/ArrangeNewMeeting';
 import CreateEvent from './Pages/EventSchedule/CreateEvent';
 import EventSchedule from './Pages/EventSchedule/EventSchedule';
-import AppointmentScheduling from './Pages/Home/AppointmentScheduling/AppointmentScheduling';
 import Painless from './Pages/Home/AppointmentScheduling/Painless';
 import Productive from './Pages/Home/AppointmentScheduling/Productive';
 import Professional from './Pages/Home/AppointmentScheduling/Professional';
@@ -30,21 +28,18 @@ import SignUp from './Pages/Login/SignUp';
 import Payment from './Pages/Payment/Payment';
 import Pricing from './Pages/Pricing/Pricing';
 import Solutions from './Pages/Solutions/Solutions';
-import OurTeam from './redux-compo/OurTeam';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
 
 import Graph from './Pages/Dashboard/Graph';
-import Feature from './Pages/Features/Feature';
 import Contact from './Pages/Contact/Contact';
 
 import Blog from './Pages/Blog/Blog';
 import PostBlog from './Pages/Blog/PostBlog';
 import About from './Pages/About/About';
-import Info from './Pages/About/Info';
-import FAQ from './Pages/About/FAQ';
-import Awards from './Pages/About/Awards';
+import AboutPickTimely from './Pages/About/AboutPickTimely';
+import OurTeam from './Pages/About/redux-compo/OurTeam';
 
 function App() {
   return (
@@ -58,9 +53,10 @@ function App() {
         <Route path='/pricing' element={<Packages></Packages>}></Route>
         <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
-        <Route path='/ourTeam' element={<OurTeam></OurTeam>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
-        <Route path='/postBlog' element={<PostBlog></PostBlog>}></Route>
+
+
+        
 
         {/* nested route for appointment schedule */}
         <Route path='/' element={<Home></Home>}>
@@ -70,22 +66,16 @@ function App() {
           <Route path='painless' element={<Painless></Painless>}></Route>
         </Route>
 
-        {/* nested route for feature route */}
-        <Route path='/features' element={<Feature></Feature>}>
-          <Route index element={<Productive></Productive>}></Route>
-          <Route path='productive' element={<Productive></Productive>}></Route>
-          <Route path='professional' element={<Professional></Professional>}></Route>
-          <Route path='painless' element={<Painless></Painless>}></Route>
-        </Route>
-
-        <Route path='/about' element={<About></About>}>
-          <Route index element={<Info></Info>}></Route>
-          <Route path='about' element={<Info></Info>}></Route>
-          <Route path='faq' element={<FAQ></FAQ>}></Route>
-          <Route path='awards' element={<Awards></Awards>}></Route>
-        </Route>
-
         
+
+        {/* nested route for about page */}
+        <Route path='/about' element={<About></About>}>
+          <Route index element={<AboutPickTimely></AboutPickTimely>}></Route>
+          <Route path='aboutPickTimely' element={<AboutPickTimely></AboutPickTimely>}></Route>
+          <Route path='developers' element={<OurTeam></OurTeam>}></Route>
+        </Route>
+
+
 
 
 
@@ -97,12 +87,12 @@ function App() {
 
           <Route path='hostList' element={<HostList></HostList>}></Route>
           <Route path='users' element={<AllUser></AllUser>}></Route>
-
+          <Route path='postBlog' element={<PostBlog />}></Route>
           <Route path='graph' element={<Graph></Graph>}></Route>
           <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
           <Route path='eventschedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
           <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
-          {/*  {/* nested route for  schedule list */} 
+          {/*  {/* nested route for  schedule list */}
 
           <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
             <Route index element={<Upcoming></Upcoming>}></Route>
@@ -111,19 +101,17 @@ function App() {
             <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
           </Route>
         </Route>
-        {/*  {/* nested route for dashboard ends here */} 
+        {/*  {/* nested route for dashboard ends here */}
 
-       
+
         <Route path='arrangeMeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
         <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-
-        <Route path='/customers' element={<Customers></Customers>}></Route>
         <Route path='/addreview' element={<AddReview></AddReview>}></Route>
 
         <Route path='/contact' element={<Contact></Contact>}></Route>
 
-        
+
         <Route path='profile' element={
           <RequireAuth>
             <Profile />

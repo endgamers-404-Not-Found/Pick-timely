@@ -33,7 +33,7 @@ const Dashboard = () => {
                     {
                         admin &&
                         <>
-                            {/* <li><NavLink className='font-medium' to='/dashboard/eventschedule'>Event Schedule</NavLink> </li> */}
+                            <li><NavLink className='font-medium' to='/dashboard/postBlog'>Post a blog</NavLink> </li>
 
                             <li><NavLink className='font-medium' to='/dashboard/hostList'>All Hosts </NavLink></li></>
                     }

@@ -28,7 +28,7 @@ function Header() {
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
-                            className="text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black"
+                            className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black"
                             to="/"
                         >
                             Pick-Timely
@@ -66,15 +66,7 @@ function Header() {
                                     <span className="ml-2">Home</span>
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    to="/features"
-                                    onClick={() => setNavbarOpen(!navbarOpen)}
-                                >
-                                    <span className="ml-2">Features</span>
-                                </Link>
-                            </li>
+                            
 
                             
                            
@@ -89,34 +81,10 @@ function Header() {
                                     <span className="ml-2">Solutions</span>
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    to="/ourTeam"
-                                >
-                                    <span className="ml-2">Our Team</span>
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                    to="/contact"
-                                >
-                                    <span className="ml-2">Contact</span>
-                                </Link>
-                            </li>
+                            
+                            
 
-                         {
-                            admin &&
-                            <li className="nav-item">
-                            <Link
-                                className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                to="/customers"
-                            >
-                                <span className="ml-2">Customers</span>
-                            </Link>
-                        </li>
-                         }
+                        
 
                             <li className="nav-item">
                                 <Link
@@ -127,18 +95,35 @@ function Header() {
                                     <span className="ml-2">Pricing</span>
                                 </Link>
                             </li>
-                            {
-                                user &&
-                                <li className="nav-item">
-                                    <Link
-                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
-                                        to="/dashboard"
-                                        onClick={() => setNavbarOpen(!navbarOpen)}
-                                    >
-                                        <span className="ml-2">Dashboard</span>
-                                    </Link>
-                                </li>
-                            }
+
+
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/blog"
+                                >
+                                    <span className="ml-2">Blog</span>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/contact"
+                                >
+                                    <span className="ml-2">Contact</span>
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/about"
+                                >
+                                    <span className="ml-2">About</span>
+                                </Link>
+                            </li>
+
+
+                            
                             <li className="nav-item">
                                 {user ?
                                     // <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
@@ -146,8 +131,8 @@ function Header() {
                                         <label tabindex="0" class="btn btn-ghost btn-circle avatar online">
                                             <div class="w-10 rounded-full">
                                                {
-                                                profile?.img ?
-                                                <img className='img-fluid' src={profile?.img} alt=''/> 
+                                                profile?.photo ?
+                                                <img className='img-fluid' src={profile?.photo} alt=''/> 
                                                 :
                                                 <img src={defaultProfile} alt="" />
                                                  
@@ -156,13 +141,13 @@ function Header() {
                                         </label>
                                         <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
                                             <li>
-                                                <Link to='/profile' class="justify-between">
+                                                <Link to='/dashboard' class="justify-between">
                                                     Profile
                                                     <span class="badge">Active Now</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <Link to='contact'>Contact</Link>
+                                                <Link to='/dashboard'>Dashboard</Link>
                                             </li>
                                             <li><button className='btn btn-primary text-white btn-sm' onClick={() => signOut(auth)}>Logout</button></li>
                                         </ul>
