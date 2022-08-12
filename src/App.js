@@ -35,11 +35,24 @@ import OurTeam from './redux-compo/OurTeam';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
+import { createContext, useState } from 'react';
+import ReactSwitch from 'react-switch';
 
+
+export const ThemeContext = createContext(null);
 function App() {
+
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((curr) => (curr === "light" ? "dark" : "light"));
+    console.log('dark is working')
+  };
   return (
-    <div>
-      <Navbar />
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+    <div id={theme}>
+      <Navbar toggleTheme={toggleTheme} theme={theme} />
+   
 
       <Routes>
 
@@ -96,6 +109,7 @@ function App() {
 
       <ToastContainer />
     </div>
+    </ThemeContext.Provider>
   );
 }
 
