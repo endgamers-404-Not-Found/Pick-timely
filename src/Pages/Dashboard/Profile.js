@@ -7,11 +7,13 @@ import { MdEmail } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import auth from '../../firebase.init';
+import { useProfile } from '../../Hooks/useProfile';
 import Spinner from '../../SharedComponents/Spinner';
 
 
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
+
     const [profile, setProfile] = useState([]);
 
 
@@ -35,6 +37,7 @@ const Profile = () => {
             <div>
                 <div className="text-center lg:text-left  sm:order-1 ">
                     <div className="card w-94 bg-base-100 ">
+
                         <figure className="px-28 py-5 bg-sky-700">
                             <img src={profile?.photo} alt="profile" className="mask mask-circle" />
                         </figure>
@@ -53,14 +56,13 @@ const Profile = () => {
                                     ''
                             }
                             <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
+
                         </div>
                     </div>
                 </div>
 
             </div>
-            <div className="z-10" >
 
-            </div>
         </div>
     );
 }

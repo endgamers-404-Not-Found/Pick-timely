@@ -5,7 +5,6 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../src/SharedComponents/Navbar';
 import './App.css';
-import Contact from './Pages/Contact/Contact';
 import Customers from './Pages/Customers/Customers';
 import AllUser from './Pages/Dashboard/AllUser';
 import Dashboard from './Pages/Dashboard/Dashboard';
@@ -37,6 +36,7 @@ import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
 import Graph from './Pages/Dashboard/Graph';
 import Feature from './Pages/Features/Feature';
+import Contact from './Pages/Contact/Contact';
 
 function App() {
   return (
@@ -72,8 +72,10 @@ function App() {
 
         {/* nested route for dashboard */}
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+
           <Route index element={<Profile></Profile>}></Route>
           <Route path='updateProfile' element={<UpdateProfile />}></Route>
+
           <Route path='hostList' element={<HostList></HostList>}></Route>
           <Route path='users' element={<AllUser></AllUser>}></Route>
 
@@ -99,7 +101,20 @@ function App() {
 
         <Route path='/customers' element={<Customers></Customers>}></Route>
         <Route path='/addreview' element={<AddReview></AddReview>}></Route>
+
         <Route path='/contact' element={<Contact></Contact>}></Route>
+
+        
+        <Route path='profile' element={
+          <RequireAuth>
+            <Profile />
+          </RequireAuth>
+        }></Route>
+        <Route path='updateProfile' element={
+          <RequireAuth>
+            <UpdateProfile />
+          </RequireAuth>
+        }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
       <Footer></Footer>
