@@ -36,7 +36,6 @@ import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
 import { createContext, useState } from 'react';
-import ReactSwitch from 'react-switch';
 
 
 export const ThemeContext = createContext(null);
