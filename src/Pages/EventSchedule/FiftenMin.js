@@ -6,7 +6,7 @@ import { FaClock } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 
 import auth from '../../firebase.init';
-import ConfirmSchedule from './ConfirmSchedule';
+import ConfirmSchedule from '../Dashboard/ConfirmSchedule';
 
 const FiftenMin = () => {
     const [user] = useAuthState(auth);
@@ -27,7 +27,7 @@ const FiftenMin = () => {
         getMeeting();
     }, [hostId]);
 
-    const dateFormat = format(selected, 'PP');
+    const dateFormat = format(selected, 'P');
 
 
     return (

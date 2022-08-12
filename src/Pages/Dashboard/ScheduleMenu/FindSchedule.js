@@ -39,18 +39,7 @@ const FindSchedule = () => {
                             
                         </div>
                     </div>
-                   
-                    <div className="form-control">
-                        <div className="input-group">
-                            <button className="btn">Event Type</button>
-                            <select className="select select-bordered">
-                                <option value='All'>All</option>
-                                <option value='Hamid'>Hamid</option>
-                                <option value='Meherab'>Meherab</option>
-                            </select>
-                            
-                        </div>
-                    </div>
+   
                     <div className="form-control">
                         <div className="input-group">
                             <input type="text" name='search' onChange={searchHandle} placeholder='search' className='border' />
