@@ -146,8 +146,8 @@ function Header() {
                                         <label tabindex="0" class="btn btn-ghost btn-circle avatar online">
                                             <div class="w-10 rounded-full">
                                                {
-                                                profile?.photo ?
-                                                <img className='img-fluid' src={profile?.photo} alt=''/> 
+                                                profile?.img ?
+                                                <img className='img-fluid' src={profile?.img} alt=''/> 
                                                 :
                                                 <img src={defaultProfile} alt="" />
                                                  
