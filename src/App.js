@@ -94,7 +94,7 @@ function App() {
         </Route>
         {/*  {/* nested route for dashboard ends here */} 
 
-        <Route path='createEvent/:emailId' element={<CreateEvent></CreateEvent>}></Route>
+       
         <Route path='arrangeMeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
         <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
