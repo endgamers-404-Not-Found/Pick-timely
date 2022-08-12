@@ -102,6 +102,24 @@ function Header() {
                                 </Link>
                             </li>
 
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/about"
+                                >
+                                    <span className="ml-2">About</span>
+                                </Link>
+                            </li>
+
+                            <li className="nav-item">
+                                <Link
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    to="/blog"
+                                >
+                                    <span className="ml-2">Blog</span>
+                                </Link>
+                            </li>
+
                          {
                             admin &&
                             <li className="nav-item">
