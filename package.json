@@ -22,6 +22,7 @@
     "react-dom": "^18.2.0",
     "react-dropdown-timepicker": "^1.0.4",
     "react-firebase-hooks": "^5.0.3",
+    "react-hook-form": "^7.34.0",
     "react-icons": "^4.4.0",
     "react-query": "^4.0.0",
     "react-rating": "^2.0.5",

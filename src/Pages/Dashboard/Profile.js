@@ -24,7 +24,7 @@ const Profile = () => {
                 <div className="text-center lg:text-left mx-16">
                     <div className="card w-96 bg-base-100 ">
                         <figure className="px-28 py-5 bg-sky-700">
-                            <img  src={profile?.photo} alt="profile" className="mask mask-circle" />
+                            <img  src={profile?.img} alt="profile" className="mask mask-circle" />
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
                         <div className="card-body pl-20">

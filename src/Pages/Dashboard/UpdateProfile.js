@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
@@ -10,76 +10,47 @@ const UpdateProfile = () => {
 
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
+    const { register, formState: { errors }, handleSubmit, reset } = useForm();
 
     if (loading) {
         return <Spinner></Spinner>
     }
-    //    const imageStorageKey='6638c031935084021c384c8456c8880c'
+    const imageStorageKey = '6638c031935084021c384c8456c8880c'
 
-    const handleProfileSubmit = (e) => {
-        e.preventDefault();
-        // const image = e.target.url.value;
-        // console.log(image);
-        // const formData = new FormData();
-        // formData.append('image', image);
-        // const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
-        // fetch(url, {
-        //     method: 'POST',
-        //     body: formData
-        // })
-        // .then(res=>res.json())
-        // .then(result =>{
-        //     console.log(result)
-        // })
+    const onSubmit = async data => {
+        const image = data.image[0];
+        const formData = new FormData();
+        formData.append('image', image);
+        const url = `https://api.imgbb.com/1/upload?key=${imageStorageKey}`;
+        fetch(url, {
+            method: 'POST',
+            body: formData
+        })
+        .then(res=>res.json())
+        .then(result =>{
+            console.log(result);
+             if(result.success){
+                const img = result.data.url;
+                const profileInfo = {
+                    company: data.company,
+                    phone: data.phone,
+                    address: data.address,
+                    img: img
+                }
+                fetch(`http://localhost:5000/update/${user.email}`, {
+                    method: 'PUT',
+                    headers: {
+                           "content-type": "application/json"
+                      },
+                    body: JSON.stringify(profileInfo)
+                })
+                .then(res =>res.json())
+                .then(inserted =>{
+                    toast.success('Profile updated successfully')
+                })
 
-        const profileInfo = {
-            name: user.displayName,
-            photo: e.target.url.value,
-            company: e.target.company.value,
-            address: e.target.address.value,
-            phone: e.target.phone.value
-        }
-        console.log(profileInfo);
-        fetch(`http://localhost:5000/update/${user.email}`, {
-            method: 'PUT',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(profileInfo)
+        } 
         })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.success) {
-                    toast("Your profile is added")
-                    if (data.result.acknowledged) {
-                        navigate("/dashboard")
-                    }
-                }
-                else {
-                    toast.error("It seems their something wrong");
-                }
-            })
-        fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
-            method: 'PUT',
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify(profileInfo)
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                if (data.success) {
-                    toast("Your profile is added")
-                    if (data.result.acknowledged) {
-                        navigate("/dashboard")
-                    }
-                }
-                else {
-                    toast.error("It seems their something wrong");
-                }
-            })
     }
 
     return (
@@ -87,28 +58,62 @@ const UpdateProfile = () => {
             <div>
                 <div className="text-center lg:text-left mx-16">
                     <div className="card w-96 bg-base-100 ">
-                        <form className="card-body" onSubmit={handleProfileSubmit}>
+                        <form onSubmit={handleSubmit(onSubmit)} className="card-body" >
                             <h3 className='text-2xl mb-4'>Update your profile</h3>
                             <div className="form-control">
-                                <input type="text" name="company" placeholder="Company Name" className="input input-bordered" />
+                                <input
+                                    type="text"
+                                    placeholder="Company Name"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("company", {
+                                        required: {
+                                            value: true
+                                        }
+                                    })}
+                                />
                             </div>
                             <div className="form-control">
-                                <input type="text" name="phone" placeholder="Phone" className="input input-bordered" />
+                                <input
+                                    type="text"
+                                    placeholder="Phone"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("phone", {
+                                        required: {
+                                            value: true
+                                        }
+                                    })}
+                                />
                             </div>
                             <div className="form-control">
-                                <input type="text" name="address" placeholder="Address" className="input input-bordered" />
+                                <input
+                                    type="text"
+                                    placeholder="Address"
+                                    className="input input-bordered w-full max-w-xs "
+                                    {...register("address", {
+                                        required: {
+                                            value: true
+                                        }
+                                    })}
+                                />
                             </div>
 
                             <div class="form-control">
-                                <input type="text" placeholder="Profile Url" name="url" class="input input-bordered" />
+                                <input
+                                    type="file"
+                                    className="input input-bordered w-full max-w-xs"
+                                    {...register("image", {
+                                        required: {
+                                            value: true,
+                                        }
+                                    })}
+                                />
                             </div>
-
                             <div className="form-control mt-6">
                                 <input className="btn btn-primary" type="submit" value="submit" />
                             </div>
 
-                            <Link to="/profile" className="btn btn-primary">Go back</Link>
 
+                            <Link to="/profile" className="btn btn-primary">Go back</Link>
                         </form>
                     </div>
                     <ToastContainer
@@ -117,7 +122,7 @@ const UpdateProfile = () => {
                 </div>
             </div>
         </div>
-        
+
     );
 };
 
