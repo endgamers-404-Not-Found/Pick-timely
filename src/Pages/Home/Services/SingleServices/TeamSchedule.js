@@ -1,7 +1,8 @@
 import React from 'react';
 
-const TeamSchedule = () => {
+const TeamSchedule = ({theme}) => {
 
+    console.log(theme)
     
 
     return (

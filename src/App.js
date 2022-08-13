@@ -36,6 +36,7 @@ import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
 import { createContext, useState } from 'react';
+import ReactSwitch from 'react-switch';
 
 
 export const ThemeContext = createContext(null);
@@ -49,65 +50,66 @@ function App() {
   };
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
-    <div id={theme}>
-      <Navbar toggleTheme={toggleTheme} theme={theme} />
-   
+      <div id={theme} >
+        <Navbar toggleTheme={toggleTheme} theme={theme} />
 
-      <Routes>
-
-        <Route path='/signIn' element={<Login></Login>}></Route>
-        <Route path='/signUp' element={<SignUp></SignUp>}></Route>
-        <Route path='/pricing' element={<Packages></Packages>}></Route>
-        <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
-        <Route path='/solutions' element={<Solutions></Solutions>}></Route>
-        <Route path='/ourTeam' element={<OurTeam></OurTeam>}></Route>
+     
+        <Routes>
 
 
-        <Route path='/' element={<Home></Home>}>
-          <Route index element={<Productive></Productive>}></Route>
-          <Route path='productive' element={<Productive></Productive>}></Route>
-          <Route path='professional' element={<Professional></Professional>}></Route>
-          <Route path='painless' element={<Painless></Painless>}></Route>
-        </Route>
-
-        <Route path='/features' element={<AppointmentScheduling></AppointmentScheduling>}>
-          <Route index element={<Productive></Productive>}></Route>
-          <Route path='productive' element={<Productive></Productive>}></Route>
-          <Route path='professional' element={<Professional></Professional>}></Route>
-          <Route path='painless' element={<Painless></Painless>}></Route>
-        </Route>
+          <Route path='/signIn' element={<Login></Login>}></Route>
+          <Route path='/signUp' element={<SignUp></SignUp>}></Route>
+          <Route path='/pricing' element={<Packages></Packages>}></Route>
+          <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
+          <Route path='/solutions' element={<Solutions></Solutions>}></Route>
+          <Route path='/ourTeam' element={<OurTeam></OurTeam>}></Route>
 
 
-
-
-        <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
-          <Route index element={<Profile></Profile>}></Route>
-          <Route path='updateProfile' element={<UpdateProfile />}></Route>
-          <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
-          <Route path='hostList' element={<HostList></HostList>}></Route>
-          <Route path='arrangemeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
-          <Route path='users' element={<AllUser></AllUser>}></Route>
-          <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
-          <Route path='eventschedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
-          <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
-          <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
-            <Route index element={<Upcoming></Upcoming>}></Route>
-            <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
-            <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
-            <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
+          <Route path='/' element={<Home></Home>}>
+            <Route index element={<Productive></Productive>}></Route>
+            <Route path='productive' element={<Productive></Productive>}></Route>
+            <Route path='professional' element={<Professional></Professional>}></Route>
+            <Route path='painless' element={<Painless></Painless>}></Route>
           </Route>
-        </Route>
 
-        <Route path='/pricing' element={<Pricing></Pricing>}></Route>
-        
-        <Route path='/customers' element={<Customers></Customers>}></Route>
-        <Route path='/addreview' element={<AddReview></AddReview>}></Route>
-        <Route path='*' element={<NotFound></NotFound>}></Route>
-      </Routes>
-      <Footer></Footer>
+          <Route path='/features' element={<AppointmentScheduling></AppointmentScheduling>}>
+            <Route index element={<Productive></Productive>}></Route>
+            <Route path='productive' element={<Productive></Productive>}></Route>
+            <Route path='professional' element={<Professional></Professional>}></Route>
+            <Route path='painless' element={<Painless></Painless>}></Route>
+          </Route>
 
-      <ToastContainer />
-    </div>
+
+
+
+          <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
+            <Route index element={<Profile></Profile>}></Route>
+            <Route path='updateProfile' element={<UpdateProfile />}></Route>
+            <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
+            <Route path='hostList' element={<HostList></HostList>}></Route>
+            <Route path='arrangemeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+            <Route path='users' element={<AllUser></AllUser>}></Route>
+            <Route path='eventschedule' element={<EventSchedule></EventSchedule>}></Route>
+            <Route path='eventschedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+            <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
+            <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
+              <Route index element={<Upcoming></Upcoming>}></Route>
+              <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
+              <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
+              <Route path='findschedule' element={<FindSchedule></FindSchedule>}></Route>
+            </Route>
+          </Route>
+
+          <Route path='/pricing' element={<Pricing></Pricing>}></Route>
+
+          <Route path='/customers' element={<Customers></Customers>}></Route>
+          <Route path='/addreview' element={<AddReview></AddReview>}></Route>
+          <Route path='*' element={<NotFound></NotFound>}></Route>
+        </Routes>
+        <Footer></Footer>
+
+        <ToastContainer />
+      </div>
     </ThemeContext.Provider>
   );
 }

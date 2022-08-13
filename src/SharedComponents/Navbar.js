@@ -19,7 +19,7 @@ function Header({toggleTheme,theme}) {
     const [admin] = useAdmin(user);
 
    
-
+    console.log(theme)
 
     // const { pathname } = useLocation();
 
@@ -28,7 +28,7 @@ function Header({toggleTheme,theme}) {
 
     return (
         <div className='dark'  >
-            <nav  className=" sticky top-0 z-10 flex flex-wrap items-center justify-between  py-3 bg-gray-400">
+            <nav  className=" sticky top-0 z-10 flex flex-wrap items-center justify-between px-2 py-3 bg-[#F1ECFF]">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
