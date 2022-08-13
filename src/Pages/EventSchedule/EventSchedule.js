@@ -49,7 +49,7 @@ const EventSchedule = () => {
                 <div className="form-control">
                     <div className="input-group">
                         <button className="btn">Host Filter</button>
-                        <select className="select select-bordered">
+                        <select className="select select-bordered  bg-gray-500 text-white">
                             <option value='All'>All</option>
                             <option value='Hamid'>Hamid</option>
                             <option value='Meherab'>Meherab</option>
@@ -60,7 +60,7 @@ const EventSchedule = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
-                    hosts?.map(host => <div key={host._id} className="card bg-base-100 shadow-xl">
+                    hosts?.map(host => <div key={host._id} className="card  shadow-2xl shadow-black">
                     <img className='w-40 mx-auto rounded-full' src={host.img} alt='' />
                     <h1 className='text-xl font-bold text-center'>Host</h1>
                     <h1 className='text-2xl font-bold text-center'>{user?.displayName}</h1>

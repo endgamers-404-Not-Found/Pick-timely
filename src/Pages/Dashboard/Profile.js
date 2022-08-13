@@ -36,12 +36,12 @@ const Profile = () => {
 
 
     return (
-        <div className="hero min-h-screen bg-base-200">
+        <div className="hero min-h-screen marker:">
             <div>
                 <div className="text-center lg:text-left  sm:order-1 ">
-                    <div className="card w-94 bg-base-100 ">
+                    <div className="card w-94  shadow-2xl shadow-black ">
 
-                        <figure className="px-28 py-5 bg-sky-700">
+                        <figure className="px-28 py-5 bg-primary">
                             <img src={profile?.photo} alt="profile" className="mask w-40 mask-circle" />
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
