@@ -24,7 +24,7 @@ const EventSchedule = () => {
     }, [user]);
 
     const handleCreateEvent = (id) => {
-        navigate(`/createEvent/${id}`);
+        navigate(`/dashboard/createEvent`);
     }
 
     const handleHost = (id) =>{
