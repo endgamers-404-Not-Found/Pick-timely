@@ -1,26 +1,34 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Info = () => {
     return (
-        <div className="flex jusify-center items-center">
-            <div className="md:p-20 md:w-[700px] justify-items-center">
-                <h2 className="font-extralight text-4xl text-bold font-serif">ABOUT NOWNESSFAQNOWNESS AWARDSBECOME A CONTRIBUTOR
-                    A global video channel screening the best in culture</h2>
+        <div className="lg:w-[900px] w-full lg:p-0 p-8 mx-auto ">
+            <h2 className="font-extralight text-4xl text-bold font-serif mt-10">ABOUT PICK TIMELY</h2>
 
-                <p className="font-serif my-5 ">
-                    A global video channel screening the best in culture
-                    NOWNESS is a movement for creative excellence in storytelling celebrating the extraordinary of every day. Launched in 2010, NOWNESS’ unique programming strategy has established it as the go to source of inspiration and influence across art, design, fashion, beauty, music, food, and travel. Our curatorial expertise and award-winning approach to storytelling is unparalleled. We work with exceptional talent, and both established and emerging filmmakers, which connects our audience to emotional and sensorial stories designed to provoke inspiration and debate.
+            <p className="font-serif my-5  tracking-wider">
+                Pictimely is a meeting scheduling application. It is mainly developed to be used by recruiter companies or any company to manage their meetings or interviews. In this application, any company can schedule meetings, appoint candidates or clients for meetings. There are paid and unpaid packages, one or more members can meet together.
+            </p>
+            <p className="font-serif my-5 tracking-wider">
+                <span className='text-xl'>Features:</span>
+                <p className='pb-2'>1.Every application requires users to have an identity and this identity is created by creating an account. Therefore, users can create an account in Pick Timely application or user can  login with Google.</p>
+                <p className='pb-2'>2. Since it is a meeting schedule application, anyone can host or call a meeting here. User can call a meeting as per his need.</p>
+                <p className='pb-2'>3. The meeting host can invite or appoint one or more users for this meeting as needed.</p>
+                <p className='pb-2'>4. This application has different packages based on how many members can join during the meeting.</p>
+                 <p className='pb-2'>5. User can buy the package as per his requirement.</p>
+                <p className='pb-2'>6. Users can pay with a card for the paid packages.</p>
+                <p className='pb-2'>7. Users can meet one by one in a free package.</p>
+                <p className='pb-2'>8. Multiple members can meet together in a paid package.</p>
+                <p className='pb-2'>9. Users can add and edit his profile information.</p>
+                <p className='pb-2'>10. An admin can make other members admin or can remove an admin.</p>
+                <p className='pb-2'>11. Anyone can contact us from the contact route.</p>
+                <p className='pb-2'>12. We have graph charts for admin on the dashboard. Admin can see his project overview on Graph.</p>
+                <p className='pb-2'>13. Users can express his thoughts by adding a review.</p>
+                <p className='pb-2'>14. Users can choose a dark or light theme for him.</p>
+                <p className='pb-2'>15. Read blog on the blog route and admin can add blog dynamically.</p>
 
-                    NOWNESS launched a Chinese-language site in 2012 and NOWNESS ASIA in 2020. Since 2013, videos are available in up to 10 languages—including English, Chinese, French, German, Italian, Japanese, Korean, Portuguese, Spanish and Russian (simply turn on subtitles on our player).
-                </p>
-            </div>
 
-            <div className="md:w-[700px] md:pl-20 ">
-                <button className='btn btn-primary block'>Become a member </button>
+            </p>
 
-                <button className="my-8 text-blue-500 font-serif ">Already a member <Link to="/signin">sign in</Link></button>
-            </div>
         </div>
     );
 };
