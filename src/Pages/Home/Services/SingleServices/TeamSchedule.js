@@ -6,7 +6,7 @@ const TeamSchedule = () => {
 
     return (
         <div>
-            <div className="hero bg-base-200 lg:p-10">
+            <div className="hero  lg:p-10">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="lg:w-96 lg:mx-10">
                         <h1 className="text-4xl font-bold">Team scheduling</h1>

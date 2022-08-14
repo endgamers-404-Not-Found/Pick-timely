@@ -9,7 +9,7 @@ const AllUserRow = ({ user, index }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Make admin ', data);
+                // console.log('Make admin ', data);
             })
     }
     const removeAdmin = ()=>{
@@ -18,11 +18,11 @@ const AllUserRow = ({ user, index }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log( data);
+                // console.log( data);
             })
     }
     return (
-        <tr>
+        <tr className='border p-2 border-gray-500 hover:bg-primary'>
             <th>{index + 1}</th>
             <td>{name}</td>
             <td>{email}</td>

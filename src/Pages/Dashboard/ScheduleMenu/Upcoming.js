@@ -36,11 +36,11 @@ const Upcoming = () => {
 
     return (
         <div className='mt-5 w-full'>
-            <div className='block lg:flex gap-5 mt-5 mb-2 justify-between w-[60%] lg:w-[80%]'>
+            <div className='block lg:flex gap-5 mt-5 mb-2 justify-between  w-full '>
                     <div className="form-control">
                         <div className="input-group ">
                             <button className="btn">Host</button>
-                            <select className="select select-bordered">
+                            <select className="select select-bordered  bg-gray-500 text-white">
                                 <option value='All'>All</option>
                                 <option value='Hamid'>Hamid</option>
                                 <option value='Meherab'>Meherab</option>
@@ -51,7 +51,7 @@ const Upcoming = () => {
                     <div className="form-control">
                         <div className="input-group">
                             <button className="btn">Event Type</button>
-                            <select className="select select-bordered">
+                            <select className="select select-bordered  bg-gray-500 text-white">
                                 <option value='All'>All</option>
                                 <option value='Hamid'>Hamid</option>
                                 <option value='Meherab'>Meherab</option>
@@ -61,7 +61,7 @@ const Upcoming = () => {
                     </div>
                 </div>
             <div className="overflow-x-auto">
-            <table className="table w-[60%] lg:w-[80%] border">
+            <table className=" border border-gray-400  w-full">
                     
                     <thead>
                     <tr>
@@ -77,8 +77,9 @@ const Upcoming = () => {
                     
 
                     {
-                    schedules && schedules ? schedules?.map((schedule, index)=> <tr key={schedule._id}>
-                            <th>{index + 1}</th>
+                    schedules && schedules ? schedules?.map((schedule, index)=> 
+                    <tr className='border border-gray-400' key={schedule._id}>
+                            <td>{index + 1}</td>
                             <td>{schedule.dateFormat} <br /> {schedule.timeSlot}</td>
                           
                             <td>{schedule.name}</td>
