@@ -3,7 +3,7 @@ import { Link, Outlet } from 'react-router-dom';
 
 const ScheduleList = () => {
     return (
-        <div className='p-5'>
+        <div className='p-5 '>
             <h1 className='text-4xl font-bold mt-5 mb-5'>Interview Schedule</h1>
             
             <div className='mt-5'>
