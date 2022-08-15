@@ -30,7 +30,7 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
 
         console.log(meetingInfo);
 
-        fetch('https://pick-timely.herokuapp.com/schedule', {
+        fetch('http://localhost:5000/schedule', {
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'
