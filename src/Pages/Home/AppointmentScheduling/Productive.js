@@ -8,7 +8,7 @@ const Productive = () => {
         <div className='flex justify-center'>
             <div className='grid md:grid-cols-3 sm:grid-cols-1'>
                 {
-                    data.slice(0,6).map((item,index) => 
+                    data.slice(0,3).map((item,index) => 
                     <SchedulingItem 
                     key={index}
                     item={item}

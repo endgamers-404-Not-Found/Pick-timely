@@ -23,14 +23,14 @@ function Payment() {
     return (
         <div className='lg:h-72 lg:mx-10 lg:my-28 lg:flex'>
             {/* package detail show here */}
-            <div className='lg:w-6/12 w-10/12 lg:flex p-2 rounded-xl shadow-2xl shadow-gray-900 m-4 my-auto'>
+            <div className='lg:w-6/12 w-10/12 lg:flex p-2 rounded-xl shadow-2xl shadow-black m-4 my-auto'>
 
                 <img src={bundle?.img} alt="" className="rounded-xl w-6/12" />
 
                 <div className=" p-6">
                     <h2 className="card-title text-3xl mb-1">{bundle?.name}</h2>
                     <p>{bundle?.point.map(p => <p className='flex items-center '>
-                        <img className='w-6 h-6 m-2' src="https://i.ibb.co/dK05bDg/image.png" alt="" />
+                        <img className='w-6 mask mask-circle h-6 m-2' src="https://i.ibb.co/dK05bDg/image.png" alt="" />
                         <p className='text-left mb-2'>{p}</p>
                     </p>)}</p>
                     <p className='text-xl font-semibold'>Price: $ {bundle?.price} {bundle.price !== 'free' ? <span className='text-sm'>/month</span> : ''}</p>
@@ -39,7 +39,7 @@ function Payment() {
             </div>
             {/* payment here */}
             <div>
-                <div className="card w-96 bg-base-100 shadow-xl">
+                <div className="card w-96  shadow-2xl shadow-black">
 
                     <div className="card-body">
                         <Elements stripe={stripePromise}>

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
@@ -11,10 +12,38 @@ import HosterEdit from './HosterEdit';
 
 const HostList = () => {
     const [hosting, setHosting] = useState({});
-    const [user] = useAuthState(auth);
-    const { data:hosts, isLoading, refetch} = useQuery(['hosts'], ()=> fetch('http://localhost:5000/hoster').then(res => res.json()));
+    const [hosts, setHosts] = useState([]);
+
+    const navigate = useNavigate();
+    const [user,loading] = useAuthState(auth);
+
+  
     
-    if(isLoading){
+    
+
+    useEffect(() => {
+        const meetingData = async () => {
+            const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
+            const data = await res.json();
+            setHosts(data);
+        }
+        meetingData();
+    }, [user]);
+
+    if(loading){
+        return <Spinner/>
+    }
+
+    console.log(user)
+    const handleHost = () => {
+        // navigate('/')
+    }
+
+    const handleDelete = () => {
+        console.log('delete')
+    }
+
+    if (!hosts) {
         return <Spinner></Spinner>
     }
 
@@ -22,7 +51,7 @@ const HostList = () => {
     const handleDeleteHoster = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
         if(confirmDelete){
-          fetch(`http://localhost:5000/hoster/${id}`, {
+          fetch(`https://pick-timely.herokuapp.com/hoster/${id}`, {
           method: "DELETE",
           headers:{
             'content-type' : 'application/json',
@@ -32,7 +61,6 @@ const HostList = () => {
           .then((result) => {
             if (result.deletedCount) {
               toast(`Hoster is deleted`);
-              refetch();
             }
           });
         }
@@ -43,11 +71,13 @@ const HostList = () => {
 
     return (
         <div>
-            <div className="overflow-x-auto">
-                <table className="table w-full">
+            <h1 className='text-2xl text-center font-semibold my-6'>All Hosts and meetings in Pick Timely</h1>
+            <div class="overflow-x-auto">
+                <table class=" w-full">
+
                     
                     <thead>
-                    <tr>
+                    <tr className='border border-gray-400'>
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
@@ -56,7 +86,7 @@ const HostList = () => {
                     </thead>
                     <tbody>
                     {
-                        hosts?.map((host, index) =>  <tr key={host._id} index={index} host={host}>
+                        hosts?.map((host, index) =>  <tr className='border border-gray-400' key={host._id} index={index} host={host}>
                             <th>{index + 1}</th>
                             <td>{host.hoster}</td>
                             <td>{user?.email}</td>
@@ -81,7 +111,7 @@ const HostList = () => {
                     </tbody>
                 </table>
                 {hosting && <HosterDetails setHosting={setHosting} hosting={hosting}></HosterDetails>}
-            {hosting && <HosterEdit setHosting={setHosting} hosting={hosting} refetch={refetch}></HosterEdit>}
+            {hosting && <HosterEdit setHosting={setHosting} hosting={hosting} ></HosterEdit>}
             </div>
         </div>
     );

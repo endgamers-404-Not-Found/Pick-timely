@@ -82,7 +82,9 @@ const Podcasts = () => {
                         </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
                             {
+
                                 recruitments.map(recruitment => <div className="card bg-base-100 shadow-xl">
+
                                 <div className="card-body">
                                     <img src={recruitment.img} className='w-24 mx-auto' alt="" />
                                     <h2 className="text-center text-sm md:text-xl lg:text-3xl font-bold">{recruitment.title}</h2>

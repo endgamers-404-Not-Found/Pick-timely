@@ -9,11 +9,20 @@ const AllUserRow = ({ user, index }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Make admin ', data);
+                // console.log('Make admin ', data);
+            })
+    }
+    const removeAdmin = ()=>{
+        fetch(`https://pick-timely.herokuapp.com/admin/${email}`, {
+            method: 'PUT'
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log( data);
             })
     }
     return (
-        <tr>
+        <tr className='border p-2 border-gray-500 hover:bg-primary'>
             <th>{index + 1}</th>
             <td>{name}</td>
             <td>{email}</td>
@@ -21,9 +30,9 @@ const AllUserRow = ({ user, index }) => {
             {
                 role === 'admin'
                 ?
-                <p className='font-bold'>Already Admin</p>
+                <button onClick={removeAdmin} className="btn btn-sm ">Remove Admin</button>
                 :
-                <button onClick={handleMakeAdmin} className="btn btn-sm">Make Admin</button>
+                <button onClick={handleMakeAdmin} className="btn btn-sm btn-primary">Make Admin</button>
             }
             </td>
         </tr>

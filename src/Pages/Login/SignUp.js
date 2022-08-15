@@ -90,32 +90,33 @@ function SignUp() {
             headers: {
                 "content-type": "application/json"
             },
-            body: JSON.stringify({ name, email })
+            body: JSON.stringify({ name, email,status:"free" })
         })
             .then(res => res.json())
             .then(data => {
+                console.log(data)
                 data.acknowledged && navigate('/')
             })
         event.target.reset();
     }
     const googleSignIn = async () => {
         await signInWithGoogle()
-        if(gUser){
-            const name = gUser.user.displayName;
-            const email = gUser.user.email;
+        
+            const name = gUser?.user.displayName;
+            const email = gUser?.user.email;
             fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
                 },
-                body: JSON.stringify({ name, email })
+                body: JSON.stringify({ name, email,status:"free" })
             })
                 .then(res => res.json())
                 .then(data => {
                     console.log(data);
                     data.acknowledged && navigate(from, { replace: true });
                 })
-        }
+        
     }
 
     return (

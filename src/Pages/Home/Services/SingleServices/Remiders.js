@@ -6,7 +6,7 @@ const Remiders = () => {
 
     return (
         <div>
-            <div className="hero sm:w-full bg-base-200 mt-20 p-2">
+            <div className="hero sm:w-full  mt-20 p-2">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <div className="lg:w-96 lg:mx-10">
                         <h1 className="text-5xl font-bold">Notifications and reminders</h1>

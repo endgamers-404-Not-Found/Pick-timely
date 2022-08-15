@@ -6,7 +6,7 @@ import useAdmin from '../../Hooks/useAdmin';
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
-    const [admin]=useAdmin(user);
+    const [admin] = useAdmin(user);
 
 
     return (
@@ -18,19 +18,31 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-60 bg-base-100 text-base-content">
+                <ul className="menu p-4 overflow-y-auto w-60   ">
+
                     <li><Link className='font-medium' to='/dashboard'>My Profile</Link></li>
-                    
-                   {
-                    admin &&
-                    <li><NavLink className='font-medium' to='/dashboard/users'>All User</NavLink></li>
-                   }
-                  
+
+                    {
+                        admin &&
+                        <li><NavLink className='font-medium' to='/dashboard/users'>All User</NavLink></li>
+                    }
+
+                    <li><NavLink className='font-medium' to='/dashboard/createEvent'>Host a meeting</NavLink></li>
+                    <li><NavLink className='font-medium' to='/dashboard/eventschedule'>My Hosts</NavLink></li>
                     <li><NavLink className='font-medium' to='/dashboard/scheduleList'>Schedule List</NavLink></li>
-                    <li><NavLink className='font-medium' to='/dashboard/eventschedule'>Event Schedule</NavLink></li>
-                    <li><NavLink className='font-medium' to='/dashboard/hostList'>Hosts List</NavLink></li>
-                 
-                   
+                    {
+                        admin &&
+                        <>
+                            <li><NavLink className='font-medium' to='/dashboard/postBlog'>Post a blog</NavLink> </li>
+
+                            <li><NavLink className='font-medium' to='/dashboard/hostList'>All Hosts </NavLink></li></>
+                    }
+                    {
+                        admin &&
+                        <li><NavLink className='font-medium' to='/dashboard/graph'>Graph view</NavLink></li>
+                    }
+
+
                 </ul>
 
             </div>

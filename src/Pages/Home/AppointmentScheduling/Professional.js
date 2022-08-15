@@ -8,7 +8,7 @@ const Professional = () => {
         <div className='flex justify-center'>
         <div className='grid md:grid-cols-3 sm:grid-cols-1'>
             {
-                data.slice(6,12).map((item,index) => 
+                data.slice(6,9).map((item,index) => 
                 <SchedulingItem 
                 key={index}
                 item={item}
