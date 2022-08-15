@@ -53,7 +53,7 @@ const Reviews = () => {
                 </Carousel>
             </div>
             <div className='flex justify-center'>
-                <Link to='addreview' className='btn btn-primary mt-5 btn-outline'>Add Your Review</Link>
+                <Link to='addreview' className='btn btn-primary mt-5 '>Add Your Review</Link>
             </div>
         </div>
     );

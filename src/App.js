@@ -51,7 +51,7 @@ function App() {
 
   const toggleTheme = () => {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
-    console.log('dark is working')
+    // console.log('dark is working')
   };
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>

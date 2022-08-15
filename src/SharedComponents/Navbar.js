@@ -1,53 +1,49 @@
-
 import { signOut } from 'firebase/auth';
 import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import auth from "../firebase.init";
-import useAdmin from '../Hooks/useAdmin';
 import { useProfile } from '../Hooks/useProfile';
 import defaultProfile from './../assets/profile.png'
 
 
-function Header() {
+function Header({ theme, toggleTheme }) {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [user] = useAuthState(auth);
-    const [admin]=useAdmin(user);
-    const [profile]= useProfile();
+    const [profile] = useProfile();
 
-    const { pathname } = useLocation();
-    
+
 
 
     return (
         <>
 
-            <nav className=" sticky top-0 z-10 flex flex-wrap items-center justify-between px-2 py-3 bg-[#F1ECFF]">
+            <nav id={theme}  className="  sticky top-0 z-10  flex flex-wrap items-center justify-between px-2 py-3 ">
                 <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
-                            className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase text-black"
+                            className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase  "
                             to="/"
                         >
                             Pick-Timely
                         </Link>
                         {/* { pathname === 'dashboard' &&  */}
                         <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
-                            <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard> 
-                        </label> 
+                            <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard>
+                        </label>
                         {/* } */}
 
 
                         <button
-                            className="text-black cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-red-200 block lg:hidden outline-none focus:outline-none"
+                            className="  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-red-200 block lg:hidden outline-none focus:outline-none"
                             type="button"
                             onClick={() => setNavbarOpen(!navbarOpen)}
                         >
                             <AiOutlineMenu color="red" />
                         </button>
-                        
+
                     </div>
                     <div
                         className={
@@ -59,36 +55,36 @@ function Header() {
                         <ul className="flex flex-col lg:flex-row list-none lg:ml-auto lg:mb-[-8px]">
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/"
                                     onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
                                     <span className="ml-2">Home</span>
                                 </Link>
                             </li>
-                            
 
-                            
-                           
+
+
+
 
 
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/solutions"
                                     onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
                                     <span className="ml-2">Solutions</span>
                                 </Link>
                             </li>
-                            
-                            
 
-                        
+
+
+
 
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/pricing"
                                     onClick={() => setNavbarOpen(!navbarOpen)}
                                 >
@@ -99,7 +95,7 @@ function Header() {
 
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/blog"
                                 >
                                     <span className="ml-2">Blog</span>
@@ -107,7 +103,7 @@ function Header() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/contact"
                                 >
                                     <span className="ml-2">Contact</span>
@@ -115,7 +111,7 @@ function Header() {
                             </li>
                             <li className="nav-item">
                                 <Link
-                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                    className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/about"
                                 >
                                     <span className="ml-2">About</span>
@@ -123,28 +119,35 @@ function Header() {
                             </li>
 
 
-                            
+
                             <li className="nav-item">
                                 {user ?
                                     // <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
-                                    <div class=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end bg-[#F1ECFF] ml-4">
-                                        <label tabindex="0" class="btn btn-ghost btn-circle avatar online">
-                                            <div class="w-10 rounded-full">
-                                               {
-                                                profile?.photo ?
-                                                <img className='img-fluid' src={profile?.photo} alt=''/> 
-                                                :
-                                                <img src={defaultProfile} alt="" />
-                                                 
-                                               }
+                                    <div  className=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end  ml-4">
+                                        <label tabindex="0"  className="btn btn-ghost btn-circle avatar online">
+                                            <div  className="w-10 rounded-full">
+                                                {
+                                                    profile?.photo ?
+                                                        <img className='img-fluid' src={profile?.photo} alt='' />
+                                                        :
+                                                        <img src={defaultProfile} alt="" />
+
+                                                }
                                             </div>
                                         </label>
-                                        <ul tabindex="0" class="menu menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52">
+                                        <ul tabindex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
                                             <li>
-                                                <Link to='/dashboard' class="justify-between">
+                                                <Link to='/dashboard'  className="justify-between">
                                                     Profile
-                                                    <span class="badge">Active Now</span>
+                                                    <span  className="badge">Active Now</span>
                                                 </Link>
+                                            </li>
+                                            <li>
+                                                <p className='justify-between'>Dark Mode 
+                                                <input
+                                                    onClick={toggleTheme} value={theme === "dark"}
+                                                    type="checkbox"  className="toggle" />
+                                                </p>
                                             </li>
                                             <li>
                                                 <Link to='/dashboard'>Dashboard</Link>
@@ -154,7 +157,7 @@ function Header() {
                                     </div>
                                     :
                                     <Link
-                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug text-black hover:opacity-75"
+                                        className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                         to="/signIn"
                                         onClick={() => setNavbarOpen(!navbarOpen)}
                                     >
@@ -162,7 +165,7 @@ function Header() {
                                     </Link>
                                 }
                             </li>
-                            
+
                         </ul>
                     </div>
                 </div>

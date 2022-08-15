@@ -12,10 +12,10 @@ import Reviews from './Review/Reviews'
 import Services from './Services/Services'
 
 
-function Home() {
+function Home({theme}) {
     return (
         <div className=''>
-            <Banner />
+            <Banner  />
             <AppointmentScheduling></AppointmentScheduling>
             <Services></Services>
             <Packages></Packages>
