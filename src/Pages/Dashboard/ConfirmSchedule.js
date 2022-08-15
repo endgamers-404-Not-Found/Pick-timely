@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 
-const ConfirmSchedule = ({dateFormat, hostId}) => {
+const ConfirmSchedule = ({dateFormat, hostId, meeting}) => {
     const navigate = useNavigate();
     const day = new Date();
     const today = day.toLocaleTimeString();
+
+    const {eventType, duration} = meeting;
 
     const handleMeeting = (event) =>{
         event.preventDefault();
@@ -26,11 +28,13 @@ const ConfirmSchedule = ({dateFormat, hostId}) => {
             today,
             linking,
             platform,
+            eventType,
+            duration,
         }
 
         console.log(meetingInfo);
 
-        fetch('https://pick-timely.herokuapp.com/schedule', {
+        fetch('http://localhost:5000/schedule', {
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'

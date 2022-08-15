@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { ImCross } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
-import { toast, ToastContainer } from 'react-toastify';
-import { ImCross } from 'react-icons/im';
 
 function Login() {
     const [show, setShow] = useState(false);
@@ -118,7 +118,7 @@ function Login() {
                                 <h2 className=' text-3xl text-center'>Sign In</h2>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span data-testid="email" className="label-text">Email</span>
                                     </label>
                                     <input onChange={handleEmailField} name='email' required type="text" placeholder="email" className="input input-bordered" />
                                 </div>

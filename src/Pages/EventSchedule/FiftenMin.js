@@ -1,31 +1,33 @@
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { DayPicker } from 'react-day-picker';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { FaClock } from "react-icons/fa";
-import { useParams } from 'react-router-dom';
+import { FaClock, FaUsers } from "react-icons/fa";
 
-import auth from '../../firebase.init';
+
 import ConfirmSchedule from '../Dashboard/ConfirmSchedule';
 
-const FiftenMin = () => {
-    const [user] = useAuthState(auth);
-    const { hostId } = useParams();
-    const [meeting, setMeeting] = useState({});
+const FiftenMin = ({hostId}) => {
+
     const [selected, setSelected] = useState(new Date());
+    console.log(hostId);
+    
+    const [meeting, setMeeting] = useState({});
+  
 
-
-
-
-    useEffect(() => {
-        const getMeeting = async () => {
-            const res = await fetch(`https://pick-timely.herokuapp.com/hoster/${hostId}`);
-            const data = await res.json();
-            setMeeting(data);
-
-        }
-        getMeeting();
+    useEffect(()=>{
+        fetch(`http://localhost:5000/hoster/${hostId}`, {
+            method: 'GET',
+            headers: {
+                'content-type': 'application/json',
+            }
+        })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            setMeeting(data)
+        });
     }, [hostId]);
+    
 
     const dateFormat = format(selected, 'P');
 
@@ -33,16 +35,18 @@ const FiftenMin = () => {
     return (
 
         <div className=''>
-            <div className='bg-slate-400 flex flex-col lg:flex-row'>
-               
-
-                <div className='h-95 shadow-xl grid lg:grid-cols-3 sm:grid-cols-1'>
+            <div className='bg-slate-400 flex flex-col lg:flex-row justify-center'>
+                <div className='h-95 shadow-xl grid lg:grid-cols-3 sm:grid-cols-1 gap-3'>
                     <div className='border p-2 text-center'>
-                        <img className='mask mask-circle w-40 mt-10 mx-auto' src={meeting.img} alt="" />
-                        <p className='font-bold text-2xl'>Host: {user?.displayName}</p>
-                        <p className='font-bold text-2xl'>{meeting.eventTime}</p>
+                        <img className='mask mask-circle w-40 mt-10 mx-auto' src={meeting.img ? meeting.img : 'https://i.ibb.co/Cn5N30Q/people1.png'} alt="" />
+                        <p className='font-bold text-2xl'>{meeting.hoster}</p>
+                        
                         <div className='flex items-center gap-3 justify-center'>
                             <p className='text-xl'><FaClock ></FaClock></p>
+                            <p className='font-bold text-2xl'>{meeting.duration}</p>
+                        </div>
+                        <div className='flex items-center gap-3 justify-center'>
+                            <p className='text-xl'><FaUsers ></FaUsers></p>
                             <p className='text-xl font-bold'>{meeting.eventType}</p>
                         </div>
 
@@ -55,12 +59,12 @@ const FiftenMin = () => {
                             onSelect={setSelected}
 
                         />
-                        <p className='text-3xl'>You have selected : {dateFormat}</p>
+                        <p className='text-xl font-bold text-center'>Selected Date: {dateFormat}</p>
 
 
                     </div>
                     <div>
-                        <ConfirmSchedule hostId={hostId} dateFormat={dateFormat}></ConfirmSchedule>
+                        <ConfirmSchedule meeting={meeting} hostId={hostId} dateFormat={dateFormat}></ConfirmSchedule>
                     </div>
                 </div>
             </div>

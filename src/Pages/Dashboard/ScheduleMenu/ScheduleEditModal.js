@@ -48,10 +48,10 @@ const ScheduleEditModal = ({dateFormat, setMeeting, meeting, refetch}) => {
                 <div className="modal">
                     <div className="modal-box relative">
                         <label htmlFor="meeting-reschedule" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="text-lg font-bold">Name: {meeting.name} {_id}</h3>
-                       <div className='mx-auto w-full flex justify-center'>
-                        <form onSubmit={handleReschedule}>
-                                <div className="form-control w-full">
+                        <h3 className="text-lg font-bold">Name: {meeting.name}</h3>
+                       <div className='flex justify-center'>
+                        <form className='w-full' onSubmit={handleReschedule}>
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Pick time</span>
                                     </label>
@@ -69,32 +69,32 @@ const ScheduleEditModal = ({dateFormat, setMeeting, meeting, refetch}) => {
                                 </div>
                     
                 
-                                <div className="form-control w-full">
+                                <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">name</span>
+                                        <span className="label-text">Name</span>
                                     </label>
-                                    <input type="text" name='name' placeholder="Type here" className="input input-bordered w-full" />
+                                    <input type="text" name='name' placeholder="Type here" className="input input-bordered" />
                                 </div>
-                                <div className="form-control w-full">
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name='email' placeholder="Type here" className="input input-bordered w-full" />
+                                    <input type="email" name='email' placeholder="Type here" className="input input-bordered" />
                                 </div>
-                                <div className="form-control w-full">
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Description</span>
                                     </label>
                                     <textarea name='description' className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
                                 </div>
-                                <div className="form-control w-full">
+                                <div className="form-control">
                                     <label className="label">
                                         <span className="label-text">Add Meet or Zoom link</span>
                                     </label>
-                                    <input type="text" name='linkText' placeholder="Type here" className="input input-bordered w-full" />
+                                    <input type="text" name='linkText' placeholder="Type here" className="input input-bordered" />
                                 </div>
-                                <div className='mt-5'>
-                                    <button type='submit' className='btn btn-dark w-full'>Confirm Schedule</button>
+                                <div className='mt-5 flex justify-center'>
+                                    <button type='submit' className='btn btn-dark'>Confirm Schedule</button>
                                 </div>
                             </form>
                        </div>

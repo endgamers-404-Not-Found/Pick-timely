@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import defaultImage from '../../assets/profile.png';
 import auth from '../../firebase.init';
 
 const EventSchedule = () => {
@@ -23,9 +24,7 @@ const EventSchedule = () => {
     }
 
     const handleHost = (id) =>{
-        navigate(`/arrangeMeeting/${id}`)
-        console.log(id);
-
+        navigate(`/eventSchedule/${id}`);
     }
 
     return (
@@ -52,9 +51,9 @@ const EventSchedule = () => {
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
                     hosts?.map(host => <div host={host} key={host._id} className="card bg-base-100 shadow-xl">
-                    <img className='w-40 mx-auto rounded-full' src={host.img} alt='' />
+                    <img className='w-40 h-40 mx-auto rounded-full' src={host.img ? host.img : defaultImage} alt='' />
                     <h1 className='text-xl font-bold text-center'>Host</h1>
-                    <h1 className='text-2xl font-bold text-center'>{user?.displayName}</h1>
+                    <h1 className='text-2xl font-bold text-center'>{host.hoster}</h1>
                     <div className="card-body">
                         <h2 className="card-title">{host.duration}</h2>
                         <p>{host.eventType}</p>

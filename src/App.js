@@ -40,7 +40,7 @@ function App() {
   return (
     <div>
       <Navbar />
-
+    
       <Routes>
 
         <Route path='/signIn' element={<Login></Login>}></Route>
@@ -84,7 +84,7 @@ function App() {
         </Route>
 
         <Route path='createEvent/:emailId' element={<CreateEvent></CreateEvent>}></Route>
-        <Route path='arrangeMeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+        <Route path='eventSchedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
         <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/customers' element={<Customers></Customers>}></Route>
@@ -92,6 +92,7 @@ function App() {
         <Route path='/contact' element={<Contact></Contact>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
+      
       <Footer></Footer>
 
       <ToastContainer />

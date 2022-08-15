@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux/es/exports';
+import { useDispatch, useSelector } from 'react-redux';
+
+
 import TeamActions from './TeamService/Actions/TeamActions';
 
 const TeamMembers = () => {
 
+    const dispatch = useDispatch();
     const { isLoading, teams, error} = useSelector(state => state);
 
-    const dispatch = useDispatch();
 
     useEffect(()=>{
         dispatch(TeamActions())

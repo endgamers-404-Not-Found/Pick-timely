@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 import Spinner from '../../../SharedComponents/Spinner';
 import ModalDetails from './ModalDetails';
-import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
     
@@ -81,21 +80,20 @@ const Upcoming = () => {
                             <th>{index + 1}</th>
                             <td>{schedule.dateFormat} <br /> {schedule.timeSlot}</td>
                           
-                            <td>{schedule.name}</td>
-                            <td>{schedule.email}</td>
-                            <td>
-                                <label 
+                            <td> <label 
                                 htmlFor="my-meeting" 
                                 className="btn btn-sm btn-success"
                                 onClick={()=>setMeeting(schedule)}
-                                >see details</label> 
-                                <label 
-                                htmlFor="meeting-reschedule" 
-                                className="btn btn-sm btn-info mx-3"
-                                onClick={()=>setMeeting(schedule)}
-                                >reschedule</label> 
-                                <button onClick={()=>handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
+                                
+                                >
+                                {schedule.name ? schedule.name : "no name"}
+                                </label> 
                                 </td>
+                            <td>{schedule.email}</td>
+                            <td>
+                                
+                                <button onClick={()=>handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Delete</button>
+                            </td>
                         </tr>)
                         :
                         'No data available'
@@ -105,8 +103,8 @@ const Upcoming = () => {
                 
                     </tbody>
                 </table>
-            {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
-            {meeting && <ScheduleEditModal setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
+            {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ModalDetails>}
+           
             </div>
         </div>
     );
