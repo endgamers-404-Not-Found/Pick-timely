@@ -10,14 +10,14 @@ const EventSchedule = () => {
     const [user,loading] = useAuthState(auth);
     const [hosts, setHosts] = useState('');
     const navigate = useNavigate();
-    console.log(user);
+    // console.log(hosts);
 
     useEffect(()=>{
         const meetingData = async () =>{
             const res = await fetch(`https://pick-timely.herokuapp.com/hoster/${user?.email}`);
 
             const data = await res.json();
-            console.log(data)
+            // console.log(data)
             setHosts(data);
         }
         meetingData();
@@ -29,8 +29,8 @@ const EventSchedule = () => {
 
     const handleHost = (id) =>{
 
-        navigate(`/arrangeMeeting/${id}`)
-        console.log(id);
+        navigate(`/dashboard/eventschedule/${id}`)
+        // console.log(id);
 
     }
     if(loading|| !hosts){
@@ -41,22 +41,11 @@ const EventSchedule = () => {
         <div className='p-10 border'>
             <div className='flex justify-start gap-10 mt-5 flex-col lg:flex-row'>
                 <h1 className='text-3xl font-bold'>PickTimely</h1>
-                <button onClick={()=>handleCreateEvent(user?.uid)} className='btn btn-success'>+ Create Event Type</button>
+                <button onClick={()=>handleCreateEvent(user?.uid)} className='btn btn-success'>+ Create Host</button>
             </div>
                 <div className="divider"></div> 
 
-            <div className='mt-10 mb-5'>
-                <div className="form-control">
-                    <div className="input-group">
-                        <button className="btn">Host Filter</button>
-                        <select className="select select-bordered  bg-gray-500 text-white">
-                            <option value='All'>All</option>
-                            <option value='Hamid'>Hamid</option>
-                            <option value='Meherab'>Meherab</option>
-                        </select>
-                    </div>
-                </div>
-            </div>
+            
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
@@ -68,7 +57,7 @@ const EventSchedule = () => {
                         <h2 className="card-title">{host.duration}</h2>
                         <p>{host.eventType}</p>
                         <div className="card-actions justify-center">
-                        <button onClick={()=>handleHost(host._id)} className="btn btn-primary">view page</button>
+                        <button onClick={()=>handleHost(host._id)} className="btn btn-primary">Arrange Meeting</button>
                         </div>
                     </div>
                 </div>)

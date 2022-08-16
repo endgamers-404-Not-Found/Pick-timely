@@ -107,7 +107,7 @@ function App() {
           <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
           {/*  {/* nested route for  schedule list */}
 
-          <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
+          <Route path='myMeetings' element={<ScheduleList></ScheduleList>}>
             <Route index element={<Upcoming></Upcoming>}></Route>
             <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
             <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>

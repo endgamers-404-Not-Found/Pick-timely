@@ -101,7 +101,7 @@ function CheckoutForm({ bundle:data }) {
     return (
         <>
             <form onSubmit={handleSubmit}>
-                <CardElement />
+                <CardElement className='bg-gray-400 p-2 rounded-md'/>
                 <button className='btn btn-primary btn-sm mt-6 text-white' type="submit" disabled={!stripe || !elements || !clientSecret}>
                     Pay
                 </button>

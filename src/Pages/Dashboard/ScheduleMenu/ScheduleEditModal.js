@@ -46,16 +46,16 @@ const ScheduleEditModal = ({dateFormat, setMeeting, meeting, refetch}) => {
             <div>
                 <input type="checkbox" id="meeting-reschedule" className="modal-toggle" />
                 <div className="modal">
-                    <div className="modal-box relative">
+                    <div className="modal-box bg-gray-700 text-white relative">
                         <label htmlFor="meeting-reschedule" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
-                        <h3 className="text-lg font-bold">Name: {meeting.name} {_id}</h3>
+                        <h3 className="text-lg font-bold">Meet with : {meeting.name}</h3>
                        <div className='mx-auto w-full flex justify-center'>
                         <form onSubmit={handleReschedule}>
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Pick time</span>
                                     </label>
-                                    <select name='timeSlot' className="select select-bordered">
+                                    <select name='timeSlot' className="select select-bordered bg-gray-400 text-black">
                                         <option value='03.15PM-03.30PM'>03.15PM-03.30PM</option>
                                         <option value='03.15PM-03.30PM'>03.30PM-03.45PM</option>
                                         <option value='03.15PM-03.30PM'>03.45PM-04.00PM</option>
@@ -73,25 +73,25 @@ const ScheduleEditModal = ({dateFormat, setMeeting, meeting, refetch}) => {
                                     <label className="label">
                                         <span className="label-text">name</span>
                                     </label>
-                                    <input type="text" name='name' placeholder="Type here" className="input input-bordered w-full" />
+                                    <input type="text" name='name' placeholder="Type here" className="input input-bordered w-full  bg-gray-400 text-black placeholder:text-black" />
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Email</span>
                                     </label>
-                                    <input type="email" name='email' placeholder="Type here" className="input input-bordered w-full" />
+                                    <input type="email" name='email' placeholder="Type here" className="input input-bordered w-full  bg-gray-400 text-black placeholder:text-black" />
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Description</span>
                                     </label>
-                                    <textarea name='description' className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                                    <textarea name='description' className="textarea textarea-bordered h-24 bg-gray-400 text-black placeholder:text-black" placeholder="Description"></textarea>
                                 </div>
                                 <div className="form-control w-full">
                                     <label className="label">
                                         <span className="label-text">Add Meet or Zoom link</span>
                                     </label>
-                                    <input type="text" name='linkText' placeholder="Type here" className="input input-bordered w-full" />
+                                    <input type="text" name='linkText' placeholder="Type here" className="input input-bordered w-full bg-gray-400 text-black placeholder:text-black" />
                                 </div>
                                 <div className='mt-5'>
                                     <button type='submit' className='btn btn-dark w-full'>Confirm Schedule</button>
