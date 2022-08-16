@@ -24,7 +24,7 @@ const FindSchedule = () => {
         setSearchText(filtered);
     }
 
-    if(!searchText){
+    if (!searchText) {
         return <Spinner />
     }
 
