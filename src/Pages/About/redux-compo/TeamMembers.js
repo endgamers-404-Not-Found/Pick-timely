@@ -31,8 +31,8 @@ const TeamMembers = () => {
                     <figure>
                         <img className='mt-5 w-8/12 mask mask-decagon' src={team.img} alt={team.name} />
                     </figure>
-                    <div class="card-body">
-                        <h2 class="text-3xl font-bold">{team.name}</h2>
+                    <div className="card-body">
+                        <h2 className="text-3xl font-bold">{team.name}</h2>
                         <p className='font-semibold mt-0'>{team.position}, Team {team.team}</p>
                         <p className='font-semibold'>Email: {team.email}</p>
                         <p className='font-semibold'>Address: {team.address}</p>

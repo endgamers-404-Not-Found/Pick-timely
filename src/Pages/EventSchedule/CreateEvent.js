@@ -4,14 +4,17 @@ import { FaChevronCircleDown } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
+import { useProfile } from '../../Hooks/useProfile';
 
 const CreateEvent = () => {
     const [user] = useAuthState(auth);
-    const {emailId} = useNavigate(user);
-    console.log(emailId);
-   
+    const { emailId } = useNavigate(user);
+    const profile = useProfile()
+    const status = profile[0].status;
 
-    const handleHostCreate = (event) =>{
+
+
+    const handleHostCreate = (event) => {
         event.preventDefault();
         const duration = event.target.duration.value;
         const eventType = event.target.eventType.value;
@@ -28,17 +31,17 @@ const CreateEvent = () => {
         console.log(hosterInfo);
         fetch('https://pick-timely.herokuapp.com/hoster', {
             method: 'POST',
-            headers:{
-                'content-type' : 'application/json'
+            headers: {
+                'content-type': 'application/json'
             },
             body: JSON.stringify(hosterInfo),
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log('Hoster created successfully', data);
-            toast("Host Create Successfully");
-            event.target.reset();
-        })
+            .then(res => res.json())
+            .then(data => {
+                console.log('Hoster created successfully', data);
+                toast("Host Create Successfully");
+                event.target.reset();
+            })
 
     }
 
@@ -49,7 +52,7 @@ const CreateEvent = () => {
                 <h1 className='text-2xl font-bold flex justify-start items-center gap-3 py-10'><FaChevronCircleDown /> Group Meeting</h1>
                 <h1 className='text-2xl font-bold flex justify-start items-center gap-3 py-10'><FaChevronCircleDown /> Corporate Meeting</h1>
             </div>
-            
+
             <div className='shadow-2xl shadow-black rounded-lg p-10 w-96 mt-10'>
                 <h1>{emailId}</h1>
                 <form onSubmit={handleHostCreate}>
@@ -57,7 +60,7 @@ const CreateEvent = () => {
                         <label className="label">
                             <span className="">Event Duration</span>
                         </label>
-                        <select name='duration' className="select select-bordered bg-gray-500 text-white">
+                        <select name='duration' className="select select-bordered bg-gray-400 text-white">
                             <option value='15 mins Meeting'>15 mins Meeting</option>
                             <option value='30 mins Meeting'>30 mins Meeting</option>
                             <option value='60 mins Meeting'>60 mins Meeting</option>
@@ -70,34 +73,52 @@ const CreateEvent = () => {
                         <label className="label">
                             <span className="">Event Type</span>
                         </label>
-                        <select name='eventType' className="select select-bordered  bg-gray-500 text-white">
-                                <option value='One-to-one'>One-to-one</option>
-                                <option value='Group Meeting'>Group Meeting</option>
-                                <option value='Corporate Meeting'>Corporate Meeting</option>
-                                {/* <option value='Virsual Meeting'>Virsual Meeting</option> */}
-                            </select>
+                        <select name='eventType' className="select select-bordered  bg-gray-400 text-white">
+                            <option value='One-to-one'>One-to-one</option>
+                            {status === 'free' &&
+                                <>
+                                    <option  disabled value='Group Meeting'>Group Meeting - paid service</option>
+                                    
+                                    <option  disabled value='Corporate Meeting'>Corporate Meeting - paid service</option>
+                                </>
+                            }
+                            {status === 'team' &&
+                                <>
+                                    <option  value='Group Meeting'>Group Meeting </option>
+                                   
+                                    <option disabled  value='Corporate Meeting'>Corporate Meeting </option>
+                                </>
+                            }
+                            {status === 'corporate' &&
+                                <>
+                                    <option  value='Group Meeting'>Group Meeting </option>
+                                   
+                                    <option  value='Corporate Meeting'>Corporate Meeting </option>
+                                </>
+                            }
+                        </select>
                     </div>
 
                     <div className="form-control">
                         <label className="label">
                             <span className="">Description</span>
-                        </label> 
-                        <textarea name='description' className="textarea  placeholder:text-white bg-gray-500 text-white textarea-bordered h-24" placeholder="description here"></textarea>
+                        </label>
+                        <textarea name='description' className="textarea  placeholder:text-white bg-gray-400 text-white textarea-bordered h-24" placeholder="description here"></textarea>
                     </div>
                     <div className="form-control">
                         <label className="label">
                             <span className="label-text">User image Link</span>
-                        </label> 
-                        <input type='text' name='image' className="input input-bordered placeholder:text-white  bg-gray-500 text-white" placeholder="add image link" />
+                        </label>
+                        <input type='text' name='image' className="input input-bordered placeholder:text-white  bg-gray-400 text-white" placeholder="add image link" />
                     </div>
-                    
+
                     <div className='mt-5'>
                         <button className='btn btn-primary w-full'>continue</button>
                     </div>
                 </form>
 
             </div>
- 
+
         </div>
     );
 };

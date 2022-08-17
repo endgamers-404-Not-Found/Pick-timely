@@ -6,34 +6,35 @@ import { FaClock } from "react-icons/fa";
 import { useParams } from 'react-router-dom';
 
 import auth from '../../firebase.init';
-import ConfirmSchedule from '../Dashboard/ConfirmSchedule';
+import ConfirmSchedule from './ConfirmSchedule';
 
 const FiftenMin = () => {
     const [user] = useAuthState(auth);
     const { hostId } = useParams();
     const [meeting, setMeeting] = useState({});
     const [selected, setSelected] = useState(new Date());
-    const dateFormat = format(selected, 'P');
+
+
+
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
-        .then(res=>res.json())
-        .then(data=>{
-            // console.log(data)
-            setMeeting(data)
-        })
+        const getMeeting = async () => {
+            const res = await fetch(`https://pick-timely.herokuapp.com/hoster/${hostId}`);
+            const data = await res.json();
+            setMeeting(data);
+
+        }
+        getMeeting();
     }, [hostId]);
 
-
-
-
+    const dateFormat = format(selected, 'PP');
 
 
     return (
 
         <div className=''>
-            <div className=' flex flex-col lg:flex-row'>
-
+            <div className='bg-slate-400 flex flex-col lg:flex-row'>
+               
 
                 <div className='h-95 shadow-xl grid lg:grid-cols-3 sm:grid-cols-1'>
                     <div className='border p-2 text-center'>

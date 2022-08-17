@@ -6,7 +6,7 @@ import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
 import { useProfile } from '../Hooks/useProfile';
-import defaultProfile from './../assets/profile.png'
+import defaultProfile from './../assets/profile.png';
 
 
 function Header({ theme, toggleTheme }) {
