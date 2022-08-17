@@ -39,15 +39,15 @@ const Accounts = () => {
        
         <div className="w-full p-20">
             <div className='w-[100%] lg:w-[50%] mx-auto'>
-                <h1 className="lg:text-5xl text-2xl font-bold text-center p-10">Appointment scheduler for accounting professionals</h1>
+                <h1 className="lg:text-4xl text-2xl font-bold text-center p-10">Appointment scheduler for accounting professionals</h1>
             </div>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-10 p-2'>
                 {
-                    accounts.map(account => <div className="bg-base-100 shadow-xl p-10">
+                    accounts.map(account => <div className="shadow-xl p-10 rounded-lg">
                         <div>
                             <img src={account.img} className='rounded-lg w-full' alt="" />
-                            <h2 className="text-center text-3xl font-bold">{account.title}</h2>
-                            <p>{account.description}</p>
+                            <h2 className="text-center text-2xl my-3 font-bold">{account.title}</h2>
+                            <p className="font-semibold">{account.description}</p>
                         </div>
                         <div className="card-actions justify-center mt-10">
                             <button className="btn btn-primary">see details</button>

@@ -49,20 +49,19 @@ const Recruitment = () => {
 
     return (
         <div>
-            <div className="hero bg-slate-300 p-20">
-                <div className="hero-content text-center">
+            <div className="p-20">
+                <div className="text-center">
                     <div className="w-full">
-                        <h1 className="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
-                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
+                        <h1 className="lg:text-4xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
+                        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center shadow-lg'>
                             {
-                                recruitments.map(recruitment => <div className="card w-94 bg-base-100 shadow-xl">
+                                recruitments.map(recruitment => <div className="card w-94 bg-base-100 shadow-xl relative h-[500px]">
                                 <div className="card-body">
-                                    <img src={recruitment.img} className='w-24 mx-auto' alt="" />
-                                    <h2 className="text-center text-3xl font-bold">{recruitment.title}</h2>
-                                    <p>{recruitment.description}</p>
-                                    <div className="card-actions justify-center">
-                                        <button className="btn btn-primary">see details</button>
-                                    
+                                    <img src={recruitment.img} className='w-2/4 mx-auto rounded-lg' alt="" />
+                                    <h2 className="text-center text-2xl font-bold">{recruitment.title}</h2>
+                                    <p className="text-left font-semibold">{recruitment.description}</p>
+                                    <div class="card-actions justify-center">
+                                        <button class="w-full btn btn-primary border-2 px-32 absolute bottom-0">see details</button>
                                     </div>
                                 </div>
                             </div>)

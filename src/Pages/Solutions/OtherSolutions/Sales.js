@@ -32,16 +32,16 @@ const Sales = () => {
 
     return (
         <div>
-            <div class="hero-content text-center">
+            <div class="text-center bg-transparent">
                 <div class="w-full">
-                    <h1 class="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A In sales and in scheduling, you've got to be well-connected.</h1>
+                    <h1 class="lg:text-4xl text-2xl font-bold w-full mx-auto mb-10">A In sales and in scheduling, you've got to be well-connected.</h1>
                     <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
                         {
                             sales.map(sales => <div class="card w-80 h-[400px] bg-base-100 shadow-xl relative">
                                 <div class="card-body">
-                                    <img src={sales.img} className='w-24 mx-auto' alt="" />
-                                    <h2 class="text-center text-3xl font-bold">{sales.title}</h2>
-                                    <p>{sales.description}</p>
+                                    <img src={sales.img} className='w-32 mx-auto' alt="" />
+                                    <h2 class="text-center text-2xl font-bold">{sales.title}</h2>
+                                    <p className="text-left font-semibold">{sales.description}</p>
                                     <div class="card-actions justify-center">
                                         <button class="w-full btn btn-primary border-2 px-32 absolute bottom-0">see details</button>
                                     </div>
