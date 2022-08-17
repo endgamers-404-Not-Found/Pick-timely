@@ -1,17 +1,17 @@
 import React from 'react';
 
 const ModalDetails = ({ meeting, setMeeting }) => {
-    const { email, timeSlot, description, dateFormat } = meeting;
+    const { email, timeSlot, description, dateFormat,type } = meeting;
 
     const handleCloseModal = () => {
         setMeeting(null)
     }
-    console.log(email)
+    // console.log(email)
     return (
         <div className=''>
             <input type="checkbox" id="my-meeting" className="modal-toggle" />
             <div className="modal ">
-                <div className="modal-box bg-gray-700 text-white relative">
+                <div className="modal-box bg-gray-700 text-white relative mt-10">
                     <label htmlFor="my-meeting" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{timeSlot}</h3>
                     <h3 className="text-lg font-bold">{dateFormat}</h3>
@@ -19,7 +19,7 @@ const ModalDetails = ({ meeting, setMeeting }) => {
                     <ul className="py-4 font-bold">Email:
                         {email?.map(email => <li>{email?.email}</li>)}
                     </ul>
-                    <p className="py-4 font-bold">Event Type: Interview</p>
+                    <p className="py-4 font-bold">Event Type: {type}</p>
                     <p className="py-4 font-bold">Event Time: 15mins meeting</p>
                     <p className="py-4 font-bold">Description: {description}</p>
                     <div className='flex gap-5'>
