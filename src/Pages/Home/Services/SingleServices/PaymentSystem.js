@@ -5,7 +5,7 @@ const PaymentSystem = () => {
 
     return (
         <div>
-            <div className="hero py-20 bg-base-200">
+            <div className="hero py-20">
                 <div className="hero-content  flex-col lg:flex-row-reverse">
                     <div className="lg:w-96  lg:mx-10 mx-0">
                         <h1 className="text-5xl font-bold">Online payment</h1>

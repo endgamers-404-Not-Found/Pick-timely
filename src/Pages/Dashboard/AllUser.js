@@ -12,10 +12,11 @@ const AllUser = () => {
     }, [users])
     return (
         <div className='mt-5'>
+            <h1 className='text-2xl text-center font-semibold my-6'>All Users in Pick Timely</h1>
             <div className="overflow-x-auto">
-                <table className="table table-zebra w-full">
+                <table className=" border-gray-500 border  w-full">
                     <thead>
-                        <tr>
+                        <tr className=''>
                             <th>ID</th>
                             <th>Name</th>
                             <th>Email</th>

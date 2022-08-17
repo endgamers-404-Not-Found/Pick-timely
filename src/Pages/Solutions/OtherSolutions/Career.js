@@ -5,19 +5,19 @@ const accountsData = [
         id:1,
         title:"Freedom of choice",
         description: "Customers can choose which of your consultants they want to talk to—an ideal option when you're managing an agency with multiple counselors.",
-        img: "https://i.ibb.co/FzXYgMT/team.jpg"
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTAuaU5biij4xlzIhcz_gYy8B26QwdoEsbPfw&usqp=CAU"
     },
     {
         id:2,
         title:"Self-scheduling",
         description: "Your booking page will be entirely online, making it accessible at any time. Whether it's in the middle of the day or just before dawn, your clients can schedule an appointment whenever they need to.",
-        img: "https://i.ibb.co/FzXYgMT/team.jpg"
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqA14F4HjoKVawLBuNrOxAQ7zpZG8mEfXJuw&usqp=CAU"
     },
     {
         id:3,
         title:"Mobile booking",
         description: "Customers don't have to be on their laptops or PCs to contact you. Your booking page will be responsive to any mobile device they have, letting them get in touch easily.",
-        img: "https://i.ibb.co/FzXYgMT/team.jpg"
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSfbrQlC-dST9iAmaSzcuYaE_O2cErJTGGjmg&usqp=CAU"
     }
 ];
 

@@ -8,6 +8,24 @@
   pointer-events: none;
 }
 
+#light {
+  background-color: #eeeeee;
+  color: #212124;
+}
+
+#dark {
+  background-color: #090A27;
+  color: rgb(216, 216, 216);
+}
+
+#light .button {
+  background-color: #cc4a76;
+}
+
+#dark .dark {
+  background-color: #38004c;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 20s linear;

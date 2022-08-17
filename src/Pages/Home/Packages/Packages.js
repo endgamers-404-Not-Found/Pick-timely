@@ -24,19 +24,19 @@ function Packages() {
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
                     packages.map(data => 
-                        <div className="card w-8/12 rounded shadow-2xl shadow-gray-500 lg:w-10/12">
+                        <div className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12">
                             <figure className="px-4 pt-6">
                                 <img src={data.img} alt="" className="rounded-xl" />
                             </figure>
                             <div className="card-body items-center text-center px-2">
                                 <h2 className="card-title text-3xl mb-1">{data.name}</h2>
                                 <p>{data.point.map(p=><p className='flex items-center '>
-                                <img className='w-6 h-6 m-2' src="https://i.ibb.co/dK05bDg/image.png" alt=""/>
+                                <img className='w-6 h-6 m-2 mask mask-circle' src="https://i.ibb.co/dK05bDg/image.png" alt=""/>
                                  <p className='text-left mb-2'>{p}</p>
                                  </p> )}</p>
                                 <p className='text-xl font-semibold'>Price: $ {data.price} {data.price!=='free'? <span className='text-sm'>/month</span> : ''}</p>
                                 <Link to={data.button==='Free' ? '/dashboard':`/payment/${data._id}`}>
-                                    <button className={`btn border-2 border-primary ${data.button==='Free'? 'btn-primary text-white' : 'bg-white text-primary'}   font-bold  hover:btn-primary w-72 rounded-sm`}>{data.button}</button>
+                                    <button className={`btn border-2 border-primary btn-primary text-white  font-bold  hover:btn-primary w-72 rounded-sm`}>{data.button}</button>
                                 </Link>
                             </div>
                         </div>

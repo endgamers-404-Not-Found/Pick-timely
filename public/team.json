@@ -1,0 +1,72 @@
+[
+    {
+        "name": "Faijul Azim",
+        "role": "Web Developer",
+        "position": "Team leader",
+        "team": "404 Not Found",
+        "img": "https://i.ibb.co/Mhj6CFs/image.png",
+        "email": "faijul.azim.360@gmail.com",
+        "portfolio": "https://azim-profile.netlify.app",
+        "github": "https://github.com/AzimChowdhury",
+        "linkedIn": "https://www.linkedin.com/in/faijul-azim/",
+        "facebook": "https://www.facebook.com/AzimChowdhury2002/",
+        "resume":"https://drive.google.com/file/d/1FetMmmziPhMHTof1L0SCSC5xzVYeL5AO/view",
+        "address": "Boalkhali,Chittagong, Bangladesh"
+    },
+    {
+        "name": "Sujon Chambugong",
+        "role": "Web Developer",
+        "position": "Member",
+        "team": "404 Not Found",
+        "img": "https://i.ibb.co/DWhT3VG/242609354-4280877522025684-7907909726080618395-n.jpg",
+        "email": "sojonchambugong@gmail.com",
+        "portfolio": " https://sujon-chambugong-portfolio.netlify.app",
+        "github": "https://github.com/sujoncham",
+        "linkedIn": "https://www.linkedin.com/in/sujon-chambugong/",
+        "facebook": "https://www.facebook.com/sujonchambugong14",
+        "resume":"https://drive.google.com/file/d/1pvHb94BNqw0ePaABNJIU4cQg1Qr61guw/view?usp=sharing",
+        "address": "Madhupur, Tangail, Bangladesh"
+    },
+    {
+        "name": "Iqbal Abdullah",
+        "role": "Web Developer",
+        "position": "Member",
+        "team": "404 Not Found",
+        "img": "https://i.ibb.co/vY4413D/182822775-918055315425441-1561459823379127067-n.jpg",
+        "email": "mdiqbalhossain5170@gmail.com",
+        "portfolio": "coming soon",
+        "github": "coming soon",
+        "linkedIn": "coming soon",
+        "facebook": "https://www.facebook.com/iqbal.abdullah.927543",
+        "resume":"coming soon",
+        "address": "Fatikchari, Chittagong, Bangladesh"
+    },
+    {
+        "name": "Meherab Hossain",
+        "role": "Web Developer",
+        "position": "Member",
+        "team": "404 Not Found",
+        "img": "https://i.ibb.co/31kQCQc/237374990-524886715403956-6012378202698026038-n.jpg",
+        "email": "meherabhossain8260@gmail.com",
+        "portfolio": "https://meherabportfolio.herokuapp.com/",
+        "github": "https://github.com/Meherab0001",
+        "linkedIn": "https://www.linkedin.com/in/meherab-hossain-655504240/",
+        "facebook": "https://www.facebook.com/cryptic.chit?_rdc=1&_rdr",
+        "resume":"https://drive.google.com/file/d/1W8ZTS0Z45BgPA_W3RLDaCCt8tNz6iTNd/view",
+        "address": "Sherpur, Mymnensingh, Bangladesh"
+    },
+    {
+        "name": "Hamid Azad",
+        "role": "Web Developer",
+        "position": "Member",
+        "team": "404 Not Found",
+        "img": "https://i.ibb.co/3hQ3M71/image.png",
+        "email": "hamidazad020@gmail.com",
+        "portfolio": "https://syed-md-abdul-hamid-portfolio.netlify.app/",
+        "github": "https://github.com/SMhamidAzad",
+        "linkedIn": "https://www.linkedin.com/in/syed-md-abdul-hamid-7a1610241/",
+        "facebook": "https://www.facebook.com/hamidazad.abdulhamid",
+        "resume":"https://drive.google.com/file/d/10KtJum6pJ8S9YRsuUnVUrqaZ1zOLNMI-/view?fbclid=IwAR0fWHB1YHqnWIL1NoC_kPSeJ86jVChi2eOhH6dlgKtR6IUwXtc9lsx4SsU",
+        "address": "Chittagong, Bangladesh"
+    }
+]

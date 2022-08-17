@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import meeting from '../../../assets/banner.png'
 
 const salesData = [
     {
@@ -10,14 +11,14 @@ const salesData = [
     {
         id: 2,
         title: "PickTimely Meeting",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/YXbCGn7/crm.jpg"
+        description: "Pick time is a meeting origanizable platform. You can arrange from anywhere. It is really easy, also you can cancel meeting to we notify you if other person is avilabe or not. Try timely",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2TWxVYmjmseweze3LoSeLj_JjCqDu4VKnWQ&usqp=CAU"
     },
     {
         id: 3,
-        title: "PickTimely Calendar. Or, well, Google.",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/YXbCGn7/crm.jpg"
+        title: "PickTimely Calendar.",
+        description: "With pick timely this it is too easy that you manage your routine and also work with by exact calender time. We provide you a calender that you ca choose your preferred work time to work.",
+        img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXJx-LtZN9jBDNPzfUU-sgux8llJk6aWKhqZRSxP_luw&s"
     }
 ];
 
