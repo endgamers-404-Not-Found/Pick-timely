@@ -6,7 +6,7 @@ const Review = ({review}) => {
     
     return (
         <div className="card card-side bg-neutral text-neutral-content shadow-xl">
-            <div className="card-body text-center">
+            <div data-testid="reviewtest" className="card-body text-center">
                 <p className=''>{review?.feedback}</p>
                 <Rating
                         initialRating={review.rating}
