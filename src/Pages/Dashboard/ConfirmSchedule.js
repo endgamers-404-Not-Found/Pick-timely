@@ -58,7 +58,8 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
             dateFormat,
             linking,
             platform,
-            host: user.email
+            host: user.email,
+            type: meeting.eventType
         }
 
         console.log(meetingInfo);
@@ -95,19 +96,19 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
                 <form onSubmit={handleMeeting}>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Meeting Time</span>
+                            <span className="label-text text-gray-500">Meeting Time</span>
                         </label>
-                        <input id='time' className='input input-bordered w-full' type="time" name="time" />
+                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="time" name="time" />
                     </div>
 
                     {emailList.map((singleEmail, index) => (
                         <div key={index} className="">
                             <div className="">
                                 <label className="label">
-                                    <span className="label-text">Guest Email</span>
+                                    <span className="label-text text-gray-500">Guest Email</span>
                                 </label>
                                 <input
-                                    className="input input-bordered w-full"
+                                    className="input input-bordered w-full  bg-gray-400 text-black"
                                     placeholder='Type here'
                                     name="email"
                                     type="email"
@@ -153,24 +154,24 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
                     ))}
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Description</span>
+                            <span className="label-text text-gray-500">Description</span>
                         </label>
-                        <textarea name='description' className="textarea textarea-bordered h-24" placeholder="Description"></textarea>
+                        <textarea name='description' className="textarea textarea-bordered h-24  bg-gray-400 text-black" placeholder="Description"></textarea>
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Platform</span>
+                            <span className="label-text text-gray-500">Platform</span>
                         </label>
-                        <select name='platform' className="select select-bordered">
+                        <select name='platform' className="select select-bordered  bg-gray-400 text-black">
                             <option value='Meet Link'>Meet Link</option>
                             <option value='Zoom Link'>Zoom Link</option>
                         </select>
                     </div>
                     <div className="form-control w-full">
                         <label className="label">
-                            <span className="label-text">Meet/Zoom link</span>
+                            <span className="label-text text-gray-500">Meet/Zoom link</span>
                         </label>
-                        <input type="text" name='linking' placeholder="Type here" className="input input-bordered w-full" />
+                        <input type="text" name='linking' placeholder="Type here" className="input input-bordered w-full  bg-gray-400 text-black" />
                     </div>
                     <div className='mt-5'>
                         <button type='submit' className='btn btn-dark w-full'>Confirm Schedule</button>

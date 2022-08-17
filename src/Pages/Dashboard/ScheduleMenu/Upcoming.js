@@ -59,14 +59,14 @@ const Upcoming = () => {
             {
               schedules ?
                 schedules?.map((schedule, index) =>
-                  <tr className='border border-gray-400' key={schedule._id}>
-                    <td>{index + 1}</td>
+                  <tr className='border border-gray-400 ' key={schedule._id}>
+                    <td className='p-3'>{index + 1}</td>
                     <td>{schedule?.dateFormat}  </td>
                     <td>{schedule?.timeSlot}  </td>
                     <td>{schedule?.host}</td>
                     <td>
                       <a href={schedule?.linking}  rel="noreferrer"  target='_blank'>
-                        <button className='btn btn-primary btn-sm' >Join now</button>
+                        <button className='btn btn-primary btn-sm my-2' >Join now</button>
                       </a>
                     </td>
 
@@ -101,7 +101,7 @@ const Upcoming = () => {
           </tbody>
         </table>
         {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
-        {meeting && <ScheduleEditModal setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
+        {meeting && <ScheduleEditModal  setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
       </div>
     </div>
   );
