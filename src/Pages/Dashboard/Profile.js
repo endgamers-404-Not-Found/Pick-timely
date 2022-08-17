@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-import { useProfile } from '../../Hooks/useProfile';
 
 import { HiOfficeBuilding } from 'react-icons/hi';
 import { AiFillPhone } from 'react-icons/ai';
@@ -45,28 +44,28 @@ const Profile = () => {
                             <img src={profile?.photo} alt="profile" className="mask w-40 mask-circle" />
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
-                        <div class="card-body">
-                            <span className='flex items-center'><MdEmail className='inline-block mr-1'></MdEmail> <span className="hidden lg:flex">Email: </span>{user?.email} </span>
-                            <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
-                            <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
-                            <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
-                            <span className='text-lg'>Package :  {profile.status ? profile.status : "free"}</span>
-                            {
-                                profile?.status !== "free" ?
-                                    <span className=''>Transaction Id:  {profile?.transactionId}</span>
+                        <div className="card-body">
+                        <span className='flex items-center'><MdEmail className='inline-block mr-1'></MdEmail> <span className="hidden lg:flex">Email: </span>{user?.email} </span>
+                        <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
+                        <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
+                        <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
+                        <span className='text-lg'>Package :  {profile.status ? profile.status : "free"}</span>
+                        {
+                            profile?.status !== "free" ?
+                                <span className=''>Transaction Id:  {profile?.transactionId}</span>
 
-                                    :
-                                    ''
-                            }
-                            <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
+                                :
+                                ''
+                        }
+                        <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
 
-                        </div>
                     </div>
                 </div>
-
             </div>
 
         </div>
+
+        </div >
     );
 }
 

@@ -6,7 +6,7 @@ import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
- const UpdateProfile = () => {
+const UpdateProfile = () => {
 
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
@@ -26,29 +26,30 @@ import Spinner from '../../SharedComponents/Spinner';
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(result =>{
-            console.log(result);
-             if(result.success){
-                const img = result.data.url;
-                const profileInfo = {
-                    company: data.company,
-                    phone: data.phone,
-                    address: data.address,
-                    photo: img
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+                if (result.success) {
+                    const img = result.data.url;
+                    const profileInfo = {
+                        company: data.company,
+                        phone: data.phone,
+                        address: data.address,
+                        photo: img
+                    }
+                    fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
+                        method: 'PUT',
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(profileInfo)
+                    })
+                        .then(res => res.json())
+                        .then(inserted => {
+                            toast.success('Profile updated successfully')
+                        })
                 }
-                fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
-                    method: 'PUT',
-                    headers: {
-                           "content-type": "application/json"
-                      },
-                    body: JSON.stringify(profileInfo)
-                })
-                .then(res =>res.json())
-                .then(inserted =>{
-                    toast.success('Profile updated successfully')
-                })
-            } })
+            })
     }
 
     return (
@@ -95,31 +96,31 @@ import Spinner from '../../SharedComponents/Spinner';
                                 />
                             </div>
 
-                            <div class="form-control">
-                                <input
-                                    type="file"
-                                    className="input input-bordered w-full max-w-xs"
-                                    {...register("image", {
-                                        required: {
-                                            value: true,
-                                        }
-                                    })}
-                                />
-                            </div>
-                            <div className="form-control mt-6">
-                                <input className="btn btn-primary" type="submit" value="submit" />
-                            </div>
-
-
-                            <Link to="/dashboard" className="btn btn-primary">Go back</Link>
-                        </form>
+                            <div className="form-control">
+                            <input
+                                type="file"
+                                className="input input-bordered w-full max-w-xs"
+                                {...register("image", {
+                                    required: {
+                                        value: true,
+                                    }
+                                })}
+                            />
                     </div>
-                    <ToastContainer
-                        position="top-center"
-                    />
-                </div>
+                    <div className="form-control mt-6">
+                        <input className="btn btn-primary" type="submit" value="submit" />
+                    </div>
+
+
+                    <Link to="/dashboard" className="btn btn-primary">Go back</Link>
+                </form>
             </div>
+            <ToastContainer
+                position="top-center"
+            />
         </div>
+            </div >
+        </div >
 
     );
                                 

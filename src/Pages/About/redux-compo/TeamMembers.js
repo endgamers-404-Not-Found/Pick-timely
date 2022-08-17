@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux/es/exports';
-import { Link } from 'react-router-dom';
 import Spinner from '../../../SharedComponents/Spinner';
 import TeamActions from './TeamService/Actions/TeamActions';
 const TeamMembers = () => {
@@ -20,19 +19,19 @@ const TeamMembers = () => {
 
     return (
         <div className='w-[100%] mx-auto px-10'>
-            <p className='font-semibold text-center'>Pick Timely Application developed by 
-             <span className='font-bold'> Team 404 Not Found</span></p>
+            <p className='font-semibold text-center'>Pick Timely Application developed by
+                <span className='font-bold'> Team 404 Not Found</span></p>
             <h1 className=' text-4xl  font-bold mb-10 text-center'>Meet the Development Team</h1>
             {isLoading && <h1>Loading ....</h1>}
             {error && <h1>{error.message}</h1>}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center'>
                 {teams && teams.map(team => 
-                <div key={team._id} className="card lg:w-96 w-80   shadow-2xl shadow-black">
+                <div key={team._id} className="card lg:w-96 w-80  shadow-2xl shadow-black">
                     <figure>
                         <img className='mt-5 w-8/12 mask mask-decagon' src={team.img} alt={team.name} />
                     </figure>
-                    <div class="card-body">
-                        <h2 class="text-3xl font-bold">{team.name}</h2>
+                    <div className="card-body">
+                        <h2 className="text-3xl font-bold">{team.name}</h2>
                         <p className='font-semibold mt-0'>{team.position}, Team {team.team}</p>
                         <p className='font-semibold'>Email: {team.email}</p>
                         <p className='font-semibold'>Address: {team.address}</p>
@@ -72,9 +71,10 @@ const TeamMembers = () => {
                         </div>
 
                     </div>
-                </div>)}
-            </div>
-        </div>
+        </div>)
+}
+            </div >
+        </div >
     );
 };
 

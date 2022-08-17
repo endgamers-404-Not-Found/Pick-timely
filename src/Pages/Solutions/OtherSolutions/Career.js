@@ -44,16 +44,16 @@ const Career = () => {
                                     <img src={account.img} className='w-96 mx-auto rounded-md' alt="" />
                                     <h2 className="text-center text-2xl font-bold">{account.title}</h2>
                                     <p className="text-left font-semibold">{account.description}</p>
-                                    <div class="card-actions justify-center">
-                                        <button class="w-full btn btn-primary border-2 px-32 absolute bottom-0">see details</button>
+                                    <div className="card-actions justify-center">
+                                        <button className="w-full btn btn-primary border-2 px-32 absolute bottom-0">see details</button>
                                     </div>
                                 </div>
                             </div>)
                         )}
 
                 </div>
-            </div>
-        </div>
+            </div >
+        </div >
     );
 };
 

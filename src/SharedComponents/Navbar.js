@@ -124,7 +124,7 @@ function Header({ theme, toggleTheme }) {
                                 {user ?
                                     // <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
                                     <div  className=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end  ml-4">
-                                        <label tabindex="0"  className="btn btn-ghost btn-circle avatar online">
+                                        <label tabIndex="0"  className="btn btn-ghost btn-circle avatar online">
                                             <div  className="w-10 rounded-full">
                                                 {
                                                     profile?.photo ?
@@ -135,7 +135,7 @@ function Header({ theme, toggleTheme }) {
                                                 }
                                             </div>
                                         </label>
-                                        <ul tabindex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
+                                        <ul tabIndex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
                                             <li>
                                                 <Link to='/dashboard'  className="justify-between">
                                                     Profile
