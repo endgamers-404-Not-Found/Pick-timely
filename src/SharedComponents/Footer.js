@@ -8,15 +8,15 @@ const Footer = () => {
             <footer className="footer p-10 grid grid-cols-2 md:gird-cols-4 lg:grid-cols-4 text-white">
                 <div>
 
-<<<<<<< HEAD
+
                     <span data-testid="picktimely" className='uppercase text-[#FCB500] text-xl'>picktimely</span>
-=======
+
                     <span className='uppercase  text-xl'>picktimely</span>
->>>>>>> d7b928cd6d23c04b575ac3999acac74d07381d9d
+
                     <div className='mt-5'>
                         <p>help@pictimely.com</p>
                         <p>+83609462756</p>
-                        <Link to="#">wwww.pictimely.com</Link>
+                        <Link to="/">wwww.pictimely.com</Link>
                     </div>
                 </div>
                 <div>

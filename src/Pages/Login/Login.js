@@ -90,7 +90,6 @@ function Login() {
         if (gUser) {
             const name = gUser?.user.displayName;
             const email = gUser?.user.email;
-            console.log(name, email)
             await fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
@@ -100,7 +99,6 @@ function Login() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     data.acknowledged && navigate(from, { replace: true });
                 })
         }

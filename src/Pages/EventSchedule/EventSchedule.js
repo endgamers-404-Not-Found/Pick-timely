@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-<<<<<<< HEAD
+
 import { useNavigate } from 'react-router-dom';
 import defaultImage from '../../assets/profile.png';
-=======
-import { Link, useNavigate } from 'react-router-dom';
->>>>>>> d7b928cd6d23c04b575ac3999acac74d07381d9d
+
+
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
@@ -33,14 +32,12 @@ const EventSchedule = () => {
     }
 
     const handleHost = (id) =>{
-<<<<<<< HEAD
-        navigate(`/eventSchedule/${id}`);
-=======
 
-        navigate(`/arrangeMeeting/${id}`)
+        navigate(`/eventSchedule/${id}`);
+
         console.log(id);
 
->>>>>>> d7b928cd6d23c04b575ac3999acac74d07381d9d
+
     }
     if(loading|| !hosts){
         return <Spinner></Spinner>
@@ -69,13 +66,13 @@ const EventSchedule = () => {
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5'>
                 {
-<<<<<<< HEAD
+
                     hosts?.map(host => <div host={host} key={host._id} className="card bg-base-100 shadow-xl">
                     <img className='w-40 h-40 mx-auto rounded-full' src={host.img ? host.img : defaultImage} alt='' />
-=======
-                    hosts?.map(host => <div key={host._id} className="card  shadow-2xl shadow-black">
-                    <img className='w-40 mx-auto rounded-full' src={host.img} alt='' />
->>>>>>> d7b928cd6d23c04b575ac3999acac74d07381d9d
+
+                    {/* hosts?.map(host => <div key={host._id} className="card  shadow-2xl shadow-black">
+                    <img className='w-40 mx-auto rounded-full' src={host.img} alt='' /> */}
+
                     <h1 className='text-xl font-bold text-center'>Host</h1>
                     <h1 className='text-2xl font-bold text-center'>{host.hoster}</h1>
                     <div className="card-body">
