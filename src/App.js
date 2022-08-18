@@ -40,6 +40,7 @@ import AboutPickTimely from './Pages/About/AboutPickTimely';
 import OurTeam from './Pages/About/redux-compo/OurTeam';
 import Blog from './Pages/Blog/Blog';
 import PostBlog from './Pages/Blog/PostBlog';
+import RecruitDetails from './Pages/Solutions/OtherSolutions/RecruitDetails';
 export const ThemeContext = createContext(null);
 
 
@@ -71,6 +72,7 @@ function App() {
         <Route path='/pricing' element={<Packages></Packages>}></Route>
         <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
+        <Route path='/solutions/recruitments/:id' element={<RecruitDetails></RecruitDetails>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
 
 
