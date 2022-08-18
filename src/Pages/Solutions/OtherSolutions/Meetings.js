@@ -44,7 +44,7 @@ const Meetings = () => {
 
         <div className="hero bg-base-200 p-20">
             <div className="hero-content flex-col lg:flex-row-reverse mt-10">
-              <div className='w-[100%] lg:w-[50%] flex justify-end'>
+              <div className='w-[100%] lg:w-[50%] flex lg:justify-end justify-center'>
               { show ? <img src={meeting.img} className="w-[80%] rounded-lg shadow-2xl" alt='' /> : <img src='https://i.ibb.co/8cPKJmQ/Screenshot-31.png' className="w-[100%] rounded-lg shadow-2xl" alt='' /> }
               </div>
 

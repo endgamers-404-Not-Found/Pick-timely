@@ -4,38 +4,20 @@ const recruitmentData = [
     {
         id:1,
         title:"Remote interviews",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/B6tLFB4/fast-service.png"
+        description: "On-site interviews have their place, but videos make recruiting more flexible. Powered by Meeting, screen your candidates from the comfort of remote working.",
+        img: "https://i.ibb.co/80j9VzF/remote.png"
     },
     {
         id:2,
         title:"Candidate database",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/B6tLFB4/fast-service.png"
+        description: "Whether you've already interviewed them or are waiting to, every candidate will be in Bookings by default. Filter, sort, and even export the ones proceeding to the next round for easy contact. You can also integrate your recruitment software to have all details in one place.",
+        img: "https://i.ibb.co/NmGNk2R/database.jpg"
     },
     {
         id:3,
         title:"Flexible hours",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/B6tLFB4/fast-service.png"
-    },
-    {
-        id:4,
-        title:"Time zones",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/B6tLFB4/fast-service.png"
-    },
-    {
-        id:5,
-        title:"Candidate portal",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/B6tLFB4/fast-service.png"
-    },
-    {
-        id:6,
-        title:"Information days",
-        description: "In sales, customer relations is everything. That's why as soon as your client schedules a discovery call, we send their details right into your Zoho CRM account.",
-        img: "https://i.ibb.co/B6tLFB4/fast-service.png"
+        description: "Recruiting isn't a typical 9 to 5 job. Define your availability—specifically by day and time—including breaks and vacations, and the system will only display those times on your booking page",
+        img: "https://i.ibb.co/QDvgpcP/flexible.jpg"
     }
 ]
 
@@ -52,12 +34,14 @@ const Recruitment = () => {
             <div className="hero bg-slate-300 p-20">
                 <div className="hero-content text-center">
                     <div className="w-full">
-                        <h1 className="lg:text-5xl text-2xl font-bold w-full mx-auto mb-10">A good scheduler gives you more than the basics without compromising the essentials</h1>
+                        <div className='w-[100%] lg:w-[50%] mx-auto'>
+                            <h1 className="lg:text-4xl font-bold mb-10 text-center text-2xl">A good scheduler gives you more than the basics without compromising the essentials</h1>
+                        </div>
                         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 place-items-center'>
                             {
                                 recruitments.map(recruitment => <div className="card w-94 bg-base-100 shadow-xl">
                                 <div className="card-body">
-                                    <img src={recruitment.img} className='w-24 mx-auto' alt="" />
+                                    <img src={recruitment.img} className='w-56 mx-auto' alt="" />
                                     <h2 className="text-center text-3xl font-bold">{recruitment.title}</h2>
                                     <p>{recruitment.description}</p>
                                     <div className="card-actions justify-center">
