@@ -32,7 +32,7 @@ const Blogs = () => {
 
 
                 <div className="text-left lg:w-[900px] mx-auto m-5 ">
-                    {
+                    {/* {
                         blogs?.map(blog => <div>
                             <h1 className="text-3xl font-serif text-gray-500 mt-[70px]">{blog?.title}</h1>
                             <p className="text-lg text-gray-500 font-serif my-5">
@@ -42,8 +42,8 @@ const Blogs = () => {
 
 
                         )
-                    }
-
+                    } */}
+                    <h2 className='text-4xl my-36 text-center text-gray-500'>Coming soon</h2>
 
                 </div>
 
