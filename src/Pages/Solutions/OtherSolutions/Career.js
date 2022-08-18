@@ -1,33 +1,22 @@
 import React, { useEffect, useState } from 'react';
-
-const accountsData = [
-    {
-        id:1,
-        title:"Freedom of choice",
-        description: "Customers can choose which of your consultants they want to talk to—an ideal option when you're managing an agency with multiple counselors.",
-        img: "https://i.ibb.co/NmGNk2R/database.jpg"
-    },
-    {
-        id:2,
-        title:"Self-scheduling",
-        description: "Your booking page will be entirely online, making it accessible at any time. Whether it's in the middle of the day or just before dawn, your clients can schedule an appointment whenever they need to.",
-        img: "https://i.ibb.co/QDvgpcP/flexible.jpg"
-    },
-    {
-        id:3,
-        title:"Mobile booking",
-        description: "Customers don't have to be on their laptops or PCs to contact you. Your booking page will be responsive to any mobile device they have, letting them get in touch easily.",
-        img: "https://i.ibb.co/9T84sjZ/Screenshot-43.png"
-    }
-];
+import { useNavigate } from 'react-router-dom';
 
 const Career = () => {
+    const navigate = useNavigate();
 
-    const [accounts, setAccounts] = useState([]);
+    const [easySchedules, seTeasySchedules] = useState([]);
 
     useEffect(()=>{
-        setAccounts(accountsData)
+        fetch('http://localhost:5000/easySchedule')
+        .then(res =>res.json())
+        .then(data => {
+            seTeasySchedules(data);
+        })
     }, []);
+
+    const handleEasySchedule = (id)=>{
+        navigate(`/solutions/easySchedule/${id}`);
+    }
 
  
     return (
@@ -39,14 +28,14 @@ const Career = () => {
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 justify-center gap-10 mt-20'>
                     {
-                        accounts.map(account => (
+                        easySchedules.map(easy => (
                         <div className="card bg-base-100 shadow-xl">
                             <div className="card-body">
-                                <img src={account.img} className='w-96 mx-auto rounded-md' alt="" />
-                                <h2 className="text-center text-3xl font-bold">{account.title}</h2>
-                                <p>{account.description}</p>
+                                <img src={easy.img} className='w-96 mx-auto rounded-md' alt="" />
+                                <h2 className="text-center text-3xl font-bold">{easy.title}</h2>
+                                <p>{easy.description}</p>
                                 <div className="card-actions justify-center">
-                                    <button className="btn btn-primary">see details</button>
+                                    <button onClick={()=>handleEasySchedule(easy._id)} className="btn btn-primary">see details</button>
                                 
                                 </div>
                             </div>
