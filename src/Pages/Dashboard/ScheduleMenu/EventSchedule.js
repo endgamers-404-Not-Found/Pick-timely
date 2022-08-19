@@ -11,7 +11,7 @@ const EventSchedule = () => {
 
     useEffect(() => {
         console.log(user.email)
-        fetch(`http://localhost:5000/hoster/${user?.email}`)
+        fetch(`https://pick-timely.herokuapp.com/hoster/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setHosts(data);
@@ -24,7 +24,11 @@ const EventSchedule = () => {
         // console.log(id);
 
     }
+<<<<<<< HEAD
     if (loading || !hosts) {
+=======
+    if(loading || !hosts){
+>>>>>>> e57429aaeb6500c3461f3de82849b52a27a46d70
         return <Spinner></Spinner>
     }
 

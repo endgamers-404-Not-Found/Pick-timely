@@ -21,7 +21,7 @@ function Header({ theme, toggleTheme }) {
         <>
 
             <nav id={theme}  className="  sticky top-0 z-10  flex flex-wrap items-center justify-between px-2 py-3 ">
-                <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+                <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
                             className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase  "

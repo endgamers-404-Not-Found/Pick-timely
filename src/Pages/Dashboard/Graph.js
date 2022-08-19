@@ -17,7 +17,7 @@ function Graph() {
     useEffect(() => {
         const hosts = [];
         const types = [];
-        fetch('http://localhost:5000/hoster')
+        fetch('https://pick-timely.herokuapp.com/hoster')
             .then(res => res.json())
             .then(data => {
                 if (data) {

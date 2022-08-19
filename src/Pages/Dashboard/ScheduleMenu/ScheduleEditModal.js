@@ -53,7 +53,7 @@ const ScheduleEditModal = ({  setMeeting, meeting, refetch }) => {
 
         console.log(meetingInfo);
 
-        fetch(`http://localhost:5000/schedule/${_id}`, {
+        fetch(`https://pick-timely.herokuapp.com/schedule/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
