@@ -7,7 +7,7 @@ const Blogs = () => {
     console.log(blogs);
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/blog`)
+        fetch(`http://localhost:5000/blog`)
             .then(res => res.json())
             .then(data => setBlogs(data))
 

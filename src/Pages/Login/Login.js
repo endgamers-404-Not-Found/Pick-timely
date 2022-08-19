@@ -92,7 +92,7 @@ function Login() {
             const name = gUser?.user.displayName;
             const email = gUser?.user.email;
             console.log(name, email)
-            await fetch('https://pick-timely.herokuapp.com/addUser', {
+            await fetch('http://localhost:5000/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

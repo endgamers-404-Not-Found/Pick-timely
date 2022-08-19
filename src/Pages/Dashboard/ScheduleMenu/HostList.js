@@ -23,7 +23,7 @@ const HostList = () => {
 
     useEffect(() => {
         const meetingData = async () => {
-            const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
+            const res = await fetch(`http://localhost:5000/hoster?user=${user?.email}`);
             const data = await res.json();
             setHosts(data);
         }
@@ -48,23 +48,23 @@ const HostList = () => {
     }
 
 
-    const handleDeleteHoster = (id) =>{
-        const confirmDelete = window.confirm('Are you want to delete this doctor?');
-        if(confirmDelete){
-          fetch(`https://pick-timely.herokuapp.com/hoster/${id}`, {
-          method: "DELETE",
-          headers:{
-            'content-type' : 'application/json',
-          }
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            if (result.deletedCount) {
-              toast(`Hoster is deleted`);
-            }
-          });
-        }
-      };
+    // const handleDeleteHoster = (id) =>{
+    //     const confirmDelete = window.confirm('Are you want to delete this doctor?');
+    //     if(confirmDelete){
+    //       fetch(`http://localhost:5000/hoster/${id}`, {
+    //       method: "DELETE",
+    //       headers:{
+    //         'content-type' : 'application/json',
+    //       }
+    //     })
+    //       .then((res) => res.json())
+    //       .then((result) => {
+    //         if (result.deletedCount) {
+    //           toast(`Hoster is deleted`);
+    //         }
+    //       });
+    //     }
+    //   };
 
 
 
