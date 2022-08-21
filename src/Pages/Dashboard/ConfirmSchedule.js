@@ -15,7 +15,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
     const today = day.toLocaleTimeString();
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
+        fetch(`http://localhost:5000/arrangeMeeting/${hostId}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -64,7 +64,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
 
         console.log(meetingInfo);
 
-        fetch('https://pick-timely.herokuapp.com/schedule', {
+        fetch('http://localhost:5000/schedule', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

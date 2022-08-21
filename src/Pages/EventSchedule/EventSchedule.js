@@ -18,7 +18,7 @@ const EventSchedule = () => {
 
     useEffect(() => {
         console.log(user.email)
-        fetch(`https://pick-timely.herokuapp.com/hoster/${user?.email}`)
+        fetch(`http://localhost:5000/hoster/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setHosts(data);
