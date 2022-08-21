@@ -27,7 +27,7 @@ const Upcoming = () => {
         }
       })
         .then((res) => res.json())
-        .then((result) => {
+        .then((result) => { 
           if (result.deletedCount) {
             toast(`Schedule is deleted`);
             refetch();
