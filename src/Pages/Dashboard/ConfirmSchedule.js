@@ -80,11 +80,12 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
             })
     }
 
+
     if (loading) {
         return <Spinner />
     }
 
-    // emailList.map((email) => console.log(email.email))
+
     return (
 
         <div className='w-[100%] mx-auto border p-3'>

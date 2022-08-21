@@ -5,6 +5,7 @@ import auth from '../../../firebase.init';
 const HosterDetails = ({hosting}) => {
     const {hoster, duration, description, eventType} = hosting;
     const [user] = useAuthState(auth);
+    console.log(hosting)
 
     return (
         <div>

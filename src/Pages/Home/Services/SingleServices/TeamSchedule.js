@@ -4,12 +4,14 @@ import auth from '../../../../firebase.init';
 import Spinner from '../../../../SharedComponents/Spinner';
 import { Link } from "react-router-dom";
 
+
 const TeamSchedule = () => {
     const [user,loading]=useAuthState(auth)
 
     if(loading){
         return <Spinner/>
     }
+
     
 
     return (
