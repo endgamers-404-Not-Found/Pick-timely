@@ -7,7 +7,7 @@ const Recruitment = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('http://localhost:5000/recruitments')
+        fetch('https://pick-timely.herokuapp.com/recruitments')
         .then(res =>res.json())
         .then(data => {
             setRecruitments(data);
