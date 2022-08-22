@@ -3,7 +3,7 @@ import CancellingModal from './CancellingModal';
 import ScheduleEditModal from './ScheduleEditModal';
 
 const ModalDetails = ({meeting, setMeeting, refetch}) => {
-    const {name, email, timeSlot, description, dateFormat, eventType, duration} = meeting;
+    const {_id, name, email, timeSlot, description, dateFormat, eventType, duration} = meeting;
 
  
     return (
@@ -11,12 +11,19 @@ const ModalDetails = ({meeting, setMeeting, refetch}) => {
             <input type="checkbox" id="my-meeting" className="modal-toggle" />
             <div className="modal">
                 <div className="modal-box relative">
+                    <span>{_id}</span>
                     <label htmlFor="my-meeting" className="btn btn-sm btn-circle absolute right-2 top-2">✕</label>
                     <h3 className="text-lg font-bold">{timeSlot}</h3>
                     <h3 className="text-lg font-bold">{dateFormat}</h3>
                     <div className='divider'></div>
                     <p className="py-4 font-bold">Name: {name}</p>
-                    <p className="py-4 font-bold">Email: {email}</p>
+                    <p className="py-4 font-bold">Email: 
+                        <ul>
+                            {
+                            email?.map(email => <li>{email?.email}</li>)
+                            }
+                        </ul>
+                    </p>
                     <p className="py-4 font-bold">Event Type: {eventType}</p>
                     <p className="py-4 font-bold">Event Time: {duration}</p>
                     <p className="py-4 font-bold">Description: {description}</p>
