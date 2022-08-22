@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Faizul Azim Chawdhury",
+    "team": "404-Not Found",
+    "role": "Web Developer",
+    "position": "Team Leader",
+    "area": "Chattagram",
+    "alt": "Faizul Azim Chawdhury",
+    "img": "https://i.ibb.co/Cn5N30Q/people1.png"
+  },
+  {
+    "id": 2,
+    "name": "Hamid Azad",
+    "team": "404-Not Found",
+    "role": "Web Developer",
+    "position": "Team Leader",
+    "area": "Chattagram",
+    "alt": "Hamid Azad",
+    "img": "https://i.ibb.co/D8DsCBT/people2.png"
+  },
+  {
+    "id": 3,
+    "name": "Sujon Chambugong",
+    "team": "404-Not Found",
+    "role": "Web Developer",
+    "position": "Sujon Chambugong",
+    "area": "Tangail",
+    "alt": "Faizul Azim Chawdhury",
+    "img": "https://i.ibb.co/87c6GC2/people3.png"
+  },
+  {
+    "id": 4,
+    "name": "Meherab Hossain",
+    "team": "404-Not Found",
+    "role": "Web Developer",
+    "position": "Team Leader",
+    "area": "Sherpur",
+    "alt": "Meherab Hossain",
+    "img": "https://i.ibb.co/Cn5N30Q/people1.png"
+  },
+  {
+    "id": 5,
+    "name": "Iqbal Abdullah",
+    "team": "404-Not Found",
+    "role": "Web Developer",
+    "position": "Team Leader",
+    "area": "Chattagram",
+    "alt": "Iqbal Abdullah",
+    "img": "https://i.ibb.co/D8DsCBT/people2.png"
+  }
+]
