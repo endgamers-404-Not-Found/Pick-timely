@@ -73,10 +73,11 @@ function Login() {
 
 
     useEffect(() => {
-        if (error || gError) {
-            toast.error(error.message || gError.message, {
-                position: 'top-center'
-            })
+        if (error) {
+            toast.error(error?.message)  
+        }
+        else if(gError){
+            toast.error(gError?.message)
         }
     }, [error, gError])
 

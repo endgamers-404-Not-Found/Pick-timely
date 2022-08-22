@@ -1,7 +1,4 @@
 import React, { useEffect, useState } from 'react';
-import { FaFacebook } from 'react-icons/fa';
-import { MdMarkEmailRead } from 'react-icons/md';
-import { BsTwitter } from 'react-icons/bs';
 import Spinner from '../../SharedComponents/Spinner';
 
 const Blogs = () => {
@@ -23,8 +20,8 @@ const Blogs = () => {
 
 
     return (
-        <div className="bg-[url('/src/assets/developers.jpg')] lg:p-0 p-6">
-                <div className="mx-auto flex-col md:flex-row flex uppercase  lg:w-[600px] w-full items-center pt-24">
+        <div className=" lg:p-0 p-6">
+                <div className="mx-auto flex-col md:flex-row flex uppercase  lg:w-[600px] w-full items-center pt-16">
                     <h1 className="text-5xl   text-primary">Blogs</h1>
                     <p className="  text-gray-600 ml-5">Blogs for improve your knowledge. </p>
                 </div>
@@ -34,24 +31,22 @@ const Blogs = () => {
             {/* <img src={blogCover} height="10" className="h-80 w-full bg-none" alt=""/> */}
 
 
-            <div className="flex justify-center ">
-                <div className="text-left lg:w-[900px] m-5 ">
-                    {
+                <div className="text-left lg:w-[900px] mx-auto m-5 ">
+                    {/* {
                         blogs?.map(blog => <div>
-                            <h1 className="text-3xl text-gray-500 mt-[100px]">{blog?.title}</h1>
-                            <p className="text-lg font-serif my-5">
+                            <h1 className="text-3xl font-serif text-gray-500 mt-[70px]">{blog?.title}</h1>
+                            <p className="text-lg text-gray-500 font-serif my-5">
                                 {blog?.blog}
                             </p>
                         </div>
 
 
                         )
-                    }
-
+                    } */}
+                    <h2 className='text-4xl my-36 text-center text-gray-500'>Coming soon</h2>
 
                 </div>
 
-            </div>
         </div>
     );
 };

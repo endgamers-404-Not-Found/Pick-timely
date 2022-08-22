@@ -72,25 +72,25 @@ const HostList = () => {
     return (
         <div>
             <h1 className='text-2xl text-center font-semibold my-6'>All Hosts and meetings in Pick Timely</h1>
-            <div class="overflow-x-auto">
-                <table class="table w-full">
+            <div className="overflow-x-auto">
+                <table className=" w-full">
 
                     
                     <thead>
-                    <tr>
+                    <tr className='border border-gray-400'>
                         <th>#</th>
                         <th>Name</th>
                         <th>Email</th>
-                        <th>Action</th>
+                        {/* <th>Action</th> */}
                     </tr>
                     </thead>
                     <tbody>
                     {
-                        hosts?.map((host, index) =>  <tr key={host._id} index={index} host={host}>
+                        hosts?.map((host, index) =>  <tr className='border border-gray-400' key={host._id} index={index} host={host}>
                             <th>{index + 1}</th>
                             <td>{host.hoster}</td>
                             <td>{user?.email}</td>
-                            <td>
+                            {/* <td>
                             <label 
                                 htmlFor="my-hosting" 
                                 className="btn btn-sm btn-success"
@@ -102,7 +102,7 @@ const HostList = () => {
                                 onClick={()=>setHosting(host)}
                                 >Edit</label> 
                                 <button onClick={()=>handleDeleteHoster(host._id)} className='btn btn-sm'>Delete</button>
-                            </td>
+                            </td> */}
                         </tr> )
                     }
                    

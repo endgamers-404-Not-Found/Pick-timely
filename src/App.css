@@ -9,15 +9,17 @@
 }
 
 #light {
-  background-color: #f3ebf6;
+  background-color: #eeeeee;
+  color: #212124;
 }
 
 #dark {
-  background-color: #0f0f10;
+  background-color: #090A27;
+  color: rgb(216, 216, 216);
 }
 
-#light .dark {
-  background-color: #fff;
+#light .button {
+  background-color: #cc4a76;
 }
 
 #dark .dark {
