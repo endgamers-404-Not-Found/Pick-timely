@@ -45,7 +45,7 @@ const Profile = () => {
                             <img src={profile?.photo} alt="profile" className="mask w-40 mask-circle" />
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
-                        <div class="card-body">
+                        <div className="card-body">
                             <span className='flex items-center'><MdEmail className='inline-block mr-1'></MdEmail> <span className="hidden lg:flex">Email: </span>{user?.email} </span>
                             <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
                             <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>

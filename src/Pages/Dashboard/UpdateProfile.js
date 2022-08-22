@@ -95,7 +95,7 @@ import Spinner from '../../SharedComponents/Spinner';
                                 />
                             </div>
 
-                            <div class="form-control">
+                            <div className="form-control">
                                 <input
                                     type="file"
                                     className="input input-bordered w-full max-w-xs"

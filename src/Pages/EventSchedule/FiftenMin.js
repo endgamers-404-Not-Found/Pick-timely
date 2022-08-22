@@ -2,41 +2,38 @@ import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { DayPicker } from 'react-day-picker';
 import { FaClock, FaUsers } from "react-icons/fa";
-
-
 import ConfirmSchedule from '../Dashboard/ConfirmSchedule';
 
 const FiftenMin = ({hostId}) => {
-
-    const [selected, setSelected] = useState(new Date());
-    console.log(hostId);
-    
     const [meeting, setMeeting] = useState({});
-  
+    const [selected, setSelected] = useState(new Date());
+    const dateFormat = format(selected, 'P');
 
-    useEffect(()=>{
-        fetch(`http://localhost:5000/hoster/${hostId}`, {
-            method: 'GET',
-            headers: {
-                'content-type': 'application/json',
-            }
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data)
+    useEffect(() => {
+        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
+        .then(res=>res.json())
+        .then(data=>{
+            // console.log(data)
             setMeeting(data)
-        });
+        })
+
     }, [hostId]);
     
 
-    const dateFormat = format(selected, 'P');
+
+
+
 
 
     return (
 
         <div className=''>
-            <div className='bg-slate-400 flex flex-col lg:flex-row justify-center'>
-                <div className='h-95 shadow-xl grid lg:grid-cols-3 sm:grid-cols-1 gap-3'>
+
+            <div className=' flex flex-col lg:flex-row'>
+
+
+                <div className='h-95 shadow-xl grid lg:grid-cols-3 sm:grid-cols-1'>
+
                     <div className='border p-2 text-center'>
                         <img className='mask mask-circle w-40 mt-10 mx-auto' src={meeting.img ? meeting.img : 'https://i.ibb.co/Cn5N30Q/people1.png'} alt="" />
                         <p className='font-bold text-2xl'>{meeting.hoster}</p>

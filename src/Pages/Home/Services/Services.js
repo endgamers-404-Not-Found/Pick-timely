@@ -16,9 +16,9 @@ const Services = () => {
             <div className="w-full">
                 <CalendarServices></CalendarServices>
                 <TeamSchedule></TeamSchedule>
-                <CrmUpdate></CrmUpdate>
+                {/* <CrmUpdate></CrmUpdate> */}
                 <Remiders></Remiders>
-                <BookingPage></BookingPage>
+                {/* <BookingPage></BookingPage> */}
                 <PaymentSystem></PaymentSystem>
 
             </div>

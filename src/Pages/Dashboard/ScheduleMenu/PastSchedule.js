@@ -150,22 +150,22 @@ const PastSchedule = () => {
                     </table>
                 </div>
 
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
-                    <div class="bg-white space-y-3 p-4 rounded-lg shadow">
-                        <div class="flex items-center space-x-2 text-sm">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 md:hidden">
+                    <div className="bg-white space-y-3 p-4 rounded-lg shadow">
+                        <div className="flex items-center space-x-2 text-sm">
                             <div>
-                                <span class="text-blue-500 font-bold hover:underline">1</span>
+                                <span className="text-blue-500 font-bold hover:underline">1</span>
                             </div>
-                            <div class="text-gray-500"> 28, July 2022</div>
+                            <div className="text-gray-500"> 28, July 2022</div>
                             <div>
                                 <span
-                                    class="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">  12.30 PM</span>
+                                    className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">  12.30 PM</span>
                             </div>
                         </div>
-                        <div class="text-sm text-gray-700">
+                        <div className="text-sm text-gray-700">
                             Iqbal Hossain
                         </div>
-                        <div class="text-sm font-medium text-black">
+                        <div className="text-sm font-medium text-black">
                                 <button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">
                                     Details
                                 </button>

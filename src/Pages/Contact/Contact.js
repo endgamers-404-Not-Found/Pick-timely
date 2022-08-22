@@ -19,14 +19,16 @@ const Contact = () => {
       };
 
     return (
-        <div class="hero min-h-screen ">
-            <div class="grid grid-cols-1 lg:grid-cols-2 justify-between container p-10 gap-5">
-                <div class="text-center lg:text-left w-[100%] ">
-                    <h1 data-testid='contact-with-us' class="text-5xl font-bold mb-5">Contact With Us</h1>
+
+        <div className="hero min-h-screen ">
+            <div className="grid grid-cols-1 lg:grid-cols-2 justify-between container p-10 gap-5">
+                <div className="text-center lg:text-left w-[100%] ">
+                    <h1 data-testid='contact-with-us' className="text-5xl font-bold mb-5">Contact With Us</h1>
+
                     
-                    <p class="py-2 flex justify-start gap-3 items-center"><FaPhoneAlt className='text-secondary' /> +08812213231211</p>
-                    <p class="py-2 flex justify-start gap-3 items-center"><FaEnvelope className='text-secondary' />support@info.columns-1</p>
-                    <p class="py-2 flex justify-start gap-3 items-center"><FaMapMarkerAlt className='text-secondary' /> P-hero, Bannani, Dhaka, Bangladesh</p>
+                    <p className="py-2 flex justify-start gap-3 items-center"><FaPhoneAlt className='text-secondary' /> +08812213231211</p>
+                    <p className="py-2 flex justify-start gap-3 items-center"><FaEnvelope className='text-secondary' />support@info.columns-1</p>
+                    <p className="py-2 flex justify-start gap-3 items-center"><FaMapMarkerAlt className='text-secondary' /> P-hero, Bannani, Dhaka, Bangladesh</p>
                     <div className='flex justify-start gap-3 mt-5'>
                         <Link to='/'> <FaFacebook className='w-10 text-secondary h-10 rounded-full p-1 border' /></Link>
                         <Link to='/'> <FaInstagram className='w-10 text-secondary h-10 rounded-full p-1 border' /></Link>
@@ -35,24 +37,24 @@ const Contact = () => {
                     
                     </div>
                 </div>
-                <div class="w-[100%]">
+                <div className="w-[100%]">
                 
                     <form ref={form} onSubmit={sendEmail}>
-                        <div class="flex justify-between gap-2">
-                            <input type="text" name='fname'  placeholder="First Name" class="w-[50%] input input-bordered bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
-                            <input type="text" name='lname' placeholder="Last Name" class="w-[50%] input input-bordered bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
+                        <div className="flex justify-between gap-2">
+                            <input type="text" name='fname'  placeholder="First Name" className="w-[50%] input input-bordered bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
+                            <input type="text" name='lname' placeholder="Last Name" className="w-[50%] input input-bordered bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
                         </div>
-                        <div class="form-control mt-5">
-                            <input type="email" name='email' placeholder="Email" class="input input-bordered  bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
+                        <div className="form-control mt-5">
+                            <input type="email" name='email' placeholder="Email" className="input input-bordered  bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
                         </div>
-                        <div class="form-control mt-5">
-                            <input type="text" name='subject' placeholder="Subject" class="input input-bordered  bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
+                        <div className="form-control mt-5">
+                            <input type="text" name='subject' placeholder="Subject" className="input input-bordered  bg-gray-400 text-white font-semibold text-lg placeholder:text-white" />
                         </div>
-                        <div class="form-control mt-5">
-                            <textarea name='message' class="textarea textarea-bordered  bg-gray-400 text-white font-semibold text-lg placeholder:text-white" placeholder="Message"></textarea>
+                        <div className="form-control mt-5">
+                            <textarea name='message' className="textarea textarea-bordered  bg-gray-400 text-white font-semibold text-lg placeholder:text-white" placeholder="Message"></textarea>
                         </div>
-                        <div class="form-control mt-6">
-                            <button type='submit' class="btn btn-primary w-36">Send</button>
+                        <div className="form-control mt-6">
+                            <button type='submit' className="btn btn-primary w-36">Send</button>
                         </div>
                     </form>
                 

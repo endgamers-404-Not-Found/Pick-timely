@@ -7,7 +7,7 @@ const Career = () => {
     const [easySchedules, seTeasySchedules] = useState([]);
 
     useEffect(()=>{
-        fetch('http://localhost:5000/easySchedule')
+        fetch('https://pick-timely.herokuapp.com/easySchedule')
         .then(res =>res.json())
         .then(data => {
             seTeasySchedules(data);
@@ -29,7 +29,7 @@ const Career = () => {
                 <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 justify-center gap-10 mt-20'>
                     {
                         easySchedules.map(easy => (
-                        <div className="card bg-base-100 shadow-xl">
+                        <div className="card  shadow-2xl shadow-black">
                             <div className="card-body">
                                 <img src={easy.img} className='w-96 mx-auto rounded-md' alt="" />
                                 <h2 className="text-center text-3xl font-bold">{easy.title}</h2>
