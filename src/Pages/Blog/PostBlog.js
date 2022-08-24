@@ -11,7 +11,7 @@ const PostBlog = () => {
             title: e.target.title.value,
             blog: e.target.blog.value
         }
-        fetch('https://pick-timely.herokuapp.com/blog', {
+        fetch('http://localhost:5000/blog', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -22,11 +22,11 @@ const PostBlog = () => {
             .then(data => {
                 console.log(data)
                 if (data.success) {
-                   toast("Succesfully added your blog");
+                   toast.success("Successfully added your blog");
                    navigate('/blog')
                 }
                 else {
-                    toast("Some unknown error occured");
+                    toast("Some unknown error occurred");
                 }
             })
         e.target.reset();
@@ -45,7 +45,7 @@ const PostBlog = () => {
                 <textarea name="blog" className="textarea md:w-[700px]  bg-gray-500 text-white textarea-bordered" placeholder="Write your blog"></textarea>
             </div>
             
-            <input type="submit" value="Submit" className="btn btn-primary w-48 my-10"/>
+            <input type="submit" value="Post" className="btn btn-primary w-48 my-10"/>
         </form>
     );
 };

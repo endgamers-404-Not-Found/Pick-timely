@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { ImCross } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
-import { toast, ToastContainer } from 'react-toastify';
-import { ImCross } from 'react-icons/im';
 
 function Login() {
     const [show, setShow] = useState(false);
@@ -91,8 +91,10 @@ function Login() {
         if (gUser) {
             const name = gUser?.user.displayName;
             const email = gUser?.user.email;
+
             console.log(name, email)
-            await fetch('https://pick-timely.herokuapp.com/addUser', {
+            await fetch('http://localhost:5000/addUser', {
+
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -101,7 +103,6 @@ function Login() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
                     data.acknowledged && navigate(from, { replace: true });
                 })
         }
@@ -122,7 +123,7 @@ function Login() {
                                 <h2 className=' text-3xl text-center'>Sign In</h2>
                                 <div className="form-control">
                                     <label className="label">
-                                        <span className="label-text">Email</span>
+                                        <span data-testid="email" className="label-text">Email</span>
                                     </label>
                                     <input onChange={handleEmailField} name='email' required type="text" placeholder="email" className="input input-bordered" />
                                 </div>

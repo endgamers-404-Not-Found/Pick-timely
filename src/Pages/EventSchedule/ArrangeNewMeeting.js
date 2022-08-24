@@ -1,14 +1,15 @@
 import React from 'react';
+import { useParams } from 'react-router-dom';
 
 import FiftenMin from './FiftenMin';
 
 const ArrangeNewMeeting = () => {
-    
+    const {hostId} = useParams();
+  
 
     return (
         <div>
-         
-            <FiftenMin></FiftenMin>
+            <FiftenMin hostId={hostId}></FiftenMin>
         </div>
     );
 };

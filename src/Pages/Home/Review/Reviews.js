@@ -6,7 +6,7 @@ import Review from './Review';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
-    const url = `https://pick-timely.herokuapp.com/review`;
+    const url = `http://localhost:5000/review`;
     useEffect(() => {
         const allReview = async () => {
             const { data } = await axios.get(url, {

@@ -5,14 +5,15 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
+import CancellingModal from './CancellingModal';
 import ModalDetails from './ModalDetails';
-import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
+                       
   const [user, loading] = useAuthState(auth)
   const [meeting, setMeeting] = useState({});
 
-  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely.herokuapp.com/mySchedules/${user.email}`).then(res => res.json()));
+  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`http://localhost:5000/mySchedules/${user.email}`).then(res => res.json()));
 
 
   
@@ -33,16 +34,19 @@ const Upcoming = () => {
 
 
   const handleDeleteSchedule = (id) => {
-    const confirmDelete = window.confirm('Are you want to delete this doctor?');
+    const confirmDelete = window.confirm('Are you sure delete this schedule?');
     if (confirmDelete) {
-      fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
+      fetch(`http://localhost:5000/schedule/${id}`, {
         method: "DELETE",
         headers: {
           'content-type': 'application/json',
-        }
+        },
+       
+      
       })
         .then((res) => res.json())
         .then((result) => {
+
           if (result.deletedCount) {
             toast(`Schedule is deleted`);
             refetch();
@@ -59,10 +63,8 @@ const Upcoming = () => {
 
           <thead>
             <tr>
-              <th></th>
-              <th>Date</th>
-              <th>Time</th>
-              <th>Host</th>
+              <th>#</th>
+              <th>Date / Time</th>
               <th>Meeting</th>
               <th>Email</th>
               <th>Action</th>
@@ -71,14 +73,12 @@ const Upcoming = () => {
           <tbody>
 
 
-            {
-              schedules ?
+            { schedules ?
                 schedules?.map((schedule, index) =>
                   <tr className='border border-gray-400 ' key={schedule._id}>
+
                     <td className='p-3'>{index + 1}</td>
-                    <td>{schedule?.dateFormat}  </td>
-                    <td>{schedule?.timeSlot}  </td>
-                    <td>{schedule?.host}</td>
+                    <td>{schedule?.dateFormat} <br /> {schedule?.timeSlot}  </td>
                     <td>
                       <a href={schedule?.linking}  rel="noreferrer"  target='_blank'>
                         <button className='btn btn-primary btn-sm my-2' >Join now</button>
@@ -89,24 +89,24 @@ const Upcoming = () => {
                     <td>
                       <ul>
                         {
-                          schedule?.email?.map(email => <li>{email?.email}</li>)
+                         schedule && schedule?.email?.map((email, index) => <li key={index}>{email?.email}</li>)
                         }
                       </ul>
                     </td>
                     <td>
-                      <label
+     
+
+                    <label
                         htmlFor="my-meeting"
                         className="btn btn-sm btn-success"
                         onClick={() => setMeeting(schedule)}
                       >see details</label>
-                      <label
-                        htmlFor="meeting-reschedule"
-                        className="btn btn-sm btn-info mx-3"
-                        onClick={() => setMeeting(schedule)}
-                      >reschedule</label>
-                      <button onClick={() => handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
+                     
+                
+                      <button onClick={() => handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Delete</button>
                     </td>
                   </tr>)
+
                 :
                 'No data available'
             }
@@ -115,8 +115,11 @@ const Upcoming = () => {
 
           </tbody>
         </table>
-        {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
-        {meeting && <ScheduleEditModal  setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
+
+        {meeting && <ModalDetails user={user} refetch={refetch} setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
+        {meeting && <CancellingModal user={user} setMeeting={setMeeting} meeting={meeting}></CancellingModal>}
+        
+
       </div>
     </div>
   );

@@ -5,7 +5,6 @@ import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import auth from "../firebase.init";
-import useAdmin from '../Hooks/useAdmin';
 import { useProfile } from '../Hooks/useProfile';
 import defaultProfile from './../assets/profile.png';
 
@@ -13,19 +12,7 @@ import defaultProfile from './../assets/profile.png';
 function Header({ theme, toggleTheme }) {
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [user] = useAuthState(auth);
-
-const [admin] = useAdmin(user);
-
-   
-  
-    // const { pathname } = useLocation();
-
-
     const [profile]= useProfile();
-
- 
-
-
 
 
 
@@ -33,12 +20,14 @@ const [admin] = useAdmin(user);
 
         
         <div className='dark'  >
-    
+
+            
+          
 
 
             <nav id={theme}  className="  sticky top-0 z-10  flex flex-wrap items-center justify-between px-2 py-3 ">
+                <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
 
-                <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
                             className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase  "

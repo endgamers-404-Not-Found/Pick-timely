@@ -9,15 +9,17 @@ import Spinner from '../../SharedComponents/Spinner';
 
 
 
+
+
 const ConfirmSchedule = ({ dateFormat, hostId }) => {
     const [user, loading] = useAuthState(auth)
     const [meeting, setMeeting] = useState({});
     const navigate = useNavigate();
-    const day = new Date();
-    const today = day.toLocaleTimeString();
+    /* const day = new Date();
+    const today = day.toLocaleTimeString(); */
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
+        fetch(`http://localhost:5000/arrangeMeeting/${hostId}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -48,10 +50,12 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
     const handleMeeting = (event) => {
         event.preventDefault();
         const timeSlot = event.target.time.value;
+        console.log(timeSlot)
         const email = emailList;
         const description = event.target.description.value;
         const platform = event.target.platform.value;
         const linking = event.target.linking.value;
+
 
         const meetingInfo = {
             timeSlot,
@@ -84,7 +88,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
 
 
 
- 
+
 
 
 
@@ -92,7 +96,9 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
         return <Spinner />
     }
 
+
     // emailList.map((email) => console.log(email.email))
+
 
     return (
 
@@ -140,7 +146,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
                                         </div>
                                     )}
                                 </div>
-                                {emailList.length - 1 === index  && (
+                                {emailList.length - 1 === index && (
                                     <div className='flex justify-end mt-3'>
                                         {
                                             meeting.eventType === "Group Meeting" && emailList.length === 5 ?
