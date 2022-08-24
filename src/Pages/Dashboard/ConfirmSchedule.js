@@ -63,8 +63,9 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
         }
 
         console.log(meetingInfo);
+        // http://localhost:5000
 
-        fetch('https://pick-timely.herokuapp.com/schedule', {
+        fetch(' http://localhost:5000/schedule', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'
@@ -98,7 +99,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
                         <label className="label">
                             <span className="label-text text-gray-500">Meeting Time</span>
                         </label>
-                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="time" name="time" />
+                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="text" name="time" />
                     </div>
 
                     {emailList.map((singleEmail, index) => (

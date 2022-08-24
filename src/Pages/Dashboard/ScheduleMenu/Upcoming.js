@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
@@ -17,10 +17,24 @@ const Upcoming = () => {
     return <Spinner></Spinner>
   }
 
+
+  const handleRemainder= (id)=>{
+   
+    fetch(`http://localhost:5000/schedule/${id}`,{
+      headers: {
+        'content-type': 'application/json',
+      }
+    })
+    .then(res =>res.json())
+    .then(result=>{
+      console.log(result);
+    })
+  }
+
   const handleDeleteSchedule = (id) => {
     const confirmDelete = window.confirm('Are you want to delete this doctor?');
     if (confirmDelete) {
-      fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
+      fetch(`http://localhost:5000/schedule/${id}`, {
         method: "DELETE",
         headers: {
           'content-type': 'application/json',
@@ -69,6 +83,7 @@ const Upcoming = () => {
                         <button className='btn btn-primary btn-sm my-2' >Join now</button>
                       </a>
                     </td>
+                   
 
 
                     <td>

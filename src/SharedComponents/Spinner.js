@@ -1,9 +1,10 @@
-import React from 'react'
+import React from 'react';
+import spinner from './../assets/spinner.gif'
 
 function Spinner() {
     return (
-        <div className=' mt-12 w-10 mx-auto'>
-             <button className=" btn-ghost btn  loading"></button>
+        <div className=' mt-36  flex justify-center'>
+             <img src={spinner} alt="" />
       </div>
     )
 }

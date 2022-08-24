@@ -31,7 +31,7 @@ import Solutions from './Pages/Solutions/Solutions';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import Graph from './Pages/Dashboard/Graph';
 import Contact from './Pages/Contact/Contact';
 
@@ -40,6 +40,8 @@ import PostBlog from './Pages/Blog/PostBlog';
 import About from './Pages/About/About';
 import AboutPickTimely from './Pages/About/AboutPickTimely';
 import OurTeam from './Pages/About/redux-compo/OurTeam';
+import AOS from "aos";
+import "aos/dist/aos.css";
 export const ThemeContext = createContext(null);
 
 
@@ -53,6 +55,12 @@ function App() {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
     // console.log('dark is working')
   };
+  useEffect(()=>{
+    AOS.init({
+      duration: 2500,
+      delay: 400,
+    })
+  },[])
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
     <div id={theme}>

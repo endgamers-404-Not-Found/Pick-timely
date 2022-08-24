@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ModalDetails = ({ meeting, setMeeting }) => {
-    const { email, timeSlot, description, dateFormat,type } = meeting;
+    const { _id,email, timeSlot, description, dateFormat,type } = meeting;
 
     const handleCloseModal = () => {
         setMeeting(null)
@@ -20,6 +20,7 @@ const ModalDetails = ({ meeting, setMeeting }) => {
                         {email?.map(email => <li>{email?.email}</li>)}
                     </ul>
                     <p className="py-4 font-bold">Event Type: {type}</p>
+                    <p className="py-4 font-bold">Event Type: {_id}</p>
                     <p className="py-4 font-bold">Event Time: 15mins meeting</p>
                     <p className="py-4 font-bold">Description: {description}</p>
                     <div className='flex gap-5'>

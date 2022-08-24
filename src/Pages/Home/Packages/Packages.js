@@ -19,12 +19,23 @@ function Packages() {
 
     return (
         <div className='my-12'>
-            <h1 className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
-            <p  className='text-center text-xl font-semibold'>Choose the best package for you</p>
+            <h1
+            data-aos='fade-down'
+            data-aos-delay='1000'
+            className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
+            <p
+            data-aos='fade-down'
+            data-aos-delay='900'
+            className='text-center text-xl font-semibold'>Choose the best package for you</p>
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
                     packages.map(data => 
-                        <div className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12">
+                        <div
+                        data-aos='zoom-in'
+                        data-aos-offset='300'
+                        data-aos-delay='1000'
+                        
+                        className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12">
                             <figure className="px-4 pt-6">
                                 <img src={data.img} alt="" className="rounded-xl" />
                             </figure>
