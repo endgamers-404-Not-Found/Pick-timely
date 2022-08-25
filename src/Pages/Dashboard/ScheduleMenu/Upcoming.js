@@ -1,6 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
+
 import React, { useState } from 'react';
 import { useEffect } from 'react';
+
+
+
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
@@ -29,8 +33,18 @@ const Upcoming = () => {
 
 
 
-  
-  
+  const handleRemainder= (id)=>{
+   
+    fetch(`http://localhost:5000/schedule/${id}`,{
+      headers: {
+        'content-type': 'application/json',
+      }
+    })
+    .then(res =>res.json())
+    .then(result=>{
+      console.log(result);
+    })
+  }
 
 
   const handleDeleteSchedule = (id) => {
@@ -85,6 +99,7 @@ const Upcoming = () => {
                       </a>
                     </td>
                    
+
 
                     <td>
                       <ul>

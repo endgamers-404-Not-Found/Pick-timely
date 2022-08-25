@@ -1,5 +1,5 @@
 // import { Routes } from 'react-router-dom';
-import { createContext, useState } from 'react';
+import { createContext, useEffect, useState } from 'react';
 import 'react-day-picker/dist/style.css';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
@@ -35,13 +35,23 @@ import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
 
+
+
+
+
+
 import About from './Pages/About/About';
 import AboutPickTimely from './Pages/About/AboutPickTimely';
 import OurTeam from './Pages/About/redux-compo/OurTeam';
+
 import Blog from './Pages/Blog/Blog';
 import PostBlog from './Pages/Blog/PostBlog';
 import EasySchedule from './Pages/Solutions/OtherSolutions/EasySchedule';
 import RecruitDetails from './Pages/Solutions/OtherSolutions/RecruitDetails';
+
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 export const ThemeContext = createContext(null);
 
 
@@ -55,6 +65,12 @@ function App() {
     setTheme((curr) => (curr === "light" ? "dark" : "light"));
     // console.log('dark is working')
   };
+  useEffect(()=>{
+    AOS.init({
+      duration: 2500,
+      delay: 400,
+    })
+  },[])
   return (
 
     

@@ -26,6 +26,7 @@ const HostList = () => {
             const res = await fetch(`http://localhost:5000?user=${user?.email}`);
 
             const data = await res.json();
+            console.log(data);
             setHosts(data);
         }
         meetingData();
@@ -66,6 +67,25 @@ const HostList = () => {
     //       });
     //     }
     //   };
+
+    const handleDeleteHoster = (id) =>{
+        const confirmDelete = window.confirm('Are you want to delete this doctor?');
+        if(confirmDelete){
+          fetch(`http://localhost:5000/hoster/${id}`, {
+          method: "DELETE",
+          headers:{
+            'content-type' : 'application/json',
+          }
+        })
+          .then((res) => res.json())
+          .then((result) => {
+            if (result.deletedCount) {
+              toast(`Hoster is deleted`);
+            }
+          });
+        }
+      };
+
 
 
 
