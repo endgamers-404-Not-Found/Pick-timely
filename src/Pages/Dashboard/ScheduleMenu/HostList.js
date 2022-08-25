@@ -23,8 +23,9 @@ const HostList = () => {
 
     useEffect(() => {
         const meetingData = async () => {
-            const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
+            const res = await fetch(`http://localhost:5000?user=${user?.email}`);
             const data = await res.json();
+            console.log(data);
             setHosts(data);
         }
         meetingData();
@@ -48,6 +49,7 @@ const HostList = () => {
     }
 
 
+
     // const handleDeleteHoster = (id) =>{
     //     const confirmDelete = window.confirm('Are you want to delete this doctor?');
     //     if(confirmDelete){
@@ -65,6 +67,7 @@ const HostList = () => {
     //       });
     //     }
     //   };
+
 
 
 

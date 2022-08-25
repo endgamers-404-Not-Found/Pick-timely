@@ -22,8 +22,13 @@ const TeamSchedule = () => {
                         <h1 className="text-4xl font-bold">Add unlimited member</h1>
                         <p className="py-6">Add unlimited member in your meeting by purchasing  corporate package. But you can start one by one meeting in free.</p>
                         <Link to={user ? '/dashboard' :"/signIn"}><button className="btn btn-primary">Get Started</button></Link>
+
                     </div>
-                    <img className='lg:w-[500px] w-[300px] rounded-lg shadow-2xl' src="https://i.ibb.co/FzXYgMT/team.jpg"  alt="" />
+                    <img
+                    data-aos='fade-up'
+                    data-aos-duration='1000'
+                    data-aos-offset='400'
+                    className='lg:w-[500px] w-[300px] rounded-lg shadow-2xl' src="https://i.ibb.co/FzXYgMT/team.jpg"  alt="" />
                 </div>
             </div>
         </div>

@@ -23,7 +23,11 @@ const Remiders = () => {
                         <p className="py-6">Guest will get a invitation email after you appoint him. And user will get a remainder email before the half of hour of meeting. </p>
                         <Link to={user ? '/dashboard' :"/signIn"}><button className="btn btn-primary">Get Started</button></Link>
                     </div>
-                    <img className='lg:w-[500px] w-[300px] rounded-lg shadow-2xl' src="https://i.ibb.co/rfPp232/notification.jpg"  alt="" />
+                    <img
+                    data-aos='fade-up'
+                    data-aos-duration='1000'
+                    data-aos-offset='400'
+                    className='lg:w-[500px] w-[300px] rounded-lg shadow-2xl' src="https://i.ibb.co/rfPp232/notification.jpg"  alt="" />
                 </div>
             </div>
         </div>
