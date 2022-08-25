@@ -1,6 +1,6 @@
 import React from 'react';
-import { useForm } from "react-hook-form";
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
 import auth from '../../firebase.init';
@@ -37,7 +37,7 @@ import Spinner from '../../SharedComponents/Spinner';
                     address: data.address,
                     photo: img
                 }
-                fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
+                fetch(`http://localhost:5000/update/${user.email}`, {
                     method: 'PUT',
                     headers: {
                            "content-type": "application/json"

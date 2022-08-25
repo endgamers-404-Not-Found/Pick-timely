@@ -10,7 +10,7 @@ import ScheduleEditModal from './ScheduleEditModal';
 const Upcoming = () => {
   const [user, loading] = useAuthState(auth)
   const [meeting, setMeeting] = useState({});
-  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely.herokuapp.com/mySchedules/${user.email}`).then(res => res.json()));
+  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`http://localhost:5000/mySchedules/${user.email}`).then(res => res.json()));
   // schedules.map(schedule=>console.log(schedule.email)) 
 
   if (isLoading || loading) {
@@ -20,7 +20,7 @@ const Upcoming = () => {
 
   const handleRemainder= (id)=>{
    
-    fetch(`https://pick-timely.herokuapp.com/schedule/${id}`,{
+    fetch(`http://localhost:5000/schedule/${id}`,{
       headers: {
         'content-type': 'application/json',
       }
@@ -34,7 +34,7 @@ const Upcoming = () => {
   const handleDeleteSchedule = (id) => {
     const confirmDelete = window.confirm('Are you want to delete this doctor?');
     if (confirmDelete) {
-      fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
+      fetch(`http://localhost:5000/schedule/${id}`, {
         method: "DELETE",
         headers: {
           'content-type': 'application/json',

@@ -7,7 +7,7 @@ const Career = () => {
     const [easySchedules, seTeasySchedules] = useState([]);
 
     useEffect(()=>{
-        fetch('https://pick-timely.herokuapp.com/easySchedule')
+        fetch('http://localhost:5000/easySchedule')
         .then(res =>res.json())
         .then(data => {
             seTeasySchedules(data);

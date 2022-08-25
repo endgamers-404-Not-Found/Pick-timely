@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -11,11 +10,10 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
     const [user, loading] = useAuthState(auth)
     const [meeting, setMeeting] = useState({});
     const navigate = useNavigate();
-    const day = new Date();
-    const today = day.toLocaleTimeString();
+ 
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
+        fetch(`http://localhost:5000/schedule/${hostId}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data)
@@ -62,10 +60,10 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
             type: meeting.eventType
         }
 
-        console.log(meetingInfo);
-        // http://localhost:5000
+        // console.log(meetingInfo);
 
-        fetch(' https://pick-timely.herokuapp.com/schedule', {
+        fetch(' http://localhost:5000/schedule', {
+
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

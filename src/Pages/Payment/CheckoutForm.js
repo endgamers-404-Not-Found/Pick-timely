@@ -1,5 +1,5 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
-import React, { useState, useEffect } from 'react'
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
@@ -15,7 +15,7 @@ function CheckoutForm({ bundle:data }) {
     const { price } = data;
     useEffect(() => {
         if (price) {
-            fetch('https://pick-timely.herokuapp.com/createPaymentIntent', {
+            fetch('http://localhost:5000/createPaymentIntent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,7 +77,7 @@ function CheckoutForm({ bundle:data }) {
             setTrnxId(paymentIntent?.id)
             // console.log(paymentIntent.id, _id)
 
-            fetch(`https://pick-timely.herokuapp.com/payment/${user.email}`, {
+            fetch(`http://localhost:5000/payment/${user.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': "application/json"

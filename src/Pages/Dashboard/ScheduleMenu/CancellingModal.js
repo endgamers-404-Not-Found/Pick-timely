@@ -1,7 +1,7 @@
 import React from 'react';
 
-const  CancellingModal = ({meeting, setMeeting}) => {
-    const {name, email, timeSlot, dateFormat, duration, eventType} = meeting;
+const  CancellingModal = ({meeting, setMeeting, user}) => {
+    const {email, timeSlot, dateFormat, duration, eventType} = meeting;
 
     const handleCloseModal = () =>{
         setMeeting(null)
@@ -15,8 +15,14 @@ const  CancellingModal = ({meeting, setMeeting}) => {
                     <h3 className="text-lg font-bold">{timeSlot}</h3>
                     <h3 className="text-lg font-bold">{dateFormat}</h3>
                     <div className='divider'></div>
-                    <p className="py-1 font-bold">Name: {name}</p>
-                    <p className="py-1 font-bold">Email: {email}</p>
+                    <p className="py-1 font-bold">Name: {user?.displayName}</p>
+                    <p className="py-1 font-bold">Email: 
+                        <ul>
+                            { email &&
+                            email?.map((email, index) => <li key={index}>{email?.email}</li>)
+                            }
+                        </ul>
+                    </p>
                     <p className="py-1 font-bold">Event Type: {eventType ? eventType : 'not selected type'}</p>
                     <p className="py-1 font-bold">Event Time: {duration ? duration : 'not selected duration'}</p>
                     <form>

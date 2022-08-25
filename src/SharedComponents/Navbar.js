@@ -14,12 +14,8 @@ function Header({ theme, toggleTheme }) {
     const [user] = useAuthState(auth);
     const [profile]= useProfile();
 
-
-
     return (
-
-        
-        <div className='dark'  >
+        <div className='dark'>
             <nav id={theme}  className="  sticky top-0 z-10  flex flex-wrap items-center justify-between px-2 py-3 ">
                 <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
 

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Spinner from '../../../SharedComponents/Spinner';
 
@@ -6,7 +6,7 @@ function Packages() {
 
     const [packages, setPackages] = useState([]);
     useEffect(()=>{
-        fetch('https://pick-timely.herokuapp.com/packages')
+        fetch('http://localhost:5000/packages')
         .then(res=>res.json())
         .then(data=>setPackages(data))
     },[])

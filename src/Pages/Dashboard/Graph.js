@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { CartesianGrid, XAxis, YAxis, Tooltip, BarChart, Bar, Legend } from 'recharts';
+import { Bar, BarChart, CartesianGrid, Legend, Tooltip, XAxis, YAxis } from 'recharts';
 
 
 
@@ -17,7 +17,7 @@ function Graph() {
     useEffect(() => {
         const hosts = [];
         const types = [];
-        fetch('https://pick-timely.herokuapp.com/hoster')
+        fetch('http://localhost:5000/hoster')
             .then(res => res.json())
             .then(data => {
                 if (data) {

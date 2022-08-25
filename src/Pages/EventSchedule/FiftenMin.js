@@ -10,7 +10,7 @@ const FiftenMin = ({hostId}) => {
     const dateFormat = format(selected, 'P');
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
+        fetch(`http://localhost:5000/arrangeMeeting/${hostId}`)
         .then(res=>res.json())
         .then(data=>{
             // console.log(data)

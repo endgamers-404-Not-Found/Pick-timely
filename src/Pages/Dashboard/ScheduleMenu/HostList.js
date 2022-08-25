@@ -1,8 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
 
@@ -14,7 +11,7 @@ const HostList = () => {
     const [hosting, setHosting] = useState({});
     const [hosts, setHosts] = useState([]);
 
-    const navigate = useNavigate();
+
     const [user,loading] = useAuthState(auth);
 
   
@@ -23,7 +20,7 @@ const HostList = () => {
 
     useEffect(() => {
         const meetingData = async () => {
-            const res = await fetch(`http://localhost:5000?user=${user?.email}`);
+            const res = await fetch(`http://localhost:5000/hoster?user=${user?.email}`);
             const data = await res.json();
             console.log(data);
             setHosts(data);
@@ -35,14 +32,6 @@ const HostList = () => {
         return <Spinner/>
     }
 
-    console.log(user)
-    const handleHost = () => {
-        // navigate('/')
-    }
-
-    const handleDelete = () => {
-        console.log('delete')
-    }
 
     if (!hosts) {
         return <Spinner></Spinner>
@@ -53,7 +42,7 @@ const HostList = () => {
     // const handleDeleteHoster = (id) =>{
     //     const confirmDelete = window.confirm('Are you want to delete this doctor?');
     //     if(confirmDelete){
-    //       fetch(`https://pick-timely.herokuapp.com/hoster/${id}`, {
+    //       fetch(`http://localhost:5000/hoster/${id}`, {
     //       method: "DELETE",
     //       headers:{
     //         'content-type' : 'application/json',

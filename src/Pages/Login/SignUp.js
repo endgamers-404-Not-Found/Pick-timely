@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Spinner from '../../SharedComponents/Spinner';
-import { toast, ToastContainer } from 'react-toastify';
 import { ImCross } from 'react-icons/im';
 import { useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
+import Spinner from '../../SharedComponents/Spinner';
 
 
 function SignUp() {
@@ -90,11 +90,12 @@ function SignUp() {
         const name = event.target.name.value;
         const email = userData.email;
         const password = userData.password;
+
         await createUserWithEmailAndPassword(email, password);
         if (user) {
             sendEmailVerification(auth.currentUser)
             toast('verification email sent')
-            fetch('https://pick-timely.herokuapp.com/addUser', {
+            fetch('http://localhost:5000/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -106,15 +107,16 @@ function SignUp() {
                     console.log(data)
                     data.acknowledged && navigate('/')
                 })
+            event.target.reset();
         }
-        event.target.reset();
     }
+
     const googleSignIn = async () => {
         await signInWithGoogle()
 
         const name = gUser?.user.displayName;
         const email = gUser?.user.email;
-        fetch('https://pick-timely.herokuapp.com/addUser', {
+        fetch('http://localhost:5000/addUser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -200,8 +202,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
-
-
-
-

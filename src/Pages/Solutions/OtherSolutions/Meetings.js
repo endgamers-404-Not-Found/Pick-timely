@@ -45,7 +45,7 @@ const Meetings = () => {
         <div className="hero  p-20">
             <div className="hero-content flex-col lg:flex-row-reverse mt-10">
               <div className='w-[100%] lg:w-[50%] flex lg:justify-end justify-center'>
-              { show ? <img src={meeting.img} className="w-[80%] rounded-lg shadow-2xl" alt='' /> : <img src='https://i.ibb.co/8cPKJmQ/Screenshot-31.png' className="w-[100%] rounded-lg shadow-2xl" alt='' /> }
+              { show ? <img src={meeting.img} style={{border: show === meeting.img ? '5px solid #f80' : ''}} className="w-[80%] rounded-lg shadow-2xl" alt='' /> : <img src='https://i.ibb.co/8cPKJmQ/Screenshot-31.png' className="w-[100%] rounded-lg shadow-2xl" alt='' /> }
               </div>
 
                 <div className='w-[100%] lg:w-[50%] mb-10'>
@@ -53,11 +53,11 @@ const Meetings = () => {
                    
                    
                     {
-                        images.map((image) => <div key={image.id}>
+                        images.map((image) => <div style={{border: show === image ? '5px solid #f80' : ''}} key={image.id}>
                             <h1 onClick={()=>setShow(image)} className='md:text-xl lg:text-3xl cursor-pointer'>{image.title}</h1>
                             <div className="divider"></div>
                         </div>)
-                }
+                    }
                    
                 </div>
             </div>
