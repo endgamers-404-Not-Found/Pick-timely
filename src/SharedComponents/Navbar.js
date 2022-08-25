@@ -15,8 +15,8 @@ function Header({ theme, toggleTheme }) {
     const [profile]= useProfile();
 
     return (
-        <div className='dark'>
-            <nav id={theme}  className="  sticky top-0 z-10  flex flex-wrap items-center justify-between px-2 py-3 ">
+        <div className='dark sticky top-0 z-10'>
+            <nav id={theme}  className=" flex flex-wrap items-center justify-between px-2 py-3 ">
                 <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
 
 
@@ -125,7 +125,7 @@ function Header({ theme, toggleTheme }) {
                                 {user ?
                                     // <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
                                     <div  className=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end  ml-4">
-                                        <label tabindex="0"  className="btn btn-ghost btn-circle avatar online">
+                                        <label tabIndex="0"  className="btn btn-ghost btn-circle avatar online">
                                             <div  className="w-10 rounded-full">
                                                 {
                                                     profile?.photo ?
@@ -136,7 +136,7 @@ function Header({ theme, toggleTheme }) {
                                                 }
                                             </div>
                                         </label>
-                                        <ul tabindex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
+                                        <ul tabIndex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
                                             <li>
                                                 <Link to='/dashboard'  className="justify-between">
                                                     Profile

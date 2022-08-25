@@ -2,6 +2,7 @@ import React from 'react';
 import Career from './OtherSolutions/Career';
 import Meetings from './OtherSolutions/Meetings';
 import Recruitment from './OtherSolutions/Recruitment';
+import Accounts from './OtherSolutions/Accounts';
 
 const Solutions = () => {
     return (
@@ -9,8 +10,9 @@ const Solutions = () => {
             
             {/* <Sales></Sales> */}
             <Recruitment></Recruitment>
+
             {/* <Accounts></Accounts> */}
-            {/* <Podcasts></Podcasts> */}
+
             <Career></Career>
             <Meetings></Meetings>
         </div>

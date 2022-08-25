@@ -51,7 +51,7 @@ const HostList = () => {
     //       .then((res) => res.json())
     //       .then((result) => {
     //         if (result.deletedCount) {
-    //           toast(`Hoster is deleted`);
+    //           toast(Hoster is deleted);
     //         }
     //       });
     //     }
