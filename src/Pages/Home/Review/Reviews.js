@@ -12,7 +12,7 @@ import { HiOutlineChevronDoubleRight } from 'react-icons/hi';
 
 const Reviews = () => {
     const [reviews, setReviews] = useState([])
-    const url = `http://localhost:5000/review`;
+    const url = `https://pick-timely.herokuapp.com/review`;
     useEffect(() => {
         const allReview = async () => {
             const { data } = await axios.get(url, {

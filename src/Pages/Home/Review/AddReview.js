@@ -20,7 +20,7 @@ const AddReview = () => {
             feedback: e.target.feedback.value,
             rating: currentRating
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://pick-timely.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

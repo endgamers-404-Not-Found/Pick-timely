@@ -7,7 +7,7 @@ const Customers = () => {
     console.log(customers);
 
     useEffect(() => {
-        const url = `http://localhost:5000/customers`;
+        const url = `https://pick-timely.herokuapp.com/customers`;
         fetch(url)
             .then(res => res.json())
             .then(result => setCustomer(result))
