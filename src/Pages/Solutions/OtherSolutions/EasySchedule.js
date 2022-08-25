@@ -5,7 +5,7 @@ const EasySchedule = () => {
     const {id} = useParams();
     const [easy, setEasy] = useState('');
     useEffect(()=>{
-        fetch(`https://pick-timely.herokuapp.com/easySchedule/${id}`)
+        fetch(`http://localhost:5000/easySchedule/${id}`)
         .then(res =>res.json())
         .then(data => {
             setEasy(data);

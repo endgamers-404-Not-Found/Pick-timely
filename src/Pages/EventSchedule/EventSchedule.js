@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { useNavigate } from 'react-router-dom';
-import defaultImage from '../../assets/profile.png';
 
 
 import auth from '../../firebase.init';
@@ -12,23 +11,21 @@ import Spinner from '../../SharedComponents/Spinner';
 
 const EventSchedule = () => {
     const [user, loading] = useAuthState(auth);
-    const [hosts, setHosts] = useState('');
+    const [hosts, setHosts] = useState([]);
     const navigate = useNavigate();
-    // console.log(hosts);
+
 
     useEffect(() => {
-        console.log(user.email)
-        fetch(`https://pick-timely.herokuapp.com/hoster/${user?.email}`)
+        fetch(`http://localhost:5000/hoster/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setHosts(data);
-                console.log(data)
             })
 
     }, [user]);
 
     const handleCreateEvent = (id) => {
-        navigate(`/dashboard/createEvent`);
+        navigate(`/dashboard/createEvent/`);
     }
 
     const handleHost = (id) => {

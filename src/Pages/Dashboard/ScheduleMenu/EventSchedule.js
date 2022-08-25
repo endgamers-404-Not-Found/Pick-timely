@@ -24,11 +24,8 @@ const EventSchedule = () => {
         // console.log(id);
 
     }
-<<<<<<< HEAD
-    if (loading || !hosts) {
-=======
+
     if(loading || !hosts){
->>>>>>> e57429aaeb6500c3461f3de82849b52a27a46d70
         return <Spinner></Spinner>
     }
 

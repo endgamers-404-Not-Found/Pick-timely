@@ -10,7 +10,7 @@ function Payment() {
     const [bundle, setBundle] = useState('');
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/package/${id}`)
+        fetch(`http://localhost:5000/package/${id}`)
             .then(res => res.json())
             .then(data => setBundle(data))
     }, [id])

@@ -1,10 +1,10 @@
-import React, { useEffect, useState } from 'react'
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
-import auth from '../../firebase.init';
+import React, { useEffect, useState } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Spinner from '../../SharedComponents/Spinner';
-import { toast, ToastContainer } from 'react-toastify';
 import { ImCross } from 'react-icons/im';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import auth from '../../firebase.init';
+import Spinner from '../../SharedComponents/Spinner';
 
 
 function SignUp() {
@@ -85,7 +85,7 @@ function SignUp() {
         const email = userData.email;
         const password = userData.password;
         await createUserWithEmailAndPassword(email,password);
-        fetch('https://pick-timely.herokuapp.com/addUser', {
+        fetch('http://localhost:5000/addUser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -104,7 +104,7 @@ function SignUp() {
         
             const name = gUser?.user.displayName;
             const email = gUser?.user.email;
-            fetch('https://pick-timely.herokuapp.com/addUser', {
+            fetch('http://localhost:5000/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"

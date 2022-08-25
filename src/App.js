@@ -39,9 +39,19 @@ import About from './Pages/About/About';
 import AboutPickTimely from './Pages/About/AboutPickTimely';
 import OurTeam from './Pages/About/redux-compo/OurTeam';
 import Blog from './Pages/Blog/Blog';
+import BlogDetails from './Pages/Blog/BlogDetails';
 import PostBlog from './Pages/Blog/PostBlog';
 import EasySchedule from './Pages/Solutions/OtherSolutions/EasySchedule';
 import RecruitDetails from './Pages/Solutions/OtherSolutions/RecruitDetails';
+import Branding from './SharedComponents/FooterSection/Branding';
+import CookiePolicy from './SharedComponents/FooterSection/CookiePolicy';
+import DeveloperContact from './SharedComponents/FooterSection/DeveloperContact';
+import Job from './SharedComponents/FooterSection/Job';
+import Marketing from './SharedComponents/FooterSection/Marketing';
+import Mission from './SharedComponents/FooterSection/Mission';
+import Partner from './SharedComponents/FooterSection/Partner';
+import PrivacyPolicy from './SharedComponents/FooterSection/PrivacyPolicy';
+import TermConditon from './SharedComponents/FooterSection/TermConditon';
 export const ThemeContext = createContext(null);
 
 
@@ -76,6 +86,7 @@ function App() {
         <Route path='/solutions/recruitments/:id' element={<RecruitDetails></RecruitDetails>}></Route>
         <Route path='/solutions/easySchedule/:id' element={<EasySchedule></EasySchedule>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
+        <Route path='/blog/:blogId' element={<BlogDetails></BlogDetails>}></Route>
 
 
         
@@ -150,6 +161,16 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
+
+        <Route path='/branding' element={<Branding></Branding>}></Route>
+        <Route path='/mission' element={<Mission></Mission>}></Route>
+        <Route path='/partner' element={<Partner></Partner>}></Route>
+        <Route path='/marketing' element={<Marketing></Marketing>}></Route>
+        <Route path='/job' element={<Job></Job>}></Route>
+        <Route path='/developerContact' element={<DeveloperContact></DeveloperContact>}></Route>
+        <Route path='/termCondition' element={<TermConditon></TermConditon>}></Route>
+        <Route path='/cookiePolicy' element={<CookiePolicy></CookiePolicy>}></Route>
+        <Route path='/privcyPolicy' element={<PrivacyPolicy></PrivacyPolicy>}></Route>
      
       </Routes>
       

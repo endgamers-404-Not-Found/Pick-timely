@@ -1,6 +1,4 @@
 import React from 'react';
-import CancellingModal from './CancellingModal';
-import ScheduleEditModal from './ScheduleEditModal';
 
 const ModalDetails = ({meeting, setMeeting, refetch, user}) => {
     const {email, timeSlot, description, dateFormat, eventType, duration} = meeting;
@@ -47,8 +45,7 @@ const ModalDetails = ({meeting, setMeeting, refetch, user}) => {
                     </div>
                 </div>
             </div> 
-            {meeting && <CancellingModal user={user} setMeeting={setMeeting} meeting={meeting}></CancellingModal>}
-            {meeting && <ScheduleEditModal user={user} setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
+         
 
            
 

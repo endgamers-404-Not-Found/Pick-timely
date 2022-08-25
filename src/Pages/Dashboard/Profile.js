@@ -2,15 +2,14 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
-import { useProfile } from '../../Hooks/useProfile';
 
-import { HiOfficeBuilding } from 'react-icons/hi';
 import { AiFillPhone } from 'react-icons/ai';
-import { MdEmail } from 'react-icons/md';
+import { HiOfficeBuilding } from 'react-icons/hi';
 import { ImLocation2 } from 'react-icons/im';
-import Spinner from '../../SharedComponents/Spinner';
-import 'react-toastify/dist/ReactToastify.css';
+import { MdEmail } from 'react-icons/md';
 import { Link } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import Spinner from '../../SharedComponents/Spinner';
 
 
 const Profile = () => {
@@ -21,7 +20,7 @@ const Profile = () => {
 
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
+        fetch(`http://localhost:5000/profile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data)
