@@ -96,14 +96,10 @@ const Upcoming = () => {
                     <td>
                       <label
                         htmlFor="my-meeting"
-                        className="btn btn-sm btn-success"
+                        className="btn btn-sm btn-success mr-4"
                         onClick={() => setMeeting(schedule)}
                       >see details</label>
-                      <label
-                        htmlFor="meeting-reschedule"
-                        className="btn btn-sm btn-info mx-3"
-                        onClick={() => setMeeting(schedule)}
-                      >reschedule</label>
+                     
                       <button onClick={() => handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
                     </td>
                   </tr>)

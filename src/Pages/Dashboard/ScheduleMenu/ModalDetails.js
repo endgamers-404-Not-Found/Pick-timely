@@ -32,11 +32,7 @@ const ModalDetails = ({meeting, setMeeting, refetch, user}) => {
                     <p className="py-4 font-bold">Description: {description}</p>
                     <div className='flex gap-5'>
                         
-                        <label 
-                                htmlFor="my-cancelling" 
-                                className="btn btn-sm btn-success"
-                                onClick={()=>setMeeting(meeting)}
-                                >Cancelling</label> 
+                        
                                 <label 
                                 htmlFor="meeting-reschedule" 
                                 className="btn btn-sm btn-info mx-3"
