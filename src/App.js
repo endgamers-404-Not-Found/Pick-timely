@@ -1,12 +1,15 @@
 // import { Routes } from 'react-router-dom';
+import { createContext, useState } from 'react';
 import 'react-day-picker/dist/style.css';
 import { Route, Routes } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Navbar from '../src/SharedComponents/Navbar';
 import './App.css';
+import Contact from './Pages/Contact/Contact';
 import AllUser from './Pages/Dashboard/AllUser';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import Graph from './Pages/Dashboard/Graph';
 import Profile from './Pages/Dashboard/Profile';
 import ScheduleList from './Pages/Dashboard/ScheduleList';
 import FindSchedule from './Pages/Dashboard/ScheduleMenu/FindSchedule';
@@ -31,15 +34,14 @@ import Solutions from './Pages/Solutions/Solutions';
 import Footer from './SharedComponents/Footer';
 import NotFound from './SharedComponents/NotFound';
 import RequireAuth from './SharedComponents/RequireAuth';
-import { createContext, useState } from 'react';
-import Graph from './Pages/Dashboard/Graph';
-import Contact from './Pages/Contact/Contact';
 
-import Blog from './Pages/Blog/Blog';
-import PostBlog from './Pages/Blog/PostBlog';
 import About from './Pages/About/About';
 import AboutPickTimely from './Pages/About/AboutPickTimely';
 import OurTeam from './Pages/About/redux-compo/OurTeam';
+import Blog from './Pages/Blog/Blog';
+import PostBlog from './Pages/Blog/PostBlog';
+import EasySchedule from './Pages/Solutions/OtherSolutions/EasySchedule';
+import RecruitDetails from './Pages/Solutions/OtherSolutions/RecruitDetails';
 export const ThemeContext = createContext(null);
 
 
@@ -54,18 +56,25 @@ function App() {
     // console.log('dark is working')
   };
   return (
+
+    
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
     <div id={theme}>
       <Navbar toggleTheme={toggleTheme} theme={theme} />
+      
+      <Routes>
    
 
-      <Routes>
+
+    
 
         <Route path='/signIn' element={<Login></Login>}></Route>
         <Route path='/signUp' element={<SignUp></SignUp>}></Route>
         <Route path='/pricing' element={<Packages></Packages>}></Route>
         <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
         <Route path='/solutions' element={<Solutions></Solutions>}></Route>
+        <Route path='/solutions/recruitments/:id' element={<RecruitDetails></RecruitDetails>}></Route>
+        <Route path='/solutions/easySchedule/:id' element={<EasySchedule></EasySchedule>}></Route>
         <Route path='/blog' element={<Blog></Blog>}></Route>
 
 
@@ -107,7 +116,7 @@ function App() {
           <Route path='createEvent' element={<CreateEvent></CreateEvent>}></Route>
           {/*  {/* nested route for  schedule list */}
 
-          <Route path='scheduleList' element={<ScheduleList></ScheduleList>}>
+          <Route path='myMeetings' element={<ScheduleList></ScheduleList>}>
             <Route index element={<Upcoming></Upcoming>}></Route>
             <Route path='upcoming' element={<Upcoming></Upcoming>}></Route>
             <Route path='pastschedule' element={<PastSchedule></PastSchedule>}></Route>
@@ -117,7 +126,12 @@ function App() {
         {/*  {/* nested route for dashboard ends here */}
 
 
+
+        <Route path='createEvent/:emailId' element={<CreateEvent></CreateEvent>}></Route>
+        <Route path='eventSchedule/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+
         <Route path='arrangeMeeting/:hostId' element={<ArrangeNewMeeting></ArrangeNewMeeting>}></Route>
+.
         <Route path='eventSchedule' element={<EventSchedule></EventSchedule>}></Route>
         <Route path='/pricing' element={<Pricing></Pricing>}></Route>
         <Route path='/addreview' element={<AddReview></AddReview>}></Route>
@@ -136,12 +150,15 @@ function App() {
           </RequireAuth>
         }></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
+     
       </Routes>
+      
       <Footer></Footer>
 
       <ToastContainer />
     </div>
     </ThemeContext.Provider>
+
   );
 }
 

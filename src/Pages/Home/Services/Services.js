@@ -5,6 +5,7 @@ import CrmUpdate from './SingleServices/CrmUpdate';
 import PaymentSystem from './SingleServices/PaymentSystem';
 import Remiders from './SingleServices/Remiders';
 import TeamSchedule from './SingleServices/TeamSchedule';
+import {motion} from 'framer-motion';
 
 const Services = () => {
     return (
@@ -14,13 +15,17 @@ const Services = () => {
                 <p className='text-xl text-center mt-2'>for growth-oriented teams</p>
             </div>
             <div className="w-full">
-                <CalendarServices></CalendarServices>
-                <TeamSchedule></TeamSchedule>
-                <CrmUpdate></CrmUpdate>
-                <Remiders></Remiders>
-                <BookingPage></BookingPage>
-                <PaymentSystem></PaymentSystem>
+                {/* <CalendarServices></CalendarServices> */}
+                <CalendarServices />
+                <TeamSchedule />
+                <Remiders />
 
+                
+                {/* <CrmUpdate></CrmUpdate> */}
+               
+                {/* <BookingPage></BookingPage> */}
+              
+               <PaymentSystem />
             </div>
         </div>
     );

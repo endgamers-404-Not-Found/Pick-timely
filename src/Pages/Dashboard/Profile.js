@@ -3,13 +3,13 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 
 
-import { HiOfficeBuilding } from 'react-icons/hi';
 import { AiFillPhone } from 'react-icons/ai';
-import { MdEmail } from 'react-icons/md';
+import { HiOfficeBuilding } from 'react-icons/hi';
 import { ImLocation2 } from 'react-icons/im';
-import Spinner from '../../SharedComponents/Spinner';
-import 'react-toastify/dist/ReactToastify.css';
+import { MdEmail } from 'react-icons/md';
 import { Link } from "react-router-dom";
+import 'react-toastify/dist/ReactToastify.css';
+import Spinner from '../../SharedComponents/Spinner';
 
 
 const Profile = () => {
@@ -20,7 +20,7 @@ const Profile = () => {
 
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
+        fetch(`http://localhost:5000/profile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data)
@@ -45,27 +45,27 @@ const Profile = () => {
                         </figure>
                         <p className='text-center text-xl font-bold mb-[-16px]'>{user.displayName}</p>
                         <div className="card-body">
-                        <span className='flex items-center'><MdEmail className='inline-block mr-1'></MdEmail> <span className="hidden lg:flex">Email: </span>{user?.email} </span>
-                        <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
-                        <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
-                        <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
-                        <span className='text-lg'>Package :  {profile.status ? profile.status : "free"}</span>
-                        {
-                            profile?.status !== "free" ?
-                                <span className=''>Transaction Id:  {profile?.transactionId}</span>
+                            <span className='flex items-center'><MdEmail className='inline-block mr-1'></MdEmail> <span className="hidden lg:flex">Email: </span>{user?.email} </span>
+                            <span className=''><HiOfficeBuilding className='inline-block mr-1'></HiOfficeBuilding>{profile?.company}</span>
+                            <span className=''><AiFillPhone className='inline-block mr-1'></AiFillPhone>{profile?.phone}</span>
+                            <span className=''><ImLocation2 className='inline-block mr-1'></ImLocation2>{profile?.address}</span>
+                            <span className='text-lg'>Package :  {profile.status ? profile.status : "free"}</span>
+                            {
+                                profile?.status !== "free" ?
+                                    <span className=''>Transaction Id:  {profile?.transactionId}</span>
 
-                                :
-                                ''
-                        }
-                        <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
+                                    :
+                                    ''
+                            }
+                            <Link to="/dashboard/updateProfile" className="btn btn-primary">Update Profile</Link>
 
+                        </div>
                     </div>
                 </div>
+
             </div>
 
         </div>
-
-        </div >
     );
 }
 

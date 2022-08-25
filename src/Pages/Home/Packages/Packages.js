@@ -21,10 +21,16 @@ function Packages() {
         <div className='my-12'>
             <h1 className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
             <p className='text-center text-xl font-semibold'>Choose the best package for you</p>
-            <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
+            <div
+
+
+                className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
                     packages.map((data, index) =>
-                        <div className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12"  key={index}>
+                        <div
+                          
+
+                            className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12" key={index}>
                             <figure className="px-4 pt-6">
                                 <img src={data.img} alt="" className="rounded-xl" />
                             </figure>

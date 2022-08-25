@@ -6,7 +6,7 @@ const Info = () => {
             <h2 className="font-extralight text-4xl text-bold font-serif mt-10">ABOUT PICK TIMELY</h2>
 
             <p className="font-serif my-5  tracking-wider">
-                Pictimely is a meeting scheduling application. It is mainly developed to be used by recruiter companies or any company to manage their meetings or interviews. In this application, any company can schedule meetings, appoint candidates or clients for meetings. There are paid and unpaid packages, one or more members can meet together.
+                Pick Timely is a meeting scheduling application. It is mainly developed to be used by recruiter companies or any company to manage their meetings or interviews. In this application, any company can schedule meetings, appoint candidates or clients for meetings. There are paid and unpaid packages, one or more members can meet together.
             </p>
             <p className="font-serif my-5 tracking-wider">
                 <span className='text-xl'>Features:</span>
@@ -14,17 +14,21 @@ const Info = () => {
                 <p className='pb-2'>2. Since it is a meeting schedule application, anyone can host or call a meeting here. User can call a meeting as per his need.</p>
                 <p className='pb-2'>3. The meeting host can invite or appoint one or more users for this meeting as needed.</p>
                 <p className='pb-2'>4. This application has different packages based on how many members can join during the meeting.</p>
-                 <p className='pb-2'>5. User can buy the package as per his requirement.</p>
-                <p className='pb-2'>6. Users can pay with a card for the paid packages.</p>
-                <p className='pb-2'>7. Users can meet one by one in a free package.</p>
-                <p className='pb-2'>8. Multiple members can meet together in a paid package.</p>
-                <p className='pb-2'>9. Users can add and edit his profile information.</p>
-                <p className='pb-2'>10. An admin can make other members admin or can remove an admin.</p>
-                <p className='pb-2'>11. Anyone can contact us from the contact route.</p>
-                <p className='pb-2'>12. We have graph charts for admin on the dashboard. Admin can see his project overview on Graph.</p>
-                <p className='pb-2'>13. Users can express his thoughts by adding a review.</p>
-                <p className='pb-2'>14. Users can choose a dark or light theme for him.</p>
-                <p className='pb-2'>15. Read blog on the blog route and admin can add blog dynamically.</p>
+                <p className='pb-2'>4. If the user uses free package then he can only arrange one by one meeting.</p>
+                <p className='pb-2'>5. If the user uses team package then he can  arrange a group meeting with five members.</p>
+                <p className='pb-2'>6. If the user uses corporate package then he can  arrange a meeting with unlimited members. There are no member limit in Corporate package. </p>
+
+                <p className='pb-2'>7. User can buy the package as per his requirement.</p>
+                <p className='pb-2'>8. Users can pay with a card for the paid packages.</p>
+                <p className='pb-2'>9. Users can meet one by one in a free package.</p>
+                <p className='pb-2'>10. Multiple members can meet together in a paid package.</p>
+                <p className='pb-2'>11. Users can add and edit his profile information.</p>
+                <p className='pb-2'>12. An admin can make other members admin or can remove an admin.</p>
+                <p className='pb-2'>13. Anyone can contact us from the contact route.</p>
+                <p className='pb-2'>14. We have graph charts for admin on the dashboard. Admin can see his project overview on Graph.</p>
+                <p className='pb-2'>15. Users can express his thoughts by adding a review.</p>
+                <p className='pb-2'>16. Users can choose a dark or light theme for him.</p>
+                <p className='pb-2'>17. Read blog on the blog route and admin can add blog dynamically.</p>
 
 
             </p>

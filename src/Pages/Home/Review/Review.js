@@ -13,7 +13,7 @@ const Review = ({review}) => {
                         emptySymbol={<AiFillStar style={{ color: 'gray', fontSize: '27px' }} />}
                         fullSymbol={<AiFillStar style={{ color: 'goldenrod', fontSize: '27px' }} />}
                         readonly
-                    ></Rating>
+                ></Rating>
             </div>
         </div>
     );

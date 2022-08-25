@@ -43,7 +43,7 @@ const Blogs = () => {
 
                         )
                     }
-
+                    {/* <h2 className='text-4xl my-36 text-center text-gray-500'>Coming soon</h2> */}
 
                 </div>
 

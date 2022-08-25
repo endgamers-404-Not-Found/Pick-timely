@@ -1,17 +1,18 @@
 import React from 'react';
-import Accounts from './OtherSolutions/Accounts';
 import Career from './OtherSolutions/Career';
 import Meetings from './OtherSolutions/Meetings';
 import Recruitment from './OtherSolutions/Recruitment';
-import Sales from './OtherSolutions/Sales';
+import Accounts from './OtherSolutions/Accounts';
 
 const Solutions = () => {
     return (
         <div>
             
-            <Sales></Sales>
+            {/* <Sales></Sales> */}
             <Recruitment></Recruitment>
-            <Accounts></Accounts>
+
+            {/* <Accounts></Accounts> */}
+
             <Career></Career>
             <Meetings></Meetings>
         </div>

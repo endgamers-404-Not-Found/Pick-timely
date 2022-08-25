@@ -1,20 +1,21 @@
-import React from 'react'
+import React from 'react';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
 
 
 
-import AppointmentScheduling from './AppointmentScheduling/AppointmentScheduling'
-import Banner from './Banner/Banner'
-import FreeTrail from './FreeTail'
-import MobileApps from './MobileApps/MobileApps'
-import Packages from './Packages/Packages'
-import Reviews from './Review/Reviews'
-import Services from './Services/Services'
+import AppointmentScheduling from './AppointmentScheduling/AppointmentScheduling';
+import Banner from './Banner/Banner';
+import FreeTrail from './FreeTail';
+import MobileApps from './MobileApps/MobileApps';
+import Packages from './Packages/Packages';
+import Reviews from './Review/Reviews';
+import Services from './Services/Services';
 
 
 function Home({theme}) {
     return (
         <div className=''>
+            
             <Banner  />
             <AppointmentScheduling></AppointmentScheduling>
             <Services></Services>
@@ -26,6 +27,7 @@ function Home({theme}) {
                 pageId="101404709353609"
                 appId="589832299541074"
             />,
+            
 
 
 

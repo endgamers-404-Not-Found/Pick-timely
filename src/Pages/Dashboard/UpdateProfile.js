@@ -97,6 +97,7 @@ const UpdateProfile = () => {
                             </div>
 
                             <div className="form-control">
+
                             <input
                                 type="file"
                                 className="input input-bordered w-full max-w-xs"
@@ -106,6 +107,16 @@ const UpdateProfile = () => {
                                     }
                                 })}
                             />
+
+                            </div>
+                            <div className="form-control mt-6">
+                                <input className="btn btn-primary" type="submit" value="submit" />
+                            </div>
+
+
+                            <Link to="/dashboard" className="btn btn-primary">Go back</Link>
+                        </form>
+
                     </div>
                     <div className="form-control mt-6">
                         <input className="btn btn-primary" type="submit" value="submit" />
@@ -113,14 +124,13 @@ const UpdateProfile = () => {
 
 
                     <Link to="/dashboard" className="btn btn-primary">Go back</Link>
-                </form>
+                </div>
             </div>
             <ToastContainer
                 position="top-center"
             />
         </div>
-            </div >
-        </div >
+
 
     );
                                 
