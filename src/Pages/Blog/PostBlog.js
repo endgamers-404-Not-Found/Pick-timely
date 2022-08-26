@@ -12,7 +12,7 @@ const PostBlog = () => {
             blog: e.target.blog.value,
             image: e.target.image.value
         }
-        fetch('http://localhost:5000/blog', {
+        fetch('https://pick-timely.herokuapp.com/blog', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

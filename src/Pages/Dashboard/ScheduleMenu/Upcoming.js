@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
@@ -15,6 +15,20 @@ const Upcoming = () => {
 
   if (isLoading || loading) {
     return <Spinner></Spinner>
+  }
+
+
+  const handleRemainder= (id)=>{
+   
+    fetch(`https://pick-timely.herokuapp.com/schedule/${id}`,{
+      headers: {
+        'content-type': 'application/json',
+      }
+    })
+    .then(res =>res.json())
+    .then(result=>{
+      console.log(result);
+    })
   }
 
   const handleDeleteSchedule = (id) => {
@@ -69,6 +83,7 @@ const Upcoming = () => {
                         <button className='btn btn-primary btn-sm my-2' >Join now</button>
                       </a>
                     </td>
+                   
 
 
                     <td>
@@ -81,14 +96,10 @@ const Upcoming = () => {
                     <td>
                       <label
                         htmlFor="my-meeting"
-                        className="btn btn-sm btn-success"
+                        className="btn btn-sm btn-success mr-4"
                         onClick={() => setMeeting(schedule)}
                       >see details</label>
-                      <label
-                        htmlFor="meeting-reschedule"
-                        className="btn btn-sm btn-info mx-3"
-                        onClick={() => setMeeting(schedule)}
-                      >reschedule</label>
+                     
                       <button onClick={() => handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
                     </td>
                   </tr>)

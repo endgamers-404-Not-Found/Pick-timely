@@ -23,7 +23,7 @@ const CreateEvent = () => {
             email: user?.email,
         };
         console.log(hosterInfo);
-        fetch('http://localhost:5000/hoster', {
+        fetch('https://pick-timely.herokuapp.com/hoster', {
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'

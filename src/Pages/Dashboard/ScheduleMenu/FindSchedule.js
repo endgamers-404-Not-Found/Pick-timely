@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ModalDetails from './ModalDetails';
+import Spinner from '../../../SharedComponents/Spinner'
 
 const FindSchedule = () => {
 
@@ -9,7 +10,7 @@ const FindSchedule = () => {
 
     useEffect(()=>{
         const meetingData = async() =>{
-            const res = await fetch('http://localhost:5000/schedule');
+            const res = await fetch('https://pick-timely.herokuapp.com/schedule');
             const data = await res.json();
             setSchedules(data);
             setSearchText(data);
@@ -22,6 +23,9 @@ const FindSchedule = () => {
         const filtered = schedules.filter(schedule => schedule.name.toLowerCase().includes(searchData));
         setSearchText(filtered);
 
+
+    if (!searchText) {
+        return <Spinner />
     }
 
     return (
@@ -89,5 +93,5 @@ const FindSchedule = () => {
         </div>
     );
 };
-
+};
 export default FindSchedule;

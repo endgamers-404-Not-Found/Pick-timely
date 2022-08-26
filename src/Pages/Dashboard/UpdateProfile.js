@@ -32,12 +32,12 @@ import Spinner from '../../SharedComponents/Spinner';
              if(result.success){
                 const img = result.data.url;
                 const profileInfo = {
-                    company: data.company,
+                    name: data.name,
                     phone: data.phone,
                     address: data.address,
                     photo: img
                 }
-                fetch(`http://localhost:5000/update/${user.email}`, {
+                fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
                     method: 'PUT',
                     headers: {
                            "content-type": "application/json"
@@ -61,9 +61,9 @@ import Spinner from '../../SharedComponents/Spinner';
                             <div className="form-control">
                                 <input
                                     type="text"
-                                    placeholder="Company Name"
+                                    placeholder="Name"
                                     className="input input-bordered w-full max-w-xs"
-                                    {...register("company", {
+                                    {...register("name", {
                                         required: {
                                             value: true
                                         }

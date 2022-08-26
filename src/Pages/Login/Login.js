@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { ImCross } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
@@ -20,7 +20,7 @@ function Login() {
         error,
     ] = useSignInWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-
+    const [sendPasswordResetEmail, sending, error2] = useSendPasswordResetEmail(auth);
 
     const [userData, setUserData] = useState({
         email: "",
@@ -81,7 +81,7 @@ function Login() {
         }
     }, [error, gError])
 
-    if (loading || gLoading) {
+    if (loading || gLoading ||sending) {
         return <Spinner></Spinner>
     };
 
@@ -93,7 +93,7 @@ function Login() {
             const email = gUser?.user.email;
 
             console.log(name, email)
-            await fetch('http://localhost:5000/addUser', {
+            await fetch('https://pick-timely.herokuapp.com/addUser', {
 
                 method: "POST",
                 headers: {
@@ -107,6 +107,16 @@ function Login() {
                 })
         }
 
+    }
+    const passwordReset=()=>{
+        if(userData.email){
+            sendPasswordResetEmail(userData.email)
+            toast("password reset email sent")
+        }
+        else{
+            setErrors({ ...errors, emailError: "Fill the email field first" })
+            setUserData({ ...userData, email: "" })
+        }
     }
 
 
@@ -139,9 +149,13 @@ function Login() {
                                     </label>
                                     <input onChange={handlePasswordField} name='password' required type={show ? 'text' : 'password'} placeholder="password" className="input input-bordered" />
                                     {errors?.passwordError && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross>{errors.passwordError}</span>}
-
+                                    {error2  && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross>{error2.message}</span>}
+                                    
                                     <label className="label">
                                         <p className="text-sm ">First time in Pick-Timely? <Link className='font-semibold' to='/signUp'>sign up now</Link></p>
+                                    </label>
+                                    <label className="label">
+                                        <p className="text-sm ">Forget your password ?<button className='font-semibold' onClick={()=>passwordReset()}>Reset now</button></p>
                                     </label>
                                 </div>
                                 <div className="form-control ">
