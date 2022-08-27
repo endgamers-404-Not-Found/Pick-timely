@@ -4,13 +4,17 @@ import Swal from 'sweetalert2';
 import auth from '../../../firebase.init';
 
 const AddReview = () => {
-    const [user] = useAuthState(auth)
+    const [user] = useAuthState(auth);
+    const verified = user.email ? true : false
+
     const handleFeedback = e => {
         e.preventDefault();
         const review = {
             email: user?.email,
             feedback: e.target.feedback.value,
-            rating: e.target.rating.value
+            rating: e.target.rating.value,
+            verified: verified
+    
         }
         fetch('https://pick-timely.herokuapp.com/review', {
             method: 'POST',
@@ -40,8 +44,11 @@ const AddReview = () => {
                     <div className="card shadow-2xl shadow-black text-primary-content">
                         <div className="card-body">
                             <form onSubmit={handleFeedback}>
+                                
                                 <textarea name='feedback' className=" bg-gray-400 text-white placeholder:text-white textarea  w-96" placeholder="Please add your feedback here"></textarea><br />
+
                                 <input name='rating' type="text" placeholder="Rate us (out of 5)" className="input bg-gray-400 text-white placeholder:text-white input-bordered input-sm w-96" /><br /><br />
+
                                 <input className='w-full btn-sm btn btn-primary ' type="submit" value="Add Feedback" />
                             </form>
                         </div>
