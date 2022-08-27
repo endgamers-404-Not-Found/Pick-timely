@@ -15,6 +15,7 @@ const Reviews = () => {
     const [reviews, setReviews] = useState([])
     const carousel = useRef();
 
+    console.log(reviews);
 
     useEffect(() => {
         setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth)
@@ -35,6 +36,11 @@ const Reviews = () => {
 
     return (
         <div className='my-12'>
+            
+            <div className="text-2xl font-roboto leading-4 tracking-widest font-ligh not-italic text-center text-[#637383] p-10">
+                <h1 className="text-5xl font-roboto loeading-4 tracking-widest font-black">What our customers says</h1>
+            </div>
+
             <motion.div ref={carousel} whileTap={{ cursor: "grabbing" }} className='mx-52 cursor-grab overflow-hidden'>
                 <motion.div
                     drag="x"
@@ -62,7 +68,7 @@ const Reviews = () => {
                                                 v-if="review.verifiedPurchase"
                                                 class="text-sm font-medium leading-5 text-gray-500"
                                             >
-                                                Verified review
+                                                Verified: {review.verified}
                                             </p>
                                         </div>
                                         <div class="space-y-1">
@@ -78,12 +84,12 @@ const Reviews = () => {
                                             <div class="flex flex-shrink-0 rounded-full border border-gray-200">
                                                 <img
                                                     class="w-8 h-8 object-cover rounded-full"
-                                                    src={reviewImage}
+                                                    src={review.photo}
                                                     alt=""
                                                 />
                                             </div>
                                             <span class="text-sm font-semibold leading-5 text-gray-900">
-                                                Iqbal Hossain
+                                                {review.name}
                                             </span>
                                             <div className="flex-shrink-0">
                                                 <AiFillCheckCircle />

@@ -13,8 +13,9 @@ const AddReview = () => {
             email: user?.email,
             feedback: e.target.feedback.value,
             rating: e.target.rating.value,
+            name: e.target.name.value,
             verified: verified
-    
+
         }
         fetch('https://pick-timely.herokuapp.com/review', {
             method: 'POST',
@@ -33,7 +34,7 @@ const AddReview = () => {
                     timer: 1500
                 })
             })
-            e.target.reset();
+        e.target.reset();
     }
     return (
         <div className='mb-12 py-20'>
@@ -44,7 +45,9 @@ const AddReview = () => {
                     <div className="card shadow-2xl shadow-black text-primary-content">
                         <div className="card-body">
                             <form onSubmit={handleFeedback}>
-                                
+
+                                <input name='name' type="text" placeholder="Your name" className="input bg-gray-400 text-white placeholder:text-white input-bordered input-sm w-96" /><br /><br />
+
                                 <textarea name='feedback' className=" bg-gray-400 text-white placeholder:text-white textarea  w-96" placeholder="Please add your feedback here"></textarea><br />
 
                                 <input name='rating' type="text" placeholder="Rate us (out of 5)" className="input bg-gray-400 text-white placeholder:text-white input-bordered input-sm w-96" /><br /><br />
