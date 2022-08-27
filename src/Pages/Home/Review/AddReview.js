@@ -1,25 +1,18 @@
-/* import React, { useState } from 'react';
+import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import ReactStars from 'react-rating-stars-component';
 import Swal from 'sweetalert2';
 import auth from '../../../firebase.init';
-import { useProfile } from '../../../Hooks/useProfile';
 
 const AddReview = () => {
-    const [profile]=useProfile();
-    const [currentRating,setCurrentRating]=useState(0)
-    const ratingChanged=(rating)=>{
-        setCurrentRating(rating)
-    }
+    const [user] = useAuthState(auth)
     const handleFeedback = e => {
         e.preventDefault();
         const review = {
-            name: profile?.name,
-            photo: profile?.photo,
+            email: user?.email,
             feedback: e.target.feedback.value,
-            rating: currentRating
+            rating: e.target.rating.value
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://pick-timely.herokuapp.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -46,18 +39,10 @@ const AddReview = () => {
                 <div className="mt-8  stack">
                     <div className="card shadow-2xl shadow-black text-primary-content">
                         <div className="card-body">
-                            <div className='flex justify-center'>
-                                <ReactStars
-                                 size={40}
-                                 isHalf={true}
-                                 activeColor='goldenrod'
-                                 onChange={ratingChanged}
-                                />
-                            </div>
                             <form onSubmit={handleFeedback}>
                                 <textarea name='feedback' className=" bg-gray-400 text-white placeholder:text-white textarea  w-96" placeholder="Please add your feedback here"></textarea><br />
-                               
-                                <input className='w-full btn-sm btn btn-primary mt-3' type="submit" value="Add Feedback" />
+                                <input name='rating' type="text" placeholder="Rate us (out of 5)" className="input bg-gray-400 text-white placeholder:text-white input-bordered input-sm w-96" /><br /><br />
+                                <input className='w-full btn-sm btn btn-primary ' type="submit" value="Add Feedback" />
                             </form>
                         </div>
                     </div>
@@ -67,4 +52,4 @@ const AddReview = () => {
     );
 };
 
-export default AddReview; */
+export default AddReview;
