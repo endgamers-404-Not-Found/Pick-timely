@@ -4,7 +4,7 @@ import {Link} from 'react-router-dom';
 const FreeTail = () => {
     return (
         <div>
-            <div className="hero min-h-screen bg-[#f7faff]">
+            <div className="hero min-h-screen bg-[#d9dfe9]">
                 <div className=" "></div>
                 <div className="">
                     <div className="max-w-md">
