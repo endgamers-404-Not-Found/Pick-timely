@@ -4,7 +4,7 @@ import React from 'react';
 const ModalDetails = ({meeting, setMeeting, refetch}) => {
     const {email, timeSlot, description, dateFormat, type, host} = meeting;
 
-
+ 
     return (
         <div className=''>
             <input type="checkbox" id="my-meeting" className="modal-toggle" />
