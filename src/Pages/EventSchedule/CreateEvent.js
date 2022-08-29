@@ -3,14 +3,17 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { FaChevronCircleDown } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import { useProfile } from '../../Hooks/useProfile';
 
 const CreateEvent = () => {
     const [user] = useAuthState(auth);
     const { emailId } = useNavigate(user);
+    // const [profile]=useProfile()
     const profile = useProfile()
     const status = profile[0].status;
+    console.log(status)
 
 
 
@@ -38,8 +41,14 @@ const CreateEvent = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('Hoster created successfully', data);
-                toast("Host Create Successfully");
+               
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Host Created Successfully!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                 event.target.reset();
             })
 
@@ -105,12 +114,7 @@ const CreateEvent = () => {
                         </label>
                         <textarea name='description' className="textarea  placeholder:text-white bg-gray-400 text-white textarea-bordered h-24" placeholder="description here"></textarea>
                     </div>
-                    <div className="form-control">
-                        <label className="label">
-                            <span className="label-text">User image Link</span>
-                        </label>
-                        <input type='text' name='image' className="input input-bordered placeholder:text-white  bg-gray-400 text-white" placeholder="add image link" />
-                    </div>
+                    
 
                     <div className='mt-5'>
                         <button className='btn btn-primary w-full'>continue</button>

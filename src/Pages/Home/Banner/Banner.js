@@ -105,7 +105,7 @@ const Banner = ({ theme }) => {
                 transition={{ type: 'spring', damping: 5, stiffness: 100 }}
 
                 className="md:w-[600px] lg:w-[700px] order-1 md:order-2 mb-10">
-                <img src={bannerImg} alt="bannerImg" />
+                <img className='' src={bannerImg} alt="bannerImg" />
             </motion.div>
         </div>
     );

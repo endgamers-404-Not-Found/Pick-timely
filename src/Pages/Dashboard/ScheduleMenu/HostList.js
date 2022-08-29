@@ -38,29 +38,6 @@ const HostList = () => {
     }
 
 
-
-    // const handleDeleteHoster = (id) =>{
-    //     const confirmDelete = window.confirm('Are you want to delete this doctor?');
-    //     if(confirmDelete){
-    //       fetch(`https://pick-timely.herokuapp.com/hoster/${id}`, {
-    //       method: "DELETE",
-    //       headers:{
-    //         'content-type' : 'application/json',
-    //       }
-    //     })
-    //       .then((res) => res.json())
-    //       .then((result) => {
-    //         if (result.deletedCount) {
-    //           toast(Hoster is deleted);
-    //         }
-    //       });
-    //     }
-    //   };
-
-
-
-
-
     return (
         <div>
             <h1 className='text-2xl text-center font-semibold my-6'>All Hosts and meetings in Pick Timely</h1>

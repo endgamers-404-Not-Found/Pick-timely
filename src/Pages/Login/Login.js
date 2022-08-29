@@ -3,6 +3,7 @@ import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWith
 import { ImCross } from 'react-icons/im';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
@@ -74,10 +75,18 @@ function Login() {
 
     useEffect(() => {
         if (error) {
-            toast.error(error?.message)  
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error?.message,
+              })
         }
         else if(gError){
-            toast.error(gError?.message)
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: gError?.message,
+              })
         }
     }, [error, gError])
 

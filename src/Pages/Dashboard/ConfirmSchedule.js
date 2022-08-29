@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
@@ -74,7 +75,13 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
             .then(data => {
                 console.log('data inserted successfully', data);
                 navigate('/dashboard/eventschedule');
-                toast('Schedule make for interview');
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Successfully schedule make for interview',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
 
             })
     }

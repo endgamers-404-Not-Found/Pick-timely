@@ -6,6 +6,7 @@ import { ImCross } from 'react-icons/im';
 import { useSendEmailVerification } from 'react-firebase-hooks/auth';
 import { toast, ToastContainer } from 'react-toastify';
 import Spinner from '../../SharedComponents/Spinner';
+import Swal from 'sweetalert2';
 
 
 function SignUp() {
@@ -75,9 +76,11 @@ function SignUp() {
 
     useEffect(() => {
         if (error || gError) {
-            toast.error(error.message || gError.message, {
-                position: 'top-center'
-            })
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: error.message || gError.message,
+              })
         }
     }, [error, gError])
 
