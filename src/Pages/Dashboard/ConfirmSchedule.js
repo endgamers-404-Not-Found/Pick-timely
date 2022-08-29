@@ -98,7 +98,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
                         <label className="label">
                             <span className="label-text text-gray-500">Meeting Time</span>
                         </label>
-                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="text" name="time" />
+                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="time" name="time" />
                     </div>
 
                     {emailList.map((singleEmail, index) => (

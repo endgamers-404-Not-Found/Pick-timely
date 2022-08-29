@@ -15,7 +15,7 @@ function Header({ theme, toggleTheme }) {
     const [profile]= useProfile();
 
     return (
-        <div className='dark sticky top-0 z-10'>
+        <div className='dark sticky top-0 z-40 shadow-xl'>
             <nav id={theme}  className=" flex flex-wrap items-center justify-between px-2 py-3 ">
                 <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
 
@@ -136,7 +136,7 @@ function Header({ theme, toggleTheme }) {
                                                 }
                                             </div>
                                         </label>
-                                        <ul tabIndex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
+                                        <ul tabIndex="0"  className="menu menu-compact dropdown-content mt-3 p-2 z-40 shadow-2xl  rounded-box w-52 shadow-black">
                                             <li>
                                                 <Link to='/dashboard'  className="justify-between">
                                                     Profile
