@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { Link, Navigate, useLocation, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
-import Spinner from '../../SharedComponents/Spinner';
-import { toast, ToastContainer } from 'react-toastify';
 import { ImCross } from 'react-icons/im';
+import { useSendEmailVerification } from 'react-firebase-hooks/auth';
+import { toast, ToastContainer } from 'react-toastify';
+import Spinner from '../../SharedComponents/Spinner';
 
 
 function SignUp() {
@@ -19,6 +20,8 @@ function SignUp() {
         error,
     ] = useCreateUserWithEmailAndPassword(auth);
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
+    const [sendEmailVerification, sending, error2] = useSendEmailVerification(auth);
+
 
 
     const [userData, setUserData] = useState({
@@ -30,6 +33,9 @@ function SignUp() {
         emailError: "",
         passwordError: ""
     })
+
+
+
 
     const handleEmailField = e => {
         const emailInput = e.target.value;
@@ -67,58 +73,64 @@ function SignUp() {
     }
 
 
-    useEffect(()=>{
+    useEffect(() => {
         if (error || gError) {
             toast.error(error.message || gError.message, {
                 position: 'top-center'
             })
         }
-    },[error,gError])
-   
-        if (loading ||gLoading) {
-            return <Spinner></Spinner>
-        };
+    }, [error, gError])
+
+    if (loading || gLoading || sending) {
+        return <Spinner></Spinner>
+    };
 
     const formSubmit = async (event) => {
         event.preventDefault();
         const name = event.target.name.value;
         const email = userData.email;
         const password = userData.password;
-        await createUserWithEmailAndPassword(email,password);
-        fetch('https://pick-timely.herokuapp.com/addUser', {
-            method: "POST",
-            headers: {
-                "content-type": "application/json"
-            },
-            body: JSON.stringify({ name, email,status:"free" })
-        })
-            .then(res => res.json())
-            .then(data => {
-                console.log(data)
-                data.acknowledged && navigate('/')
-            })
-        event.target.reset();
-    }
-    const googleSignIn = async () => {
-        await signInWithGoogle()
-        
-            const name = gUser?.user.displayName;
-            const email = gUser?.user.email;
+
+        await createUserWithEmailAndPassword(email, password);
+        if (user) {
+            sendEmailVerification(auth.currentUser)
+            toast('verification email sent')
             fetch('https://pick-timely.herokuapp.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
                 },
-                body: JSON.stringify({ name, email,status:"free" })
+                body: JSON.stringify({ name, email, status: "free" })
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data);
-                    data.acknowledged && navigate(from, { replace: true });
+                    console.log(data)
+                    data.acknowledged && navigate('/')
                 })
-        
+            event.target.reset();
+        }
     }
 
+    const googleSignIn = async () => {
+        await signInWithGoogle()
+
+        const name = gUser?.user.displayName;
+        const email = gUser?.user.email;
+        fetch('https://pick-timely.herokuapp.com/addUser', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json"
+            },
+            body: JSON.stringify({ name, email, status: "free" })
+        })
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                data.acknowledged && navigate(from, { replace: true });
+            })
+
+    }
+    // console.log(user)
     return (
         <div>
             <div className="hero min-h-screen lg:px-32 bg-base-100">
@@ -141,6 +153,7 @@ function SignUp() {
                                     <input onChange={handleEmailField} required name='email' type="text" placeholder="email" className="input input-bordered" />
                                 </div>
                                 {errors?.emailError && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross> {errors.emailError}</span>}
+                                {error2 && <span className='text-red-600'><ImCross className='inline mr-1'></ImCross> {error2.message}</span>}
                                 <div className="form-control">
                                     <label className="label flex">
                                         <p className="label-text">Password <img onClick={() => setShow(!show)} className='w-5 inline'
@@ -189,8 +202,3 @@ function SignUp() {
 }
 
 export default SignUp;
-
-
-
-
-

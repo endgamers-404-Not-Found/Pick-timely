@@ -3,7 +3,11 @@ import React from 'react';
 const SchedulingItem = ({ item }) => {
     const { title, img, description } = item;
     return (
-        <div className="card w-80 h-96  rounded-md mb-10 mx-5 shadow-2xl shadow-black">
+        <div
+        data-aos='fade-up'
+        data-aos-duration='1300'
+        data-aos-offset='300'
+        className="card w-80 h-96  rounded-md mb-10 mx-5 shadow-2xl shadow-black">
             <figure className="px-10 pt-6">
                 <img src={img} alt="Shoes" className="" />
             </figure>

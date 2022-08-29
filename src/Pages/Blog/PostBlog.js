@@ -9,7 +9,8 @@ const PostBlog = () => {
         e.preventDefault();
         const blog = {
             title: e.target.title.value,
-            blog: e.target.blog.value
+            blog: e.target.blog.value,
+            image: e.target.image.value
         }
         fetch('https://pick-timely.herokuapp.com/blog', {
             method: 'POST',
@@ -36,6 +37,9 @@ const PostBlog = () => {
         <form className='flex flex-col items-center justify-center' onSubmit={handleBlog}>
             <div>
                 <input type="text" name="title" placeholder="Title" className="input input-bordered input-primary  bg-gray-500 text-white md:w-[700px] my-10" />
+            </div>
+            <div>
+                <input type="text" name="image" placeholder="img link" className="input input-bordered input-primary  bg-gray-500 text-white md:w-[700px] my-10" />
             </div>
 
             <div className="">

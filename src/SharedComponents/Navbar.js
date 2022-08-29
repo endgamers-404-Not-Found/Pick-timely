@@ -14,26 +14,20 @@ function Header({ theme, toggleTheme }) {
     const [user] = useAuthState(auth);
     const [profile]= useProfile();
 
-
-
     return (
-
-        
-        <div className='dark'  >
-
-            
-          
-
-
-            <nav id={theme}  className="  sticky top-0 z-10  flex flex-wrap items-center justify-between px-2 py-3 ">
+        <div className='dark sticky top-0 z-10'>
+            <nav id={theme}  className=" flex flex-wrap items-center justify-between px-2 py-3 ">
                 <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
+
 
                     <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
                         <Link
+                            data-testid="logoText"
+
                             className="text-lg font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase  "
                             to="/"
                         >
-                            Pick-Timely
+                            Pick Timely
                         </Link>
                         {/* { pathname === 'dashboard' &&  */}
                         <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -120,17 +114,18 @@ function Header({ theme, toggleTheme }) {
                                     className="px-3 py-2 flex items-center text-xs uppercase font-bold leading-snug   hover:opacity-75"
                                     to="/about"
                                 >
-                                    <span className="ml-2">About</span>
+                                    <span data-testid="aboutTest" className="ml-2">About</span>
                                 </Link>
                             </li>
 
 
 
-                            <li className="nav-item">
+                            <li
+                            className="nav-item">
                                 {user ?
                                     // <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
                                     <div  className=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end  ml-4">
-                                        <label tabindex="0"  className="btn btn-ghost btn-circle avatar online">
+                                        <label tabIndex="0"  className="btn btn-ghost btn-circle avatar online">
                                             <div  className="w-10 rounded-full">
                                                 {
                                                     profile?.photo ?
@@ -141,7 +136,7 @@ function Header({ theme, toggleTheme }) {
                                                 }
                                             </div>
                                         </label>
-                                        <ul tabindex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
+                                        <ul tabIndex="0"  className="menu menu-compact dropdown-content mt-3 p-2 shadow-2xl  rounded-box w-52 shadow-black">
                                             <li>
                                                 <Link to='/dashboard'  className="justify-between">
                                                     Profile
@@ -179,4 +174,5 @@ function Header({ theme, toggleTheme }) {
         </div>
     );
 }
+
 export default Header;

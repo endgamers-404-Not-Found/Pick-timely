@@ -21,6 +21,7 @@ const CalendarServices = () => {
                     <h1 className="text-5xl font-bold">Pick Time from Calendar</h1>
                     <p className="py-6">You can choose your available time from the real calendar. And you can also choose time as your indeed.</p>
                     <Link to={user ? '/dashboard' :"/signIn"}><button className="btn btn-primary">Get Started</button></Link>
+
                     </div>
                 </div>
             </div>
