@@ -35,6 +35,7 @@ const ScheduleEditModal = ({  setMeeting, meeting, refetch }) => {
     const handleReschedule = (event) => {
         event.preventDefault();
         const timeSlot = event.target.time.value;
+        const date = event.target.date.value;
         const email = emailList;
         const description = event.target.description.value;
         const linking = event.target.link.value;
@@ -46,6 +47,7 @@ const ScheduleEditModal = ({  setMeeting, meeting, refetch }) => {
             type:meeting.type,
             timeSlot,
             email,
+            date,
             description,
             dateFormat,
             linking
@@ -86,6 +88,12 @@ const ScheduleEditModal = ({  setMeeting, meeting, refetch }) => {
                                             <span className="label-text text-gray-500">Meeting Time</span>
                                         </label>
                                         <input required id='time' className='input input-bordered w-full bg-gray-400 text-black' type="time" name="time" />
+                                    </div>
+                                    <div className="form-control w-full">
+                                        <label className="label">
+                                            <span className="label-text text-gray-500">Meeting Date</span>
+                                        </label>
+                                        <input required id='date' className='input input-bordered w-full bg-gray-400 text-black' type="date" name="date" />
                                     </div>
 
                                 </div>

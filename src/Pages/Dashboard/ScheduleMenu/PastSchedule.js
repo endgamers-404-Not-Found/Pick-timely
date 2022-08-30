@@ -161,18 +161,27 @@ const PastSchedule = () => {
                                 <span
                                     className="p-1.5 text-xs font-medium uppercase tracking-wider text-green-800 bg-green-200 rounded-lg bg-opacity-50">  12.30 PM</span>
                             </div>
-                        </div>
-                        <div className="text-sm text-gray-700">
-                            Iqbal Hossain
-                        </div>
-                        <div className="text-sm font-medium text-black">
-                                <button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">
-                                    Details
-                                </button>
-                        </div>
-                    </div>
-                </div>
 
+                        </div >
+                        <div className="text-sm text-gray-700" >
+                            Iqbal Hossain
+                        </div >
+                        <div className="text-sm font-medium text-black" >
+                            <button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">
+                                Details
+                            </button>
+                        </div >
+                    </div >
+                </div >
+
+            </div>
+            <div className="text-sm text-gray-700">
+                Iqbal Hossain
+            </div>
+            <div className="text-sm font-medium text-black">
+                <button className="p-1.5 text-xs font-medium uppercase tracking-wider text-gray-800 bg-gray-600 rounded-lg bg-opacity-40 shadow-lg">
+                    Details
+                </button>
             </div>
         </div>
     );

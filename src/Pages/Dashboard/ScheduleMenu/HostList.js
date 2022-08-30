@@ -1,8 +1,5 @@
-import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
 
@@ -14,7 +11,7 @@ const HostList = () => {
     const [hosting, setHosting] = useState({});
     const [hosts, setHosts] = useState([]);
 
-    const navigate = useNavigate();
+
     const [user,loading] = useAuthState(auth);
 
   
@@ -23,7 +20,7 @@ const HostList = () => {
 
     useEffect(() => {
         const meetingData = async () => {
-            const res = await fetch(`http://localhost:5000?user=${user?.email}`);
+    const res = await fetch(`https://pick-timely.herokuapp.com/hoster?user=${user?.email}`);
 
             const data = await res.json();
             console.log(data);
@@ -36,18 +33,11 @@ const HostList = () => {
         return <Spinner/>
     }
 
-    console.log(user)
-    const handleHost = () => {
-        // navigate('/')
-    }
-
-    const handleDelete = () => {
-        console.log('delete')
-    }
 
     if (!hosts) {
         return <Spinner></Spinner>
     }
+
 
 
     // const handleDeleteHoster = (id) =>{
@@ -62,11 +52,12 @@ const HostList = () => {
     //       .then((res) => res.json())
     //       .then((result) => {
     //         if (result.deletedCount) {
-    //           toast(`Hoster is deleted`);
+    //           toast(Hoster is deleted);
     //         }
     //       });
     //     }
     //   };
+
 
     const handleDeleteHoster = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
@@ -80,11 +71,12 @@ const HostList = () => {
           .then((res) => res.json())
           .then((result) => {
             if (result.deletedCount) {
-              toast(`Hoster is deleted`);
+            //   toast(`Hoster is deleted`);
             }
           });
         }
       };
+
 
 
 

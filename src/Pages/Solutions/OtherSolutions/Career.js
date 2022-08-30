@@ -15,7 +15,7 @@ const Career = () => {
     }, []);
 
     const handleEasySchedule = (id)=>{
-        navigate(`/solutions/easySchedule/${id}`);
+        navigate('/solutions/easySchedule/${id}');
     }
 
  
