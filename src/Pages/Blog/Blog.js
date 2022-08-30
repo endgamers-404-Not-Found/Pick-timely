@@ -1,18 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Spinner from '../../SharedComponents/Spinner';
+import { Provider, useDispatch, useSelector} from 'react-redux/es/exports';
+import { getAllBlogs } from './Services/actions/blogsAction';
 
 const Blogs = () => {
     const navigate = useNavigate();
-    const [blogs, setBlogs] = useState([]);
-    console.log(blogs);
+    // const [blogs, setBlogs] = useState([]);
+
+    const {isLoading,blogs,error}=useSelector((state)=>state)
+    
+const dispatch=useDispatch()
 
     useEffect(() => {
 
-        fetch('https://pick-timely.herokuapp.com/blog')
-
-            .then(res => res.json())
-            .then(data => setBlogs(data))
+        dispatch(getAllBlogs())
+           
 
     }, [])
 
@@ -34,6 +37,8 @@ const Blogs = () => {
                     <h1 className="text-5xl   text-primary">Blogs</h1>
                     <p className="  text-gray-600 ml-5">Blogs for improve your knowledge. </p>
                 </div>
+            {isLoading && <Spinner></Spinner>}
+                
 
                 <div className="w-[1300px] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 p-20">
@@ -44,7 +49,7 @@ const Blogs = () => {
                                 <h1 className="text-2xl font-bold text-gray-500 mt-5">{blog?.title}</h1>
                                 <span style={{fontSize:'14px'}}>posted by: admin, {day} ago</span>
                                 <p className="text-lg text-gray-500 font-serif mt-3 text-justify h-[150px]">
-                                    {blog?.blog.slice(0,210)}...
+                                    {blog?.blog.slice(0,150)}...
                                 <button onClick={()=>handleBlog(blog._id)} className='btn btn-link lowercase mb-5'>read more</button>
                                 </p>
                                 </div>

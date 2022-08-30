@@ -13,12 +13,12 @@ import ModalDetails from './ModalDetails';
 import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
-<<<<<<< HEAD
+
                        
   const [user, loading] = useAuthState(auth)
   const [meeting, setMeeting] = useState({});
 
-  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`http://localhost:5000/mySchedules/${user.email}`).then(res => res.json()));
+ 
 
 
   
@@ -27,12 +27,10 @@ const Upcoming = () => {
 
   
 
-=======
-  const [user, loading] = useAuthState(auth)
-  const [meeting, setMeeting] = useState({});
+
   const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely.herokuapp.com/mySchedules/${user.email}`).then(res => res.json()));
   // schedules.map(schedule=>console.log(schedule.email)) 
->>>>>>> a2eeb4d793f89e2558cb6be7d0cabfb7d11c0ee9
+
 
   if (isLoading || loading) {
     return <Spinner></Spinner>

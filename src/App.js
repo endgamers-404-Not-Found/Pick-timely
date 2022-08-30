@@ -55,6 +55,7 @@ import Mission from './SharedComponents/FooterSection/Mission';
 import Partner from './SharedComponents/FooterSection/Partner';
 import PrivacyPolicy from './SharedComponents/FooterSection/PrivacyPolicy';
 import TermConditon from './SharedComponents/FooterSection/TermConditon';
+import BlogProvider from './Pages/Blog/BlogProvider';
 export const ThemeContext = createContext(null);
 
 
@@ -89,7 +90,7 @@ function App() {
           <Route path='/solutions' element={<Solutions></Solutions>}></Route>
           <Route path='/solutions/recruitments/:id' element={<RecruitDetails></RecruitDetails>}></Route>
           <Route path='/solutions/easySchedule/:id' element={<EasySchedule></EasySchedule>}></Route>
-          <Route path='/blog' element={<Blog></Blog>}></Route>
+          <Route path='/blog' element={<BlogProvider></BlogProvider>}></Route>
           <Route path='/blog/:blogId' element={<BlogDetails></BlogDetails>}></Route>
 
 
