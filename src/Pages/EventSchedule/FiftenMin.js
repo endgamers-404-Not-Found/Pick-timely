@@ -13,7 +13,7 @@ const FiftenMin = ({hostId}) => {
         fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
         .then(res=>res.json())
         .then(data=>{
-            // console.log(data)
+            console.log(data)
             setMeeting(data)
         })
 

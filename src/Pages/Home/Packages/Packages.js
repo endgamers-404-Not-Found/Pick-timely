@@ -1,20 +1,23 @@
 import React, { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Spinner from '../../../SharedComponents/Spinner';
+import { PackageAction } from '../../Pricing/Redux_pricing';
+
 
 function Packages() {
-
-    const [packages, setPackages] = useState([]);
-    useEffect(() => {
-        fetch('https://pick-timely.herokuapp.com/packages')
-            .then(res => res.json())
-            .then(data => setPackages(data))
-    }, [])
-
-    if (packages === null) {
-        return <Spinner></Spinner>
+    const {isLoading,packages,error}=useSelector(state=>state)
+    console.log('packages',packages)
+    const dispatch = useDispatch()
+    useEffect(()=>{
+        dispatch(PackageAction())
+    },[dispatch])
+    if(isLoading){
+        return <Spinner/>
     }
-    // console.log(packages)
+
+    
 
 
     return (
@@ -29,11 +32,10 @@ function Packages() {
             className='text-center text-xl font-semibold'>Choose the best package for you</p>
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
-                    packages.map((data,index) => 
+                    packages?.map((data,index) => 
                         <div
                         data-aos='zoom-in'
-                        data-aos-offset='300'
-                        data-aos-delay='1000'
+                        data-aos-offset='100'
                         
                             className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12" key={index}>
 

@@ -1,5 +1,7 @@
 import React from 'react';
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import { Provider } from 'react-redux';
+import { store2 } from '../Pricing/Redux_pricing';
 
 
 
@@ -19,7 +21,9 @@ function Home({theme}) {
             <Banner  />
             <AppointmentScheduling></AppointmentScheduling>
             <Services></Services>
+            <Provider store={store2}>
             <Packages></Packages>
+            </Provider>
             <MobileApps></MobileApps>
             <FreeTrail></FreeTrail>
             <Reviews></Reviews>

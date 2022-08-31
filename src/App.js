@@ -55,6 +55,8 @@ import Mission from './SharedComponents/FooterSection/Mission';
 import Partner from './SharedComponents/FooterSection/Partner';
 import PrivacyPolicy from './SharedComponents/FooterSection/PrivacyPolicy';
 import TermConditon from './SharedComponents/FooterSection/TermConditon';
+import { Provider } from 'react-redux';
+import { store2 } from './Pages/Pricing/Redux_pricing';
 export const ThemeContext = createContext(null);
 
 
@@ -84,7 +86,7 @@ function App() {
         <Routes>
           <Route path='/signIn' element={<Login></Login>}></Route>
           <Route path='/signUp' element={<SignUp></SignUp>}></Route>
-          <Route path='/pricing' element={<Packages></Packages>}></Route>
+          <Route path='/pricing' element={<Provider store={store2}><Packages></Packages></Provider>}></Route>
           <Route path='/payment/:id' element={<RequireAuth><Payment></Payment></RequireAuth>}></Route>
           <Route path='/solutions' element={<Solutions></Solutions>}></Route>
           <Route path='/solutions/recruitments/:id' element={<RecruitDetails></RecruitDetails>}></Route>

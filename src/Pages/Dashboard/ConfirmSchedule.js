@@ -10,13 +10,13 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
     const [user, loading] = useAuthState(auth)
     const [meeting, setMeeting] = useState({});
     const navigate = useNavigate();
- 
+ console.log(hostId)
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/schedule/${hostId}`)
+        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
             .then(res => res.json())
             .then(data => {
-                // console.log(data)
+                console.log(data)
                 setMeeting(data)
             })
     }, [hostId]);
@@ -80,7 +80,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
     }
 
 
-    if (loading) {
+    if (loading || !meeting) {
         return <Spinner />
     }
 
@@ -98,7 +98,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
                         <label className="label">
                             <span className="label-text text-gray-500">Meeting Time</span>
                         </label>
-                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="text" name="time" />
+                        <input id='time' className='input input-bordered w-full bg-gray-400 text-black' type="time" name="time" />
                     </div>
 
                     {emailList.map((singleEmail, index) => (
