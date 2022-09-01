@@ -33,11 +33,12 @@ const Blogs = () => {
                     <p className="  text-gray-600 ml-5">Blogs for improve your knowledge. </p>
                 </div>
 
-                <div className="w-[1300px] mx-auto">
+                <div className="w-[100%] mx-auto">
                     <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-10 p-20">
                         {
-                            blogs?.map(blog => <div className='border rounded-md shadow-xl p-2'>
-                                <img className='w-[100%] h-[35%] rounded-md' src={blog.image} alt={blog?.title} />
+                            blogs?.map(blog => 
+                            <div className='border lg:w-80 w-64 mx-auto rounded-md shadow-xl lg:p-2'>
+                                <img className='lg:w-[100%] w-60 h-[16%] lg:h-[32%] rounded-md' src={blog.image} alt={blog?.title} />
                                 <div>
                                 <h1 className="text-2xl font-bold text-gray-500 mt-5">{blog?.title}</h1>
                                 <span style={{fontSize:'14px'}}>posted by: admin, {day} ago</span>
