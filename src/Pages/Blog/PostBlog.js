@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 
 const PostBlog = () => {
     const navigate = useNavigate()
@@ -23,11 +24,21 @@ const PostBlog = () => {
             .then(data => {
                 console.log(data)
                 if (data.success) {
-                   toast.success("Successfully added your blog");
+                   Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Successfully added your blog',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
                    navigate('/blog')
                 }
                 else {
-                    toast("Some unknown error occurred");
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Oops...',
+                        text: 'Some unknown error occurred',
+                      })
                 }
             })
         e.target.reset();

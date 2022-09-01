@@ -10,30 +10,17 @@ import { MdEmail } from 'react-icons/md';
 import { Link } from "react-router-dom";
 import 'react-toastify/dist/ReactToastify.css';
 import Spinner from '../../SharedComponents/Spinner';
+import { useProfile } from '../../Hooks/useProfile';
 
 
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
-
-    const [profile, setProfile] = useState([]);
-
-
-
-    useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
-            .then(res => res.json())
-            .then(data => {
-                setProfile(data)
-                // console.log(data)
-            })
-    }, [user])
+    const [profile] = useProfile();
 
     if (loading) {
         return <Spinner></Spinner>
     }
-
-
-
+    
     return (
         <div className="hero min-h-screen marker:">
             <div>

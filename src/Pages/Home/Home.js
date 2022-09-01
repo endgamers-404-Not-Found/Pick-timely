@@ -10,7 +10,7 @@ import Banner from './Banner/Banner';
 import FreeTrail from './FreeTail';
 import MobileApps from './MobileApps/MobileApps';
 import Packages from './Packages/Packages';
-import Reviews from './Review/Reviews';
+import ReviewProvider from './Review/ReviewProvider';
 import Services from './Services/Services';
 
 
@@ -26,7 +26,7 @@ function Home({theme}) {
             </Provider>
             <MobileApps></MobileApps>
             <FreeTrail></FreeTrail>
-            <Reviews></Reviews>
+            <ReviewProvider></ReviewProvider>
             <MessengerCustomerChat
                 pageId="101404709353609"
                 appId="589832299541074"

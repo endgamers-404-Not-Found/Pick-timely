@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
+import Swal from 'sweetalert2';
 import auth from '../../../firebase.init';
 import Spinner from '../../../SharedComponents/Spinner';
 import ModalDetails from './ModalDetails';
@@ -32,7 +33,23 @@ const Upcoming = () => {
   }
 
   const handleDeleteSchedule = (id) => {
-    const confirmDelete = window.confirm('Are you want to delete this doctor?');
+    // const confirmDelete = window.confirm('Are you want to delete this doctor?');
+    const confirmDelete = Swal.fire({
+      title: 'Are you sure to delete this meeting?',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'This meeting has been deleted.',
+          'success'
+        )
+      }
+    })
     if (confirmDelete) {
       fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
         method: "DELETE",
@@ -43,7 +60,6 @@ const Upcoming = () => {
         .then((res) => res.json())
         .then((result) => {
           if (result.deletedCount) {
-            toast(`Schedule is deleted`);
             refetch();
           }
         });

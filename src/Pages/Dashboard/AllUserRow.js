@@ -30,7 +30,7 @@ const AllUserRow = ({ user, index }) => {
             {
                 role === 'admin'
                 ?
-                <button onClick={removeAdmin} className="btn btn-sm ">Remove Admin</button>
+                <button onClick={removeAdmin} className="btn btn-sm btn-warning">Remove Admin</button>
                 :
                 <button onClick={handleMakeAdmin} className="btn btn-sm btn-primary">Make Admin</button>
             }
