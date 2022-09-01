@@ -1,8 +1,8 @@
 import { GET_TEAM_FAILED, GET_TEAM_REQUEST, GET_TEAM_SUCCESS } from "../Constants/TeamConstant";
 
 const initialState = {
-    isLoading : false,
     teams: [],
+    isLoading : false,
     error: null,
 };
 
