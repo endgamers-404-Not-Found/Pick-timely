@@ -1,5 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
-import React, { useEffect, useState } from 'react';
+
+import React, { useState } from 'react';
+import { useEffect } from 'react';
+
+
+
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import Swal from 'sweetalert2';
@@ -9,14 +14,29 @@ import ModalDetails from './ModalDetails';
 import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
+
+                       
   const [user, loading] = useAuthState(auth)
   const [meeting, setMeeting] = useState({});
+
+ 
+
+
+  
+  
+  // schedules.map(schedule=>console.log(schedule.email)) 
+
+  
+
+
   const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely.herokuapp.com/mySchedules/${user.email}`).then(res => res.json()));
   // schedules.map(schedule=>console.log(schedule.email)) 
+
 
   if (isLoading || loading) {
     return <Spinner></Spinner>
   }
+
 
 
   const handleRemainder= (id)=>{
@@ -32,30 +52,17 @@ const Upcoming = () => {
     })
   }
 
+
   const handleDeleteSchedule = (id) => {
-    // const confirmDelete = window.confirm('Are you want to delete this doctor?');
-    const confirmDelete = Swal.fire({
-      title: 'Are you sure to delete this meeting?',
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'This meeting has been deleted.',
-          'success'
-        )
-      }
-    })
+    const confirmDelete = window.confirm('Are you sure delete this schedule?');
     if (confirmDelete) {
       fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
         method: "DELETE",
         headers: {
           'content-type': 'application/json',
-        }
+        },
+       
+      
       })
         .then((res) => res.json())
         .then((result) => {
@@ -65,7 +72,7 @@ const Upcoming = () => {
         });
     }
   };
-  console.log(schedules)
+  // console.log(schedules)
   return (
     <div className='mt-5 w-full'>
 
