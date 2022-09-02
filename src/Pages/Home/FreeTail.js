@@ -5,7 +5,7 @@ const FreeTail = () => {
     return (
         <div>
 
-            <div className="hero min-h-screen bg-[#d9dfe9]">
+            <div className="hero min-h-screen ">
                 <div className=" "></div>
                 <div className="">
 
