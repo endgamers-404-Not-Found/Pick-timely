@@ -1,10 +1,32 @@
 .App {
   text-align: center;
+  
+}
+body{
+  font-family: 'Poppins', sans-serif;
 }
 
 .App-logo {
   height: 40vmin;
   pointer-events: none;
+}
+
+#light {
+  background-color: #eeeeee;
+  color: #212124;
+}
+
+#dark {
+  background-color: #090A27;
+  color: rgb(216, 216, 216);
+}
+
+#light .button {
+  background-color: #cc4a76;
+}
+
+#dark .dark {
+  background-color: #38004c;
 }
 
 @media (prefers-reduced-motion: no-preference) {

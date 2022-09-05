@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "title": "wo-way calendar sync",
+    "description": "Connect your team's calendars to Zoho Bookings. Avoid double-booking and increase efficiency. See your schedule for the day, week, and month on our calendar dashboard.",
+    "img": "https://i.ibb.co/jH6BHYc/calendar.png"
+  },
+  {
+    "id": 2,
+    "title": "Team scheduling",
+    "description": "Share pooled availability with customers on the booking page. Allow customers to choose a staff member or opt for using our routing algorithms to allocate appointments.",
+    "img": "https://i.ibb.co/FzXYgMT/team.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Update your CRM",
+    "description": "Keep track of your appointments and plan for follow-up from your CRM. Use our built-in integration with Zoho CRM or connect to another CRM with Zapier or Zoho Flow.",
+    "img": "https://i.ibb.co/YXbCGn7/crm.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Notifications and reminders",
+    "description": "Send emails and SMSes to confirm and remind about appointments. Personalize emails with the customer name, the sender address, and the online meeting link.",
+    "img": "https://i.ibb.co/rfPp232/notification.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Booking page",
+    "description": "Choose from three types of booking pages: staff, service and workspace. Select a template that resonates with your brand. Embed the booking page on your website or map it to your domain.",
+    "img": "https://i.ibb.co/qRYRqVP/booking.png"
+  },
+  {
+    "id": 6,
+    "title": "Online payment",
+    "description": "Collect payments ahead of your appointment and minimize losses due to no-shows. Avoid awkward payment follow-ups. You can collect a deposit or partial payment, too.",
+    "img": "https://i.ibb.co/kQKwKvT/payment.png"
+  }
+]
