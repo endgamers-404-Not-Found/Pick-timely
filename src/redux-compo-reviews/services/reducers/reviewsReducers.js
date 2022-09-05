@@ -1,27 +1,27 @@
-import { GET_TEAM_FAILED, GET_TEAM_REQUEST, GET_TEAM_SUCCESS } from "../Constants/TeamConstant";
+import {GET_REVIEWS_REQUEST, GET_REVIEWS_SUCCESS, GET_REVIEWS_FAILED} from "./../constants/reviewsConstant";
 
 const initialState = {
-    teams: [],
     isLoading : false,
+    reviews: [],
     error: null,
 };
 
-const teamReducer = (state=initialState, action) =>{
+const reviewsReducers = (state=initialState, action) =>{
     switch(action.type){
-        case GET_TEAM_REQUEST:
+        case GET_REVIEWS_REQUEST:
             return {
                 ...state,
                 isLoading: true
             }
-        case GET_TEAM_SUCCESS:
+        case GET_REVIEWS_SUCCESS:
             return {
                 isLoading: false,
-                teams: action.payload,
+                reviews: action.payload,
             }
-        case GET_TEAM_FAILED:
+        case GET_REVIEWS_FAILED:
             return {
                 isLoading: false,
-                teams: [],
+                reviews: [],
                 error: action.payload,
             };
             
@@ -31,4 +31,4 @@ const teamReducer = (state=initialState, action) =>{
     }
 };
 
-export default teamReducer;
+export default reviewsReducers;

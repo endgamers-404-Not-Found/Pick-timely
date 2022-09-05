@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { toast, ToastContainer } from 'react-toastify';
+import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
@@ -46,8 +47,16 @@ import Spinner from '../../SharedComponents/Spinner';
                 })
                 .then(res =>res.json())
                 .then(inserted =>{
-                    toast.success('Profile updated successfully')
+                    
+                    Swal.fire({
+                        position: 'center',
+                        icon: 'success',
+                        title: 'Your profile successfully updated',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
                 })
+                reset();
             } })
     }
 

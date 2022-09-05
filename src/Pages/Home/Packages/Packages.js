@@ -20,15 +20,17 @@ function Packages() {
     
 
 
+
+
     return (
         <div className='my-12'>
             <h1
             data-aos='fade-down'
-            data-aos-delay='1000'
+            data-aos-delay='200'
             className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
             <p
             data-aos='fade-down'
-            data-aos-delay='900'
+            data-aos-delay='200'
             className='text-center text-xl font-semibold'>Choose the best package for you</p>
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {

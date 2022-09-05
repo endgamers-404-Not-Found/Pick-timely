@@ -8,19 +8,32 @@ import person2 from './../../../assets/person/person-1.png'
 import person3 from './../../../assets/person/person-3.png'
 import { HiOutlineChevronDoubleLeft } from 'react-icons/hi';
 import { HiOutlineChevronDoubleRight } from 'react-icons/hi';
+import { useDispatch, useSelector } from 'react-redux';
+import {reviewsActions} from './../../../redux-compo-reviews/services/actions/reviewsActions'
 
 
 const Reviews = () => {
-    const [reviews, setReviews] = useState([])
-    const url = `https://pick-timely.herokuapp.com/review`;
-    useEffect(() => {
-        const allReview = async () => {
-            const { data } = await axios.get(url, {
-            })
-            setReviews(data)
-        }
-        allReview();
-    }, [url])
+
+
+    const dispatch = useDispatch();
+    const { isLoading, reviews, error} = useSelector(state => state);
+
+
+    useEffect(()=>{
+        dispatch(reviewsActions())
+    }, [dispatch])
+
+    // const [reviews, setReviews] = useState([])
+    // const url = `https://pick-timely.herokuapp.com/review`;
+    // useEffect(() => {
+    //     const allReview = async () => {
+    //         const { data } = await axios.get(url, {
+    //         })
+    //         setReviews(data)
+    //     }
+    //     allReview();
+    // }, [url])
+
 
     
 
@@ -28,6 +41,8 @@ const Reviews = () => {
          <div className='my-12'>
            <h1 className='text-center text-5xl font-bold mb-3'>What Our Client Says</h1>
            <div className="avatar-group -space-x-6 flex justify-center">
+           {isLoading && <h1>Loading ....</h1>}
+            {error && <h1>{error.message}</h1>}
                <div className="avatar">
                      <div className="w-12">
                          <img alt='' src={person1} />

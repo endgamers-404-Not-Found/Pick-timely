@@ -25,7 +25,14 @@ const EventSchedule = () => {
 
     }
 
+<<<<<<< HEAD
+
+
     if(loading || !hosts){
+
+=======
+    if(loading || !hosts){
+>>>>>>> a2eeb4d793f89e2558cb6be7d0cabfb7d11c0ee9
         return <Spinner></Spinner>
     }
 

@@ -6,6 +6,7 @@ import PaymentSystem from './SingleServices/PaymentSystem';
 import Remiders from './SingleServices/Remiders';
 import TeamSchedule from './SingleServices/TeamSchedule';
 import {motion} from 'framer-motion';
+import TwoWayCalendar from './SingleServices/TwoWayCalendar';
 
 const Services = () => {
     return (
@@ -27,14 +28,9 @@ const Services = () => {
             <div className="w-full">
                 {/* <CalendarServices></CalendarServices> */}
                 <CalendarServices />
+                <TwoWayCalendar/>
                 <TeamSchedule />
                 <Remiders />
-
-                
-                {/* <CrmUpdate></CrmUpdate> */}
-               
-                {/* <BookingPage></BookingPage> */}
-              
                <PaymentSystem />
             </div>
         </div>

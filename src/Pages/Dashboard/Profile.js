@@ -14,7 +14,6 @@ import Spinner from '../../SharedComponents/Spinner';
 
 const Profile = () => {
     const [user, loading] = useAuthState(auth);
-
     const [profile, setProfile] = useState([]);
 
 
@@ -31,9 +30,7 @@ const Profile = () => {
     if (loading) {
         return <Spinner></Spinner>
     }
-
-
-
+    
     return (
         <div className="hero min-h-screen marker:">
             <div>
@@ -71,3 +68,4 @@ const Profile = () => {
 
 
 export default Profile;
+

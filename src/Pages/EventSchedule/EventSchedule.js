@@ -3,6 +3,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 
 import { useNavigate } from 'react-router-dom';
 
+// import defaultImage from '../../assets/profile.png';
+
+
 
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
@@ -16,7 +19,10 @@ const EventSchedule = () => {
 
 
     useEffect(() => {
+
+
         fetch(`https://pick-timely.herokuapp.com/hoster/${user?.email}`)
+
             .then(res => res.json())
             .then(data => {
                 setHosts(data);
