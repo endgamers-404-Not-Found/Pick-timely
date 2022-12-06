@@ -4,7 +4,7 @@ import AllUserRow from './AllUserRow';
 const AllUser = () => {
     const [users,setUsers]=useState([]);
     useEffect(() => {
-        fetch(`https://pick-timely-server.vercel.app/allUser`)
+        fetch(`https://pick-timely-server.onrender.com/allUser`)
             .then(res => res.json())
             .then(data => {
                 setUsers(data)

@@ -102,7 +102,7 @@ function Login() {
             const email = gUser?.user.email;
 
             console.log(name, email)
-            await fetch('https://pick-timely-server.vercel.app/addUser', {
+            await fetch('https://pick-timely-server.onrender.com/addUser', {
 
                 method: "POST",
                 headers: {

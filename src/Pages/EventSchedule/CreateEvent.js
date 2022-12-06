@@ -32,7 +32,7 @@ const CreateEvent = () => {
             email: user?.email,
         };
         console.log(hosterInfo);
-        fetch('https://pick-timely-server.vercel.app/hoster', {
+        fetch('https://pick-timely-server.onrender.com/hoster', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

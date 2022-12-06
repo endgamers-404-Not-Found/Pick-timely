@@ -20,7 +20,7 @@ const HostList = () => {
 
     useEffect(() => {
         const meetingData = async () => {
-    const res = await fetch(`https://pick-timely-server.vercel.app/hoster?user=${user?.email}`);
+    const res = await fetch(`https://pick-timely-server.onrender.com/hoster?user=${user?.email}`);
 
             const data = await res.json();
             console.log(data);
@@ -44,7 +44,7 @@ const HostList = () => {
     // const handleDeleteHoster = (id) =>{
     //     const confirmDelete = window.confirm('Are you want to delete this doctor?');
     //     if(confirmDelete){
-    //       fetch(`https://pick-timely-server.vercel.app/hoster/${id}`, {
+    //       fetch(`https://pick-timely-server.onrender.com/hoster/${id}`, {
     //       method: "DELETE",
     //       headers:{
     //         'content-type' : 'application/json',
@@ -63,7 +63,7 @@ const HostList = () => {
     const handleDeleteHoster = (id) =>{
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
         if(confirmDelete){
-          fetch(`https://pick-timely-server.vercel.app/hoster/${id}`, {
+          fetch(`https://pick-timely-server.onrender.com/hoster/${id}`, {
           method: "DELETE",
           headers:{
             'content-type' : 'application/json',

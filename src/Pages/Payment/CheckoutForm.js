@@ -15,7 +15,7 @@ function CheckoutForm({ bundle:data }) {
     const { price } = data;
     useEffect(() => {
         if (price) {
-            fetch('https://pick-timely-server.vercel.app/createPaymentIntent', {
+            fetch('https://pick-timely-server.onrender.com/createPaymentIntent', {
                 method: 'POST',
                 headers: {
                     'content-type': 'application/json'
@@ -77,7 +77,7 @@ function CheckoutForm({ bundle:data }) {
             setTrnxId(paymentIntent?.id)
             // console.log(paymentIntent.id, _id)
 
-            fetch(`https://pick-timely-server.vercel.app/payment/${user.email}`, {
+            fetch(`https://pick-timely-server.onrender.com/payment/${user.email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type': "application/json"

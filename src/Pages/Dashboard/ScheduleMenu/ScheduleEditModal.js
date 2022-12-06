@@ -54,7 +54,7 @@ const ScheduleEditModal = ({  setMeeting, meeting, refetch }) => {
         }
 
 
-        fetch(`https://pick-timely-server.vercel.app/schedule/${_id}`, {
+        fetch(`https://pick-timely-server.onrender.com/schedule/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

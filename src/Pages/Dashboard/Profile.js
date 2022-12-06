@@ -19,7 +19,7 @@ const Profile = () => {
 
 
     useEffect(() => {
-        fetch(`https://pick-timely-server.vercel.app/profile/${user?.email}`)
+        fetch(`https://pick-timely-server.onrender.com/profile/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setProfile(data)

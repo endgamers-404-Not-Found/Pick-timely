@@ -7,7 +7,7 @@ const Customers = () => {
     console.log(customers);
 
     useEffect(() => {
-        const url = `https://pick-timely-server.vercel.app/customers`;
+        const url = `https://pick-timely-server.onrender.com/customers`;
         fetch(url)
             .then(res => res.json())
             .then(result => setCustomer(result))

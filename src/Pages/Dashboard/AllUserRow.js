@@ -4,7 +4,7 @@ const AllUserRow = ({ user, index }) => {
     const {name,email, role } = user;
     
     const handleMakeAdmin = e =>{
-        fetch(`https://pick-timely-server.vercel.app/allUser/admin/${email}`, {
+        fetch(`https://pick-timely-server.onrender.com/allUser/admin/${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())
@@ -13,7 +13,7 @@ const AllUserRow = ({ user, index }) => {
             })
     }
     const removeAdmin = ()=>{
-        fetch(`https://pick-timely-server.vercel.app/admin/${email}`, {
+        fetch(`https://pick-timely-server.onrender.com/admin/${email}`, {
             method: 'PUT'
         })
             .then(res => res.json())

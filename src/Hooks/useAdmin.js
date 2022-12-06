@@ -5,7 +5,7 @@ const useAdmin = user => {
     useEffect( () =>{
         const email = user?.email;
         if(email){
-            fetch(`https://pick-timely-server.vercel.app/admin/${email}`, {
+            fetch(`https://pick-timely-server.onrender.com/admin/${email}`, {
                 method:'GET'
             })
             .then(res=>res.json())

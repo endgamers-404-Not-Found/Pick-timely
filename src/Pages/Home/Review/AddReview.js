@@ -19,7 +19,7 @@ const AddReview = () => {
             feedback: e.target.feedback.value,
             rating: currentRating
         }
-        fetch('https://pick-timely-server.vercel.app/review', {
+        fetch('https://pick-timely-server.onrender.com/review', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

@@ -21,7 +21,7 @@ const EventSchedule = () => {
     useEffect(() => {
 
 
-        fetch(`https://pick-timely-server.vercel.app/hoster/${user?.email}`)
+        fetch(`https://pick-timely-server.onrender.com/hoster/${user?.email}`)
 
             .then(res => res.json())
             .then(data => {

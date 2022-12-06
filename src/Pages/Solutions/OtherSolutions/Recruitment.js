@@ -7,7 +7,7 @@ const Recruitment = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('https://pick-timely-server.vercel.app/recruitments')
+        fetch('https://pick-timely-server.onrender.com/recruitments')
         .then(res =>res.json())
         .then(data => {
             setRecruitments(data);

@@ -10,7 +10,7 @@ function Payment() {
     const [bundle, setBundle] = useState('');
 
     useEffect(() => {
-        fetch(`https://pick-timely-server.vercel.app/package/${id}`)
+        fetch(`https://pick-timely-server.onrender.com/package/${id}`)
             .then(res => res.json())
             .then(data => setBundle(data))
     }, [id])

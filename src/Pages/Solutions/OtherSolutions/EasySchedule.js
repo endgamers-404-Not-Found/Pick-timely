@@ -6,7 +6,7 @@ const EasySchedule = () => {
     const { id } = useParams();
     const [easy, setEasy] = useState('');
     useEffect(() => {
-        fetch(`https://pick-timely-server.vercel.app/easySchedule/${id}`)
+        fetch(`https://pick-timely-server.onrender.com/easySchedule/${id}`)
             .then(res => res.json())
             .then(data => {
                 setEasy(data);
