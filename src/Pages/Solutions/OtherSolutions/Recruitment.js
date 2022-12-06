@@ -7,7 +7,7 @@ const Recruitment = () => {
     const navigate = useNavigate();
 
     useEffect(()=>{
-        fetch('https://pick-timely.herokuapp.com/recruitments')
+        fetch('https://pick-timely-server.vercel.app/recruitments')
         .then(res =>res.json())
         .then(data => {
             setRecruitments(data);

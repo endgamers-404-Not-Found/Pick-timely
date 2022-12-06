@@ -7,7 +7,7 @@ const Customers = () => {
     console.log(customers);
 
     useEffect(() => {
-        const url = `https://pick-timely.herokuapp.com/customers`;
+        const url = `https://pick-timely-server.vercel.app/customers`;
         fetch(url)
             .then(res => res.json())
             .then(result => setCustomer(result))

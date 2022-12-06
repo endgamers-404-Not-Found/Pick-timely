@@ -6,7 +6,7 @@ const BlogDetails = () => {
     const [blog, setBlog] = useState({});
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/blog/${blogId}`)
+        fetch(`https://pick-timely-server.vercel.app/blog/${blogId}`)
             .then(res => res.json())
             .then(data => setBlog(data))
 

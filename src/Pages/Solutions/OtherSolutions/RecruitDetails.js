@@ -5,7 +5,7 @@ const RecruitDetails = () => {
     const {id} = useParams();
     const [recruit, setRecruits] = useState('');
     useEffect(()=>{
-        fetch(`https://pick-timely.herokuapp.com/recruitments/${id}`)
+        fetch(`https://pick-timely-server.vercel.app/recruitments/${id}`)
         .then(res =>res.json())
         .then(data => {
             setRecruits(data);

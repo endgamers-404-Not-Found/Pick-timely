@@ -29,7 +29,7 @@ const Upcoming = () => {
   
 
 
-  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely.herokuapp.com/mySchedules/${user.email}`).then(res => res.json()));
+  const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely-server.vercel.app/mySchedules/${user.email}`).then(res => res.json()));
   // schedules.map(schedule=>console.log(schedule.email)) 
 
 
@@ -41,7 +41,7 @@ const Upcoming = () => {
 
   const handleRemainder= (id)=>{
    
-    fetch(`https://pick-timely.herokuapp.com/schedule/${id}`,{
+    fetch(`https://pick-timely-server.vercel.app/schedule/${id}`,{
       headers: {
         'content-type': 'application/json',
       }
@@ -56,7 +56,7 @@ const Upcoming = () => {
   const handleDeleteSchedule = (id) => {
     const confirmDelete = window.confirm('Are you sure delete this schedule?');
     if (confirmDelete) {
-      fetch(`https://pick-timely.herokuapp.com/schedule/${id}`, {
+      fetch(`https://pick-timely-server.vercel.app/schedule/${id}`, {
         method: "DELETE",
         headers: {
           'content-type': 'application/json',

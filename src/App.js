@@ -18,7 +18,7 @@ import PastSchedule from './Pages/Dashboard/ScheduleMenu/PastSchedule';
 import Upcoming from './Pages/Dashboard/ScheduleMenu/Upcoming';
 import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 import ArrangeNewMeeting from './Pages/EventSchedule/ArrangeNewMeeting';
-import CreateEvent from './Pages/EventSchedule/CreateEvent';
+import CreateEvent from './Pages/Dashboard/ScheduleMenu/CreateEvent';
 import EventSchedule from './Pages/EventSchedule/EventSchedule';
 import Painless from './Pages/Home/AppointmentScheduling/Painless';
 import Productive from './Pages/Home/AppointmentScheduling/Productive';

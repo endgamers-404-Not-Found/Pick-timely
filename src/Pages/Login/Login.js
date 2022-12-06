@@ -102,7 +102,7 @@ function Login() {
             const email = gUser?.user.email;
 
             console.log(name, email)
-            await fetch('https://pick-timely.herokuapp.com/addUser', {
+            await fetch('https://pick-timely-server.vercel.app/addUser', {
 
                 method: "POST",
                 headers: {

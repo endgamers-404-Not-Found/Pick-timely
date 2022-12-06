@@ -13,7 +13,7 @@ const PostBlog = () => {
             blog: e.target.blog.value,
             image: e.target.image.value
         }
-        fetch('https://pick-timely.herokuapp.com/blog', {
+        fetch('https://pick-timely-server.vercel.app/blog', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',

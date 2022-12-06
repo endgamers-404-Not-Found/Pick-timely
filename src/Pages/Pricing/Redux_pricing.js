@@ -17,7 +17,7 @@ const initialState = {
 const PackageAction = () => async (dispatch) =>{
     dispatch({type:getPackagesRequest});
     try {
-        const res = await axios.get('https://pick-timely.herokuapp.com/packages');
+        const res = await axios.get('https://pick-timely-server.vercel.app/packages');
         
         dispatch({type:getPackagesSuccess, payload: res.data});
     } catch (error) {

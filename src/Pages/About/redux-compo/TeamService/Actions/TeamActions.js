@@ -4,7 +4,7 @@ import { GET_TEAM_FAILED, GET_TEAM_REQUEST, GET_TEAM_SUCCESS } from '../Constant
 const TeamActions = () => async (dispatch) =>{
     dispatch({type:GET_TEAM_REQUEST});
     try {
-        const res = await axios.get('https://pick-timely.herokuapp.com/developers');
+        const res = await axios.get('https://pick-timely-server.vercel.app/developers');
         
         dispatch({type:GET_TEAM_SUCCESS, payload: res.data});
     } catch (error) {
