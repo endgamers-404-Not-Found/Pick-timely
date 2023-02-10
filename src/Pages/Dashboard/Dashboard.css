@@ -1,0 +1,10 @@
+.transparentBG{
+    background-color: rgba(0, 0, 0, 0); 
+}
+
+@media only screen and (max-width:1024px) {
+    .transparentBG{
+        background-color: rgba(0, 0, 0, 0.767);
+        color: white !important;
+    }
+}

@@ -24,7 +24,7 @@ const Reviews = () => {
     }, [dispatch])
 
     // const [reviews, setReviews] = useState([])
-    // const url = `https://pick-timely.herokuapp.com/review`;
+    // const url = `https://pick-timely-server.onrender.com/review`;
     // useEffect(() => {
     //     const allReview = async () => {
     //         const { data } = await axios.get(url, {

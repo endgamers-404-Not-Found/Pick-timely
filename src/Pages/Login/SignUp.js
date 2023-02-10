@@ -98,7 +98,7 @@ function SignUp() {
         if (user) {
             sendEmailVerification(auth.currentUser)
             toast('verification email sent')
-            fetch('https://pick-timely.herokuapp.com/addUser', {
+            fetch('https://pick-timely-server.onrender.com/addUser', {
                 method: "POST",
                 headers: {
                     "content-type": "application/json"
@@ -119,7 +119,7 @@ function SignUp() {
 
         const name = gUser?.user.displayName;
         const email = gUser?.user.email;
-        fetch('https://pick-timely.herokuapp.com/addUser', {
+        fetch('https://pick-timely-server.onrender.com/addUser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"

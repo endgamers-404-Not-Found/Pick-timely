@@ -16,7 +16,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
     const navigate = useNavigate();
 
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/arrangeMeeting/${hostId}`)
+        fetch(`https://pick-timely-server.onrender.com/arrangeMeeting/${hostId}`)
             .then(res => res.json())
             .then(data => {
                 console.log(data)
@@ -67,7 +67,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
 
         // console.log(meetingInfo);
 
-        fetch(' https://pick-timely.herokuapp.com/schedule', {
+        fetch(' https://pick-timely-server.onrender.com/schedule', {
 
             method: 'POST',
             headers: {

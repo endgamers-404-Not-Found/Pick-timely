@@ -47,12 +47,12 @@ const Banner = ({ theme }) => {
 
     return (
         <div id={theme} className="flex flex-col md:flex-row items-center lg:h-[700px]  ">
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ x: 20, opacity: 100 }}
-                transition={{ type: 'spring', damping: 5, stiffness: 100 }}
+                transition={{ type: 'spring', damping: 5, stiffness: 100 }} */}
 
-
+            <div
                 className="md:w-[600px] lg:w-[700px] order-2 md:order-1 mb-10 md:mx-10">
 
                 {/* <motion.h1 
@@ -95,18 +95,21 @@ const Banner = ({ theme }) => {
                         <SharedButton>Get Started</SharedButton>
                     </Link>
                 </div>
+                </div>
 
-            </motion.div>
+            {/* </motion.div> */}
 
 
-            <motion.div
+            {/* <motion.div
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ x: -20, opacity: 100, scale: 1 }}
-                transition={{ type: 'spring', damping: 5, stiffness: 100 }}
-
+                transition={{ type: 'spring', damping: 5, stiffness: 100 }} */}
+<div
                 className="md:w-[600px] lg:w-[700px] order-1 md:order-2 mb-10">
                 <img className='' src={bannerImg} alt="bannerImg" />
-            </motion.div>
+            
+            </div>
+            {/* </motion.div> */}
         </div>
     );
 };

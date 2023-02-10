@@ -38,7 +38,7 @@ import Spinner from '../../SharedComponents/Spinner';
                     address: data.address,
                     photo: img
                 }
-                fetch(`https://pick-timely.herokuapp.com/update/${user.email}`, {
+                fetch(`https://pick-timely-server.onrender.com/update/${user.email}`, {
                     method: 'PUT',
                     headers: {
                            "content-type": "application/json"

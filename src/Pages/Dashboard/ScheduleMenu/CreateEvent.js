@@ -3,6 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { FaChevronCircleDown } from "react-icons/fa";
 import { toast } from 'react-toastify';
 import auth from '../../../firebase.init';
+import Swal from 'sweetalert2';
 
 const CreateEvent = () => {
     const [user] = useAuthState(auth);
@@ -23,7 +24,7 @@ const CreateEvent = () => {
             email: user?.email,
         };
         console.log(hosterInfo);
-        fetch('https://pick-timely.herokuapp.com/hoster', {
+        fetch('https://pick-timely-server.onrender.com/hoster', {
             method: 'POST',
             headers:{
                 'content-type' : 'application/json'
@@ -32,8 +33,14 @@ const CreateEvent = () => {
         })
         .then(res => res.json())
         .then(data => {
-            console.log('Hoster created successfully', data);
-            toast("Host Create Successfully");
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Host Created Successfully!',
+                showConfirmButton: false,
+                timer: 1500
+            })
+
             event.target.reset();
         })
 

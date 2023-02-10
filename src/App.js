@@ -18,7 +18,7 @@ import PastSchedule from './Pages/Dashboard/ScheduleMenu/PastSchedule';
 import Upcoming from './Pages/Dashboard/ScheduleMenu/Upcoming';
 import UpdateProfile from './Pages/Dashboard/UpdateProfile';
 import ArrangeNewMeeting from './Pages/EventSchedule/ArrangeNewMeeting';
-import CreateEvent from './Pages/EventSchedule/CreateEvent';
+import CreateEvent from './Pages/Dashboard/ScheduleMenu/CreateEvent';
 import EventSchedule from './Pages/EventSchedule/EventSchedule';
 import Painless from './Pages/Home/AppointmentScheduling/Painless';
 import Productive from './Pages/Home/AppointmentScheduling/Productive';
@@ -44,8 +44,8 @@ import BlogDetails from './Pages/Blog/BlogDetails';
 import PostBlog from './Pages/Blog/PostBlog';
 import EasySchedule from './Pages/Solutions/OtherSolutions/EasySchedule';
 import RecruitDetails from './Pages/Solutions/OtherSolutions/RecruitDetails';
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import Branding from './SharedComponents/FooterSection/Branding';
 import CookiePolicy from './SharedComponents/FooterSection/CookiePolicy';
 import DeveloperContact from './SharedComponents/FooterSection/DeveloperContact';
@@ -72,10 +72,10 @@ function App() {
     // console.log('dark is working')
   };
   useEffect(() => {
-    AOS.init({
-      duration: 2500,
-      delay: 400,
-    })
+    // AOS.init({
+    //   duration: 2500,
+    //   delay: 400,
+    // })
   }, [])
   return (
 
