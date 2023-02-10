@@ -24,7 +24,7 @@ const HosterEdit = ({ hosting, refetch, setHosting}) => {
             image,
         }
 
-        fetch(`https://pick-timely.herokuapp.com/hoster/${_id}`, {
+        fetch(`https://pick-timely-server.onrender.com/hoster/${_id}`, {
             method: 'PUT',
             headers:{
                 'content-type' : 'application/json'

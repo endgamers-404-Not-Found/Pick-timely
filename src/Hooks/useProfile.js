@@ -8,7 +8,7 @@ export const useProfile = ()=>{
     
     
     useEffect(() => {
-        fetch(`https://pick-timely.herokuapp.com/profile/${user?.email}`)
+        fetch(`https://pick-timely-server.onrender.com/profile/${user?.email}`)
         .then(res => res.json())
         .then(data => {
             setProfile(data)

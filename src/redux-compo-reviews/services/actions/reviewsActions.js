@@ -4,7 +4,7 @@ import {GET_REVIEWS_REQUEST, GET_REVIEWS_SUCCESS, GET_REVIEWS_FAILED} from './..
 export const reviewsActions = ()=>async (dispatch)=>{
     dispatch({type:GET_REVIEWS_REQUEST});
     try {
-        const res = await axios.get('https://pick-timely.herokuapp.com/review');
+        const res = await axios.get('https://pick-timely-server.onrender.com/review');
         
         dispatch({type:GET_REVIEWS_SUCCESS, payload: res.data});
     } catch (error) {

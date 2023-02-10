@@ -10,7 +10,7 @@ const FindSchedule = () => {
 
     useEffect(()=>{
         const meetingData = async() =>{
-            const res = await fetch('https://pick-timely.herokuapp.com/schedule');
+            const res = await fetch('https://pick-timely-server.onrender.com/schedule');
             const data = await res.json();
             setSchedules(data);
             setSearchText(data);

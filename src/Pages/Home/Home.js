@@ -25,7 +25,7 @@ function Home({theme}) {
             <Packages></Packages>
             </Provider>
             <MobileApps></MobileApps>
-            <FreeTrail></FreeTrail>
+            {/* <FreeTrail></FreeTrail> */}
             <ReviewProvider></ReviewProvider>
             <MessengerCustomerChat
                 pageId="101404709353609"

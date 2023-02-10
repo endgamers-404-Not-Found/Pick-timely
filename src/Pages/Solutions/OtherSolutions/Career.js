@@ -7,7 +7,7 @@ const Career = () => {
     const [easySchedules, seTeasySchedules] = useState([]);
 
     useEffect(()=>{
-        fetch('https://pick-timely.herokuapp.com/easySchedule')
+        fetch('https://pick-timely-server.onrender.com/easySchedule')
         .then(res =>res.json())
         .then(data => {
             seTeasySchedules(data);
