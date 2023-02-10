@@ -44,8 +44,8 @@ import BlogDetails from './Pages/Blog/BlogDetails';
 import PostBlog from './Pages/Blog/PostBlog';
 import EasySchedule from './Pages/Solutions/OtherSolutions/EasySchedule';
 import RecruitDetails from './Pages/Solutions/OtherSolutions/RecruitDetails';
-import AOS from "aos";
-import "aos/dist/aos.css";
+// import AOS from "aos";
+// import "aos/dist/aos.css";
 import Branding from './SharedComponents/FooterSection/Branding';
 import CookiePolicy from './SharedComponents/FooterSection/CookiePolicy';
 import DeveloperContact from './SharedComponents/FooterSection/DeveloperContact';
@@ -72,10 +72,10 @@ function App() {
     // console.log('dark is working')
   };
   useEffect(() => {
-    AOS.init({
-      duration: 2500,
-      delay: 400,
-    })
+    // AOS.init({
+    //   duration: 2500,
+    //   delay: 400,
+    // })
   }, [])
   return (
 

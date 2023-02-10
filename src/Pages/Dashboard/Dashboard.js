@@ -3,6 +3,9 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link, NavLink, Outlet } from 'react-router-dom';
 import auth from '../../firebase.init';
 import useAdmin from '../../Hooks/useAdmin';
+import './Dashboard.css';
+
+
 
 const Dashboard = () => {
     const [user] = useAuthState(auth);
@@ -18,7 +21,7 @@ const Dashboard = () => {
             </div>
             <div className="drawer-side border-r-4">
                 <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-                <ul className="menu p-4 overflow-y-auto w-60 ">
+                <ul className="menu p-4 overflow-y-auto w-60 transparentBG">
 
                     <li><Link className='font-medium' to='/dashboard'>My Profile</Link></li>
 
