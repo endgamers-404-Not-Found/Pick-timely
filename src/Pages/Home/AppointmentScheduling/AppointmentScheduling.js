@@ -24,10 +24,10 @@ const AppointmentScheduling = () => {
                 className='text-center font-bold text-5xl mb-5'>Appointment scheduling</h2>
 
             <div className='flex justify-center align-middle mb-5'>
-                <Tabs value={value} onChange={handleChange} aria-label="">
-                    <Tab label="Productive" />
-                    <Tab label="Professional" />
-                    <Tab label="Painless" />
+                <Tabs value={value} onChange={handleChange}>
+                    <Tab label="Productive" sx={{ color: 'gray' }} />
+                    <Tab label="Professional" sx={{ color: 'gray' }} />
+                    <Tab label="Painless" sx={{ color: 'gray' }} />
                 </Tabs>
             </div>
             {
