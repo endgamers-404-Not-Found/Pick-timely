@@ -32,7 +32,6 @@ const Upcoming = () => {
   const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely-server.onrender.com/mySchedules/${user.email}`).then(res => res.json()));
   // schedules.map(schedule=>console.log(schedule.email)) 
 
-
   if (isLoading || loading) {
     return <Spinner></Spinner>
   }
@@ -79,8 +78,8 @@ const Upcoming = () => {
       <div className="overflow-x-auto">
         <table className=" border border-gray-400  w-full">
 
-          <thead>
-            <tr>
+          <thead  >
+            <tr >
               <th></th>
               <th>Date</th>
               <th>Time</th>
@@ -95,7 +94,7 @@ const Upcoming = () => {
 
             {
               schedules ?
-                schedules?.map((schedule, index) =>
+                schedules?.slice()?.reverse()?.map((schedule, index) =>
                   <tr className='border border-gray-400 ' key={schedule._id}>
                     <td className='p-3'>{index + 1}</td>
                     <td>{schedule?.dateFormat}  </td>
