@@ -23,7 +23,7 @@ const Banner = ({ theme }) => {
         }
     };
 
-    const texts = ["Online scheduler for offering the best consultations"];
+    const texts = ["Best scheduler for offering the best meetings & consultations"];
     const [currentWord, setCurrentWord] = useState(-1);
 
     useEffect(() => {
@@ -46,7 +46,7 @@ const Banner = ({ theme }) => {
     // console.log(user)
 
     return (
-        <div id={theme} className="flex flex-col md:flex-row items-center lg:h-[700px]  ">
+        <div id={theme} className="flex flex-col md:flex-row items-center lg:h-[600px]  ">
             {/* <motion.div
                 initial={{ opacity: 0, x: -100 }}
                 animate={{ x: 20, opacity: 100 }}
@@ -60,7 +60,7 @@ const Banner = ({ theme }) => {
                     Online scheduler for offering the best consultations</motion.h1> */}
 
                 <motion.h1
-                    className="font-bold text-4xl md:text-6xl text-center md:text-left mx-5"
+                    className="font-bold text-4xl md:text-5xl text-center md:text-left mx-5"
                     transition={{ staggerChildren: 0.2, duration: 0.1 }}
                 >
                     {texts.map((word, index) =>
@@ -86,7 +86,7 @@ const Banner = ({ theme }) => {
                     )}
                 </motion.h1>
 
-                <p className="text-lg m-5 font-medium text-center md:text-left">Pick-Timely Bookings syncs your calendars while letting customers self-schedule and pay for appointments. Our user interface auto-customizes for your industry, meaning you feel right at home. Say hello to smart scheduling!</p>
+                <p className="text-lg m-5 font-medium text-center md:text-left">Empower your schedule with PickTimely, the ultimate meeting scheduler. Tailor your experience with flexible packages, inviting unlimited or limited guests for seamless meetings and consultations. Time made yours!</p>
 
 
                 <div className="mx-5 text-center md:text-left">
@@ -95,7 +95,7 @@ const Banner = ({ theme }) => {
                         <SharedButton>Get Started</SharedButton>
                     </Link>
                 </div>
-                </div>
+            </div>
 
             {/* </motion.div> */}
 
@@ -104,10 +104,10 @@ const Banner = ({ theme }) => {
                 initial={{ opacity: 0, x: 100 }}
                 animate={{ x: -20, opacity: 100, scale: 1 }}
                 transition={{ type: 'spring', damping: 5, stiffness: 100 }} */}
-<div
+            <div
                 className="md:w-[600px] lg:w-[700px] order-1 md:order-2 mb-10">
                 <img className='' src={bannerImg} alt="bannerImg" />
-            
+
             </div>
             {/* </motion.div> */}
         </div>
