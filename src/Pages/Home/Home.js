@@ -14,24 +14,24 @@ import ReviewProvider from './Review/ReviewProvider';
 import Services from './Services/Services';
 
 
-function Home({theme}) {
+function Home({ theme }) {
     return (
         <div className=''>
-            
-            <Banner  />
-            <AppointmentScheduling></AppointmentScheduling>
-            <Services></Services>
+
+            <Banner />
+            <AppointmentScheduling />
+            <Services />
             <Provider store={store2}>
-            <Packages></Packages>
+                <Packages />
             </Provider>
-            <MobileApps></MobileApps>
+            <MobileApps />
             {/* <FreeTrail></FreeTrail> */}
-            <ReviewProvider></ReviewProvider>
+            <ReviewProvider />
             <MessengerCustomerChat
                 pageId="101404709353609"
                 appId="589832299541074"
             />,
-            
+
 
 
 

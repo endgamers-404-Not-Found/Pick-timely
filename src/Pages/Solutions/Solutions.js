@@ -7,14 +7,14 @@ import Accounts from './OtherSolutions/Accounts';
 const Solutions = () => {
     return (
         <div>
-            
+
             {/* <Sales></Sales> */}
             <Recruitment></Recruitment>
 
             {/* <Accounts></Accounts> */}
 
             <Career></Career>
-            <Meetings></Meetings>
+            {/* <Meetings></Meetings> */}
         </div>
     );
 };

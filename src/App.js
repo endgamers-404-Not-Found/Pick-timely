@@ -107,7 +107,7 @@ function App() {
 
           {/* nested route for about page */}
           <Route path='/about' element={<About></About>}>
-            <Route index element={<AboutPickTimely></AboutPickTimely>}></Route>
+            {/* <Route index element={<AboutPickTimely></AboutPickTimely>}></Route> */}
             <Route path='aboutPickTimely' element={<AboutPickTimely></AboutPickTimely>}></Route>
             <Route path='developers' element={<OurTeam></OurTeam>}></Route>
           </Route>

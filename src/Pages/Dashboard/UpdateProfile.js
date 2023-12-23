@@ -7,7 +7,7 @@ import Swal from 'sweetalert2';
 import auth from '../../firebase.init';
 import Spinner from '../../SharedComponents/Spinner';
 
- const UpdateProfile = () => {
+const UpdateProfile = () => {
 
     const [user, loading] = useAuthState(auth);
     const navigate = useNavigate();
@@ -27,37 +27,39 @@ import Spinner from '../../SharedComponents/Spinner';
             method: 'POST',
             body: formData
         })
-        .then(res=>res.json())
-        .then(result =>{
-            console.log(result);
-             if(result.success){
-                const img = result.data.url;
-                const profileInfo = {
-                    name: data.name,
-                    phone: data.phone,
-                    address: data.address,
-                    photo: img
-                }
-                fetch(`https://pick-timely-server.onrender.com/update/${user.email}`, {
-                    method: 'PUT',
-                    headers: {
-                           "content-type": "application/json"
-                      },
-                    body: JSON.stringify(profileInfo)
-                })
-                .then(res =>res.json())
-                .then(inserted =>{
-                    
-                    Swal.fire({
-                        position: 'center',
-                        icon: 'success',
-                        title: 'Your profile successfully updated',
-                        showConfirmButton: false,
-                        timer: 1500
+            .then(res => res.json())
+            .then(result => {
+
+                if (result.success) {
+                    const img = result.data.url;
+                    const profileInfo = {
+                        name: data.name,
+                        phone: data.phone,
+                        address: data.address,
+                        photo: img
+                    }
+                    fetch(`https://pick-timely-server.onrender.com/update/${user.email}`, {
+                        method: 'PUT',
+                        headers: {
+                            "content-type": "application/json"
+                        },
+                        body: JSON.stringify(profileInfo)
                     })
-                })
-                reset();
-            } })
+                        .then(res => res.json())
+                        .then(inserted => {
+
+                            Swal.fire({
+                                position: 'center',
+                                icon: 'success',
+                                title: 'Your profile successfully updated',
+                                showConfirmButton: false,
+                                timer: 1500
+                            })
+                        })
+                    navigate('/dashboard')
+                    reset();
+                }
+            })
     }
 
     return (
@@ -131,6 +133,6 @@ import Spinner from '../../SharedComponents/Spinner';
         </div>
 
     );
-                                
- }
+
+}
 export default UpdateProfile;

@@ -7,39 +7,39 @@ import { PackageAction } from '../../Pricing/Redux_pricing';
 
 
 function Packages() {
-    const {isLoading,packages,error}=useSelector(state=>state)
-    console.log('packages',packages)
+    const { isLoading, packages, error } = useSelector(state => state)
+
     const dispatch = useDispatch()
-    useEffect(()=>{
+    useEffect(() => {
         dispatch(PackageAction())
-    },[dispatch])
-    if(isLoading){
-        return <Spinner/>
+    }, [dispatch])
+    if (isLoading) {
+        return <Spinner />
     }
 
-    
+
 
 
 
 
     return (
-        <div className='my-12'>
+        <div className='mt-28'>
             <h1
-            data-aos='fade-down'
-            data-aos-delay='200'
-            className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
+                data-aos='fade-down'
+                data-aos-delay='200'
+                className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
             <p
-            data-aos='fade-down'
-            data-aos-delay='200'
-            className='text-center text-xl font-semibold'>Choose the best package for you</p>
+                data-aos='fade-down'
+                data-aos-delay='200'
+                className='text-center text-xl font-semibold mb-5'>Choose the best package for you</p>
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
-                    packages?.map((data,index) => 
+                    packages?.map((data, index) =>
                         <div
-                        data-aos='zoom-in'
-                        data-aos-offset='100'
-                        
-                            className="card w-8/12 rounded shadow-2xl shadow-black lg:w-10/12" key={index}>
+                            data-aos='zoom-in'
+                            data-aos-offset='100'
+
+                            className="card   w-8/12 rounded shadow-2xl shadow-black lg:w-10/12" key={index}>
 
                             <figure className="px-4 pt-6">
                                 <img src={data.img} alt="" className="rounded-xl" />
