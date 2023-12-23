@@ -3,20 +3,22 @@ import React, { useState } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { AiOutlineMenu } from 'react-icons/ai';
 import { MdSpaceDashboard } from 'react-icons/md';
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import auth from "../firebase.init";
 import { useProfile } from '../Hooks/useProfile';
 import defaultProfile from './../assets/profile.png';
 
 
 function Header({ theme, toggleTheme }) {
+    const { pathname } = useLocation()
+    console.log(pathname)
     const [navbarOpen, setNavbarOpen] = useState(false);
     const [user] = useAuthState(auth);
-    const [profile]= useProfile();
+    const [profile] = useProfile();
 
     return (
         <div className='dark sticky top-0 z-40 shadow-xl'>
-            <nav id={theme}  className=" flex flex-wrap items-center justify-between px-2 py-3 ">
+            <nav id={theme} className=" flex flex-wrap items-center justify-between px-2 py-3 ">
                 <div data-testid="logoText" className="container px-4 mx-auto flex flex-wrap items-center justify-between">
 
 
@@ -29,19 +31,19 @@ function Header({ theme, toggleTheme }) {
                         >
                             Pick Timely
                         </Link>
-                        {/* { pathname === 'dashboard' &&  */}
-                        <label htmlFor="my-drawer-2" tabIndex="0" className="btn btn-ghost lg:hidden">
-                            <MdSpaceDashboard className="text-3xl text-red-400"></MdSpaceDashboard>
-                        </label>
-                        {/* } */}
+                        {pathname?.includes('/dashboard') &&
+                            <label htmlFor="my-drawer-2" tabIndex="0" className="  lg:hidden">
+                                <MdSpaceDashboard className="text-3xl mt-3 text-blue-500"></MdSpaceDashboard>
+                            </label>
+                        }
 
 
                         <button
-                            className="  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-red-200 block lg:hidden outline-none focus:outline-none"
+                            className="  cursor-pointer text-xl leading-none px-3 py-1 border border-solid border-transparent rounded bg-blue-200 block lg:hidden outline-none focus:outline-none"
                             type="button"
                             onClick={() => setNavbarOpen(!navbarOpen)}
                         >
-                            <AiOutlineMenu color="red" />
+                            <AiOutlineMenu color="blue" />
                         </button>
 
                     </div>
@@ -121,12 +123,12 @@ function Header({ theme, toggleTheme }) {
 
 
                             <li
-                            className="nav-item">
+                                className="nav-item">
                                 {user ?
                                     // <button onClick={() => signOut(auth)} className="btn btn-xs btn-ghost mt-1 font-bold">log out</button>
-                                    <div  className=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end  ml-4">
-                                        <label tabIndex="0"  className="btn btn-ghost btn-circle avatar online">
-                                            <div  className="w-10 rounded-full">
+                                    <div className=" lg:my-[-8px] dropdown dropdown-start lg:dropdown-end  ml-4">
+                                        <label tabIndex="0" className="btn btn-ghost btn-circle avatar online">
+                                            <div className="w-10 rounded-full">
                                                 {
                                                     profile?.photo ?
                                                         <img className='img-fluid' src={profile?.photo} alt='' />
@@ -136,18 +138,18 @@ function Header({ theme, toggleTheme }) {
                                                 }
                                             </div>
                                         </label>
-                                        <ul tabIndex="0"  className="menu menu-compact dropdown-content mt-3 p-2 z-40 shadow-2xl  rounded-box w-52 shadow-black">
+                                        <ul tabIndex="0" className="menu menu-compact dropdown-content mt-3 p-2 z-40 shadow-2xl  rounded-box w-52 shadow-black">
                                             <li>
-                                                <Link to='/dashboard'  className="justify-between">
+                                                <Link to='/dashboard' className="justify-between">
                                                     Profile
-                                                    <span  className="badge">Active Now</span>
+                                                    <span className="badge">Active Now</span>
                                                 </Link>
                                             </li>
                                             <li>
-                                                <p className='justify-between'>Dark Mode 
-                                                <input
-                                                    onClick={toggleTheme} value={theme === "dark"}
-                                                    type="checkbox"  className="toggle" />
+                                                <p className='justify-between'>Dark Mode
+                                                    <input
+                                                        onClick={toggleTheme} value={theme === "dark"}
+                                                        type="checkbox" className="toggle" />
                                                 </p>
                                             </li>
                                             <li>
