@@ -15,18 +15,18 @@ import ScheduleEditModal from './ScheduleEditModal';
 
 const Upcoming = () => {
 
-                       
+
   const [user, loading] = useAuthState(auth)
   const [meeting, setMeeting] = useState({});
 
- 
 
 
-  
-  
+
+
+
   // schedules.map(schedule=>console.log(schedule.email)) 
 
-  
+
 
 
   const { data: schedules, isLoading, refetch } = useQuery(['schedules'], () => fetch(`https://pick-timely-server.onrender.com/mySchedules/${user.email}`).then(res => res.json()));
@@ -39,17 +39,17 @@ const Upcoming = () => {
 
 
 
-  const handleRemainder= (id)=>{
-   
-    fetch(`https://pick-timely-server.onrender.com/schedule/${id}`,{
+  const handleRemainder = (id) => {
+
+    fetch(`https://pick-timely-server.onrender.com/schedule/${id}`, {
       headers: {
         'content-type': 'application/json',
       }
     })
-    .then(res =>res.json())
-    .then(result=>{
-      console.log(result);
-    })
+      .then(res => res.json())
+      .then(result => {
+        console.log(result);
+      })
   }
 
 
@@ -61,8 +61,8 @@ const Upcoming = () => {
         headers: {
           'content-type': 'application/json',
         },
-       
-      
+
+
       })
         .then((res) => res.json())
         .then((result) => {
@@ -102,11 +102,11 @@ const Upcoming = () => {
                     <td>{schedule?.timeSlot}  </td>
                     <td>{schedule?.host}</td>
                     <td>
-                      <a href={schedule?.linking}  rel="noreferrer"  target='_blank'>
+                      <a href={schedule?.linking} rel="noreferrer" target='_blank'>
                         <button className='btn btn-primary btn-sm my-2' >Join now</button>
                       </a>
                     </td>
-                   
+
 
 
                     <td>
@@ -122,7 +122,7 @@ const Upcoming = () => {
                         className="btn btn-sm btn-success mr-4"
                         onClick={() => setMeeting(schedule)}
                       >see details</label>
-                     
+
                       <button onClick={() => handleDeleteSchedule(schedule._id)} className='btn btn-sm btn-warning'>Cancel</button>
                     </td>
                   </tr>)
@@ -135,7 +135,7 @@ const Upcoming = () => {
           </tbody>
         </table>
         {meeting && <ModalDetails setMeeting={setMeeting} meeting={meeting}></ModalDetails>}
-        {meeting && <ScheduleEditModal  setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
+        {meeting && <ScheduleEditModal setMeeting={setMeeting} meeting={meeting} refetch={refetch}></ScheduleEditModal>}
       </div>
     </div>
   );
