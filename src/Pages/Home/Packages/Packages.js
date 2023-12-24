@@ -23,7 +23,7 @@ function Packages() {
 
 
     return (
-        <div className='mt-28'>
+        <div className='my-16'>
             <h1
                 data-aos='fade-down'
                 data-aos-delay='200'
@@ -31,7 +31,7 @@ function Packages() {
             <p
                 data-aos='fade-down'
                 data-aos-delay='200'
-                className='text-center text-xl font-semibold mb-5'>Choose the best package for you</p>
+                className='text-center text-xl font-semibold mb-10'>Choose the best package for you</p>
             <div className='grid lg:grid-cols-3 my-6 lg:mx-32 mx-0 justify-items-center '>
                 {
                     packages?.map((data, index) =>
