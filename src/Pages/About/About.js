@@ -18,7 +18,7 @@ const About = () => {
 
     return (
         <div className='menu  py-6 w-full font-thin '>
-            <h2 className='text-center font-bold text-5xl mb-5'>About Us</h2>
+            <h2 className='text-center font-bold  text-4xl md:text-5xl  mb-5'>About Us</h2>
             {/* <nav className='lg:w-2/4 w-10/12 font-semibold text-xl mx-auto flex justify-center mb-8 '>
                 <CustomLink to={'aboutPickTimely'}>About pick timely</CustomLink>
                 <CustomLink className='mx-10' to={'developers'}>Developers</CustomLink>

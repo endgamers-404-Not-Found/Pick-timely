@@ -23,7 +23,7 @@ const Contact = () => {
             <div className="hero min-h-screen ">
                 <div className="grid grid-cols-1 lg:grid-cols-2 justify-between container p-10 gap-5" >
                     <div className="text-center lg:text-left w-[100%] " >
-                        <h1 className="text-5xl font-bold mb-5" > Contact With Us</h1 >
+                        <h1 className=" text-4xl md:text-5xl  font-bold mb-5" > Contact With Us</h1 >
 
                         <p className="py-2 flex justify-start gap-3 items-center" > <FaPhoneAlt className='text-primary' /> +880 1585-449223</p >
                         <p className="py-2 flex justify-start gap-3 items-center" > <FaEnvelope className='text-primary' />notfound404.picktimely@gmail.com</p >

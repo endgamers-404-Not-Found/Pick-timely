@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Pick-Timely
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+#### Pick Timely is a meeting scheduling application. It is mainly developed to be used by recruiter companies or any company to manage their meetings or interviews. In this application, any company can schedule meetings, appoint candidates or clients for meetings. There are paid and unpaid packages, one or more members can meet together.
 
-## Available Scripts
+### [live_site](https://pick-timely.web.app/) - [frontend_code](https://github.com/endgamers-404-Not-Found/Pick-timely.git) - [backend_code](https://github.com/endgamers-404-Not-Found/pick-timely-server.git)
 
-In the project directory, you can run:
+### Features
 
-### `npm start`
+1. Every application requires users to have an identity and this identity is created by creating an account. Therefore, users can create an account in Pick Timely application or user can login with Google.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+2. Since it is a meeting schedule application, anyone can host or call a meeting here. User can call a meeting as per his need.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+3. The meeting host can invite or appoint one or more users for this meeting as needed.
 
-### `npm test`
+4. This application has different packages based on how many members can join during the meeting.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+5. If the user uses free package then he can only arrange one by one meeting.
 
-### `npm run build`
+6. If the user uses team package then he can arrange a group meeting with five members.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+7. If the user uses corporate package then he can arrange a meeting with unlimited members. There are no member limit in Corporate package.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+8. User can buy the package as per his requirement.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+9. Users can pay with a card for the paid packages.
 
-### `npm run eject`
+10. Users can add and edit his profile information.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+11. An admin can make other members admin or can remove an admin.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+12. Anyone can contact us from the contact page.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+13. We have graph charts for admin on the dashboard. Admin can see his project overview on Graph.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+14. Users can express his thoughts by adding a review.
 
-## Learn More
+15. Users can choose a dark or light theme for him.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+16. Read blog on the blog route and admin can add blog dynamically.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Tech description
 
-### Code Splitting
+#### Frontend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- React
+- Redux
+- Stripe
+- axios
+- firebase
+- dotenv
+- email.js
+- recharts
+- Tailwind CSS
+- Material UI
+- Daisy UI
+- Framer Motion
 
-### Analyzing the Bundle Size
+#### Backend
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Express
+- MongoDB
+- NodeMailer
+- Stripe
+- JWT
+- Cors
+- Axios
 
-### Making a Progressive Web App
+### Credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+User can create account and login from sign up page.
 
-### Advanced Configuration
+#### For exploring the admin dashboard can use the following credentials
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- email - admin@gmail.com
 
-### Deployment
+- password - 123456
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Contact Us
 
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### For any queries, feedback or suggestions contact with the development team from the contact page of the application or directly contact at notfound404.picktimely@gmail.com

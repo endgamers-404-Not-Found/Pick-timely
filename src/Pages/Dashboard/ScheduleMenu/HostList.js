@@ -12,25 +12,25 @@ const HostList = () => {
     const [hosts, setHosts] = useState([]);
 
 
-    const [user,loading] = useAuthState(auth);
+    const [user, loading] = useAuthState(auth);
 
-  
-    
-    
+
+
+
 
     useEffect(() => {
         const meetingData = async () => {
-    const res = await fetch(`https://pick-timely-server.onrender.com/hoster?user=${user?.email}`);
+            const res = await fetch(`https://pick-timely-server.onrender.com/hoster?user=${user?.email}`);
 
             const data = await res.json();
-            console.log(data);
+            // console.log(data);
             setHosts(data);
         }
         meetingData();
     }, [user]);
 
-    if(loading){
-        return <Spinner/>
+    if (loading) {
+        return <Spinner />
     }
 
 
@@ -60,23 +60,23 @@ const HostList = () => {
     //   };
 
 
-    const handleDeleteHoster = (id) =>{
+    const handleDeleteHoster = (id) => {
         const confirmDelete = window.confirm('Are you want to delete this doctor?');
-        if(confirmDelete){
-          fetch(`https://pick-timely-server.onrender.com/hoster/${id}`, {
-          method: "DELETE",
-          headers:{
-            'content-type' : 'application/json',
-          }
-        })
-          .then((res) => res.json())
-          .then((result) => {
-            if (result.deletedCount) {
-            //   toast(`Hoster is deleted`);
-            }
-          });
+        if (confirmDelete) {
+            fetch(`https://pick-timely-server.onrender.com/hoster/${id}`, {
+                method: "DELETE",
+                headers: {
+                    'content-type': 'application/json',
+                }
+            })
+                .then((res) => res.json())
+                .then((result) => {
+                    if (result.deletedCount) {
+                        //   toast(`Hoster is deleted`);
+                    }
+                });
         }
-      };
+    };
 
 
 
@@ -89,22 +89,22 @@ const HostList = () => {
             <div className="overflow-x-auto">
                 <table className=" w-full">
 
-                    
+
                     <thead>
-                    <tr className='border border-gray-400'>
-                        <th>#</th>
-                        <th>Name</th>
-                        <th>Email</th>
-                        {/* <th>Action</th> */}
-                    </tr>
+                        <tr className='border border-gray-400'>
+                            <th>#</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            {/* <th>Action</th> */}
+                        </tr>
                     </thead>
                     <tbody>
-                    {
-                        hosts?.map((host, index) =>  <tr className='border border-gray-400' key={host._id} index={index} host={host}>
-                            <th>{index + 1}</th>
-                            <td>{host.hoster}</td>
-                            <td>{user?.email}</td>
-                            {/* <td>
+                        {
+                            hosts?.slice()?.reverse()?.map((host, index) => <tr className='border border-gray-400' key={host._id} index={index} host={host}>
+                                <th>{index + 1}</th>
+                                <td>{host.hoster}</td>
+                                <td>{user?.email}</td>
+                                {/* <td>
                             <label 
                                 htmlFor="my-hosting" 
                                 className="btn btn-sm btn-success"
@@ -117,15 +117,15 @@ const HostList = () => {
                                 >Edit</label> 
                                 <button onClick={()=>handleDeleteHoster(host._id)} className='btn btn-sm'>Delete</button>
                             </td> */}
-                        </tr> )
-                    }
-                   
-                    
-            
+                            </tr>)
+                        }
+
+
+
                     </tbody>
                 </table>
                 {hosting && <HosterDetails setHosting={setHosting} hosting={hosting}></HosterDetails>}
-            {hosting && <HosterEdit setHosting={setHosting} hosting={hosting} ></HosterEdit>}
+                {hosting && <HosterEdit setHosting={setHosting} hosting={hosting} ></HosterEdit>}
             </div>
         </div>
     );

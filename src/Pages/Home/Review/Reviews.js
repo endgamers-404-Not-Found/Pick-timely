@@ -39,7 +39,7 @@ const Reviews = () => {
 
   return (
     <div className='my-12'>
-      <h1 className='text-center text-5xl font-bold mb-3'>What Our Client Says</h1>
+      <h1 className='text-center  text-4xl md:text-5xl  font-bold mb-3'>What Our Client Says</h1>
       <div className="avatar-group -space-x-6 flex justify-center">
         {isLoading && <h1>Loading ....</h1>}
         {error && <h1>{error.message}</h1>}
