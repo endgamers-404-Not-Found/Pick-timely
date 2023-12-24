@@ -80,7 +80,7 @@ function SignUp() {
                 icon: 'error',
                 title: 'Oops...',
                 text: error.message || gError.message,
-              })
+            })
         }
     }, [error, gError])
 
@@ -107,7 +107,7 @@ function SignUp() {
             })
                 .then(res => res.json())
                 .then(data => {
-                    console.log(data)
+                    // console.log(data)
                     data.acknowledged && navigate('/')
                 })
             event.target.reset();

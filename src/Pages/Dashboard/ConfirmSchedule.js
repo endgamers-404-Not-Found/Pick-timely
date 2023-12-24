@@ -19,7 +19,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
         fetch(`https://pick-timely-server.onrender.com/arrangeMeeting/${hostId}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 setMeeting(data)
             })
     }, [hostId]);
@@ -46,8 +46,12 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
 
     const handleMeeting = (event) => {
         event.preventDefault();
-        const timeSlot = event.target.time.value;
-        console.log(timeSlot)
+        let timeSlot = event.target.time.value;
+        const [hours, minutes] = timeSlot.split(':');
+        const formattedHours = (hours % 12) || 12;
+        timeSlot = `${formattedHours}:${minutes} ${hours >= 12 ? 'PM' : 'AM'}`;
+
+
         const email = emailList;
         const description = event.target.description.value;
         const platform = event.target.platform.value;
@@ -77,7 +81,7 @@ const ConfirmSchedule = ({ dateFormat, hostId }) => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log('data inserted successfully', data);
+                // console.log('data inserted successfully', data);
                 navigate('/dashboard/eventschedule');
                 Swal.fire({
                     position: 'center',

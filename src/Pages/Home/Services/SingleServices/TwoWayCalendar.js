@@ -15,8 +15,8 @@ const TwoWayCalendar = () => {
                     data-aos-duration='1000'
                     data-aos-offset='400'
                     className="lg:w-96 lg:mx-10">
-                    <h1 className="text-5xl font-bold">Two-way calendar sync</h1>
-                    <p className="py-6">Connect your team's calendars to Pick-timely Bookings. Avoid double-booking and increase efficiency. See your schedule for the day, week, and month on our calendar dashboard.</p>
+                    <h1 className=" text-4xl md:text-5xl  font-bold">Best Quality Video</h1>
+                    <p className="py-6">Enjoy top-notch video clarity and vivid HD audio for the best viewing and listening experience. Everything looks sharp, and sounds amazing!</p>
                     <button className="btn btn-primary">Get Started</button>
                 </div>
 
