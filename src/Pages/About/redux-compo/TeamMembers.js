@@ -21,7 +21,7 @@ const TeamMembers = () => {
         <div className='w-[100%] mx-auto px-10'>
             <p className='font-semibold text-center'>Pick Timely Application developed by
                 <span className='font-bold'> Team 404 Not Found</span></p>
-            <h1 className=' text-4xl  font-bold mb-10 text-center'>Meet the Development Team</h1>
+            <h1 className='  text-4xl md:text-5xl  font-bold mb-10 text-center'>Meet the Development Team</h1>
             {isLoading && <h1>Loading ....</h1>}
             {error && <h1>{error.message}</h1>}
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 justify-items-center'>
