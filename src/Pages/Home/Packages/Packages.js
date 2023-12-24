@@ -27,7 +27,7 @@ function Packages() {
             <h1
                 data-aos='fade-down'
                 data-aos-delay='200'
-                className='text-center text-5xl font-bold mb-3' >Meeting scheduling packages</h1>
+                className='text-center  text-4xl md:text-5xl  font-bold mb-3' >Meeting scheduling packages</h1>
             <p
                 data-aos='fade-down'
                 data-aos-delay='200'
@@ -39,7 +39,7 @@ function Packages() {
                             data-aos='zoom-in'
                             data-aos-offset='100'
 
-                            className="card   w-8/12 rounded shadow-2xl shadow-black lg:w-10/12" key={index}>
+                            className="card   w-10/12 rounded shadow-2xl shadow-black lg:w-10/12" key={index}>
 
                             <figure className="px-4 pt-6">
                                 <img src={data.img} alt="" className="rounded-xl" />

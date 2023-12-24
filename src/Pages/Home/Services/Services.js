@@ -18,7 +18,7 @@ const Services = () => {
                     data-aos='fade-down'
                     data-aos-duration='1000'
                     data-aos-delay='400'
-                    className='text-5xl text-center font-bold'>Easy scheduling</h1>
+                    className=' text-4xl md:text-5xl text-center font-bold'>Easy scheduling</h1>
                 <p
                     data-aos='fade-down'
                     data-aos-duration='1000'

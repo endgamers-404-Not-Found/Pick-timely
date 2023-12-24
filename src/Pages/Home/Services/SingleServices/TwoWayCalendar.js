@@ -15,7 +15,7 @@ const TwoWayCalendar = () => {
                     data-aos-duration='1000'
                     data-aos-offset='400'
                     className="lg:w-96 lg:mx-10">
-                    <h1 className="text-5xl font-bold">Best Quality Video</h1>
+                    <h1 className=" text-4xl md:text-5xl  font-bold">Best Quality Video</h1>
                     <p className="py-6">Enjoy top-notch video clarity and vivid HD audio for the best viewing and listening experience. Everything looks sharp, and sounds amazing!</p>
                     <button className="btn btn-primary">Get Started</button>
                 </div>

@@ -21,7 +21,7 @@ const AppointmentScheduling = () => {
             <h2
                 data-aos='fade-down'
                 data-aos-delay='200'
-                className='text-center font-bold text-5xl mb-5'>Appointment scheduling</h2>
+                className='text-center font-bold text-4xl md:text-5xl mb-5'>Appointment scheduling</h2>
 
             <div className='flex justify-center align-middle mb-5'>
                 <Tabs value={value} onChange={handleChange}>
