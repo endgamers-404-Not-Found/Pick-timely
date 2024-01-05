@@ -72,9 +72,9 @@ User can create account and login from sign up page.
 #### For exploring the admin dashboard can use the following credentials
 
 - Email
-  <pre>
+<pre>
 <code id="code-to-copy">
- admin@gmail.com
+admin@gmail.com
 </code>
 </pre>
 
