@@ -71,9 +71,20 @@ User can create account and login from sign up page.
 
 #### For exploring the admin dashboard can use the following credentials
 
-- email - admin@gmail.com
+- Email
+  <pre>
+<code id="code-to-copy">
+ admin@gmail.com
+</code>
+</pre>
 
-- password - 123456
+- Password 
+<pre>
+<code id="code-to-copy">
+123456
+</code>
+</pre>
+
 
 ### Contact Us
 
